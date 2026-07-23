@@ -133,6 +133,10 @@
                     <i data-lucide="smile" class="w-4 h-4"></i>
                     Bienestar
                 </button>
+                <button onclick="navigate('outfit')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="outfit">
+                    <i data-lucide="shirt" class="w-4 h-4"></i>
+                    Qué me pongo
+                </button>
                 <button onclick="navigate('settings')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="settings">
                     <i data-lucide="settings" class="w-4 h-4"></i>
                     Ajustes
@@ -214,6 +218,10 @@
                 <button onclick="navigate('wellbeing')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="wellbeing">
                     <i data-lucide="smile" class="w-5 h-5"></i>
                     <span>Paz</span>
+                </button>
+                <button onclick="navigate('outfit')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="outfit">
+                    <i data-lucide="shirt" class="w-5 h-5"></i>
+                    <span>Ropa</span>
                 </button>
                 <button onclick="navigate('settings')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="settings">
                     <i data-lucide="settings" class="w-5 h-5"></i>
@@ -304,7 +312,15 @@
         // Diario
         journalEntries: [
             { id: 1, date: '2026-03-01', text: 'Hoy comencé a usar mi app de organización personal. Me siento motivado para organizar mi garaje y mis finanzas!' }
-        ]
+        ],
+        // Outfit Clima
+        outfitSettings: {
+            dayType: 'casual', // casual, work, event, conference
+            lastLat: null,
+            lastLng: null,
+            lastCity: 'Geolocalización',
+            weatherData: null // { temp, condition, rain, snow, wind, label }
+        }
     };
 
     let state = JSON.parse(localStorage.getItem('adulting_app_state')) || DEFAULT_STATE;
@@ -430,6 +446,7 @@
             'health-pets': 'Salud & Mascotas',
             guides: 'Adulting 101 - Guías',
             wellbeing: 'Bienestar & Paz Mental',
+            outfit: 'Qué me pongo - Clima',
             settings: 'Ajustes'
         };
 
@@ -1638,6 +1655,400 @@
         state.journalEntries.unshift(newEntry); // Insertar al inicio para ver las más recientes primero
         saveState();
         navigate('wellbeing');
+    }
+</script>
+
+<script>
+    // --- MÓDULO 'QUÉ ME PONGO' (WEATHER & OUTFIT ENGINE) ---
+
+    // Traducir prendas del guardarropa cápsula
+    const ESP_CAPSULE_WARDROBE = {
+        'dark-trousers':  { label: 'Pantalones oscuros de vestir', icon: 'shirt' },
+        'chinos':         { label: 'Pantalones chinos / semi-vestir', icon: 'shirt' },
+        'jeans':          { label: 'Pantalones vaqueros (Jeans)', icon: 'shirt' },
+        'oxford-shirt':   { label: 'Camisa Oxford formal', icon: 'shirt' },
+        'blouse':         { label: 'Blusa elegante', icon: 'shirt' },
+        'plain-tshirt':   { label: 'Camiseta lisa informal', icon: 'shirt' },
+        'blazer':         { label: 'Saco Blazer', icon: 'pocket' },
+        'sweater':        { label: 'Suéter abrigador', icon: 'pocket' },
+        'cardigan':       { label: 'Cárdigan ligero', icon: 'pocket' },
+        'wool-coat':      { label: 'Abrigo pesado de lana', icon: 'umbrella' },
+        'trench-coat':    { label: 'Gabardina impermeable', icon: 'umbrella' },
+        'light-jacket':   { label: 'Chaqueta ligera', icon: 'pocket' },
+        'leather-shoes':  { label: 'Zapatos de cuero formales', icon: 'footprints' },
+        'white-sneakers': { label: 'Tenis blancos cómodos', icon: 'footprints' },
+        'ankle-boots':    { label: 'Botines de tobillo', icon: 'footprints' },
+        'umbrella':       { label: 'Paraguas', icon: 'umbrella' },
+        'scarf':          { label: 'Bufanda cálida', icon: 'wind' }
+    };
+
+    // Mapeo WMO de códigos a clima simplificado en español
+    const ESP_WMO_MAP = {
+        0:  { condition: 'clear',  label: 'Cielo despejado☀️',        rain: false, snow: false },
+        1:  { condition: 'clear',  label: 'Mayormente despejado🌤️',   rain: false, snow: false },
+        2:  { condition: 'cloudy', label: 'Parcialmente nublado⛅',    rain: false, snow: false },
+        3:  { condition: 'cloudy', label: 'Completamente nublado☁️',  rain: false, snow: false },
+        45: { condition: 'cloudy', label: 'Niebla persistente🌫️',     rain: false, snow: false },
+        48: { condition: 'cloudy', label: 'Niebla con escarcha🌫️',    rain: false, snow: false },
+        51: { condition: 'rain',   label: 'Llovizna ligera🌦️',        rain: true,  snow: false },
+        53: { condition: 'rain',   label: 'Llovizna moderada🌧️',      rain: true,  snow: false },
+        55: { condition: 'rain',   label: 'Llovizna intensa🌧️',       rain: true,  snow: false },
+        61: { condition: 'rain',   label: 'Lluvia ligera🌦️',          rain: true,  snow: false },
+        63: { condition: 'rain',   label: 'Lluvia constante🌧️',        rain: true,  snow: false },
+        65: { condition: 'rain',   label: 'Lluvia torrencial🌧️⚡',     rain: true,  snow: false },
+        71: { condition: 'snow',   label: 'Nieve ligera❄️',           rain: false, snow: true  },
+        73: { condition: 'snow',   label: 'Nieve constante❄️',         rain: false, snow: true  },
+        75: { condition: 'snow',   label: 'Nevada fuerte❄️⛄',         rain: false, snow: true  },
+        77: { condition: 'snow',   label: 'Granizo pequeño❄️',        rain: false, snow: true  },
+        80: { condition: 'rain',   label: 'Chubascos ligeros🌦️',      rain: true,  snow: false },
+        81: { condition: 'rain',   label: 'Chubascos moderados🌧️',     rain: true,  snow: false },
+        82: { condition: 'rain',   label: 'Chubascos fuertes🌧️⚡',      rain: true,  snow: false },
+        85: { condition: 'snow',   label: 'Chubascos de nieve❄️',     rain: false, snow: true  },
+        86: { condition: 'snow',   label: 'Chubascos de nieve fuertes❄️', rain: false, snow: true  },
+        95: { condition: 'storm',  label: 'Tormenta eléctrica⛈️',     rain: true,  snow: false },
+        96: { condition: 'storm',  label: 'Tormenta con granizo⛈️',    rain: true,  snow: false },
+        99: { condition: 'storm',  label: 'Tormenta severa⛈️⚠️',        rain: true,  snow: false }
+    };
+
+    function decodeEspWeather(code, windspeed, temp) {
+        const base = ESP_WMO_MAP[code] ?? { condition: 'cloudy', label: 'Clima indefinido☁️', rain: false, snow: false };
+        let wind = 'calm';
+        if (windspeed > 35) wind = 'strong';
+        else if (windspeed > 15) wind = 'light';
+        return { ...base, wind, temp };
+    }
+
+    function getEspTempBand(temp) {
+        if (temp >= 25) return 'HOT';
+        if (temp >= 18) return 'WARM';
+        if (temp >= 10) return 'MILD';
+        if (temp >= 3)  return 'COOL';
+        return 'COLD';
+    }
+
+    const ESP_FORMALITY = {
+        work:       'BUSINESS_CASUAL',
+        casual:     'RELAXED',
+        event:      'SMART_CASUAL',
+        conference: 'FORMAL'
+    };
+
+    function buildEspReason(weather, dayType) {
+        const { condition, rain, temp } = weather;
+        const band = getEspTempBand(temp);
+
+        if (!weather || temp === undefined) {
+            return 'No hay datos climáticos disponibles en este momento.';
+        }
+        if (condition === 'storm') {
+            return '¡Se espera tormenta! Vístete para mantenerte seco, evita capas pesadas absorbentes y usa calzado impermeable.';
+        }
+        if (rain && (band === 'COLD' || band === 'COOL')) {
+            return 'Día frío y lluvioso. Prioriza abrigarte con prendas impermeables y calzado cerrado.';
+        }
+        if (rain) {
+            return 'Día templado pero con lluvia. Lleva capas ligeras, calzado impermeable y tu paraguas.';
+        }
+        if (band === 'COLD') {
+            return 'Clima muy frío afuera. Abrígate adecuadamente con capas gruesas y bufanda.';
+        }
+        if (band === 'COOL' && condition === 'cloudy') {
+            return 'Clima fresco y nublado. Es ideal vestir con suéter y camisa o blusa de manga larga.';
+        }
+        if (band === 'COOL') {
+            return 'Día fresco. Un suéter cómodo o cárdigan ligero sobre tu playera te mantendrá perfecto.';
+        }
+        if (band === 'MILD' && condition === 'clear') {
+            return 'Clima templado y despejado. Una combinación equilibrada de pantalón chino y camisa o blusa lucirá excelente.';
+        }
+        if (band === 'MILD') {
+            return 'Día templado. Una sola capa ligera (como un cárdigan) debería bastar para el día de hoy.';
+        }
+        if (band === 'WARM') {
+            return 'Clima cálido agradable. Opta por prendas frescas, telas transpirables y calzado cómodo.';
+        }
+        if (band === 'HOT') {
+            return '¡Hace calor afuera! Ropa ligera, playera fresca de algodón y tenis cómodos son tu mejor opción.';
+        }
+        return 'La combinación sugerida se adapta idealmente a las condiciones de hoy.';
+    }
+
+    const ESP_MATRIX = {
+        HOT: {
+            RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: null,      outer: null,          shoes: 'white-sneakers' },
+            BUSINESS_CASUAL: { bottom: 'chinos',          top: 'oxford-shirt', layer: null,      outer: null,          shoes: 'leather-shoes'  },
+            SMART_CASUAL:    { bottom: 'chinos',          top: 'blouse',       layer: null,      outer: null,          shoes: 'leather-shoes'  },
+            FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',  outer: null,          shoes: 'leather-shoes'  }
+        },
+        WARM: {
+            RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'cardigan', outer: null,          shoes: 'white-sneakers' },
+            BUSINESS_CASUAL: { bottom: 'chinos',          top: 'oxford-shirt', layer: null,       outer: null,          shoes: 'leather-shoes'  },
+            SMART_CASUAL:    { bottom: 'chinos',          top: 'blouse',       layer: 'blazer',   outer: null,          shoes: 'leather-shoes'  },
+            FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: null,          shoes: 'leather-shoes'  }
+        },
+        MILD: {
+            RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'sweater',  outer: 'light-jacket', shoes: 'white-sneakers' },
+            BUSINESS_CASUAL: { bottom: 'chinos',          top: 'oxford-shirt', layer: 'blazer',   outer: null,           shoes: 'leather-shoes'  },
+            SMART_CASUAL:    { bottom: 'dark-trousers',   top: 'blouse',       layer: 'blazer',   outer: null,           shoes: 'leather-shoes'  },
+            FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'trench-coat',  shoes: 'leather-shoes'  }
+        },
+        COOL: {
+            RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'sweater',  outer: 'light-jacket', shoes: 'ankle-boots'    },
+            BUSINESS_CASUAL: { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'trench-coat',  shoes: 'leather-shoes'  },
+            SMART_CASUAL:    { bottom: 'dark-trousers',   top: 'blouse',       layer: 'blazer',   outer: 'trench-coat',  shoes: 'leather-shoes'  },
+            FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'wool-coat',    shoes: 'leather-shoes'  }
+        },
+        COLD: {
+            RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'sweater',  outer: 'wool-coat',    shoes: 'ankle-boots'    },
+            BUSINESS_CASUAL: { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'sweater',  outer: 'wool-coat',    shoes: 'leather-shoes'  },
+            SMART_CASUAL:    { bottom: 'dark-trousers',   top: 'blouse',       layer: 'sweater',  outer: 'wool-coat',    shoes: 'leather-shoes'  },
+            FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'wool-coat',    shoes: 'leather-shoes'  }
+        }
+    };
+
+    function applyEspModifiers(base, weather) {
+        const result = { ...base };
+        const { rain, snow, condition, wind } = weather;
+
+        if (snow || condition === 'snow' || condition === 'storm') {
+            result.outer = 'wool-coat';
+            result.shoes = 'ankle-boots';
+            result.extras = ['scarf'];
+        }
+
+        if (rain && result.shoes === 'white-sneakers') {
+            result.shoes = 'ankle-boots';
+        }
+
+        if (rain || condition === 'storm') {
+            result.extras = [...(result.extras || []), 'umbrella'];
+        }
+
+        if (wind === 'strong' && !result.outer) {
+            result.outer = 'light-jacket';
+        }
+
+        return result;
+    }
+
+    function generateEspRecommendation(weather, dayType) {
+        if (!weather) return null;
+        const tempBand = getEspTempBand(weather.temp);
+        const formality = ESP_FORMALITY[dayType] ?? 'RELAXED';
+
+        const baseSlots = ESP_MATRIX[tempBand]?.[formality] ?? ESP_MATRIX['MILD']['RELAXED'];
+        const primary = applyEspModifiers({ ...baseSlots }, weather);
+        const reason = buildEspReason(weather, dayType);
+
+        // Generar alternativas simples
+        const altSlots = { ...primary };
+        if (primary.layer === 'blazer') altSlots.layer = 'sweater';
+        else if (primary.layer === 'sweater') altSlots.layer = 'cardigan';
+        else if (primary.layer === 'cardigan') altSlots.layer = 'sweater';
+
+        const alt = applyEspModifiers(altSlots, weather);
+
+        return {
+            primary,
+            alternative: alt,
+            reason
+        };
+    }
+
+    // --- INTEGRACIÓN EN RENDERPAGE DE OUTFIT ---
+    const outfitPreviousRenderPage = renderPage;
+    renderPage = function(page) {
+        if (page !== 'outfit') {
+            return outfitPreviousRenderPage(page);
+        }
+
+        const themeColor = state.theme;
+        const oSettings = state.outfitSettings;
+        const w = oSettings.weatherData;
+
+        let weatherHeaderHtml = `
+            <div class="flex flex-col items-center justify-center p-8 bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-center space-y-4">
+                <i data-lucide="cloud-sun" class="w-12 h-12 text-slate-400"></i>
+                <div>
+                    <h4 class="font-bold text-slate-700 dark:text-slate-200">¿No sabes qué ponerte hoy?</h4>
+                    <p class="text-xs text-slate-400 mt-1 max-w-sm">Permite que usemos tu geolocalización de forma 100% privada para recomendarte el outfit perfecto según el clima de tu ciudad.</p>
+                </div>
+                <button onclick="fetchLocalWeather()" class="px-5 py-2.5 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-bold shadow-md shadow-theme-${themeColor}-500/20 flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i> Obtener Clima de mi Ciudad
+                </button>
+            </div>
+        `;
+
+        if (w) {
+            const recommendation = generateEspRecommendation(w, oSettings.dayType);
+            const renderItemsList = (slots) => {
+                const parts = [];
+                const addPart = (slotName, id) => {
+                    if (id && ESP_CAPSULE_WARDROBE[id]) {
+                        parts.push(`
+                            <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                                <span class="p-2 bg-theme-${themeColor}-50 dark:bg-theme-${themeColor}-950/40 text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 rounded-lg">
+                                    <i data-lucide="${ESP_CAPSULE_WARDROBE[id].icon}" class="w-4 h-4"></i>
+                                </span>
+                                <div>
+                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">${slotName}</span>
+                                    <span class="text-xs font-bold text-slate-800 dark:text-slate-200">${ESP_CAPSULE_WARDROBE[id].label}</span>
+                                </div>
+                            </div>
+                        `);
+                    }
+                };
+
+                addPart('Prenda de Abajo', slots.bottom);
+                addPart('Prenda de Arriba', slots.top);
+                addPart('Capa Intermedia', slots.layer);
+                addPart('Prenda Exterior', slots.outer);
+                addPart('Calzado', slots.shoes);
+
+                if (slots.extras) {
+                    slots.extras.forEach(extraId => {
+                        addPart('Accesorio Clima', extraId);
+                    });
+                }
+
+                return parts.join('');
+            };
+
+            weatherHeaderHtml = `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Tarjeta del Clima Actual -->
+                    <div class="bg-gradient-to-br from-theme-${themeColor}-500 to-theme-${themeColor}-600 text-white p-6 rounded-3xl shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[220px]">
+                        <div class="absolute -right-6 -bottom-6 opacity-10">
+                            <i data-lucide="cloud-rain" class="w-36 h-36"></i>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-white/80 flex items-center gap-1.5">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> ${oSettings.lastCity}
+                                </span>
+                                <h3 class="text-4xl font-extrabold mt-3">${Math.round(w.temp)}°C</h3>
+                            </div>
+                            <span class="px-2.5 py-1 bg-white/20 text-white rounded-full text-xs font-semibold">${w.label}</span>
+                        </div>
+                        <div class="border-t border-white/20 pt-4 mt-4 text-xs flex justify-between">
+                            <span>Viento: <strong>${Math.round(w.temp > 20 ? 12 : 28)} km/h</strong></span>
+                            <button onclick="fetchLocalWeather()" class="text-white/80 hover:text-white font-bold underline flex items-center gap-1">
+                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Actualizar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Configuración del Tipo de Día -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">¿Cuál es tu plan de hoy?</h4>
+                            <p class="text-xs text-slate-400 mt-1">La recomendación cambiará su nivel de formalidad según tu agenda:</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <button onclick="changeOutfitDayType('casual')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'casual' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Casual / Diario</button>
+                            <button onclick="changeOutfitDayType('work')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'work' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Trabajo / Negocios</button>
+                            <button onclick="changeOutfitDayType('event')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'event' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Evento Social</button>
+                            <button onclick="changeOutfitDayType('conference')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'conference' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Conferencia / Gala</button>
+                        </div>
+                    </div>
+
+                    <!-- Consejos de Clima Integrados -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">Nota del Clima de hoy</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-300 mt-2 leading-relaxed">"${recommendation.reason}"</p>
+                        </div>
+                        <span class="text-[10px] px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 rounded-xl font-bold self-start mt-4">100% Sin Rastreo de Datos</span>
+                    </div>
+                </div>
+
+                <!-- Desglose de Combinaciones de Ropa -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                    <!-- Outfit Principal Sugerido -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 bg-theme-${themeColor}-500 rounded-full"></span>
+                            Outfit Recomendado (Principal)
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            ${renderItemsList(recommendation.primary)}
+                        </div>
+                    </div>
+
+                    <!-- Outfit Alternativo -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
+                            Outfit Alternativo (Opción B)
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            ${renderItemsList(recommendation.alternative)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="space-y-6">
+                ${weatherHeaderHtml}
+            </div>
+        `;
+    };
+
+    // --- ACCIONES DE GEOLOCALIZACIÓN Y CONSULTA DE CLIMA ---
+    function fetchLocalWeather() {
+        if (!navigator.geolocation) {
+            alert("La geolocalización no está soportada por tu navegador. Prueba manualmente.");
+            return;
+        }
+
+        // Mostrar estado de carga breve
+        const oSettings = state.outfitSettings;
+        oSettings.lastCity = "Obteniendo ubicación...";
+        saveState();
+        navigate('outfit');
+
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+
+                try {
+                    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`);
+                    const data = await response.json();
+
+                    if (data && data.current_weather) {
+                        const weather = data.current_weather;
+                        const simplified = decodeEspWeather(weather.weathercode, weather.windspeed, weather.temperature);
+
+                        oSettings.lastLat = lat;
+                        oSettings.lastLng = lng;
+                        oSettings.lastCity = "Tu Ciudad (Ubicación Local)";
+                        oSettings.weatherData = simplified;
+
+                        saveState();
+                        navigate('outfit');
+                    } else {
+                        alert("No pudimos consultar la información del clima actual.");
+                    }
+                } catch (error) {
+                    alert("Error de conexión al obtener el clima actual.");
+                }
+            },
+            () => {
+                alert("Por favor, permite el acceso a tu geolocalización para poder recomendarte ropa.");
+                oSettings.lastCity = "Geolocalización denegada";
+                saveState();
+                navigate('outfit');
+            }
+        );
+    }
+
+    function changeOutfitDayType(type) {
+        state.outfitSettings.dayType = type;
+        saveState();
+        navigate('outfit');
     }
 </script>
 

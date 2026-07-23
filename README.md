@@ -59,3 +59,15 @@ Railway es una de las formas más rápidas y sencillas de desplegar esta aplicac
 3. Una vez finalizada la construcción, ve a la pestaña **Settings** (Configuración) de tu servicio en Railway y en la sección **Environment** (Entorno), haz clic en **Generate Domain** (Generar Dominio) para obtener una URL pública (ejemplo: `seradulto-production.up.railway.app`).
 
 ¡Listo! Ya tienes tu aplicación de supervivencia personal 100% en español accesible desde cualquier dispositivo móvil o computadora de forma totalmente privada y rápida.
+
+## 🧥 Módulo Integrado: "Qué me pongo" (Recomendador de Ropa)
+
+Este módulo está inspirado y adaptado del proyecto libre `outfitready` adaptado al español.
+
+- **Geolocalización 100% Local**: Consulta las coordenadas de latitud y longitud actuales a través de la API nativa del navegador bajo el consentimiento explícito del usuario.
+- **Predicción Meteorológica**: Se conecta de forma anónima con la API gratuita de **Open-Meteo** para descodificar las variables de temperatura (°C), velocidad del viento (km/h) y código de lluvia/nieve (WMO codes).
+- **Matriz de Recomendaciones**:
+  - Clasifica las temperaturas en 5 franjas clave: **Calor** (>=25°C), **Cálido** (>=18°C), **Templado** (>=10°C), **Fresco** (>=3°C) y **Muy Frío** (<3°C).
+  - Sugiere un outfit principal de ropa del **guardarropa cápsula** (pantalones de vestir, chinos, jeans, camisa Oxford, blazer, suéteres, abrigos, tenis blancos o botines) adaptado dinámicamente a la formalidad de tu día: **Casual**, **Trabajo**, **Evento Social** o **Gala**.
+  - Propone variaciones inteligentes alternativas si decides cambiar alguna de tus capas principales.
+- **Modificadores del Clima**: Adapta automáticamente el calzado de tenis blancos a botas oscuras o botines en caso de lluvia extrema, y añade accesorios preventivos como **paraguas** o **bufandas** si detecta tormentas o nevadas inminentes.
