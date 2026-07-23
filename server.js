@@ -5,11 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Servir archivos estáticos en la raíz del proyecto
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Asegurar que cualquier ruta cargue el index.html (SPA routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
