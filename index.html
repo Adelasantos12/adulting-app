@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adulting - Tu Manual de Supervivencia</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(156, 163, 175, 0.5);
+            border-radius: 3px;
+        }
+        /* Dyslexic-friendly custom font adaptation if needed */
+        .font-dyslexic {
+            font-family: 'Comic Neue', 'Comic Sans MS', sans-serif !important;
+            letter-spacing: 0.12em !important;
+            word-spacing: 0.16em !important;
+            line-height: 1.6 !important;
+        }
+        /* Custom breath animation */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); background-color: rgba(147, 51, 234, 0.2); }
+            40% { transform: scale(1.6); background-color: rgba(147, 51, 234, 0.5); }
+            60% { transform: scale(1.6); background-color: rgba(147, 51, 234, 0.5); }
+        }
+        .breathing-circle {
+            animation: breathe 12s infinite ease-in-out;
+        }
+        /* Wheel pointer transition */
+        .wheel-container {
+            position: relative;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            purple: {
+                                50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
+                                400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7e22ce',
+                                800: '#6b21a8', 900: '#581c87', 950: '#3b0764'
+                            },
+                            blue: {
+                                50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc',
+                                400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
+                                800: '#075985', 900: '#0c4a6e', 950: '#082f49'
+                            },
+                            green: {
+                                50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+                                400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+                                800: '#166534', 900: '#14532d', 950: '#052e16'
+                            },
+                            rose: {
+                                50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af',
+                                400: '#fb7185', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c',
+                                800: '#9f1239', 900: '#881337', 950: '#4c0519'
+                            },
+                            orange: {
+                                50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdbb74',
+                                400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+                                800: '#9a3412', 900: '#7c2d12', 950: '#431407'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-full bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans transition-colors duration-200">
+    <!-- El resto de la app será inyectado por JS o construido con estructura oculta -->
+    <div id="app" class="flex h-full overflow-hidden">
+        <!-- Sidebar (Escritorio) -->
+        <aside id="sidebar" class="hidden md:flex flex-col w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 h-full flex-shrink-0">
+            <!-- Logo -->
+            <div class="p-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-2">
+                    <span class="p-2 bg-purple-600 text-white rounded-xl shadow-lg shadow-purple-500/30 font-bold tracking-tight text-lg flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </span>
+                    <div>
+                        <h1 class="font-bold tracking-tight text-slate-900 dark:text-white text-base">SerAdulto®</h1>
+                        <span class="text-xs text-slate-400 font-medium">Guía de Supervivencia</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menú de Navegación -->
+            <nav class="flex-1 px-4 py-4 space-y-1.5 overflow-y-auto">
+                <button onclick="navigate('dashboard')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-purple-50 text-purple-600 dark:bg-purple-950/40 dark:text-purple-400" data-page="dashboard">
+                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                    Inicio
+                </button>
+                <button onclick="navigate('todos')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="todos">
+                    <i data-lucide="check-square" class="w-4 h-4"></i>
+                    Tareas y Ruleta
+                </button>
+                <button onclick="navigate('garage')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="garage">
+                    <i data-lucide="car" class="w-4 h-4"></i>
+                    Mi Garaje
+                </button>
+                <button onclick="navigate('budget')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="budget">
+                    <i data-lucide="wallet" class="w-4 h-4"></i>
+                    Mi Presupuesto
+                </button>
+                <button onclick="navigate('health-pets')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="health-pets">
+                    <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                    Salud y Mascotas
+                </button>
+                <button onclick="navigate('guides')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="guides">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Adulting 101
+                </button>
+                <button onclick="navigate('wellbeing')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="wellbeing">
+                    <i data-lucide="smile" class="w-4 h-4"></i>
+                    Bienestar
+                </button>
+                <button onclick="navigate('settings')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="settings">
+                    <i data-lucide="settings" class="w-4 h-4"></i>
+                    Ajustes
+                </button>
+            </nav>
+
+            <!-- Footer Sidebar / Acerca de -->
+            <div class="p-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold text-sm">B</div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs font-semibold text-slate-700 dark:text-slate-200 truncate">Breanna (Solo Dev)</p>
+                        <p class="text-[10px] text-slate-400 truncate">100% Privado y Local</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+            <!-- Header Móvil / Título de Página -->
+            <header class="flex items-center justify-between px-6 py-4 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-2 md:hidden">
+                    <span class="p-1.5 bg-purple-600 text-white rounded-lg font-bold flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    </span>
+                    <h1 class="font-bold text-slate-900 dark:text-white text-base">SerAdulto</h1>
+                </div>
+                <div class="hidden md:block">
+                    <h2 id="page-title" class="text-xl font-bold text-slate-800 dark:text-white">Inicio</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <!-- Botón de Modo Oscuro Rápido -->
+                    <button onclick="toggleDarkMode()" class="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 transition-colors" title="Alternar Modo Oscuro">
+                        <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <!-- Alerta Rápida / Notificación si hay cosas vencidas -->
+                    <div id="quick-alert-indicator" class="relative cursor-pointer" onclick="navigate('dashboard')">
+                        <span class="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 transition-colors block">
+                            <i data-lucide="bell" class="w-4 h-4"></i>
+                        </span>
+                        <span id="quick-alert-dot" class="absolute top-1 right-1 w-2.5 h-2.5 bg-rose-500 rounded-full ring-2 ring-white dark:ring-slate-800 hidden"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenedor dinámico de páginas -->
+            <div id="page-content" class="flex-1 overflow-y-auto p-4 md:p-8 space-y-6">
+                <!-- El contenido de la página se inyectará dinámicamente mediante JS -->
+            </div>
+
+            <!-- Navegación Inferior (Móvil) -->
+            <nav class="md:hidden flex bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 justify-around py-2.5 px-2 flex-shrink-0 z-20">
+                <button onclick="navigate('dashboard')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-purple-600" data-page="dashboard">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Inicio</span>
+                </button>
+                <button onclick="navigate('todos')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="todos">
+                    <i data-lucide="check-square" class="w-5 h-5"></i>
+                    <span>Tareas</span>
+                </button>
+                <button onclick="navigate('garage')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="garage">
+                    <i data-lucide="car" class="w-5 h-5"></i>
+                    <span>Garaje</span>
+                </button>
+                <button onclick="navigate('budget')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="budget">
+                    <i data-lucide="wallet" class="w-5 h-5"></i>
+                    <span>Presupuesto</span>
+                </button>
+                <button onclick="navigate('health-pets')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="health-pets">
+                    <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                    <span>Salud</span>
+                </button>
+                <button onclick="navigate('guides')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="guides">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    <span>Guías</span>
+                </button>
+                <button onclick="navigate('wellbeing')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="wellbeing">
+                    <i data-lucide="smile" class="w-5 h-5"></i>
+                    <span>Paz</span>
+                </button>
+                <button onclick="navigate('settings')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold text-slate-400" data-page="settings">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Ajustes</span>
+                </button>
+            </nav>
+        </main>
+    </div>
+</body>
+</html>
+
+<script>
+    // --- ESTADO PRINCIPAL (LOCAL STORAGE) ---
+    const DEFAULT_STATE = {
+        theme: 'purple', // purple, blue, green, rose, orange
+        darkMode: false,
+        fontStyle: 'sans', // sans, serif, dyslexic
+        fontSize: 'base', // sm, base, lg, xl
+        pesterMode: false,
+        affirmationMode: true,
+
+        // Tareas / Todos
+        todos: [
+            { id: 1, title: 'Lavar las toallas de baño', category: 'hogar', completed: false, recurring: 'semanal', lastDone: null },
+            { id: 2, title: 'Limpieza profunda del refrigerador', category: 'hogar', completed: false, recurring: 'mensual', lastDone: null },
+            { id: 3, title: 'Comprobar el reporte de crédito gratuito', category: 'adulting', completed: false, recurring: 'anual', lastDone: null },
+            { id: 4, title: 'Llamar a mi abuela', category: 'personal', completed: false, recurring: 'libre', lastDone: null }
+        ],
+
+        // Vehículos (Garaje)
+        vehicles: [
+            {
+                id: 1,
+                name: 'Mi Coche Principal',
+                brand: 'Toyota',
+                model: 'Corolla',
+                year: '2018',
+                plate: 'ABC-1234',
+                vin: '1NXBR32E...0000',
+                mileage: 65000,
+                insuranceCompany: 'Seguros Atlas',
+                insurancePolicy: 'POL-9988-AA',
+                insuranceExpiry: '2026-10-15',
+                oilChangeInterval: 10000, // km o millas
+                lastOilMileage: 60000,
+                lastTireRotationDate: '2025-11-10',
+                electric: false
+            }
+        ],
+
+        // Presupuesto
+        budget: {
+            monthlyIncome: 2500,
+            bills: [
+                { id: 1, name: 'Alquiler / Hipoteca', amount: 950, dueDate: '2026-04-01', recur: 'mensual', paid: false },
+                { id: 2, name: 'Luz y Energía', amount: 85, dueDate: '2026-03-25', recur: 'mensual', paid: false },
+                { id: 3, name: 'Suscripción Streaming', amount: 15, dueDate: '2026-03-20', recur: 'mensual', paid: true },
+                { id: 4, name: 'Seguro de coche', amount: 90, dueDate: '2026-03-28', recur: 'mensual', paid: false }
+            ],
+            paychecks: [
+                { id: 1, source: 'Salario Principal', amount: 1250, date: '2026-03-15' },
+                { id: 2, source: 'Salario Principal 2', amount: 1250, date: '2026-03-31' }
+            ]
+        },
+
+        // Salud
+        health: {
+            prescriptions: [
+                { id: 1, name: 'Multivitamínico diario', dosage: '1 tableta', time: '09:00', notes: 'Con el desayuno', alert: true },
+                { id: 2, name: 'Medicamento alergias', dosage: '10mg', time: '21:00', notes: 'Por la noche si es necesario', alert: false }
+            ],
+            vaccines: [
+                { id: 1, name: 'Refuerzo Tétanos', date: '2022-05-14', expiry: '2032-05-14' },
+                { id: 2, name: 'Vacuna Influenza', date: '2025-10-01', expiry: '2026-10-01' }
+            ],
+            allergies: 'Ninguna alergia severa reportada.',
+            doctors: [
+                { id: 1, name: 'Dra. Gabriela Solís', specialty: 'Médico General', phone: '+52 55 1234 5678', notes: 'Consultorio 204, clínica médica norte' }
+            ],
+            notes: 'Presión arterial sistólica habitual: 115-120 mmHg.'
+        },
+
+        // Mascotas
+        pets: [
+            { id: 1, name: 'Loki', species: 'Gato', breed: 'Mestizo', birthday: '2020-05-12', microchip: '981022410294102', vetName: 'Clínica Veterinaria San Francisco', vetPhone: '555-987-654', notes: 'Comida húmeda una vez al día. Alérgico a vacunas de cierta marca.' }
+        ],
+
+        // Diario
+        journalEntries: [
+            { id: 1, date: '2026-03-01', text: 'Hoy comencé a usar mi app de organización personal. Me siento motivado para organizar mi garaje y mis finanzas!' }
+        ]
+    };
+
+    let state = JSON.parse(localStorage.getItem('adulting_app_state')) || DEFAULT_STATE;
+
+    function saveState() {
+        localStorage.setItem('adulting_app_state', JSON.stringify(state));
+        updateThemeClasses();
+        updateAlertIndicators();
+    }
+
+    // --- SISTEMA DE TEMAS Y APARIENCIA ---
+    function updateThemeClasses() {
+        // Eliminar clases previas del body o app wrapper
+        const body = document.body;
+        const root = document.documentElement;
+
+        // Manejar modo oscuro
+        if (state.darkMode) {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+
+        // Estilo de fuente
+        body.classList.remove('font-sans', 'font-serif', 'font-dyslexic');
+        if (state.fontStyle === 'dyslexic') {
+            body.classList.add('font-dyslexic');
+        } else if (state.fontStyle === 'serif') {
+            body.classList.add('font-serif');
+        } else {
+            body.classList.add('font-sans');
+        }
+
+        // Tamaño de fuente
+        body.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
+        body.classList.add('text-' + state.fontSize);
+
+        // Actualizar colores CSS variables o aplicar dinámicamente con JS
+        // Para simplificar Tailwind dinámico, usamos un mapeo para colores principales
+        const themeColors = {
+            purple: { primary: 'text-purple-600', bg: 'bg-purple-600', hover: 'hover:bg-purple-700', activeBg: 'bg-purple-50', activeText: 'text-purple-600', border: 'border-purple-200' },
+            blue: { primary: 'text-blue-600', bg: 'bg-blue-600', hover: 'hover:bg-blue-700', activeBg: 'bg-blue-50', activeText: 'text-blue-600', border: 'border-blue-200' },
+            green: { primary: 'text-green-600', bg: 'bg-green-600', hover: 'hover:bg-green-700', activeBg: 'bg-green-50', activeText: 'text-green-600', border: 'border-green-200' },
+            rose: { primary: 'text-rose-600', bg: 'bg-rose-600', hover: 'hover:bg-rose-700', activeBg: 'bg-rose-50', activeText: 'text-rose-600', border: 'border-rose-200' },
+            orange: { primary: 'text-orange-600', bg: 'bg-orange-600', hover: 'hover:bg-orange-700', activeBg: 'bg-orange-50', activeText: 'text-orange-600', border: 'border-orange-200' }
+        };
+
+        const activeColor = themeColors[state.theme] || themeColors.purple;
+
+        // Re-estilizar dinámicamente botones del menú de navegación
+        document.querySelectorAll('.nav-btn, .mobile-nav-btn').forEach(btn => {
+            const page = btn.getAttribute('data-page');
+            const isActive = page === currentPage;
+
+            btn.className = btn.classList.contains('mobile-nav-btn')
+                ? "mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold " + (isActive ? activeColor.primary : "text-slate-400 dark:text-slate-500")
+                : "nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 " + (isActive ? `${activeColor.activeBg} ${activeColor.activeText} dark:bg-slate-700` : "text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50");
+        });
+    }
+
+    function toggleDarkMode() {
+        state.darkMode = !state.darkMode;
+        saveState();
+    }
+
+    // --- ALERTAS (ALERT INDICATORS) ---
+    function checkAlerts() {
+        let hasAlerts = false;
+
+        // 1. Verificar aceite de vehículos
+        state.vehicles.forEach(v => {
+            if (v.mileage - v.lastOilMileage >= v.oilChangeInterval) {
+                hasAlerts = true;
+            }
+            // Verificar expiración de seguro
+            if (v.insuranceExpiry) {
+                const expiryDate = new Date(v.insuranceExpiry);
+                const diffTime = expiryDate - new Date();
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                if (diffDays <= 30) {
+                    hasAlerts = true;
+                }
+            }
+        });
+
+        // 2. Facturas vencidas
+        state.budget.bills.forEach(bill => {
+            if (!bill.paid) {
+                const dueDate = new Date(bill.dueDate);
+                if (dueDate < new Date()) {
+                    hasAlerts = true;
+                }
+            }
+        });
+
+        return hasAlerts;
+    }
+
+    function updateAlertIndicators() {
+        const hasAlerts = checkAlerts();
+        const dot = document.getElementById('quick-alert-dot');
+        if (dot) {
+            if (hasAlerts) {
+                dot.classList.remove('hidden');
+            } else {
+                dot.classList.add('hidden');
+            }
+        }
+    }
+
+    // --- NAVEGACIÓN Y CARGA DE PÁGINAS ---
+    let currentPage = 'dashboard';
+
+    function navigate(page) {
+        currentPage = page;
+
+        // Actualizar título de página
+        const titles = {
+            dashboard: 'Panel Principal',
+            todos: 'Tareas & Ruleta',
+            garage: 'Mi Garaje & Automóvil',
+            budget: 'Mi Presupuesto',
+            'health-pets': 'Salud & Mascotas',
+            guides: 'Adulting 101 - Guías',
+            wellbeing: 'Bienestar & Paz Mental',
+            settings: 'Ajustes'
+        };
+
+        const pageTitle = document.getElementById('page-title');
+        if (pageTitle) pageTitle.innerText = titles[page] || 'SerAdulto';
+
+        // Renderizar página seleccionada
+        const pageContent = document.getElementById('page-content');
+        if (pageContent) {
+            pageContent.innerHTML = renderPage(page);
+            // Ejecutar inicializadores específicos de página
+            initializePageComponents(page);
+        }
+
+        updateThemeClasses();
+        lucide.createIcons();
+    }
+</script>
+
+<script>
+    // --- FRASES DE AFIRMACIÓN ---
+    const FRASES = [
+        "Estás haciéndolo excelente. Ser adulto no es fácil, pero estás aprendiendo paso a paso.",
+        "No necesitas tener todo resuelto hoy. Un pequeño paso a la vez es suficiente.",
+        "Tu valor no se mide por tu productividad. Tómate un respiro si lo necesitas.",
+        "Organizar tu vida es un acto de amor propio y cuidado personal.",
+        "¡Eres capaz de manejar llamadas difíciles, presupuestos y tareas pendientes!",
+        "La paciencia contigo mismo es clave durante esta transición."
+    ];
+
+    // --- RENDERIZADO DE PÁGINAS ---
+    function renderPage(page) {
+        const themeColor = state.theme;
+
+        switch (page) {
+            case 'dashboard':
+                // Calcular alertas detalladas
+                let alertsHtml = '';
+                let alertCount = 0;
+
+                state.vehicles.forEach(v => {
+                    if (v.mileage - v.lastOilMileage >= v.oilChangeInterval) {
+                        alertCount++;
+                        alertsHtml += `
+                            <div class="flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 rounded-r-xl">
+                                <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-amber-900 dark:text-amber-200 text-sm">Cambio de Aceite Vencido: ${v.name}</h4>
+                                    <p class="text-xs text-amber-700 dark:text-amber-300">Kilometraje actual: ${v.mileage} km. Último cambio hace ${v.mileage - v.lastOilMileage} km (Recomendado cada ${v.oilChangeInterval} km).</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    if (v.insuranceExpiry) {
+                        const expiry = new Date(v.insuranceExpiry);
+                        const diffDays = Math.ceil((expiry - new Date()) / (1000 * 60 * 60 * 24));
+                        if (diffDays <= 30 && diffDays > 0) {
+                            alertCount++;
+                            alertsHtml += `
+                                <div class="flex items-start gap-3 p-4 bg-rose-50 dark:bg-rose-950/30 border-l-4 border-rose-500 rounded-r-xl">
+                                    <i data-lucide="shield-alert" class="w-5 h-5 text-rose-600 dark:text-rose-400 mt-0.5 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-rose-900 dark:text-rose-200 text-sm">Seguro por vencer: ${v.name}</h4>
+                                        <p class="text-xs text-rose-700 dark:text-rose-300">La póliza expira el ${v.insuranceExpiry} (en ${diffDays} días). ¡Prepara tu presupuesto!</p>
+                                    </div>
+                                </div>
+                            `;
+                        } else if (diffDays <= 0) {
+                            alertCount++;
+                            alertsHtml += `
+                                <div class="flex items-start gap-3 p-4 bg-rose-50 dark:bg-rose-950/30 border-l-4 border-rose-600 rounded-r-xl">
+                                    <i data-lucide="shield-off" class="w-5 h-5 text-rose-600 dark:text-rose-400 mt-0.5 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-rose-900 dark:text-rose-200 text-sm">¡Seguro Expirado! ${v.name}</h4>
+                                        <p class="text-xs text-rose-700 dark:text-rose-300">La póliza venció el ${v.insuranceExpiry}. No conduzcas sin seguro vigente.</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+                });
+
+                state.budget.bills.forEach(bill => {
+                    if (!bill.paid) {
+                        const dueDate = new Date(bill.dueDate);
+                        const today = new Date();
+                        if (dueDate < today) {
+                            alertCount++;
+                            alertsHtml += `
+                                <div class="flex items-start gap-3 p-4 bg-rose-50 dark:bg-rose-950/30 border-l-4 border-rose-500 rounded-r-xl">
+                                    <i data-lucide="clock" class="w-5 h-5 text-rose-600 dark:text-rose-400 mt-0.5 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-rose-900 dark:text-rose-200 text-sm">Factura Vencida: ${bill.name}</h4>
+                                        <p class="text-xs text-rose-700 dark:text-rose-300">Venció el ${bill.dueDate} por un monto de $${bill.amount}.</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+                });
+
+                const randomFrase = FRASES[Math.floor(Math.random() * FRASES.length)];
+                const completedTodos = state.todos.filter(t => t.completed).length;
+                const totalTodos = state.todos.length;
+                const completionRate = totalTodos > 0 ? Math.round((completedTodos / totalTodos) * 100) : 0;
+
+                return `
+                    <!-- Frase de afirmación -->
+                    ${state.affirmationMode ? `
+                    <div class="p-6 bg-gradient-to-r from-theme-${themeColor}-500 to-theme-${themeColor}-600 text-white rounded-3xl shadow-xl shadow-theme-${themeColor}-500/20 relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-10">
+                            <i data-lucide="sparkles" class="w-48 h-48"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-white/80">Afirmación Diaria</span>
+                        <p class="text-lg md:text-xl font-semibold mt-2 max-w-2xl leading-relaxed">"${randomFrase}"</p>
+                    </div>
+                    ` : ''}
+
+                    <!-- Grid de Resumen -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Tareas -->
+                        <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="p-3 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-xl">
+                                    <i data-lucide="check-square" class="w-6 h-6"></i>
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">Progreso Diario</span>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-1">${completedTodos}/${totalTodos}</h3>
+                            <p class="text-sm text-slate-500 mb-4">Tareas completadas</p>
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: ${completionRate}%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Presupuesto -->
+                        <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="p-3 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl">
+                                    <i data-lucide="wallet" class="w-6 h-6"></i>
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">Facturas Pendientes</span>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-1">$${state.budget.bills.filter(b => !b.paid).reduce((sum, b) => sum + b.amount, 0)}</h3>
+                            <p class="text-sm text-slate-500 mb-4">Monto total por pagar</p>
+                            <span class="text-xs px-2.5 py-1 bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 rounded-full font-medium">Fórmula offline-first</span>
+                        </div>
+
+                        <!-- Garaje / Autos -->
+                        <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="p-3 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl">
+                                    <i data-lucide="car" class="w-6 h-6"></i>
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">Vehículos</span>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-1">${state.vehicles.length}</h3>
+                            <p class="text-sm text-slate-500 mb-4">En tu garaje digital</p>
+                            <button onclick="navigate('garage')" class="text-xs font-bold text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 hover:underline">Ver mantenimientos →</button>
+                        </div>
+                    </div>
+
+                    <!-- Panel de alertas y peligros -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 space-y-4 shadow-sm">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="shield-alert" class="w-5 h-5 text-rose-500"></i>
+                                Alertas de Supervivencia
+                            </h3>
+                            <span class="px-2.5 py-0.5 bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200 text-xs rounded-full font-bold">${alertCount} Activas</span>
+                        </div>
+                        <div class="space-y-3">
+                            ${alertsHtml !== '' ? alertsHtml : `
+                                <div class="flex flex-col items-center justify-center py-6 text-slate-400">
+                                    <i data-lucide="check-circle" class="w-10 h-10 text-emerald-500 mb-2"></i>
+                                    <p class="text-sm font-semibold text-slate-600 dark:text-slate-300">¡Todo al día!</p>
+                                    <p class="text-xs text-slate-400">No tienes alertas pendientes de presupuesto ni coche.</p>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                `;
+
+            case 'todos':
+                let todoListHtml = '';
+                state.todos.forEach(todo => {
+                    todoListHtml += `
+                        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo(${todo.id})" class="w-5 h-5 rounded border-slate-300 text-theme-${themeColor}-600 focus:ring-theme-${themeColor}-500">
+                                <span class="${todo.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-700 dark:text-slate-200'} text-sm font-medium">${todo.title}</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded-full font-bold ${todo.category === 'hogar' ? 'bg-blue-100 dark:bg-blue-950 text-blue-800' : 'bg-amber-100 dark:bg-amber-950 text-amber-800'} capitalize">${todo.category}</span>
+                            </div>
+                            <button onclick="deleteTodo(${todo.id})" class="text-slate-400 hover:text-rose-500 transition-colors">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                return `
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Lista de tareas -->
+                        <div class="lg:col-span-2 space-y-4">
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mis Tareas Pendientes</h3>
+                                <form onsubmit="addTodo(event)" class="flex gap-2">
+                                    <input type="text" id="new-todo-title" placeholder="¿Qué necesitas hacer hoy?" class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-theme-${themeColor}-500 focus:border-transparent" required>
+                                    <select id="new-todo-category" class="px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm focus:outline-none">
+                                        <option value="hogar">Hogar</option>
+                                        <option value="adulting">Trámites</option>
+                                        <option value="personal">Personal</option>
+                                    </select>
+                                    <button type="submit" class="px-4 py-2.5 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-sm font-semibold shadow-md shadow-theme-${themeColor}-500/20 flex items-center justify-center">
+                                        <i data-lucide="plus" class="w-5 h-5"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="space-y-2">
+                                ${todoListHtml !== '' ? todoListHtml : `
+                                    <div class="p-8 text-center text-slate-400">
+                                        <p class="text-sm">No tienes tareas creadas. ¡Crea una arriba!</p>
+                                    </div>
+                                `}
+                            </div>
+                        </div>
+
+                        <!-- Ruleta Aleatoria de Decisiones (Executive Dysfunction Wheel) -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center flex flex-col items-center">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">La Ruleta de Decisiones</h3>
+                            <p class="text-xs text-slate-400 mb-6">¿Tienes parálisis por análisis? ¡Deja que la ruleta elija una tarea pendiente por ti!</p>
+
+                            <div class="wheel-container mb-6">
+                                <canvas id="wheel-canvas" width="250" height="250" class="rounded-full shadow-lg border-4 border-slate-100 dark:border-slate-700"></canvas>
+                                <!-- Flecha indicadora -->
+                                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[20px] border-t-rose-500"></div>
+                            </div>
+
+                            <button onclick="spinWheel()" class="w-full py-3 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-sm font-semibold shadow-md shadow-theme-${themeColor}-500/20 flex items-center justify-center gap-2">
+                                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                                ¡Girar Ruleta!
+                            </button>
+                            <p id="wheel-result" class="mt-4 text-sm font-bold text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 min-h-[20px]"></p>
+                        </div>
+                    </div>
+                `;
+
+            case 'garage':
+                let vehicleCardsHtml = '';
+                state.vehicles.forEach((v, index) => {
+                    const oilProgress = Math.min(((v.mileage - v.lastOilMileage) / v.oilChangeInterval) * 100, 100);
+                    const isOilOverdue = (v.mileage - v.lastOilMileage) >= v.oilChangeInterval;
+
+                    vehicleCardsHtml += `
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white">${v.name}</h4>
+                                    <p class="text-xs text-slate-400">${v.brand} ${v.model} (${v.year}) • Placa: ${v.plate}</p>
+                                </div>
+                                <span class="p-2 bg-slate-50 dark:bg-slate-700 rounded-lg text-slate-500">
+                                    <i data-lucide="car" class="w-5 h-5"></i>
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 text-xs">
+                                <div>
+                                    <span class="text-slate-400 block">Kilometraje Actual:</span>
+                                    <span class="font-semibold text-slate-700 dark:text-slate-200">${v.mileage} km</span>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block">Vencimiento del Seguro:</span>
+                                    <span class="font-semibold text-slate-700 dark:text-slate-200">${v.insuranceExpiry || 'No registrado'}</span>
+                                </div>
+                            </div>
+
+                            <!-- Progreso Aceite -->
+                            <div class="space-y-1.5 pt-2">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-slate-500">Estado del Aceite de Motor</span>
+                                    <span class="${isOilOverdue ? 'text-rose-500 font-bold' : 'text-slate-400'}">${v.mileage - v.lastOilMileage} / ${v.oilChangeInterval} km</span>
+                                </div>
+                                <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
+                                    <div class="${isOilOverdue ? 'bg-rose-500' : 'bg-emerald-500'} h-2 rounded-full" style="width: ${oilProgress}%"></div>
+                                </div>
+                                ${isOilOverdue ? `<p class="text-[10px] text-rose-500 font-bold">⚠️ ¡Cambio de aceite vencido por ${v.mileage - v.lastOilMileage - v.oilChangeInterval} km!</p>` : ''}
+                            </div>
+
+                            <div class="flex gap-2 pt-2">
+                                <button onclick="quickUpdateMileage(${v.id})" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold transition-all">
+                                    Actualizar Km
+                                </button>
+                                <button onclick="resetOilChange(${v.id})" class="flex-1 py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all">
+                                    Hecho Cambio Aceite
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                return `
+                    <div class="space-y-8">
+                        <!-- Cabecera e interacción de vehículos -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mis Vehículos</h3>
+                                    <button onclick="openAddVehicleModal()" class="px-4 py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-theme-${themeColor}-500/10 flex items-center gap-1.5">
+                                        <i data-lucide="plus" class="w-4 h-4"></i> Añadir Coche
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    ${vehicleCardsHtml !== '' ? vehicleCardsHtml : `
+                                        <div class="col-span-2 p-8 bg-white dark:bg-slate-800 text-center rounded-2xl text-slate-400">
+                                            <p class="text-sm">No tienes vehículos registrados en tu garaje digital.</p>
+                                        </div>
+                                    `}
+                                </div>
+                            </div>
+
+                            <!-- Educación vial integrada / Guías del automóvil -->
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="book-open" class="w-5 h-5 text-theme-${themeColor}-500"></i>
+                                    Educación Básica del Auto
+                                </h3>
+                                <p class="text-xs text-slate-400">Guías offline para emergencias y mantenimiento común de tu auto:</p>
+
+                                <div class="space-y-3 pt-2">
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                                            <span class="text-xs font-bold text-slate-700 dark:text-slate-200">🔋 Cómo pasar corriente (Batería)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                        </summary>
+                                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                                            1. Estaciona ambos autos de frente sin tocarse. Apágalos.<br>
+                                            2. Conecta la pinza <strong>ROJA (Positivo +)</strong> al borne positivo de la batería descargada.<br>
+                                            3. Conecta el otro extremo de la pinza <strong>ROJA</strong> al positivo de la batería cargada.<br>
+                                            4. Conecta la pinza <strong>NEGRA (Negativo -)</strong> al negativo de la batería cargada.<br>
+                                            5. Conecta el otro extremo de la pinza <strong>NEGRA</strong> a una superficie metálica sin pintar del auto descargado.<br>
+                                            6. Enciende el auto con carga, espera 3 minutos y enciende el auto descargado.
+                                        </p>
+                                    </details>
+
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                                            <span class="text-xs font-bold text-slate-700 dark:text-slate-200">⚙️ Cómo cambiar una llanta ponchada</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                        </summary>
+                                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                                            1. Asegura el auto en un lugar plano con freno de mano y luces intermitentes.<br>
+                                            2. Afloja las tuercas de la llanta ponchada media vuelta con la llave de cruz (no las quites aún).<br>
+                                            3. Coloca el gato en el punto de soporte del chasis indicado en el manual.<br>
+                                            4. Eleva el auto hasta que la llanta no toque el suelo.<br>
+                                            5. Retira las tuercas, cambia la llanta por la de refacción, y aprieta las tuercas levemente con la mano.<br>
+                                            6. Baja el coche suavemente y aprieta las tuercas fuertemente en patrón de cruz.
+                                        </p>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal para añadir coche (Se inyecta dinámicamente) -->
+                        <div id="add-vehicle-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl space-y-4">
+                                <h4 class="font-bold text-lg text-slate-900 dark:text-white">Añadir Nuevo Vehículo</h4>
+                                <form onsubmit="addVehicle(event)" class="space-y-3 text-sm">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Nombre Descriptivo</label>
+                                        <input type="text" id="add-v-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Mi coche diario" required>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Marca</label>
+                                            <input type="text" id="add-v-brand" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Honda" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Modelo</label>
+                                            <input type="text" id="add-v-model" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Civic" required>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Kilometraje Actual</label>
+                                            <input type="number" id="add-v-mileage" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Límite de Aceite (km)</label>
+                                            <input type="number" id="add-v-oil" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" value="10000" required>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Aseguradora</label>
+                                            <input type="text" id="add-v-ins" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. AXA">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Vence Seguro</label>
+                                            <input type="date" id="add-v-expiry" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700">
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-2 pt-2">
+                                        <button type="button" onclick="closeAddVehicleModal()" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl font-semibold">Cancelar</button>
+                                        <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl font-semibold">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        }
+    }
+</script>
+
+<script>
+    // --- LÓGICA DE INTERACCIÓN DE COMPONENTES ---
+
+    // Tareas / Todos
+    function addTodo(e) {
+        e.preventDefault();
+        const titleInput = document.getElementById('new-todo-title');
+        const categorySelect = document.getElementById('new-todo-category');
+        if (!titleInput) return;
+
+        const newTodo = {
+            id: Date.now(),
+            title: titleInput.value.trim(),
+            category: categorySelect.value,
+            completed: false,
+            recurring: 'libre',
+            lastDone: null
+        };
+
+        state.todos.push(newTodo);
+        saveState();
+        navigate('todos');
+    }
+
+    function toggleTodo(id) {
+        state.todos = state.todos.map(todo => {
+            if (todo.id === id) {
+                const completed = !todo.completed;
+                return { ...todo, completed, lastDone: completed ? new Date().toISOString().split('T')[0] : todo.lastDone };
+            }
+            return todo;
+        });
+        saveState();
+        navigate('todos');
+    }
+
+    function deleteTodo(id) {
+        state.todos = state.todos.filter(todo => todo.id !== id);
+        saveState();
+        navigate('todos');
+    }
+
+    // Ruleta de Decisiones (Executive Dysfunction Wheel)
+    let isSpinning = false;
+    let wheelAngle = 0;
+
+    function drawWheel() {
+        const canvas = document.getElementById('wheel-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const center = canvas.width / 2;
+
+        // Obtener tareas activas no completadas (máximo 6 para visualización ideal)
+        let activeTasks = state.todos.filter(t => !t.completed).map(t => t.title);
+        if (activeTasks.length === 0) {
+            activeTasks = ['Añadir tareas pendientes', 'Tomarse un vaso de agua', 'Lavar los trastes', 'Descansar 5 minutos'];
+        }
+
+        const slices = activeTasks.length;
+        const sliceAngle = (2 * Math.PI) / slices;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const colors = ['#a855f7', '#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#6366f1', '#14b8a6'];
+
+        for (let i = 0; i < slices; i++) {
+            ctx.beginPath();
+            ctx.fillStyle = colors[i % colors.length];
+            ctx.moveTo(center, center);
+            ctx.arc(center, center, center - 10, i * sliceAngle + wheelAngle, (i + 1) * sliceAngle + wheelAngle);
+            ctx.lineTo(center, center);
+            ctx.fill();
+
+            // Texto en cada rebanada
+            ctx.save();
+            ctx.translate(center, center);
+            ctx.rotate(i * sliceAngle + sliceAngle / 2 + wheelAngle);
+            ctx.textAlign = "right";
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 10px sans-serif";
+
+            let text = activeTasks[i];
+            if (text.length > 18) text = text.substring(0, 15) + '...';
+            ctx.fillText(text, center - 20, 5);
+            ctx.restore();
+        }
+
+        // Centro de la ruleta
+        ctx.beginPath();
+        ctx.arc(center, center, 20, 0, 2 * Math.PI);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+        ctx.shadowColor = 'rgba(0,0,0,0.2)';
+        ctx.shadowBlur = 4;
+    }
+
+    function spinWheel() {
+        if (isSpinning) return;
+
+        let activeTasks = state.todos.filter(t => !t.completed);
+        if (activeTasks.length === 0) {
+            activeTasks = [
+                { title: 'Añadir tareas pendientes' },
+                { title: 'Tomarse un vaso de agua' },
+                { title: 'Lavar los trastes' },
+                { title: 'Descansar 5 minutos' }
+            ];
+        }
+
+        isSpinning = true;
+        const resultText = document.getElementById('wheel-result');
+        if (resultText) resultText.innerText = 'Eligiendo tu destino...';
+
+        const spinSpeed = 0.4 + Math.random() * 0.3; // velocidad de rotación inicial
+        let currentSpeed = spinSpeed;
+        const friction = 0.985; // frenado lento
+
+        function animate() {
+            if (currentSpeed < 0.002) {
+                isSpinning = false;
+
+                // Calcular qué rebanada está arriba (ángulo 1.5 * Math.PI)
+                const slices = activeTasks.length;
+                const sliceAngle = (2 * Math.PI) / slices;
+
+                // Normalizar ángulo entre 0 y 2*PI
+                let normalizedAngle = (1.5 * Math.PI - wheelAngle) % (2 * Math.PI);
+                if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
+
+                const chosenIndex = Math.floor(normalizedAngle / sliceAngle) % slices;
+                const chosenTask = activeTasks[chosenIndex];
+
+                if (resultText) {
+                    resultText.innerHTML = `⭐ ¡Tu tarea elegida es:<br><span class="text-base text-purple-700 dark:text-purple-300 font-extrabold">"${chosenTask.title}"</span>!`;
+                }
+                return;
+            }
+
+            wheelAngle += currentSpeed;
+            currentSpeed *= friction;
+            drawWheel();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
+
+    // --- MI GARAJE ---
+    function openAddVehicleModal() {
+        const modal = document.getElementById('add-vehicle-modal');
+        if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddVehicleModal() {
+        const modal = document.getElementById('add-vehicle-modal');
+        if (modal) modal.classList.add('hidden');
+    }
+
+    function addVehicle(e) {
+        e.preventDefault();
+        const name = document.getElementById('add-v-name').value.trim();
+        const brand = document.getElementById('add-v-brand').value.trim();
+        const model = document.getElementById('add-v-model').value.trim();
+        const mileage = parseInt(document.getElementById('add-v-mileage').value) || 0;
+        const oilInterval = parseInt(document.getElementById('add-v-oil').value) || 10000;
+        const insurance = document.getElementById('add-v-ins').value.trim();
+        const expiry = document.getElementById('add-v-expiry').value;
+
+        const newVehicle = {
+            id: Date.now(),
+            name,
+            brand,
+            model,
+            year: new Date().getFullYear().toString(),
+            plate: 'S-REGISTRAR',
+            vin: 'S-REGISTRAR',
+            mileage,
+            insuranceCompany: insurance,
+            insurancePolicy: 'S/N',
+            insuranceExpiry: expiry,
+            oilChangeInterval: oilInterval,
+            lastOilMileage: mileage,
+            lastTireRotationDate: '',
+            electric: false
+        };
+
+        state.vehicles.push(newVehicle);
+        saveState();
+        closeAddVehicleModal();
+        navigate('garage');
+    }
+
+    function quickUpdateMileage(id) {
+        const currentMil = state.vehicles.find(v => v.id === id).mileage;
+        const newMil = prompt(`Introduce el kilometraje actual (Actual: ${currentMil} km):`, currentMil);
+        if (newMil !== null && !isNaN(newMil) && parseInt(newMil) >= currentMil) {
+            state.vehicles = state.vehicles.map(v => v.id === id ? { ...v, mileage: parseInt(newMil) } : v);
+            saveState();
+            navigate('garage');
+        } else if (newMil !== null) {
+            alert("Introduce un kilometraje válido y mayor o igual al actual.");
+        }
+    }
+
+    function resetOilChange(id) {
+        const v = state.vehicles.find(v => v.id === id);
+        if (confirm(`¿Confirmas que se completó el cambio de aceite para ${v.name} en el kilometraje actual (${v.mileage} km)?`)) {
+            state.vehicles = state.vehicles.map(v => v.id === id ? { ...v, lastOilMileage: v.mileage } : v);
+            saveState();
+            navigate('garage');
+        }
+    }
+
+    // --- INICIALIZADOR DE COMPONENTES ---
+    function initializePageComponents(page) {
+        if (page === 'todos') {
+            drawWheel();
+        }
+    }
+</script>
+
+<script>
+    // --- INTEGRACIÓN DE PRESUPUESTO, SALUD, MASCOTAS, GUÍAS Y BIENESTAR EN RENDERPAGE ---
+
+    // Obtener signo zodiacal por fecha (mes-dia)
+    function getZodiacSign(dateString) {
+        if (!dateString) return "Desconocido";
+        const date = new Date(dateString);
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+
+        if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries ♈";
+        if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Tauro ♉";
+        if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "Géminis ♊";
+        if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Cáncer ♋";
+        if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Leo ♌";
+        if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Virgo ♍";
+        if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Libra ♎";
+        if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Escorpio ♏";
+        if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Sagitario ♐";
+        if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "Capricornio ♑";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Acuario ♒";
+        return "Piscis ♓";
+    }
+
+    // Extender la función renderPage con las nuevas páginas
+    const originalRenderPage = renderPage;
+    renderPage = function(page) {
+        const themeColor = state.theme;
+
+        // Si no es una de las páginas que manejamos aquí, delegar a la función original
+        if (page !== 'budget' && page !== 'health-pets' && page !== 'guides' && page !== 'wellbeing') {
+            return originalRenderPage(page);
+        }
+
+        switch (page) {
+            case 'budget':
+                let billsHtml = '';
+                state.budget.bills.forEach(bill => {
+                    billsHtml += `
+                        <div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <button onclick="toggleBillPaid(${bill.id})" class="p-1.5 rounded-lg ${bill.paid ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'} hover:scale-105 transition-transform">
+                                    <i data-lucide="${bill.paid ? 'check-circle' : 'circle'}" class="w-5 h-5"></i>
+                                </button>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 ${bill.paid ? 'line-through text-slate-400' : ''}">${bill.name}</h4>
+                                    <p class="text-xs text-slate-400">Vence: ${bill.dueDate}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm font-bold text-slate-800 dark:text-slate-100">$${bill.amount}</span>
+                                <button onclick="deleteBill(${bill.id})" class="block text-[10px] text-slate-400 hover:text-rose-500 ml-auto mt-0.5">Eliminar</button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const totalIncome = state.budget.monthlyIncome;
+                const paidAmount = state.budget.bills.filter(b => b.paid).reduce((sum, b) => sum + b.amount, 0);
+                const unpaidAmount = state.budget.bills.filter(b => !b.paid).reduce((sum, b) => sum + b.amount, 0);
+                const remainingMoney = totalIncome - paidAmount - unpaidAmount;
+
+                return `
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- Resumen del mes -->
+                            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Tu Flujo de Caja Mensual</h3>
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                                        <span class="text-xs text-slate-400 font-semibold block">Ingreso Estimado</span>
+                                        <span class="text-xl font-bold text-emerald-600 cursor-pointer" onclick="updateIncome()">$${totalIncome}</span>
+                                    </div>
+                                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                                        <span class="text-xs text-slate-400 font-semibold block">Pagado</span>
+                                        <span class="text-xl font-bold text-blue-600">$${paidAmount}</span>
+                                    </div>
+                                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                                        <span class="text-xs text-slate-400 font-semibold block">Restante Libre</span>
+                                        <span class="text-xl font-bold ${remainingMoney >= 0 ? 'text-indigo-600' : 'text-rose-600'}">$${remainingMoney}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lista de facturas -->
+                            <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <div class="flex justify-between items-center pb-2 border-b border-slate-100 dark:border-slate-700">
+                                    <h3 class="text-base font-bold text-slate-900 dark:text-white">Facturas y Gastos</h3>
+                                    <button onclick="openAddBillModal()" class="px-3 py-1.5 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-theme-${themeColor}-500/10 flex items-center gap-1">
+                                        <i data-lucide="plus" class="w-3.5 h-3.5"></i> Agregar Gasto
+                                    </button>
+                                </div>
+                                <div class="space-y-3">
+                                    ${billsHtml !== '' ? billsHtml : `<p class="text-xs text-slate-400 text-center py-4">No hay facturas registradas.</p>`}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Educación financiera inteligente (Built-in Education) -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="info" class="w-5 h-5 text-emerald-500"></i>
+                                Finanzas 101 - Regla 50/30/20
+                            </h3>
+                            <p class="text-xs text-slate-400">Una guía simple para entender en qué gastar tu salario neto sin culpa:</p>
+
+                            <div class="space-y-3 pt-2 text-xs">
+                                <div class="p-3 bg-blue-50 dark:bg-blue-950/40 rounded-xl">
+                                    <span class="font-bold text-blue-700 dark:text-blue-300">🏠 50% Necesidades Básicas</span>
+                                    <p class="text-slate-500 dark:text-slate-300 mt-1">Alquiler, servicios, comida esencial, deudas mínimas, seguros. (Tu límite: <strong>$${totalIncome * 0.5}</strong>)</p>
+                                </div>
+                                <div class="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl">
+                                    <span class="font-bold text-amber-700 dark:text-amber-300">🍕 30% Deseos y Estilo de Vida</span>
+                                    <p class="text-slate-500 dark:text-slate-300 mt-1">Salidas, café, suscripciones, pasatiempos, ropa de moda. (Tu límite: <strong>$${totalIncome * 0.3}</strong>)</p>
+                                </div>
+                                <div class="p-3 bg-emerald-50 dark:bg-emerald-950/40 rounded-xl">
+                                    <span class="font-bold text-emerald-700 dark:text-emerald-300">🐷 20% Ahorro e Inversión</span>
+                                    <p class="text-slate-500 dark:text-slate-300 mt-1">Fondo de emergencias, inversiones, pago de deuda acelerado. (Tu límite: <strong>$${totalIncome * 0.2}</strong>)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal de factura -->
+                        <div id="add-bill-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+                                <h4 class="font-bold text-lg">Añadir Gasto / Factura</h4>
+                                <form onsubmit="addBill(event)" class="space-y-3 text-sm">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Nombre</label>
+                                        <input type="text" id="add-b-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Suscripción Gimnasio" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Monto ($)</label>
+                                        <input type="number" id="add-b-amount" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. 45" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Vencimiento</label>
+                                        <input type="date" id="add-b-date" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                    <div class="flex gap-2 pt-2">
+                                        <button type="button" onclick="closeAddBillModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                        <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            case 'health-pets':
+                let petsHtml = '';
+                state.pets.forEach(p => {
+                    const zodiac = getZodiacSign(p.birthday);
+                    petsHtml += `
+                        <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-base">${p.name}</h4>
+                                    <p class="text-xs text-slate-400">${p.species} • ${p.breed}</p>
+                                </div>
+                                <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-[10px] rounded-full font-bold">${zodiac}</span>
+                            </div>
+                            <div class="text-xs space-y-1 text-slate-600 dark:text-slate-300">
+                                <p><strong>Microchip:</strong> ${p.microchip || 'No registrado'}</p>
+                                <p><strong>Veterinario:</strong> ${p.vetName} (${p.vetPhone})</p>
+                                <p class="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-100 dark:border-slate-700 mt-2 italic">"${p.notes}"</p>
+                            </div>
+                            <button onclick="deletePet(${p.id})" class="text-[10px] text-rose-500 hover:underline">Eliminar perfil</button>
+                        </div>
+                    `;
+                });
+
+                let prescriptionsHtml = '';
+                state.health.prescriptions.forEach(pr => {
+                    prescriptionsHtml += `
+                        <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <span class="p-2 bg-purple-50 dark:bg-purple-950 text-purple-600 rounded-lg">
+                                    <i data-lucide="pill" class="w-4 h-4"></i>
+                                </span>
+                                <div>
+                                    <h4 class="text-xs font-bold">${pr.name}</h4>
+                                    <p class="text-[10px] text-slate-400">Dosis: ${pr.dosage} • Hora: ${pr.time}</p>
+                                </div>
+                            </div>
+                            <button onclick="deletePrescription(${pr.id})" class="text-[10px] text-slate-400 hover:text-rose-500">Eliminar</button>
+                        </div>
+                    `;
+                });
+
+                return `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Cuidado Personal / Salud -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="heart" class="w-5 h-5 text-rose-500"></i>
+                                Mi Salud y Medicinas
+                            </h3>
+
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-2">
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Prescripciones y Alertas</h4>
+                                    <button onclick="openAddPrescriptionModal()" class="text-xs text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 font-bold hover:underline">+ Agregar</button>
+                                </div>
+                                <div class="space-y-2">
+                                    ${prescriptionsHtml !== '' ? prescriptionsHtml : `<p class="text-xs text-slate-400 text-center py-2">No hay medicamentos registrados.</p>`}
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Alergias Conocidas</h4>
+                                <textarea id="health-allergies" onblur="updateAllergies(this.value)" class="w-full p-3 text-xs border rounded-xl dark:bg-slate-900 dark:border-slate-700 focus:outline-none focus:ring-1 focus:ring-theme-${themeColor}-500" placeholder="Escribe aquí si tienes alergias alimentarias o médicas...">${state.health.allergies}</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Cuidado de Mascotas -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="paw-print" class="w-5 h-5 text-amber-500"></i>
+                                    Mis Mascotas
+                                </h3>
+                                <button onclick="openAddPetModal()" class="px-3 py-1.5 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-theme-${themeColor}-500/10 flex items-center gap-1">
+                                    <i data-lucide="plus" class="w-3.5 h-3.5"></i> Añadir Mascota
+                                </button>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                ${petsHtml !== '' ? petsHtml : `
+                                    <div class="col-span-2 text-center py-8 text-slate-400">
+                                        <p class="text-xs">No tienes mascotas registradas.</p>
+                                    </div>
+                                `}
+                            </div>
+                        </div>
+
+                        <!-- Modal Prescripción -->
+                        <div id="add-pres-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+                                <h4 class="font-bold text-base">Añadir Prescripción</h4>
+                                <form onsubmit="addPrescription(event)" class="space-y-3 text-sm">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Nombre</label>
+                                        <input type="text" id="add-pr-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Vitamina C" required>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Dosis</label>
+                                            <input type="text" id="add-pr-dose" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. 1 tableta" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Hora</label>
+                                            <input type="time" id="add-pr-time" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-2 pt-2">
+                                        <button type="button" onclick="closeAddPrescriptionModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                        <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Modal Mascota -->
+                        <div id="add-pet-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl space-y-4">
+                                <h4 class="font-bold text-base">Añadir Mascota</h4>
+                                <form onsubmit="addPet(event)" class="space-y-3 text-sm">
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Nombre</label>
+                                            <input type="text" id="add-pet-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Especie</label>
+                                            <input type="text" id="add-pet-spec" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Gato, Perro" required>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Raza</label>
+                                            <input type="text" id="add-pet-breed" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Siamés">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-400 mb-1">Cumpleaños</label>
+                                            <input type="date" id="add-pet-birth" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Notas especiales (alimentación, alergias)</label>
+                                        <textarea id="add-pet-notes" class="w-full p-2 border rounded-xl dark:bg-slate-900" placeholder="Escribe aquí cuidados especiales..."></textarea>
+                                    </div>
+                                    <div class="flex gap-2 pt-2">
+                                        <button type="button" onclick="closeAddPetModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                        <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            case 'guides':
+                return `
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Guías offline 101 -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Manuales de Supervivencia offline</h3>
+                                <p class="text-xs text-slate-400">Toda la educación básica que necesitas, redactada de forma directa y libre de abrumación:</p>
+
+                                <div class="space-y-4 pt-2">
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                                            <span class="text-sm font-bold text-slate-800 dark:text-slate-100">🏠 Rentar tu primer departamento (Alquiler)</span>
+                                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                        </summary>
+                                        <div class="text-xs text-slate-600 dark:text-slate-300 mt-3 space-y-2 leading-relaxed">
+                                            <p><strong>El presupuesto real:</strong> No destines más del 30% al 35% de tus ingresos netos en el pago del alquiler mensual. Considera servicios adicionales (agua, luz, gas, internet) que suelen sumar un 15% extra.</p>
+                                            <p><strong>La fianza o depósito:</strong> Casi siempre te pedirán 1 o 2 meses de alquiler como depósito en garantía. Ese dinero se te regresa al finalizar el contrato si entregas el inmueble sin daños estructurales.</p>
+                                            <p><strong>Inspección Inicial:</strong> Toma fotos y graba un video de TODO el departamento el día que te entreguen las llaves. Si hay rayaduras, grifos goteando o ventanas rotas, envíalas por correo al casero para que quede registro por escrito y evites cargos injustos en el futuro.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                                            <span class="text-sm font-bold text-slate-800 dark:text-slate-100">💸 Conceptos Básicos de Impuestos y RFC/SAT</span>
+                                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                        </summary>
+                                        <div class="text-xs text-slate-600 dark:text-slate-300 mt-3 space-y-2 leading-relaxed">
+                                            <p><strong>¿Qué son los impuestos?:</strong> Son contribuciones obligatorias que pagamos al Estado para financiar servicios públicos. En la mayoría de los países hispanohablantes existen el impuesto a las compras (IVA) y el impuesto a las ganancias o salarios (ISR/IRPF).</p>
+                                            <p><strong>Deducciones Personales:</strong> Puedes reducir legalmente la cantidad de impuestos que pagas guardando facturas o recibos oficiales de gastos en salud (dentistas, médicos), educación y aportaciones de jubilación.</p>
+                                            <p><strong>Declaración Anual:</strong> Se realiza una vez al año. Consiste en reportar todas tus ganancias y gastos. A veces, si tus deducciones fueron altas, ¡el gobierno te devuelve dinero!</p>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scripts Telefónicos para la Ansiedad Social -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="phone" class="w-5 h-5 text-indigo-500"></i>
+                                Scripts contra la Ansiedad
+                            </h3>
+                            <p class="text-xs text-slate-400">Guiones redactados para leer directamente cuando tengas que hacer llamadas abrumadoras:</p>
+
+                            <div class="space-y-3 pt-2 text-xs">
+                                <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-2">
+                                    <span class="font-bold text-indigo-700 dark:text-indigo-400">📞 Pedir una cita médica</span>
+                                    <p class="text-slate-600 dark:text-slate-300 italic">"Hola, buen día. Quisiera agendar una cita de valoración médica general con el doctor de turno. Tengo disponibilidad los días martes por la tarde. ¿Tendrán algún espacio libre?"</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-2">
+                                    <span class="font-bold text-indigo-700 dark:text-indigo-400">❌ Cancelar un servicio / suscripción</span>
+                                    <p class="text-slate-600 dark:text-slate-300 italic">"Hola. Llamo para solicitar la cancelación inmediata de mi suscripción o servicio con número de contrato XXXX. No deseo renovación alguna. Por favor, indíqueme cuál es el folio de mi trámite de cancelación."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            case 'wellbeing':
+                let journalEntriesHtml = '';
+                state.journalEntries.forEach(entry => {
+                    journalEntriesHtml += `
+                        <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                            <span class="text-[10px] font-bold text-slate-400 block">${entry.date}</span>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 mt-1 italic">"${entry.text}"</p>
+                        </div>
+                    `;
+                });
+
+                return `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Animación de Respiración Guiada -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center flex flex-col items-center justify-center min-h-[350px]">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Caja de Respiración Guiada</h3>
+                            <p class="text-xs text-slate-400 mb-8">Usa esta animación interactiva de 12 segundos para reducir el estrés del día:</p>
+
+                            <!-- Círculo de respiración -->
+                            <div class="w-32 h-32 rounded-full bg-purple-500/20 flex items-center justify-center breathing-circle mb-8">
+                                <div class="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-purple-500/30">
+                                    Respira
+                                </div>
+                            </div>
+
+                            <div class="text-xs text-slate-500 space-y-1">
+                                <p class="font-semibold text-slate-700 dark:text-slate-300">Inhala profundamente (4s) • Mantén (4s) • Exhala despacio (4s)</p>
+                                <p>Sigue el ritmo del círculo que se expande y se contrae.</p>
+                            </div>
+                        </div>
+
+                        <!-- Diario de Gratitud / Journaling -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mi Espacio de Expresión</h3>
+                            <p class="text-xs text-slate-400">Escribe libremente tus pensamientos o metas de hoy de forma 100% privada:</p>
+
+                            <form onsubmit="addJournalEntry(event)" class="space-y-3">
+                                <textarea id="new-journal-text" class="w-full p-3 text-xs border rounded-xl dark:bg-slate-900 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-theme-${themeColor}-500 focus:border-transparent min-h-[100px]" placeholder="Hoy me siento..." required></textarea>
+                                <button type="submit" class="w-full py-2.5 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-theme-${themeColor}-500/15">
+                                    Guardar Pensamiento
+                                </button>
+                            </form>
+
+                            <div class="space-y-3 max-h-[220px] overflow-y-auto pt-2 border-t border-slate-100 dark:border-slate-700">
+                                ${journalEntriesHtml !== '' ? journalEntriesHtml : `<p class="text-xs text-slate-400 text-center">No has escrito nada en tu diario.</p>`}
+                            </div>
+                        </div>
+                    </div>
+                `;
+        }
+    };
+
+    // --- ACCIONES DE PRESUPUESTO ---
+    function openAddBillModal() {
+        const modal = document.getElementById('add-bill-modal');
+        if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddBillModal() {
+        const modal = document.getElementById('add-bill-modal');
+        if (modal) modal.classList.add('hidden');
+    }
+
+    function addBill(e) {
+        e.preventDefault();
+        const name = document.getElementById('add-b-name').value.trim();
+        const amount = parseFloat(document.getElementById('add-b-amount').value) || 0;
+        const date = document.getElementById('add-b-date').value;
+
+        const newBill = {
+            id: Date.now(),
+            name,
+            amount,
+            dueDate: date,
+            recur: 'mensual',
+            paid: false
+        };
+
+        state.budget.bills.push(newBill);
+        saveState();
+        closeAddBillModal();
+        navigate('budget');
+    }
+
+    function toggleBillPaid(id) {
+        state.budget.bills = state.budget.bills.map(bill => {
+            if (bill.id === id) {
+                return { ...bill, paid: !bill.paid };
+            }
+            return bill;
+        });
+        saveState();
+        navigate('budget');
+    }
+
+    function deleteBill(id) {
+        state.budget.bills = state.budget.bills.filter(bill => bill.id !== id);
+        saveState();
+        navigate('budget');
+    }
+
+    function updateIncome() {
+        const newIncome = prompt("Introduce tu ingreso neto mensual estimado:", state.budget.monthlyIncome);
+        if (newIncome !== null && !isNaN(newIncome) && parseFloat(newIncome) >= 0) {
+            state.budget.monthlyIncome = parseFloat(newIncome);
+            saveState();
+            navigate('budget');
+        }
+    }
+
+    // --- ACCIONES DE SALUD Y MASCOTAS ---
+    function openAddPrescriptionModal() {
+        const modal = document.getElementById('add-pres-modal');
+        if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddPrescriptionModal() {
+        const modal = document.getElementById('add-pres-modal');
+        if (modal) modal.classList.add('hidden');
+    }
+
+    function addPrescription(e) {
+        e.preventDefault();
+        const name = document.getElementById('add-pr-name').value.trim();
+        const dosage = document.getElementById('add-pr-dose').value.trim();
+        const time = document.getElementById('add-pr-time').value;
+
+        const newPr = {
+            id: Date.now(),
+            name,
+            dosage,
+            time,
+            notes: '',
+            alert: true
+        };
+
+        state.health.prescriptions.push(newPr);
+        saveState();
+        closeAddPrescriptionModal();
+        navigate('health-pets');
+    }
+
+    function deletePrescription(id) {
+        state.health.prescriptions = state.health.prescriptions.filter(pr => pr.id !== id);
+        saveState();
+        navigate('health-pets');
+    }
+
+    function updateAllergies(val) {
+        state.health.allergies = val.trim();
+        saveState();
+    }
+
+    function openAddPetModal() {
+        const modal = document.getElementById('add-pet-modal');
+        if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddPetModal() {
+        const modal = document.getElementById('add-pet-modal');
+        if (modal) modal.classList.add('hidden');
+    }
+
+    function addPet(e) {
+        e.preventDefault();
+        const name = document.getElementById('add-pet-name').value.trim();
+        const spec = document.getElementById('add-pet-spec').value.trim();
+        const breed = document.getElementById('add-pet-breed').value.trim();
+        const birth = document.getElementById('add-pet-birth').value;
+        const notes = document.getElementById('add-pet-notes').value.trim();
+
+        const newPet = {
+            id: Date.now(),
+            name,
+            species: spec,
+            breed,
+            birthday: birth,
+            microchip: '',
+            vetName: 'Veterinaria Local',
+            vetPhone: 'S/N',
+            notes
+        };
+
+        state.pets.push(newPet);
+        saveState();
+        closeAddPetModal();
+        navigate('health-pets');
+    }
+
+    function deletePet(id) {
+        if (confirm("¿Estás seguro de que quieres eliminar esta mascota?")) {
+            state.pets = state.pets.filter(p => p.id !== id);
+            saveState();
+            navigate('health-pets');
+        }
+    }
+
+    // --- ACCIONES DEL BIENESTAR ---
+    function addJournalEntry(e) {
+        e.preventDefault();
+        const textInput = document.getElementById('new-journal-text');
+        if (!textInput) return;
+
+        const newEntry = {
+            id: Date.now(),
+            date: new Date().toISOString().split('T')[0],
+            text: textInput.value.trim()
+        };
+
+        state.journalEntries.unshift(newEntry); // Insertar al inicio para ver las más recientes primero
+        saveState();
+        navigate('wellbeing');
+    }
+</script>
+
+<script>
+    // --- INTEGRACIÓN DE AJUSTES EN RENDERPAGE ---
+    const previousRenderPage = renderPage;
+    renderPage = function(page) {
+        if (page !== 'settings') {
+            return previousRenderPage(page);
+        }
+
+        const themeColor = state.theme;
+
+        return `
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Personalización del tema -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="palette" class="w-5 h-5 text-theme-${themeColor}-500"></i>
+                        Personalizar Apariencia
+                    </h3>
+
+                    <!-- Color de tema -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Color Principal</label>
+                        <div class="flex gap-3">
+                            <button onclick="changeThemeColor('purple')" class="w-8 h-8 rounded-full bg-purple-600 ring-2 ${themeColor === 'purple' ? 'ring-offset-2 ring-purple-600' : 'ring-transparent'}"></button>
+                            <button onclick="changeThemeColor('blue')" class="w-8 h-8 rounded-full bg-blue-600 ring-2 ${themeColor === 'blue' ? 'ring-offset-2 ring-blue-600' : 'ring-transparent'}"></button>
+                            <button onclick="changeThemeColor('green')" class="w-8 h-8 rounded-full bg-green-600 ring-2 ${themeColor === 'green' ? 'ring-offset-2 ring-green-600' : 'ring-transparent'}"></button>
+                            <button onclick="changeThemeColor('rose')" class="w-8 h-8 rounded-full bg-rose-600 ring-2 ${themeColor === 'rose' ? 'ring-offset-2 ring-rose-600' : 'ring-transparent'}"></button>
+                            <button onclick="changeThemeColor('orange')" class="w-8 h-8 rounded-full bg-orange-600 ring-2 ${themeColor === 'orange' ? 'ring-offset-2 ring-orange-600' : 'ring-transparent'}"></button>
+                        </div>
+                    </div>
+
+                    <!-- Estilo de Fuente -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Estilo de Fuente</label>
+                        <select onchange="changeFontStyle(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700 text-xs">
+                            <option value="sans" ${state.fontStyle === 'sans' ? 'selected' : ''}>Sin Serifas (Inter / Clásica)</option>
+                            <option value="serif" ${state.fontStyle === 'serif' ? 'selected' : ''}>Con Serifas (Elegante)</option>
+                            <option value="dyslexic" ${state.fontStyle === 'dyslexic' ? 'selected' : ''}>Amigable para Dislexia (Comic)</option>
+                        </select>
+                    </div>
+
+                    <!-- Tamaño de Fuente -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Tamaño del Texto</label>
+                        <select onchange="changeFontSize(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700 text-xs">
+                            <option value="sm" ${state.fontSize === 'sm' ? 'selected' : ''}>Pequeño</option>
+                            <option value="base" ${state.fontSize === 'base' ? 'selected' : ''}>Normal / Estándar</option>
+                            <option value="lg" ${state.fontSize === 'lg' ? 'selected' : ''}>Grande</option>
+                            <option value="xl" ${state.fontSize === 'xl' ? 'selected' : ''}>Muy Grande</option>
+                        </select>
+                    </div>
+
+                    <!-- Toggles adicionales -->
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-200 block">Modo Afirmación</span>
+                                <span class="text-[10px] text-slate-400">Ver frases motivacionales en la página de inicio.</span>
+                            </div>
+                            <input type="checkbox" ${state.affirmationMode ? 'checked' : ''} onchange="toggleAffirmationMode()" class="w-4 h-4 rounded text-theme-${themeColor}-600">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seguridad y Respaldo Local (Privacy-First) -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="shield" class="w-5 h-5 text-emerald-500"></i>
+                        Tu Privacidad y Datos
+                    </h3>
+
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Esta aplicación está diseñada para ser <strong>completamente offline-first y privada</strong>. Ninguno de tus datos (salud, vehículos, presupuesto o pensamientos) sale jamás de tu dispositivo. Todo es almacenado de forma segura en tu navegador de manera local.
+                    </p>
+
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-4">
+                        <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200">Importar y Exportar Datos</h4>
+                        <p class="text-[10px] text-slate-400 leading-relaxed">Dado que tus datos no se guardan en la nube, si cambias de navegador o dispositivo perderás tu información. Se recomienda hacer un respaldo regular:</p>
+
+                        <div class="flex flex-col sm:flex-row gap-2 pt-2">
+                            <button onclick="exportData()" class="flex-1 py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="download" class="w-4 h-4"></i> Exportar Respaldo
+                            </button>
+                            <button onclick="triggerImport()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-slate-200 dark:hover:bg-slate-600">
+                                <i data-lucide="upload" class="w-4 h-4"></i> Importar Respaldo
+                            </button>
+                            <input type="file" id="import-file" class="hidden" accept=".json" onchange="importData(event)">
+                        </div>
+                    </div>
+
+                    <button onclick="resetAllData()" class="w-full py-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900/30 rounded-xl text-xs font-bold transition-all">
+                        ⚠️ Restablecer Todos los Datos (Borrar Todo)
+                    </button>
+                </div>
+            </div>
+        `;
+    };
+
+    // --- ACCIONES DE AJUSTES ---
+    function changeThemeColor(color) {
+        state.theme = color;
+        saveState();
+        navigate('settings');
+    }
+
+    function changeFontStyle(style) {
+        state.fontStyle = style;
+        saveState();
+        navigate('settings');
+    }
+
+    function changeFontSize(size) {
+        state.fontSize = size;
+        saveState();
+        navigate('settings');
+    }
+
+    function toggleAffirmationMode() {
+        state.affirmationMode = !state.affirmationMode;
+        saveState();
+        navigate('settings');
+    }
+
+    function exportData() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", `seradulto_backup_${new Date().toISOString().split('T')[0]}.json`);
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+    }
+
+    function triggerImport() {
+        document.getElementById('import-file').click();
+    }
+
+    function importData(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            try {
+                const parsedData = JSON.parse(evt.target.result);
+                if (parsedData && typeof parsedData === 'object' && parsedData.todos) {
+                    state = parsedData;
+                    saveState();
+                    alert("¡Datos importados exitosamente!");
+                    navigate('dashboard');
+                } else {
+                    alert("El archivo de respaldo no tiene el formato correcto.");
+                }
+            } catch (err) {
+                alert("Error al leer el archivo de respaldo.");
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    function resetAllData() {
+        if (confirm("🚨 ¿ESTÁS ABSOLUTAMENTE SEGURO? Esto borrará todas tus tareas, registros de autos, presupuesto, notas de salud y diarios permanentemente de este dispositivo.")) {
+            state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+            saveState();
+            navigate('dashboard');
+        }
+    }
+
+    // --- CARGAR PÁGINA INICIAL AL CARGAR LA SPA ---
+    window.onload = function() {
+        navigate('dashboard');
+    };
+</script>
