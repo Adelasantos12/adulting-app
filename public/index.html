@@ -404,16 +404,16 @@
 
             const menuItems = [
                 { id: 'dashboard', label: 'Inicio / Hoy', icon: 'layout-dashboard', visible: true },
-                { id: 'todos', label: 'Tareas & Ruleta', icon: 'check-square', visible: vis.todos },
-                { id: 'money', label: 'Dinero sin Drama', icon: 'wallet', visible: vis.money },
-                { id: 'shopping', label: '¿Comprar o no?', icon: 'shopping-bag', visible: vis.shopping },
-                { id: 'food', label: 'Alimentación', icon: 'apple', visible: vis.food },
-                { id: 'pets', label: 'Mis Mascotas', icon: 'paw-print', visible: vis.pets },
-                { id: 'auto', label: 'Mi Automóvil', icon: 'car', visible: vis.auto },
-                { id: 'health', label: 'Hábitos & Salud', icon: 'heart', visible: vis.health },
-                { id: 'house', label: 'Casa Funcional', icon: 'home', visible: vis.house },
-                { id: 'paz', label: 'Paz en Redes', icon: 'instagram', visible: vis.paz },
-                { id: 'guides', label: 'Guías & Vínculos', icon: 'book-open', visible: vis.guides },
+                { id: 'todos', label: 'Tareas & Ruleta', icon: 'check-square', visible: vis.todos !== false },
+                { id: 'money', label: 'Dinero sin Drama', icon: 'wallet', visible: vis.money !== false },
+                { id: 'shopping', label: '¿Comprar o no?', icon: 'shopping-bag', visible: vis.shopping !== false },
+                { id: 'food', label: 'Alimentación', icon: 'apple', visible: vis.food !== false },
+                { id: 'pets', label: 'Mis Mascotas', icon: 'paw-print', visible: vis.pets !== false },
+                { id: 'auto', label: 'Mi Automóvil', icon: 'car', visible: vis.auto !== false },
+                { id: 'health', label: 'Hábitos & Salud', icon: 'heart', visible: vis.health !== false },
+                { id: 'house', label: 'Casa Funcional', icon: 'home', visible: vis.house !== false },
+                { id: 'paz', label: 'Paz en Redes', icon: 'instagram', visible: vis.paz !== false },
+                { id: 'guides', label: 'Guías & Vínculos', icon: 'book-open', visible: vis.guides !== false },
                 { id: 'settings', label: 'Ajustes / Confort', icon: 'settings', visible: true }
             ];
 
@@ -532,6 +532,16 @@
             // Si las señales de urgencia están reducidas, usamos colores neutros
             const redColorClass = access.reduceUrgencies ? 'amber' : 'rose';
             const pendingText = access.reduceUrgencies ? 'Pendiente desde...' : 'ATRASADO';
+
+            // Botón de Volver al Inicio global para sub-módulos
+            let backButtonHtml = '';
+            if (page !== 'dashboard') {
+                backButtonHtml = `
+                    <button onclick="navigate('dashboard')" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white mb-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-850 dark:hover:bg-slate-800 px-3.5 py-1.5 rounded-xl transition-all w-fit shadow-xs">
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver al Inicio (Hoy)
+                    </button>
+                `;
+            }
 
             switch (page) {
                 case 'dashboard':
@@ -653,33 +663,33 @@
                         </div>
                     `;
                 case 'todos':
-                    return renderModuloTodos();
+                    return backButtonHtml + renderModuloTodos();
                 case 'money':
-                    return renderModuloDinero();
+                    return backButtonHtml + renderModuloDinero();
                 case 'shopping':
-                    return renderModuloCompras();
+                    return backButtonHtml + renderModuloCompras();
                 case 'food':
-                    return renderModuloFood();
+                    return backButtonHtml + renderModuloFood();
                 case 'pets':
-                    return renderModuloPets();
+                    return backButtonHtml + renderModuloPets();
                 case 'auto':
-                    return renderModuloAuto();
+                    return backButtonHtml + renderModuloAuto();
                 case 'health':
-                    return renderModuloHealth();
+                    return backButtonHtml + renderModuloHealth();
                 case 'house':
-                    return renderModuloCasa();
+                    return backButtonHtml + renderModuloCasa();
                 case 'paz':
-                    return renderModuloPaz();
+                    return backButtonHtml + renderModuloPaz();
                 case 'guides':
-                    return renderModuloGuides();
+                    return backButtonHtml + renderModuloGuides();
                 case 'settings':
-                    return renderModuloSettings();
+                    return backButtonHtml + renderModuloSettings();
                 case 'outfit':
-                    return renderModuloOutfit();
+                    return backButtonHtml + renderModuloOutfit();
                 case 'solitaire':
-                    return renderModuloSolitaire();
+                    return backButtonHtml + renderModuloSolitaire();
                 case 'ellie':
-                    return renderModuloEllie();
+                    return backButtonHtml + renderModuloEllie();
                 default:
                     return `
                         <div class="p-8 text-center text-xs text-slate-400">
@@ -1048,18 +1058,79 @@
         function renderModuloOutfit() {
             return `
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-xs max-w-md mx-auto text-center">
-                    <span class="text-3xl">🧥</span>
+                    <span class="text-3xl" id="outfit-emoji">🧥</span>
                     <h3 class="font-bold text-sm">Qué me pongo hoy: Clóset Inteligente</h3>
-                    <p class="text-slate-400">Recomendaciones personalizadas basadas en el clima actual para simplificar tu rutina matutina:</p>
+                    <p class="text-slate-400 font-semibold">Consultando el clima de tu ubicación actual para darte la recomendación perfecta:</p>
 
-                    <div class="p-4 bg-slate-50 dark:bg-slate-900 border rounded-xl leading-relaxed text-left space-y-2">
-                        <p class="font-bold text-indigo-600 dark:text-indigo-400">Clima sugerido:</p>
-                        <p>🔹 <strong>Si hace frío (&lt; 15°C):</strong> Saco/Chamarra abrigadora, suéter, bufanda, pantalones largos y calzado cerrado.</p>
-                        <p>🔹 <strong>Si hace templado (15°C a 23°C):</strong> Suéter ligero, playera, jeans y tenis cómodos.</p>
-                        <p>🔹 <strong>Si hace calor (&gt; 23°C):</strong> Playera transpirable de algodón, bermudas o falda cómoda, y lentes de sol.</p>
+                    <div id="climate-info-box" class="p-4 bg-slate-50 dark:bg-slate-900 border rounded-xl leading-relaxed text-left space-y-3">
+                        <div id="climate-status" class="text-center font-bold text-slate-500">
+                            <span class="animate-pulse block">Detectando ubicación actual...</span>
+                            <button onclick="fetchLocalClimate()" class="mt-2.5 px-3 py-1.5 bg-indigo-600 text-white rounded-lg font-bold text-[10px]">Permitir Ubicación</button>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl text-left text-[10px] text-slate-500 leading-normal">
+                        💡 <strong>¿Por qué geolocalización?</strong> Obtenemos el clima local directo de Open-Meteo sin almacenar tus coordenadas, garantizando 100% de privacidad.
                     </div>
                 </div>
             `;
+        }
+
+        function fetchLocalClimate() {
+            const status = document.getElementById('climate-status');
+            if (!status) return;
+
+            if (!navigator.geolocation) {
+                status.innerHTML = '❌ Tu navegador no soporta geolocalización.';
+                return;
+            }
+
+            status.innerHTML = '<span class="animate-pulse">Consultando coordenadas GPS...</span>';
+
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    status.innerHTML = '<span class="animate-pulse">Consultando clima con Open-Meteo...</span>';
+
+                    try {
+                        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+                        const data = await response.json();
+                        const temp = data.current_weather.temperature;
+
+                        let rec = '';
+                        let emoji = '🧥';
+                        if (temp < 15) {
+                            emoji = '❄️';
+                            rec = '🥶 Hace bastante frío en tu zona. Recomendamos usar abrigo o chamarra abrigadora, una bufanda cómoda, pantalones largos calientes y botas o calzado cerrado.';
+                        } else if (temp <= 22) {
+                            emoji = '⛅';
+                            rec = '🍃 Clima templado y agradable. Ideal para un suéter o cárdigan ligero sobre tu playera, pantalones casuales y tenis cómodos.';
+                        } else {
+                            emoji = '☀️';
+                            rec = '☀️ Hace calor en tu zona. Recomendamos ropa ligera de algodón o lino, bermudas o falda cómoda, lentes de sol y bloqueador solar.';
+                        }
+
+                        const emojiEl = document.getElementById('outfit-emoji');
+                        if (emojiEl) emojiEl.innerText = emoji;
+
+                        const box = document.getElementById('climate-info-box');
+                        if (box) {
+                            box.innerHTML = `
+                                <div class="space-y-2">
+                                    <p class="font-extrabold text-sm text-indigo-600 dark:text-indigo-400">🌡️ Temperatura Actual: ${temp}°C</p>
+                                    <p class="text-xs text-slate-700 dark:text-slate-200 font-semibold">${rec}</p>
+                                </div>
+                            `;
+                        }
+                    } catch (err) {
+                        status.innerHTML = '❌ Error al consultar la API de clima. Revisa tu conexión de internet.';
+                    }
+                },
+                (error) => {
+                    status.innerHTML = '❌ Permiso de geolocalización denegado o no disponible.';
+                }
+            );
         }
 
         // --- SUB-RENDERS: DINERO ---
@@ -2537,6 +2608,9 @@
             }
             if (page === 'todos') {
                 drawWheel();
+            }
+            if (page === 'outfit') {
+                fetchLocalClimate();
             }
             if (typeof prevInitPageGames === 'function') prevInitPageGames(page);
         }
