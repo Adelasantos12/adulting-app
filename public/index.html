@@ -300,6 +300,12 @@
                 { id: 4, title: 'Guardar la ropa limpia', completed: false, category: 'mínimo' },
                 { id: 5, title: 'Preparar las cosas de mañana', completed: false, category: 'mínimo' }
             ],
+            products: [
+                { id: 1, name: 'Jabón de trastes (Lavavajillas)', status: 'disponible' },
+                { id: 2, name: 'Detergente de ropa', status: 'disponible' },
+                { id: 3, name: 'Papel higiénico', status: 'disponible' },
+                { id: 4, name: 'Bolsas de basura', status: 'disponible' }
+            ],
 
             // 9. Paz en redes / Diario
             journalEntries: [
@@ -646,7 +652,34 @@
                             </button>
                         </div>
                     `;
-
+                case 'todos':
+                    return renderModuloTodos();
+                case 'money':
+                    return renderModuloDinero();
+                case 'shopping':
+                    return renderModuloCompras();
+                case 'food':
+                    return renderModuloFood();
+                case 'pets':
+                    return renderModuloPets();
+                case 'auto':
+                    return renderModuloAuto();
+                case 'health':
+                    return renderModuloHealth();
+                case 'house':
+                    return renderModuloCasa();
+                case 'paz':
+                    return renderModuloPaz();
+                case 'guides':
+                    return renderModuloGuides();
+                case 'settings':
+                    return renderModuloSettings();
+                case 'outfit':
+                    return renderModuloOutfit();
+                case 'solitaire':
+                    return renderModuloSolitaire();
+                case 'ellie':
+                    return renderModuloEllie();
                 default:
                     return `
                         <div class="p-8 text-center text-xs text-slate-400">
@@ -656,6 +689,652 @@
             }
         }
 
+
+        // --- SUB-RENDERS: MISSED MODULES ---
+        function renderModuloTodos() {
+            const themeColor = state.theme;
+
+            // Generate list of tasks
+            let pendingTodosHtml = "";
+            state.todos.forEach(t => {
+                pendingTodosHtml += `
+                    <div class="flex items-center justify-between p-3 bg-slate-5/40 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center gap-2.5">
+                            <input type="checkbox" ${t.completed ? "checked" : ""} onchange="toggleTodoComplete(${t.id})" class="w-4 h-4 rounded text-theme-${themeColor}-600">
+                            <span class="text-xs font-semibold ${t.completed ? "line-through text-slate-400" : "text-slate-700 dark:text-slate-200"}">[${t.category.toUpperCase()}] ${t.title}</span>
+                        </div>
+                        <button onclick="deleteTodo(${t.id})" class="text-slate-400 hover:text-rose-500">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-xs leading-relaxed">
+                    <!-- Gestor de Tareas -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <h3 class="font-bold text-sm">Mis Tareas de Supervivencia</h3>
+                        </div>
+
+                        <form onsubmit="addTodoItem(event)" class="flex gap-2 text-xs">
+                            <input type="text" id="todo-input" placeholder="Nueva tarea..." class="flex-1 px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                            <select id="todo-category" class="px-2 py-2 border rounded-xl dark:bg-slate-900">
+                                <option value="hogar">Hogar</option>
+                                <option value="tramites">Trámites</option>
+                                <option value="personal">Personal</option>
+                                <option value="adulting">Adulting</option>
+                            </select>
+                            <button type="submit" class="px-4 py-2 bg-theme-${themeColor}-600 text-white font-bold rounded-xl">+</button>
+                        </form>
+
+                        <div class="space-y-2 max-h-[300px] overflow-y-auto">
+                            ${pendingTodosHtml !== "" ? pendingTodosHtml : "<p class="text-slate-400 text-center py-4">¡No hay tareas pendientes! Buen momento para relajarse.</p>"}
+                        </div>
+                    </div>
+
+                    <!-- Ruleta de Decisiones -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center space-y-4 flex flex-col items-center">
+                        <h3 class="font-bold text-sm">🎯 Ruleta de Decisiones: ¿Qué hago ahora?</h3>
+                        <p class="text-slate-400">¿Sufres de parálisis por análisis? ¡Gira la ruleta y deja que decida tu próxima micro-tarea!</p>
+
+                        <div class="relative w-64 h-64">
+                            <canvas id="wheel-canvas" width="250" height="250" class="rounded-full shadow-lg border border-slate-100 dark:border-slate-700"></canvas>
+                            <div class="absolute top-[115px] left-[115px] w-6 h-6 bg-rose-500 rounded-full border-2 border-white shadow flex items-center justify-center text-white text-[10px] font-bold">▲</div>
+                        </div>
+
+                        <button onclick="spinWheel()" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-500/10">¡GIRAR RULETA!</button>
+                        <h4 id="wheel-winner" class="font-extrabold text-sm text-indigo-600 dark:text-indigo-400 min-h-[1.5rem]"></h4>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleTodoComplete(id) {
+            state.todos = state.todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+            saveState();
+            navigate('todos');
+        }
+
+        function deleteTodo(id) {
+            state.todos = state.todos.filter(t => t.id !== id);
+            saveState();
+            navigate('todos');
+        }
+
+        function addTodoItem(e) {
+            e.preventDefault();
+            const title = document.getElementById('todo-input').value.trim();
+            const category = document.getElementById('todo-category').value;
+
+            state.todos.push({
+                id: Date.now(),
+                title,
+                category,
+                completed: false,
+                recurring: 'ninguno',
+                lastDone: null
+            });
+            saveState();
+            navigate('todos');
+        }
+
+        let currentWheelAngle = 0;
+        function drawWheel() {
+            const canvas = document.getElementById('wheel-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const items = state.todos.filter(t => !t.completed).map(t => t.title);
+            if (items.length === 0) {
+                ctx.beginPath();
+                ctx.arc(125, 125, 120, 0, 2*Math.PI);
+                ctx.fillStyle = '#cbd5e1';
+                ctx.fill();
+                ctx.fillStyle = '#475569';
+                ctx.font = 'bold 12px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('Sin tareas pendientes', 125, 125);
+                return;
+            }
+
+            const arc = (2 * Math.PI) / items.length;
+            const colors = ['#f43f5e', '#a855f7', '#0ea5e9', '#22c55e', '#f97316', '#e11d48', '#3b82f6', '#10b981'];
+
+            for (let i = 0; i < items.length; i++) {
+                const angle = currentWheelAngle + i * arc;
+                ctx.beginPath();
+                ctx.arc(125, 125, 120, angle, angle + arc);
+                ctx.lineTo(125, 125);
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(125, 125);
+                ctx.rotate(angle + arc / 2);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 10px sans-serif';
+                const displayText = items[i].length > 15 ? items[i].substring(0, 12) + '...' : items[i];
+                ctx.fillText(displayText, 110, 4);
+                ctx.restore();
+            }
+        }
+
+        function spinWheel() {
+            const items = state.todos.filter(t => !t.completed).map(t => t.title);
+            if (items.length === 0) return;
+
+            let velocity = Math.random() * 0.4 + 0.3;
+            let friction = 0.985;
+
+            const interval = setInterval(() => {
+                currentWheelAngle += velocity;
+                drawWheel();
+                velocity *= friction;
+
+                if (velocity < 0.002) {
+                    clearInterval(interval);
+                    const items = state.todos.filter(t => !t.completed).map(t => t.title);
+                    const arc = (2 * Math.PI) / items.length;
+                    const normAngle = (2 * Math.PI - (currentWheelAngle % (2 * Math.PI))) % (2 * Math.PI);
+                    const index = Math.floor(normAngle / arc) % items.length;
+                    const winner = items[index];
+                    const winnerEl = document.getElementById('wheel-winner');
+                    if (winnerEl) winnerEl.innerText = `Siguiente acción: "${winner}" 🚀`;
+                }
+            }, 16);
+        }
+
+        function renderModuloPaz() {
+            let journalHtml = "";
+            state.journalEntries.forEach(j => {
+                journalHtml += `
+                    <div class="p-3 bg-slate-50 dark:bg-slate-900 border rounded-xl space-y-1">
+                        <span class="text-[9px] font-bold text-slate-400 block">${j.date}</span>
+                        <p class="text-xs text-slate-700 dark:text-slate-300 italic">"${j.text}"</p>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-xs leading-relaxed">
+                    <!-- Diario Personal Offline -->
+                    <div class="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="font-bold text-sm">📝 Diario Personal Offline (100% Privado)</h3>
+                        <p class="text-slate-400">Usa este espacio libre de la nube para plasmar tus pensamientos, vaciar tu mente y reducir la ansiedad.</p>
+
+                        <form onsubmit="addJournalEntry(event)" class="space-y-2">
+                            <textarea id="journal-input" placeholder="Escribe aquí... ¿Cómo te sientes hoy?" class="w-full p-3 border rounded-xl dark:bg-slate-900 min-h-[80px]" required></textarea>
+                            <button type="submit" class="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl">Guardar Pensamiento</button>
+                        </form>
+
+                        <div class="space-y-2.5 max-h-[300px] overflow-y-auto">
+                            ${journalHtml !== "" ? journalHtml : "<p class="text-slate-400 text-center py-4">No hay reflexiones anotadas. Tómate un momento para plasmar cómo estás hoy.</p>"}
+                        </div>
+                    </div>
+
+                    <!-- Cables a tierra y respiración -->
+                    <div class="space-y-6">
+                        <!-- Círculo de respiración -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center space-y-4 flex flex-col items-center">
+                            <h4 class="font-bold">🧘 Minuto de Respiración Consciente</h4>
+                            <p class="text-[10px] text-slate-400">Sigue el ritmo del círculo púrpura: inhala al expandirse, exhala al contraerse.</p>
+                            <div class="w-24 h-24 rounded-full bg-purple-100/40 dark:bg-purple-950/40 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-full breathing-circle flex items-center justify-center"></div>
+                            </div>
+                        </div>
+
+                        <!-- Consejos de redes -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-3">
+                            <h4 class="font-bold">📱 Límites Digitales Saludables</h4>
+                            <div class="space-y-2.5 text-slate-500 text-[11px]">
+                                <p>✔️ <strong>Escala de grises:</strong> Reduce el atractivo adictivo de las apps activando el contraste en Ajustes.</p>
+                                <p>✔️ <strong>Ubicación física:</strong> Deja el celular en otra habitación antes de dormir para un descanso profundo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addJournalEntry(e) {
+            e.preventDefault();
+            const text = document.getElementById('journal-input').value.trim();
+            const date = new Date().toISOString().split('T')[0];
+
+            state.journalEntries.unshift({
+                id: Date.now(),
+                date,
+                text
+            });
+            saveState();
+            navigate('paz');
+        }
+
+        function renderModuloSettings() {
+            const acc = state.accessibility;
+            return `
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6 text-xs max-w-2xl mx-auto">
+                    <div>
+                        <h3 class="font-bold text-sm">🛠️ Ajustes de Accesibilidad & Confort Cognitivo</h3>
+                        <p class="text-slate-400">Modo Adulto se adapta a tus necesidades sensoriales y cognitivas. Configura cada estímulo visual o auditivo de manera independiente.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Fuente y Letra -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-b pb-4">
+                            <div>
+                                <label class="block font-bold text-slate-500 mb-1">Tipografía para Lectura</label>
+                                <select onchange="updateFontStyleSetting(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900">
+                                    <option value="sans" ${state.fontStyle === "sans" ? "selected" : ""}>Sans Serif Estándar</option>
+                                    <option value="serif" ${state.fontStyle === "serif" ? "selected" : ""}>Serif Tradicional</option>
+                                    <option value="atkinson" ${state.fontStyle === "atkinson" ? "selected" : ""}>Atkinson Hyperlegible (Baja Visión)</option>
+                                    <option value="dyslexic" ${state.fontStyle === "dyslexic" ? "selected" : ""}>Comic Neue (Dyslexia Friendly)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-500 mb-1">Tamaño de Texto</label>
+                                <select onchange="updateFontSizeSetting(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900">
+                                    <option value="xs" ${acc.fontSize === "xs" ? "selected" : ""}>Muy Pequeño</option>
+                                    <option value="sm" ${acc.fontSize === "sm" ? "selected" : ""}>Pequeño (Defecto)</option>
+                                    <option value="base" ${acc.fontSize === "base" ? "selected" : ""}>Estándar</option>
+                                    <option value="lg" ${acc.fontSize === "lg" ? "selected" : ""}>Grande</option>
+                                    <option value="xl" ${acc.fontSize === "xl" ? "selected" : ""}>Extra Grande</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Estilo Visual -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-b pb-4">
+                            <div class="space-y-3">
+                                <label class="block font-bold text-slate-500">Ajustes Sensoriales</label>
+                                <div class="flex items-center justify-between">
+                                    <span>Contraste Elevado</span>
+                                    <input type="checkbox" ${acc.contrastElevated ? "checked" : ""} onchange="toggleContrastSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span>Escala de Grises</span>
+                                    <input type="checkbox" ${acc.grayscale ? "checked" : ""} onchange="toggleGrayscaleSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="block font-bold text-slate-500">Recordatorios & Voz</label>
+                                <div class="flex items-center justify-between">
+                                    <span>Reducir Señales de Urgencia (Evita colores rojos/alarmistas)</span>
+                                    <input type="checkbox" ${acc.reduceUrgencies ? "checked" : ""} onchange="toggleUrgenciesSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span>Mostrar Frases Motivacionales</span>
+                                    <input type="checkbox" ${state.affirmationMode ? "checked" : ""} onchange="toggleAffirmationSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Temas de Color -->
+                        <div class="border-b pb-4">
+                            <label class="block font-bold text-slate-500 mb-2">Paleta de Colores de Acompañamiento</label>
+                            <div class="flex gap-3">
+                                <button onclick="updateThemeSetting('purple')" class="w-8 h-8 bg-purple-500 rounded-full border-2 ${state.theme === "purple" ? "border-black" : "border-transparent"}" title="Púrpura"></button>
+                                <button onclick="updateThemeSetting('blue')" class="w-8 h-8 bg-blue-500 rounded-full border-2 ${state.theme === "blue" ? "border-black" : "border-transparent"}" title="Azul"></button>
+                                <button onclick="updateThemeSetting('green')" class="w-8 h-8 bg-green-500 rounded-full border-2 ${state.theme === "green" ? "border-black" : "border-transparent"}" title="Verde"></button>
+                                <button onclick="updateThemeSetting('rose')" class="w-8 h-8 bg-rose-500 rounded-full border-2 ${state.theme === "rose" ? "border-black" : "border-transparent"}" title="Rosa"></button>
+                                <button onclick="updateThemeSetting('orange')" class="w-8 h-8 bg-orange-500 rounded-full border-2 ${state.theme === "orange" ? "border-black" : "border-transparent"}" title="Naranja"></button>
+                            </div>
+                        </div>
+
+                        <!-- Tono de Voz -->
+                        <div class="border-b pb-4">
+                            <label class="block font-bold text-slate-500 mb-1">Tono de los Avisos y Recordatorios</label>
+                            <select onchange="updateToneSetting(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900">
+                                <option value="amable" ${acc.tone === "amable" ? "selected" : ""}>Amable: "Tu seguro vence mañana. Puedes revisarlo ahora o programar otro recordatorio."</option>
+                                <option value="directo" ${acc.tone === "directo" ? "selected" : ""}>Directo: "El seguro vence mañana."</option>
+                                <option value="corto" ${acc.tone === "corto" ? "selected" : ""}>Muy breve: "Seguro · vence mañana."</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateFontStyleSetting(val) {
+            state.fontStyle = val;
+            saveState();
+            navigate('settings');
+        }
+
+        function updateFontSizeSetting(val) {
+            state.accessibility.fontSize = val;
+            saveState();
+            navigate('settings');
+        }
+
+        function toggleContrastSetting() {
+            state.accessibility.contrastElevated = !state.accessibility.contrastElevated;
+            saveState();
+            navigate('settings');
+        }
+
+        function toggleGrayscaleSetting() {
+            state.accessibility.grayscale = !state.accessibility.grayscale;
+            saveState();
+            navigate('settings');
+        }
+
+        function toggleUrgenciesSetting() {
+            state.accessibility.reduceUrgencies = !state.accessibility.reduceUrgencies;
+            saveState();
+            navigate('settings');
+        }
+
+        function toggleAffirmationSetting() {
+            state.affirmationMode = !state.affirmationMode;
+            saveState();
+            navigate('settings');
+        }
+
+        function updateThemeSetting(val) {
+            state.theme = val;
+            saveState();
+            navigate('settings');
+        }
+
+        function updateToneSetting(val) {
+            state.accessibility.tone = val;
+            saveState();
+            navigate('settings');
+        }
+
+        function renderModuloOutfit() {
+            return `
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-xs max-w-md mx-auto text-center">
+                    <span class="text-3xl">🧥</span>
+                    <h3 class="font-bold text-sm">Qué me pongo hoy: Clóset Inteligente</h3>
+                    <p class="text-slate-400">Recomendaciones personalizadas basadas en el clima actual para simplificar tu rutina matutina:</p>
+
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 border rounded-xl leading-relaxed text-left space-y-2">
+                        <p class="font-bold text-indigo-600 dark:text-indigo-400">Clima sugerido:</p>
+                        <p>🔹 <strong>Si hace frío (&lt; 15°C):</strong> Saco/Chamarra abrigadora, suéter, bufanda, pantalones largos y calzado cerrado.</p>
+                        <p>🔹 <strong>Si hace templado (15°C a 23°C):</strong> Suéter ligero, playera, jeans y tenis cómodos.</p>
+                        <p>🔹 <strong>Si hace calor (&gt; 23°C):</strong> Playera transpirable de algodón, bermudas o falda cómoda, y lentes de sol.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- SUB-RENDERS: DINERO ---
+        function renderModuloDinero() {
+            const themeColor = state.theme;
+            const card = state.card;
+
+            let deudasHtml = "";
+            state.deudas.forEach(d => {
+                deudasHtml += `
+                    <div class="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-800 dark:text-slate-100">${d.name}</h4>
+                            <p class="text-[10px] text-slate-400">Interés: ${d.interest}% • Mínimo: $${d.minPay} • Vence: ${d.dueDate}</p>
+                        </div>
+                        <div class="text-right flex items-center gap-3">
+                            <span class="text-xs font-extrabold text-slate-800 dark:text-white">$${d.balance}</span>
+                            <button onclick="deleteDeuda(${d.id})" class="text-slate-400 hover:text-rose-500">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            let segurosHtml = "";
+            state.seguros.forEach(s => {
+                segurosHtml += `
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-slate-700 dark:text-slate-200">${s.type}</span>
+                            <span class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 text-[9px] rounded-full font-bold">Activo</span>
+                        </div>
+                        <div class="text-[10px] text-slate-400 space-y-1">
+                            <p><strong>Compañía:</strong> ${s.company} • <strong>Póliza:</strong> ${s.policy}</p>
+                            <p><strong>Deducible:</strong> ${s.deductible} • <strong>Vence:</strong> ${s.renewal}</p>
+                            <p class="bg-white dark:bg-slate-800 p-2 rounded border border-slate-100 dark:border-slate-700 mt-1 italic"><strong>Emergencia:</strong> ${s.phone} - "${s.claimSteps}"</p>
+                        </div>
+                        <button onclick="deleteSeguro(${s.id})" class="text-[9px] text-rose-500 hover:underline">Eliminar seguro</button>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="credit-card" class="w-5 h-5 text-indigo-500"></i>
+                                Mi Tarjeta de Crédito Principal
+                            </h3>
+
+                            <form onsubmit="saveCardDetails(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Día de Corte (1 al 31)</label>
+                                    <input type="number" id="card-cutoff" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" value="${card.cutoffDay}" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Días límite de pago tras corte</label>
+                                    <input type="number" id="card-limit" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" value="${card.limitDay}" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Saldo para NO generar intereses ($)</label>
+                                    <input type="number" id="card-no-interest" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" value="${card.noInterestBalance}" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Pago mínimo requerido ($)</label>
+                                    <input type="number" id="card-min-pay" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" value="${card.minPay}" required>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <button type="submit" class="w-full py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl font-semibold">Guardar Estado de Tarjeta</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-2">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">Control de Deudas</h3>
+                                <button onclick="openAddDeudaModal()" class="text-xs text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 font-bold hover:underline">+ Agregar</button>
+                            </div>
+                            <div class="space-y-2">
+                                ${deudasHtml !== "" ? deudasHtml : "<p class="text-xs text-slate-400 text-center py-4">¡Felicidades! No tienes deudas registradas.</p>"}
+                            </div>
+
+                            <div class="flex gap-2 pt-2">
+                                <button onclick="showDebtStrategy('avalancha')" class="flex-1 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl">Estrategia Avalancha</button>
+                                <button onclick="showDebtStrategy('bola')" class="flex-1 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl">Estrategia Bola de Nieve</button>
+                            </div>
+                            <div id="strategy-explanation" class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs text-slate-500 leading-relaxed hidden"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="calculator" class="w-5 h-5 text-emerald-500"></i>
+                                Retención de Impuestos
+                            </h3>
+                            <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span>Ingreso mensual:</span>
+                                    <strong class="text-slate-700 dark:text-slate-200">$${state.budget.monthlyIncome}</strong>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Impuesto estimado (30%):</span>
+                                    <strong class="text-emerald-600">$${Math.round(state.budget.monthlyIncome * 0.3)}</strong>
+                                </div>
+                                <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Monto separado actualmente ($)</label>
+                                    <input type="number" id="tax-separated" onblur="updateTaxSeparated(this.value)" class="w-full px-3 py-1.5 border rounded-lg dark:bg-slate-900 dark:border-slate-700" value="${state.impuestos.separatedTax}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-2">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">Mis Seguros</h3>
+                                <button onclick="openAddSeguroModal()" class="text-xs text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 font-bold hover:underline">+ Agregar</button>
+                            </div>
+                            <div class="space-y-3">
+                                ${segurosHtml !== "" ? segurosHtml : "<p class="text-xs text-slate-400 text-center py-2">No tienes seguros registrados.</p>"}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="add-deuda-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+                            <h4 class="font-bold text-base">Añadir Deuda</h4>
+                            <form onsubmit="addDeuda(event)" class="space-y-3 text-sm">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 mb-1">Nombre</label>
+                                    <input type="text" id="add-d-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Tarjeta Banamex" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Saldo ($)</label>
+                                        <input type="number" id="add-d-balance" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Tasa Interés (%)</label>
+                                        <input type="number" id="add-d-interest" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Pago Mínimo ($)</label>
+                                        <input type="number" id="add-d-min" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Vencimiento</label>
+                                        <input type="date" id="add-d-date" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 pt-2">
+                                    <button type="button" onclick="closeAddDeudaModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                    <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="add-seguro-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+                            <h4 class="font-bold text-base">Añadir Seguro</h4>
+                            <form onsubmit="addSeguro(event)" class="space-y-3 text-sm">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 mb-1">Tipo de Seguro</label>
+                                    <input type="text" id="add-s-type" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Seguro de Gastos Médicos" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Compañía</label>
+                                        <input type="text" id="add-s-comp" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Póliza</label>
+                                        <input type="text" id="add-s-policy" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Tel. Siniestros</label>
+                                        <input type="text" id="add-s-phone" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Vence</label>
+                                        <input type="date" id="add-s-expiry" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 pt-2">
+                                    <button type="button" onclick="closeAddSeguroModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                    <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderModuloCompras() {
+            const themeColor = state.theme;
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-xs leading-relaxed">
+                    <!-- Asistente "Evaluar Compra" -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i data-lucide="help-circle" class="w-5 h-5 text-indigo-500"></i>
+                            Asistente: Evaluar Gasto / Compra
+                        </h3>
+                        <p class="text-xs text-slate-400">Antes de gastar en un impulso o tomar una decisión financiera, sigue estas cinco sencillas preguntas:</p>
+
+                        <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">1. Precio del producto/servicio ($)</label>
+                                <input type="number" id="eval-price" oninput="calculateHoursCost()" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700" placeholder="Ej. 150">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">2. Tu salario neto por hora trabajada ($)</label>
+                                <input type="number" id="eval-hourly" oninput="calculateHoursCost()" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700" value="${state.hourlyWage}">
+                            </div>
+
+                            <div class="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-sm font-bold text-slate-800 dark:text-white">
+                                <span>Costo real en esfuerzo:</span>
+                                <span id="eval-hours-result" class="text-indigo-600 dark:text-indigo-400">0 horas de trabajo</span>
+                            </div>
+                        </div>
+
+                        <!-- Pausa obligatoria basada en precio -->
+                        <div class="p-3 bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 rounded-r-xl text-xs text-slate-600 dark:text-slate-300">
+                            <strong>Pauta de espera recomendada:</strong>
+                            <p id="eval-pause-rule" class="mt-1">Espera 24 horas antes de comprar un objeto menor a $20.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cable a Tierra (Ansiedad por comprar vs Impulso) -->
+                    <div class="space-y-6">
+                        <!-- Pantalla contra impulsos -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="compass" class="w-5 h-5 text-rose-500"></i>
+                                Control de Impulso - Lee esto
+                            </h3>
+                            <div class="space-y-3.5 text-xs text-slate-500 dark:text-slate-300 italic">
+                                <p>"La urgencia que siento por comprar no demuestra que necesite el objeto."</p>
+                                <p>"Una oferta no es un ahorro real si no planeaba comprar este artículo."</p>
+                                <p>"Puedo desear algo y apreciar su diseño sin tener que poseerlo hoy."</p>
+                                <p>"No necesito compensar una emoción incómoda mediante una transacción comercial."</p>
+                            </div>
+
+                            <div class="pt-2">
+                                <button onclick="triggerTenMinutesReset()" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
+                                    <i data-lucide="timer" class="w-4 h-4"></i> Alternativa de 10 minutos
+                                </button>
+                                <p id="ten-min-status" class="text-[10px] text-slate-400 text-center mt-2 italic hidden"></p>
+                            </div>
+                        </div>
+
+                        <!-- Alivio de Ansiedad por Gastos Necesarios -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="smile" class="w-5 h-5 text-emerald-500"></i>
+                                Culpa al Gastar (Gastos Necesarios)
+                            </h3>
+                            <p class="text-xs text-slate-400">Si este gasto es necesario (salud, comida, vivienda) pero sientes culpa:</p>
+                            <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                                <p>✔️ <em>"Este gasto no es una falla de carácter, es el mantenimiento de mi vida."</em></p>
+                                <p>✔️ <em>"Ahorrar no significa privarse de todo. Significa acumular recursos para usarlos cuando cumplen una función crucial."</em></p>
+                                <p>✔️ <em>"Pagar por mi salud, mi descanso, mi seguridad o el mantenimiento preventivo no es desperdiciar dinero."</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
         // --- SUB-RENDER MÓDULO: ALIMENTACIÓN ---
         function renderModuloFood() {
@@ -1332,6 +2011,214 @@
             saveState();
         }
 
+        // --- HELPER FUNCTIONS FOR CASA FUNCIONAL ---
+        function toggleHouseTodo(id) {
+            state.houseTodos = state.houseTodos.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+            saveState();
+            navigate('house');
+        }
+
+        function resetHouseTodos() {
+            state.houseTodos = state.houseTodos.map(t => ({ ...t, completed: false }));
+            saveState();
+            navigate('house');
+        }
+
+        function updateProductStatus(id, val) {
+            state.products = state.products.map(p => p.id === id ? { ...p, status: val } : p);
+            saveState();
+            navigate('house');
+        }
+
+        let resetTimerInterval = null;
+        let resetTimerSeconds = 15 * 60;
+
+        function startResetTimer() {
+            if (resetTimerInterval) clearInterval(resetTimerInterval);
+            resetTimerInterval = setInterval(() => {
+                if (resetTimerSeconds > 0) {
+                    resetTimerSeconds--;
+                    const minutes = Math.floor(resetTimerSeconds / 60);
+                    const seconds = resetTimerSeconds % 60;
+                    const display = document.getElementById('reset-timer-display');
+                    if (display) {
+                        display.innerText = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+                    }
+                } else {
+                    clearInterval(resetTimerInterval);
+                    alert('⏱️ ¡Terminó el reset de 15 minutos! Felicitaciones por cuidar tu hogar hoy.');
+                }
+            }, 1000);
+        }
+
+        function stopResetTimer() {
+            if (resetTimerInterval) {
+                clearInterval(resetTimerInterval);
+                resetTimerInterval = null;
+            }
+        }
+
+        // --- HELPER FUNCTIONS FOR DINERO SIN DRAMA ---
+        function saveCardDetails(e) {
+            e.preventDefault();
+            state.card.cutoffDay = parseInt(document.getElementById('card-cutoff').value) || 15;
+            state.card.limitDay = parseInt(document.getElementById('card-limit').value) || 5;
+            state.card.noInterestBalance = parseFloat(document.getElementById('card-no-interest').value) || 0;
+            state.card.minPay = parseFloat(document.getElementById('card-min-pay').value) || 0;
+            saveState();
+            alert('¡Datos de tarjeta guardados!');
+            navigate('money');
+        }
+
+        function openAddDeudaModal() {
+            document.getElementById('add-deuda-modal').classList.remove('hidden');
+        }
+        function closeAddDeudaModal() {
+            document.getElementById('add-deuda-modal').classList.add('hidden');
+        }
+
+        function addDeuda(e) {
+            e.preventDefault();
+            const name = document.getElementById('add-d-name').value.trim();
+            const balance = parseFloat(document.getElementById('add-d-balance').value) || 0;
+            const interest = parseFloat(document.getElementById('add-d-interest').value) || 0;
+            const minPay = parseFloat(document.getElementById('add-d-min').value) || 0;
+            const dueDate = document.getElementById('add-d-date').value;
+
+            state.deudas.push({
+                id: Date.now(),
+                name,
+                balance,
+                interest,
+                minPay,
+                dueDate
+            });
+            saveState();
+            closeAddDeudaModal();
+            navigate('money');
+        }
+
+        function deleteDeuda(id) {
+            state.deudas = state.deudas.filter(d => d.id !== id);
+            saveState();
+            navigate('money');
+        }
+
+        function showDebtStrategy(type) {
+            const exp = document.getElementById('strategy-explanation');
+            if (!exp) return;
+            exp.classList.remove('hidden');
+
+            let deudasOrdenadas = [...state.deudas];
+            if (type === 'avalancha') {
+                deudasOrdenadas.sort((a, b) => b.interest - a.interest);
+                let text = '<strong>Método Avalancha (Mayor Interés Primero):</strong><br>';
+                text += 'Recomendamos pagar el mínimo de todas las deudas y enfocar todo el dinero extra disponible en pagar la de mayor interés primero:<br><br>';
+                deudasOrdenadas.forEach((d, index) => {
+                    text += `${index + 1}. <strong>${d.name}</strong> (Tasa: ${d.interest}% • Saldo: $${d.balance})<br>`;
+                });
+                exp.innerHTML = text;
+            } else if (type === 'bola') {
+                deudasOrdenadas.sort((a, b) => a.balance - b.balance);
+                let text = '<strong>Método Bola de Nieve (Menor Saldo Primero):</strong><br>';
+                text += 'Recomendamos pagar el mínimo de todas las deudas y enfocar tu dinero extra en liquidar la de menor saldo primero para ganar victorias rápidas psicológicas:<br><br>';
+                deudasOrdenadas.forEach((d, index) => {
+                    text += `${index + 1}. <strong>${d.name}</strong> (Saldo: $${d.balance} • Tasa: ${d.interest}%)<br>`;
+                });
+                exp.innerHTML = text;
+            }
+        }
+
+        function updateTaxSeparated(val) {
+            state.impuestos.separatedTax = parseFloat(val) || 0;
+            saveState();
+        }
+
+        function openAddSeguroModal() {
+            document.getElementById('add-seguro-modal').classList.remove('hidden');
+        }
+        function closeAddSeguroModal() {
+            document.getElementById('add-seguro-modal').classList.add('hidden');
+        }
+
+        function addSeguro(e) {
+            e.preventDefault();
+            const type = document.getElementById('add-s-type').value.trim();
+            const company = document.getElementById('add-s-comp').value.trim();
+            const policy = document.getElementById('add-s-policy').value.trim();
+            const phone = document.getElementById('add-s-phone').value.trim();
+            const renewal = document.getElementById('add-s-expiry').value;
+
+            state.seguros.push({
+                id: Date.now(),
+                type,
+                company,
+                policy,
+                phone,
+                renewal,
+                deductible: '5%',
+                claimSteps: 'Reportar de inmediato.'
+            });
+            saveState();
+            closeAddSeguroModal();
+            navigate('money');
+        }
+
+        function deleteSeguro(id) {
+            state.seguros = state.seguros.filter(s => s.id !== id);
+            saveState();
+            navigate('money');
+        }
+
+        // --- HELPER FUNCTIONS FOR COMPRAS CONSCIENTES ---
+        function calculateHoursCost() {
+            const price = parseFloat(document.getElementById('eval-price').value) || 0;
+            const wage = parseFloat(document.getElementById('eval-hourly').value) || 15;
+            const hoursDisplay = document.getElementById('eval-hours-result');
+            const ruleDisplay = document.getElementById('eval-pause-rule');
+
+            if (wage <= 0) {
+                if (hoursDisplay) hoursDisplay.innerText = '0 horas';
+                return;
+            }
+
+            const hours = (price / wage).toFixed(1);
+            if (hoursDisplay) {
+                hoursDisplay.innerText = `${hours} horas de trabajo`;
+            }
+
+            if (ruleDisplay) {
+                if (price < 20) {
+                    ruleDisplay.innerText = 'Pausa de 24 horas recomendada para compras menores de $20.';
+                } else if (price < 100) {
+                    ruleDisplay.innerText = 'Espera 72 horas para reflexionar si realmente cumple una función real.';
+                } else {
+                    ruleDisplay.innerText = 'Gasto significativo. Recomendamos una espera deliberada de 15 días antes de adquirir.';
+                }
+            }
+        }
+
+        let impulseTimer = null;
+        function triggerTenMinutesReset() {
+            const status = document.getElementById('ten-min-status');
+            if (!status) return;
+            status.classList.remove('hidden');
+
+            let sec = 10 * 60;
+            if (impulseTimer) clearInterval(impulseTimer);
+            impulseTimer = setInterval(() => {
+                if (sec > 0) {
+                    sec--;
+                    const min = Math.floor(sec / 60);
+                    const remSec = sec % 60;
+                    status.innerText = `⏳ Pausa activa: ${min}:${remSec.toString().padStart(2, "0")} restante. ¡Respira hondo! La urgencia pasará.`;
+                } else {
+                    clearInterval(impulseTimer);
+                    status.innerText = '✅ ¡Felicidades! Lograste pasar los 10 minutos de reflexión.';
+                }
+            }, 1000);
+        }
+
 
         // --- SUB-RENDER MÓDULO: ADULTING (GUÍAS & SCRIPTS) ---
         function renderModuloGuides() {
@@ -1647,6 +2534,9 @@
         function initializePageComponents(page) {
             if (page !== 'ellie' && ellieGameActive) {
                 stopEllieGame();
+            }
+            if (page === 'todos') {
+                drawWheel();
             }
             if (typeof prevInitPageGames === 'function') prevInitPageGames(page);
         }
