@@ -403,7 +403,22 @@
             weeklyEvaluations: []
         };
 
-        let state = JSON.parse(localStorage.getItem('modo_adulto_combined_state')) || DEFAULT_STATE;
+        function deepMerge(target, source) {
+            for (const key in source) {
+                if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+                    if (!target[key]) target[key] = {};
+                    deepMerge(target[key], source[key]);
+                } else {
+                    if (target[key] === undefined) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        let loadedState = JSON.parse(localStorage.getItem('modo_adulto_combined_state'));
+        let state = loadedState ? deepMerge(loadedState, DEFAULT_STATE) : DEFAULT_STATE;
 
         function saveState() {
             localStorage.setItem('modo_adulto_combined_state', JSON.stringify(state));
@@ -657,6 +672,24 @@
 
                 case 'shopping':
                     return renderModuloCompras();
+
+                case 'health':
+                    return renderModuloHealth();
+
+                case 'house':
+                    return renderModuloCasa();
+
+                case 'paz':
+                    return renderModuloPaz();
+
+                case 'guides':
+                    return renderModuloGuides();
+
+                case 'settings':
+                    return renderModuloAjustes();
+
+                case 'outfit':
+                    return renderModuloOutfit();
             }
         }
 
