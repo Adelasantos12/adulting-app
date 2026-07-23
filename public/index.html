@@ -1651,6 +1651,10 @@
             if (typeof prevInitPageGames === 'function') prevInitPageGames(page);
         }
 
+        window.onload = function() {
+            navigate('dashboard');
+        };
+
 </script>
 
 </body>
