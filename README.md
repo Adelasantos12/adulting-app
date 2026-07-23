@@ -32,3 +32,30 @@ No requiere servidores, compilación de node_modules ni bases de datos complejas
 1. Clona el repositorio o descarga el archivo `index.html`.
 2. Haz doble clic sobre `index.html` para abrirlo en cualquier navegador web moderno (Chrome, Safari, Firefox, Edge, etc.).
 3. ¡Eso es todo! Puedes comenzar a organizar tu vida con total privacidad de datos.
+
+## ☁️ Cómo Desplegar en Railway (Paso a Paso)
+
+Railway es una de las formas más rápidas y sencillas de desplegar esta aplicación de forma gratuita o con un costo mínimo. Sigue estos sencillos pasos:
+
+### Paso 1: Sube la aplicación a GitHub
+1. Crea un repositorio privado o público en tu cuenta de GitHub.
+2. Sube estos tres archivos principales:
+   - `index.html` (La SPA/PWA con toda la interfaz de la aplicación).
+   - `server.js` (El microservidor Express para entregar el sitio estático).
+   - `package.json` (Las especificaciones de dependencias para Node.js).
+
+### Paso 2: Configura tu cuenta en Railway
+1. Ve a [railway.app](https://railway.app) e inicia sesión con tu cuenta de GitHub.
+2. Si es tu primera vez, puedes vincular una tarjeta o usar los créditos gratuitos si están disponibles.
+
+### Paso 3: Crea un nuevo proyecto en Railway
+1. En tu panel de control de Railway, haz clic en **New Project** (Nuevo Proyecto).
+2. Elige la opción **Deploy from GitHub repo** (Desplegar desde repositorio de GitHub).
+3. Selecciona el repositorio donde subiste la aplicación `seradulto-app`.
+
+### Paso 4: Despliegue automático
+1. Railway detectará automáticamente el archivo `package.json` y que es un proyecto de Node.js.
+2. Ejecutará automáticamente `npm install` para descargar Express y `npm start` para levantar el servidor en el puerto dinámico asignado por el sistema (`process.env.PORT`).
+3. Una vez finalizada la construcción, ve a la pestaña **Settings** (Configuración) de tu servicio en Railway y en la sección **Environment** (Entorno), haz clic en **Generate Domain** (Generar Dominio) para obtener una URL pública (ejemplo: `seradulto-production.up.railway.app`).
+
+¡Listo! Ya tienes tu aplicación de supervivencia personal 100% en español accesible desde cualquier dispositivo móvil o computadora de forma totalmente privada y rápida.
