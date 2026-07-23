@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modo Adulto - Guía de Supervivencia</title>
+    <title>Modo Adulto - Tu Manual de Supervivencia</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN -->
@@ -33,8 +33,8 @@
         }
         @keyframes breathe {
             0%, 100% { transform: scale(1); background-color: rgba(147, 51, 234, 0.2); }
-            40% { transform: scale(1.5); background-color: rgba(147, 51, 234, 0.5); }
-            60% { transform: scale(1.5); background-color: rgba(147, 51, 234, 0.5); }
+            40% { transform: scale(1.4); background-color: rgba(147, 51, 234, 0.5); }
+            60% { transform: scale(1.4); background-color: rgba(147, 51, 234, 0.5); }
         }
         .breathing-circle {
             animation: breathe 12s infinite ease-in-out;
@@ -87,7 +87,7 @@
         <!-- Sidebar (Escritorio) -->
         <aside id="sidebar" class="hidden md:flex flex-col w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 h-full flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-700">
+            <div class="p-5 flex items-center justify-between border-b border-slate-100 dark:border-slate-700">
                 <div class="flex items-center gap-2">
                     <span class="p-2 bg-purple-600 text-white rounded-xl shadow-lg shadow-purple-500/30 font-bold tracking-tight text-lg flex items-center justify-center">
                         <i data-lucide="sparkles" class="w-5 h-5"></i>
@@ -100,36 +100,40 @@
             </div>
 
             <!-- Menú de Navegación -->
-            <nav class="flex-1 px-4 py-4 space-y-1.5 overflow-y-auto">
-                <button onclick="navigate('dashboard')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-purple-50 text-purple-600 dark:bg-purple-950/40 dark:text-purple-400" data-page="dashboard">
+            <nav class="flex-1 px-3 py-3 space-y-1 overflow-y-auto">
+                <button onclick="navigate('dashboard')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 bg-purple-50 text-purple-600 dark:bg-purple-950/40 dark:text-purple-400" data-page="dashboard">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
                     Inicio / Hoy
                 </button>
-                <button onclick="navigate('money')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="money">
+                <button onclick="navigate('todos')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="todos">
+                    <i data-lucide="check-square" class="w-4 h-4"></i>
+                    🎯 Tareas & Ruleta
+                </button>
+                <button onclick="navigate('money')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="money">
                     <i data-lucide="wallet" class="w-4 h-4"></i>
                     💳 Dinero sin Drama
                 </button>
-                <button onclick="navigate('shopping')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="shopping">
+                <button onclick="navigate('shopping')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="shopping">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                     🛍️ ¿Comprar o no?
                 </button>
-                <button onclick="navigate('habits')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="habits">
-                    <i data-lucide="activity" class="w-4 h-4"></i>
-                    🍷 Hábitos & Consumos
+                <button onclick="navigate('health')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="health">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                    🏥 Hábitos & Salud
                 </button>
-                <button onclick="navigate('house')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="house">
+                <button onclick="navigate('house')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="house">
                     <i data-lucide="home" class="w-4 h-4"></i>
-                    🏠 Casa Funcional
+                    🏠 Casa & Garaje
                 </button>
-                <button onclick="navigate('wellbeing')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="wellbeing">
+                <button onclick="navigate('paz')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="paz">
                     <i data-lucide="instagram" class="w-4 h-4"></i>
                     📱 Paz en Redes
                 </button>
-                <button onclick="navigate('relationships')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="relationships">
-                    <i data-lucide="users" class="w-4 h-4"></i>
-                    🤝 Conectar y Amigos
+                <button onclick="navigate('guides')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="guides">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    🤝 Guías & Vínculos
                 </button>
-                <button onclick="navigate('settings')" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="settings">
+                <button onclick="navigate('settings')" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50" data-page="settings">
                     <i data-lucide="settings" class="w-4 h-4"></i>
                     Ajustes
                 </button>
@@ -181,31 +185,35 @@
 
             <!-- Navegación Inferior (Móvil) -->
             <nav class="md:hidden flex bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 justify-around py-2 px-1 flex-shrink-0 z-20 overflow-x-auto scrollbar-none">
-                <button onclick="navigate('dashboard')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="dashboard">
+                <button onclick="navigate('dashboard')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="dashboard">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
                     <span>Inicio</span>
                 </button>
-                <button onclick="navigate('money')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="money">
+                <button onclick="navigate('todos')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="todos">
+                    <i data-lucide="check-square" class="w-4 h-4"></i>
+                    <span>Tareas</span>
+                </button>
+                <button onclick="navigate('money')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="money">
                     <i data-lucide="wallet" class="w-4 h-4"></i>
                     <span>Dinero</span>
                 </button>
-                <button onclick="navigate('shopping')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="shopping">
+                <button onclick="navigate('shopping')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="shopping">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                     <span>Compras</span>
                 </button>
-                <button onclick="navigate('habits')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="habits">
-                    <i data-lucide="activity" class="w-4 h-4"></i>
-                    <span>Hábitos</span>
+                <button onclick="navigate('health')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="health">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                    <span>Salud</span>
                 </button>
-                <button onclick="navigate('house')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="house">
+                <button onclick="navigate('house')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="house">
                     <i data-lucide="home" class="w-4 h-4"></i>
                     <span>Casa</span>
                 </button>
-                <button onclick="navigate('wellbeing')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="wellbeing">
+                <button onclick="navigate('paz')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="paz">
                     <i data-lucide="instagram" class="w-4 h-4"></i>
-                    <span>Redes</span>
+                    <span>Paz</span>
                 </button>
-                <button onclick="navigate('settings')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2" data-page="settings">
+                <button onclick="navigate('settings')" class="mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold px-2.5" data-page="settings">
                     <i data-lucide="settings" class="w-4 h-4"></i>
                     <span>Ajustes</span>
                 </button>
@@ -213,8 +221,7 @@
         </main>
     </div>
 
-
-    <!-- Modal: Modo Mínimo (Supervivencia de Emergencia) -->
+    <!-- Modales -->
     <div id="modo-minimo-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
         <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl space-y-4">
             <div class="flex items-center gap-2 text-rose-500 font-extrabold text-base">
@@ -222,51 +229,49 @@
                 Modo Mínimo: Survival Kit
             </div>
             <p class="text-xs text-slate-400">Cuando la vida o la ansiedad se sientan abrumadoras, haz únicamente estas 10 cosas para sobrevivir hoy:</p>
-
             <div class="space-y-2 text-xs">
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>1. Paga vivienda, servicios y deudas mínimas.</span>
+                    <span>1. Paga tu vivienda, servicios y deudas mínimas.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>2. Come algo suficiente y nutritivo.</span>
+                    <span>2. Come algo nutritivo y suficiente.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>3. Toma tus medicamentos prescritos.</span>
+                    <span>3. Toma tus medicamentos y suplementos prescritos.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>4. Reduce riesgos de consumo (alcohol y tabaco).</span>
+                    <span>4. Limita y reduce riesgos de consumo (alcohol y tabaco).</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>5. Lava los trastes/platos más esenciales para hoy.</span>
+                    <span>5. Lava los platos o trastes más esenciales de hoy.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>6. Asegura tener al menos una prenda limpia.</span>
+                    <span>6. Asegura tener ropa limpia suficiente.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>7. Tira la basura visible para evitar olores.</span>
+                    <span>7. Tira la basura acumulada.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>8. Duerme y descansa el tiempo necesario.</span>
+                    <span>8. Duerme y descansa con el teléfono apagado.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>9. Responde únicamente a los mensajes urgentes.</span>
+                    <span>9. Responde únicamente a los mensajes urgentes de trabajo/familia.</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                     <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
-                    <span>10. Pide ayuda a un amigo o familiar si el sistema no es sostenible.</span>
+                    <span>10. Pide ayuda explícita cuando el sistema no sea sostenible solo.</span>
                 </div>
             </div>
-
-            <button onclick="closeModoMinimoModal()" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold">Cerrar Guía de Emergencia</button>
+            <button onclick="closeModoMinimoModal()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-sm">Cerrar Modo Mínimo</button>
         </div>
     </div>
 
@@ -277,24 +282,24 @@
             <p class="text-xs text-slate-400">Una vez por semana, reflexiona de forma honesta y libre de culpa:</p>
             <form onsubmit="saveWeeklyEvaluation(event)" class="space-y-3 text-xs">
                 <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">1. Dinero: ¿Cómo se comportaron tus gastos?</label>
-                    <input type="text" id="eval-money" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="¿Tuviste compras impulsivas o lograste mantener las deudas controladas?" required>
+                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">1. Dinero: ¿Aumentó o disminuyó tu deuda? ¿Qué compras fueron útiles e impulsivas?</label>
+                    <input type="text" id="eval-money" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
                 </div>
                 <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">2. Hábitos: ¿Qué detonantes de consumo detectaste?</label>
-                    <input type="text" id="eval-habits" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="¿Se repitió alguna situación de deseo de alcohol o tabaco?" required>
+                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">2. Consumos: ¿Cuánto consumiste y qué detonantes de alcohol/tabaco se repitieron?</label>
+                    <input type="text" id="eval-habits" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
                 </div>
                 <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">3. Hogar: ¿Qué tarea puedes simplificar?</label>
-                    <input type="text" id="eval-house" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="¿Qué cosas dejaron de funcionar o qué suministros faltan?" required>
+                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">3. Hogar: ¿Qué dejó de funcionar, qué tarea puedes simplificar o qué insumo falta?</label>
+                    <input type="text" id="eval-house" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
                 </div>
                 <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">4. Atención: ¿Qué cuentas o apps debes silenciar?</label>
-                    <input type="text" id="eval-attention" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="¿Qué aplicaciones te consumieron más tiempo esta semana?" required>
+                    <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">4. Atención: ¿Qué aplicaciones te consumieron más tiempo y qué cuentas debes silenciar?</label>
+                    <input type="text" id="eval-attention" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" required>
                 </div>
                 <div class="flex gap-2 pt-2">
                     <button type="button" onclick="closeWeeklyEvaluationModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
-                    <button type="submit" class="flex-1 py-2 bg-theme-purple-600 text-white rounded-xl font-semibold">Guardar Evaluación</button>
+                    <button type="submit" class="flex-1 py-2 bg-purple-600 text-white rounded-xl font-semibold">Guardar Evaluación</button>
                 </div>
             </form>
         </div>
@@ -310,43 +315,64 @@
             fontSize: 'base',
             affirmationMode: true,
 
-            // 1. DINERO SIN DRAMA
-            card: {
-                cutoffDay: 15,
-                limitDay: 5,
-                noInterestBalance: 0,
-                minPay: 0,
-                newPurchases: 0,
-                interestRate: 45,
-                annualFee: 0,
-                benefits: "2% Cashback en gasolina y supermercados."
-            },
+            // Tareas & Ruleta
+            todos: [
+                { id: 1, title: 'Lavar las toallas de baño', category: 'hogar', completed: false, recurring: 'semanal', lastDone: null },
+                { id: 2, title: 'Limpieza profunda del refrigerador', category: 'hogar', completed: false, recurring: 'mensual', lastDone: null },
+                { id: 3, title: 'Comprobar el reporte de crédito gratuito', category: 'adulting', completed: false, recurring: 'anual', lastDone: null },
+                { id: 4, title: 'Llamar a mi abuela', category: 'personal', completed: false, recurring: 'libre', lastDone: null }
+            ],
+
+            // 1. Dinero sin Drama
+            card: { cutoffDay: 15, limitDay: 5, noInterestBalance: 0, minPay: 0, newPurchases: 0, interestRate: 45, annualFee: 0, benefits: "2% Cashback en gasolina y supermercados." },
             deudas: [
                 { id: 1, name: 'Tarjeta de Crédito Oro', balance: 1200, interest: 48, minPay: 60, dueDate: '2026-03-05' },
                 { id: 2, name: 'Préstamo Personal', balance: 3500, interest: 18, minPay: 150, dueDate: '2026-03-12' },
                 { id: 3, name: 'Electrodoméstico a Plazos', balance: 450, interest: 0, minPay: 45, dueDate: '2026-03-20' }
             ],
-            impuestos: {
-                checked: false,
-                separatedTax: 0,
-                monthlyIncome: 2500
+            budget: {
+                monthlyIncome: 2500,
+                bills: [
+                    { id: 1, name: 'Alquiler Departamental', amount: 950, dueDate: '2026-04-01', recur: 'mensual', paid: false },
+                    { id: 2, name: 'Suministro Luz y Energía', amount: 85, dueDate: '2026-03-25', recur: 'mensual', paid: false },
+                    { id: 3, name: 'Seguro de coche', amount: 90, dueDate: '2026-03-28', recur: 'mensual', paid: false }
+                ]
             },
+            impuestos: { checked: false, separatedTax: 0 },
             seguros: [
                 { id: 1, type: 'Automóvil Cobertura Amplia', company: 'Seguros GNP', policy: 'POL-99-ABC', cost: 120, renewal: '2026-11-20', deductible: '5%', maxCoverage: 'Siniestro total', exclusions: 'Carreras o bajo influjo de alcohol', phone: '800-800-4000', claimSteps: 'Reportar antes de 24h, fotos y no mover el coche.' }
             ],
 
-            // 2. ¿NECESITO COMPRAR ESTO?
-            hourlyWage: 15, // Salario por hora de trabajo neto
+            // 2. ¿Comprar o no?
+            hourlyWage: 15,
 
-            // 3. Hábitos y Consumos (Tabaco/Alcohol)
+            // 3. Hábitos & Salud
             habits: {
-                alcoholDaily: [], // { date, beverage, qty, beforeMood, afterMood, nextDayMood, cost }
-                smokeDaily: [] // { date, qty, trigger, urgeLevel (1-10) }
+                alcoholDaily: [],
+                smokeDaily: []
             },
+            health: {
+                prescriptions: [
+                    { id: 1, name: 'Multivitamínico diario', dosage: '1 tableta', time: '09:00', notes: 'Con el desayuno', alert: true },
+                    { id: 2, name: 'Medicamento alergias', dosage: '10mg', time: '21:00', notes: 'Por la noche si es necesario', alert: false }
+                ],
+                vaccines: [
+                    { id: 1, name: 'Refuerzo Tétanos', date: '2022-05-14', expiry: '2032-05-14' },
+                    { id: 2, name: 'Vacuna Influenza', date: '2025-10-01', expiry: '2026-10-01' }
+                ],
+                allergies: 'Ninguna alergia severa reportada.',
+                doctors: [
+                    { id: 1, name: 'Dra. Gabriela Solís', specialty: 'Médico General', phone: '+52 55 1234 5678', notes: 'Consultorio 204, clínica norte' }
+                ],
+                notes: 'Presión arterial sistólica habitual: 115-120 mmHg.'
+            },
+            pets: [
+                { id: 1, name: 'Loki', species: 'Gato', breed: 'Mestizo', birthday: '2020-05-12', microchip: '981022410294102', vetName: 'Veterinaria San Francisco', vetPhone: '555-987-654', notes: 'Comida húmeda una vez al día.' }
+            ],
 
-            // 4. Casa Funcional
+            // 4. Casa & Garaje
             houseTodos: [
-                { id: 1, title: 'Lavar los trastes', completed: false, category: 'cocina' },
+                { id: 1, title: 'Lavar o guardar platos', completed: false, category: 'mínimo' },
                 { id: 2, title: 'Tirar la basura visible', completed: false, category: 'mínimo' },
                 { id: 3, title: 'Limpiar una superficie', completed: false, category: 'mínimo' },
                 { id: 4, title: 'Guardar la ropa limpia', completed: false, category: 'mínimo' },
@@ -359,28 +385,33 @@
                 { id: 4, name: 'Limpiador de pisos', status: 'por-comprar' },
                 { id: 5, name: 'Bolsas de basura', status: 'disponible' }
             ],
+            vehicles: [
+                { id: 1, name: 'Mi Coche Principal', brand: 'Toyota', model: 'Corolla', year: '2018', plate: 'ABC-1234', mileage: 65000, insuranceExpiry: '2026-10-15', oilChangeInterval: 10000, lastOilMileage: 60000 }
+            ],
             outfitSettings: {
-                dayType: 'casual', // casual, work, event, conference
+                dayType: 'casual',
                 lastCity: 'Madrid, España',
                 weatherData: { temp: 16, condition: 'cloudy', label: 'Parcialmente Nublado⛅', wind: 'light', rain: false }
             },
 
-            // 5. Cuestionarios / Paneles Semanales
-            weeklyEvaluations: [],
+            // 5. Paz en redes / Diario
             journalEntries: [
-                { id: 1, date: '2026-03-01', text: 'Hoy comencé mi transición al orden. Modo Adulto me da el espacio mental que necesito sin juzgarme.' }
-            ]
+                { id: 1, date: '2026-03-01', text: 'Hoy comencé a usar mi app de organización personal. Me siento motivado para organizar mi garaje y mis finanzas!' }
+            ],
+
+            // Evaluaciones
+            weeklyEvaluations: []
         };
 
-        let state = JSON.parse(localStorage.getItem('modo_adulto_state')) || DEFAULT_STATE;
+        let state = JSON.parse(localStorage.getItem('modo_adulto_combined_state')) || DEFAULT_STATE;
 
         function saveState() {
-            localStorage.setItem('modo_adulto_state', JSON.stringify(state));
+            localStorage.setItem('modo_adulto_combined_state', JSON.stringify(state));
             updateThemeClasses();
             updateAlertIndicators();
         }
 
-        // --- SISTEMA DE TEMAS Y APARIENCIA ---
+        // --- APARIENCIA ---
         function updateThemeClasses() {
             const body = document.body;
             const root = document.documentElement;
@@ -412,7 +443,7 @@
 
                 btn.className = btn.classList.contains('mobile-nav-btn')
                     ? "mobile-nav-btn flex flex-col items-center gap-0.5 text-xs font-semibold " + (isActive ? activeColor.primary : "text-slate-400 dark:text-slate-500")
-                    : "nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 " + (isActive ? `${activeColor.activeBg} ${activeColor.activeText} dark:bg-slate-700/60` : "text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50");
+                    : "nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 " + (isActive ? `${activeColor.activeBg} ${activeColor.activeText} dark:bg-slate-700/60` : "text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700/50");
             });
         }
 
@@ -421,13 +452,16 @@
             saveState();
         }
 
-        // --- SISTEMA DE ALERTAS ---
+        // --- DEUDAS & ALERTAS ---
         function checkAlerts() {
             let hasAlerts = false;
-            // Alerta si hay deudas pendientes importantes o si la fecha límite de tarjeta está cerca
-            if (state.card.noInterestBalance > 0) hasAlerts = true;
-            state.deudas.forEach(d => {
-                if (d.balance > 0) hasAlerts = true;
+            state.vehicles.forEach(v => {
+                if (v.mileage - v.lastOilMileage >= v.oilChangeInterval) hasAlerts = true;
+            });
+            state.budget.bills.forEach(b => {
+                if (!b.paid) {
+                    if (new Date(b.dueDate) < new Date()) hasAlerts = true;
+                }
             });
             return hasAlerts;
         }
@@ -441,143 +475,17 @@
             }
         }
 
-
-        // --- MOTOR DE VISTAS (RENDER PAGE) ---
-        function renderPage(page) {
-            const themeColor = state.theme;
-
-            switch (page) {
-                case 'dashboard':
-                    const completedH = state.houseTodos.filter(t => t.completed).length;
-                    const totalH = state.houseTodos.length;
-                    const progressHPct = totalH > 0 ? Math.round((completedH / totalH) * 100) : 0;
-
-                    return `
-                        <!-- Tarjeta de bienvenida -->
-                        <div class="p-6 bg-gradient-to-r from-theme-${themeColor}-500 to-theme-${themeColor}-600 text-white rounded-3xl shadow-xl relative overflow-hidden">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-white/80 block">Modo Adulto</span>
-                            <h3 class="text-xl font-bold mt-2">¿Qué necesitas resolver hoy?</h3>
-                            <p class="text-xs text-white/80 mt-1">Sistemas mínimos de supervivencia para cuando estás cansado o abrumado.</p>
-                        </div>
-
-                        <!-- Grid de Categorías de Inicio -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <!-- Dinero -->
-                            <div onclick="navigate('money')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
-                                <span class="p-2.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl inline-block">
-                                    <i data-lucide="wallet" class="w-5 h-5"></i>
-                                </span>
-                                <h4 class="font-bold text-sm">💳 Dinero sin Drama</h4>
-                                <p class="text-xs text-slate-400">Revisar tarjetas, deudas, seguros o preparar tus obligaciones fiscales.</p>
-                            </div>
-
-                            <!-- Compras -->
-                            <div onclick="navigate('shopping')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
-                                <span class="p-2.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 rounded-xl inline-block">
-                                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                                </span>
-                                <h4 class="font-bold text-sm">🛍️ ¿Necesito Comprar?</h4>
-                                <p class="text-xs text-slate-400">Asistente de compras y cables a tierra para domar la culpa o impulsos.</p>
-                            </div>
-
-                            <!-- Hábitos -->
-                            <div onclick="navigate('habits')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
-                                <span class="p-2.5 bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-xl inline-block">
-                                    <i data-lucide="activity" class="w-5 h-5"></i>
-                                </span>
-                                <h4 class="font-bold text-sm">🍷 Hábitos & Consumos</h4>
-                                <p class="text-xs text-slate-400">Reducción atómica de alcohol, cigarrillos y control del deseo paso a paso.</p>
-                            </div>
-
-                            <!-- Casa Funcional -->
-                            <div onclick="navigate('house')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
-                                <span class="p-2.5 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl inline-block">
-                                    <i data-lucide="home" class="w-5 h-5"></i>
-                                </span>
-                                <h4 class="font-bold text-sm">🏠 Casa Funcional</h4>
-                                <p class="text-xs text-slate-400">Mínimos diarios, temporizador de 15 minutos, despensas y clima.</p>
-                            </div>
-                        </div>
-
-                        <!-- Resumen y Progreso -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Progreso Casa -->
-                            <div class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-3">
-                                <h4 class="font-bold text-sm text-slate-800 dark:text-white">Mínimos del Hogar de hoy</h4>
-                                <p class="text-xs text-slate-400">Progreso de tus 5 actividades de supervivencia diaria:</p>
-                                <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
-                                    <div class="bg-amber-500 h-2 rounded-full transition-all" style="width: ' + progressHPct + '%"></div>
-                                </div>
-                                <div class="flex justify-between items-center text-xs">
-                                    <span class="text-slate-400">' + completedH + '/' + totalH + ' Completadas</span>
-                                    <button onclick="navigate(\'house\')" class="text-amber-600 dark:text-amber-400 font-bold hover:underline">Ver checklist →</button>
-                                </div>
-                            </div>
-
-                            <!-- Clima y Ropa -->
-                            <div class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-between gap-4">
-                                <div class="space-y-1">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Qué me pongo hoy</span>
-                                    <h4 class="font-bold text-sm text-slate-800 dark:text-white">Clima: ' + state.outfitSettings.weatherData.temp + '°C</h4>
-                                    <p class="text-xs text-slate-400">' + state.outfitSettings.weatherData.label + '</p>
-                                </div>
-                                <button onclick="navigate(\'house\')" class="p-3 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-2xl hover:scale-105 transition-transform">
-                                    <i data-lucide="shirt" class="w-6 h-6"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Emergencia: Modo Mínimo -->
-                        <div class="bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                            <div class="flex items-center gap-3">
-                                <span class="p-3 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 rounded-xl">
-                                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
-                                </span>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm">¿Te sientes al límite o abrumado hoy?</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">Activa el Modo Mínimo para reducir tus tareas a lo verdaderamente crucial para sobrevivir hoy.</p>
-                                </div>
-                            </div>
-                            <button onclick="openModoMinimoModal()" class="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-md shadow-rose-500/10">Activar Modo Mínimo</button>
-                        </div>
-                    `;
-
-                case 'money':
-                    return renderModuloDinero();
-
-                case 'shopping':
-                    return renderModuloCompras();
-
-                case 'habits':
-                    return renderModuloHabitos();
-
-                case 'house':
-                    return renderModuloCasa();
-
-                case 'wellbeing':
-                    return renderModuloRedes();
-
-                case 'relationships':
-                    return renderModuloRelaciones();
-
-                case 'outfit': return renderModuloOutfit();
-                case 'settings':
-                    return renderModuloAjustes();
-            }
-        }
-
-        // --- DELEGACIÓN DE SUB-RENDERS ---
-
         // --- ENRUTADOR ---
         let currentPage = 'dashboard';
         const pageTitles = {
             dashboard: 'Inicio / Hoy',
+            todos: 'Tareas & Ruleta',
             money: 'Dinero sin Drama',
             shopping: '¿Comprar o no?',
-            habits: 'Hábitos & Consumos',
-            house: 'Casa Funcional',
-            wellbeing: 'Paz en Redes',
-            relationships: 'Conectar y Amigos',
+            health: 'Hábitos & Salud',
+            house: 'Casa & Garaje',
+            paz: 'Paz en Redes',
+            guides: 'Guías & Vínculos',
             settings: 'Ajustes'
         };
 
@@ -596,147 +504,729 @@
             lucide.createIcons();
         }
 
-
-        // --- DELEGACIÓN DE SUB-RENDERS DE MÓDULOS ---
-
-        // --- MÓDULO 3: HÁBITOS & CONSUMOS ---
-        function renderModuloHabitos() {
+        // --- MOTOR DE VISTAS (RENDER PAGE) ---
+        function renderPage(page) {
             const themeColor = state.theme;
 
-            // Historial rápido alcohol
-            let alcoholHtml = '';
-            state.habits.alcoholDaily.slice(0, 5).forEach(a => {
-                alcoholHtml += `
-                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-xs">
-                        <div class="flex justify-between items-center">
-                            <strong>${a.date} - ${a.beverage}</strong>
-                            <span class="text-rose-500 font-extrabold">$${a.cost || 0}</span>
+            switch (page) {
+                case 'dashboard':
+                    let alertCount = 0;
+                    let alertsHtml = '';
+                    state.vehicles.forEach(v => {
+                        if (v.mileage - v.lastOilMileage >= v.oilChangeInterval) {
+                            alertCount++;
+                            alertsHtml += `<div class="p-3 bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 rounded-r-xl text-xs">⚠️ <strong>Cambio de Aceite Vencido:</strong> ${v.name} (hace ${v.mileage - v.lastOilMileage} km).</div>`;
+                        }
+                    });
+                    state.budget.bills.forEach(b => {
+                        if (!b.paid && new Date(b.dueDate) < new Date()) {
+                            alertCount++;
+                            alertsHtml += `<div class="p-3 bg-rose-50 dark:bg-rose-950/20 border-l-4 border-rose-500 rounded-r-xl text-xs">⚠️ <strong>Factura Vencida:</strong> ${b.name} ($${b.amount}).</div>`;
+                        }
+                    });
+
+                    return `
+                        <!-- Bienvenida -->
+                        <div class="p-6 bg-gradient-to-r from-theme-${themeColor}-500 to-theme-${themeColor}-600 text-white rounded-3xl shadow-xl relative overflow-hidden">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-white/80 block">Modo Adulto</span>
+                            <h3 class="text-xl font-bold mt-2">¿Qué necesitas resolver hoy?</h3>
+                            <p class="text-xs text-white/80 mt-1">Mantén tu vida funcionando con sistemas mínimos, incluso cuando estás cansado o abrumado.</p>
                         </div>
-                        <p class="text-[10px] text-slate-400 mt-1">Sentía antes: ${a.beforeMood} • Después: ${a.afterMood} • Al día siguiente: ${a.nextDayMood}</p>
+
+                        <!-- Grid Principal -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div onclick="navigate('todos')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
+                                <span class="p-2.5 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-xl inline-block">
+                                    <i data-lucide="check-square" class="w-5 h-5"></i>
+                                </span>
+                                <h4 class="font-bold text-sm">🎯 Tareas & Ruleta</h4>
+                                <p class="text-xs text-slate-400">Tus pendientes y la ruleta para romper la parálisis por análisis.</p>
+                            </div>
+
+                            <div onclick="navigate('money')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
+                                <span class="p-2.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl inline-block">
+                                    <i data-lucide="wallet" class="w-5 h-5"></i>
+                                </span>
+                                <h4 class="font-bold text-sm">💳 Dinero sin Drama</h4>
+                                <p class="text-xs text-slate-400">Tarjetas de crédito, deudas, presupuesto e impuestos en un solo lugar.</p>
+                            </div>
+
+                            <div onclick="navigate('shopping')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
+                                <span class="p-2.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 rounded-xl inline-block">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                                </span>
+                                <h4 class="font-bold text-sm">🛍️ ¿Comprar o no?</h4>
+                                <p class="text-xs text-slate-400">Asistente contra impulsos y cables a tierra contra la culpa.</p>
+                            </div>
+
+                            <div onclick="navigate('health')" class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer space-y-3">
+                                <span class="p-2.5 bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-xl inline-block">
+                                    <i data-lucide="heart" class="w-5 h-5"></i>
+                                </span>
+                                <h4 class="font-bold text-sm">🏥 Hábitos & Salud</h4>
+                                <p class="text-xs text-slate-400">Control de alcohol/cigarrillos, recetas médicas y perfiles de mascotas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Fila Inferior (Alertas y Supervivencia) -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Alertas -->
+                            <div class="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <h4 class="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="shield-alert" class="w-5 h-5 text-rose-500"></i>
+                                    Alertas del Día
+                                </h4>
+                                <div class="space-y-2">
+                                    ${alertsHtml !== '' ? alertsHtml : `
+                                        <div class="text-center py-6 text-slate-400 text-xs">
+                                            <i data-lucide="check-circle" class="w-8 h-8 text-emerald-500 mx-auto mb-2"></i>
+                                            ¡Todo en orden! No tienes alertas de presupuesto ni coche hoy.
+                                        </div>
+                                    `}
+                                </div>
+                            </div>
+
+                            <!-- Emergencia rápida -->
+                            <div class="bg-rose-50 dark:bg-rose-950/20 rounded-2xl p-6 border border-rose-100 dark:border-rose-900/30 flex flex-col justify-between">
+                                <div class="space-y-1">
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-sm">¿Saturación extrema?</h4>
+                                    <p class="text-xs text-slate-500">Entra al Modo Mínimo para ver las únicas 10 acciones para sobrevivir hoy.</p>
+                                </div>
+                                <button onclick="openModoMinimoModal()" class="w-full mt-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-sm">Activar Modo Mínimo</button>
+                            </div>
+                        </div>
+                    `;
+
+                case 'todos':
+                    let listHtml = '';
+                    state.todos.forEach(t => {
+                        listHtml += `
+                            <div class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTodo(${t.id})" class="w-4 h-4 rounded text-theme-${themeColor}-600">
+                                    <span class="text-xs font-semibold ${t.completed ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-700 dark:text-slate-200'}">${t.title}</span>
+                                    <span class="text-[9px] px-2 py-0.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-400 rounded-full font-bold uppercase tracking-wider">${t.category}</span>
+                                </div>
+                                <button onclick="deleteTodo(${t.id})" class="text-slate-400 hover:text-rose-500">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        `;
+                    });
+
+                    return `
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <!-- Mis Pendientes -->
+                            <div class="lg:col-span-2 space-y-4">
+                                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                    <h3 class="text-base font-bold text-slate-900 dark:text-white">Mis Pendientes</h3>
+                                    <form onsubmit="addTodo(event)" class="flex gap-2">
+                                        <input type="text" id="new-todo-title" placeholder="¿Qué toca resolver hoy?" class="flex-1 px-3 py-2 border rounded-xl dark:bg-slate-900 text-xs focus:ring-1 focus:ring-theme-${themeColor}-500 focus:outline-none" required>
+                                        <select id="new-todo-category" class="px-2 py-2 border rounded-xl dark:bg-slate-900 text-xs">
+                                            <option value="hogar">Hogar</option>
+                                            <option value="adulting">Trámites</option>
+                                            <option value="personal">Personal</option>
+                                        </select>
+                                        <button type="submit" class="px-3 py-2 bg-theme-${themeColor}-600 text-white rounded-xl text-xs font-bold">Agregar</button>
+                                    </form>
+                                </div>
+                                <div class="space-y-2">
+                                    ${listHtml !== '' ? listHtml : '<p class="text-xs text-slate-400 text-center py-4">No tienes pendientes creados.</p>'}
+                                </div>
+                            </div>
+
+                            <!-- Ruleta de Decisiones -->
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center flex flex-col items-center justify-center">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">Ruleta de Decisiones</h3>
+                                <p class="text-[10px] text-slate-400 mb-6">¿Parálisis por análisis? ¡Gira y deja que la ruleta elija tu siguiente tarea!</p>
+
+                                <div class="wheel-container mb-6">
+                                    <canvas id="wheel-canvas" width="220" height="220" class="rounded-full shadow-md"></canvas>
+                                    <!-- Flecha -->
+                                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[16px] border-t-rose-500"></div>
+                                </div>
+
+                                <button onclick="spinWheel()" class="w-full py-2.5 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-bold shadow-sm">Girar Ruleta</button>
+                                <p id="wheel-result" class="text-xs font-bold text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 mt-4 min-h-[16px]"></p>
+                            </div>
+                        </div>
+                    `;
+
+                case 'money':
+                    return renderModuloDinero();
+
+                case 'shopping':
+                    return renderModuloCompras();
+            }
+        }
+
+        // --- SUB-RENDERS MÓDULO 1 Y 2 ---
+        function renderModuloDinero() {
+            const themeColor = state.theme;
+            const card = state.card;
+
+            // Deudas
+            let deudasHtml = '';
+            state.deudas.forEach(d => {
+                deudasHtml += `
+                    <div class="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-800 dark:text-slate-100">${d.name}</h4>
+                            <p class="text-[10px] text-slate-400">Interés: ${d.interest}% • Mínimo: $${d.minPay} • Vence: ${d.dueDate}</p>
+                        </div>
+                        <div class="text-right flex items-center gap-3">
+                            <span class="text-xs font-extrabold text-slate-800 dark:text-white">$${d.balance}</span>
+                            <button onclick="deleteDeuda(${d.id})" class="text-slate-400 hover:text-rose-500">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
             });
 
-            // Historial rápido tabaco
-            let smokeHtml = '';
-            state.habits.smokeDaily.slice(0, 5).forEach(s => {
-                smokeHtml += `
-                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-xs">
-                        <div class="flex justify-between items-center">
-                            <strong>${s.date} - ${s.qty} cigarrillos</strong>
-                            <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-400 text-[9px] rounded-full font-bold">Deseo: ${s.urgeLevel}/10</span>
+            // Presupuesto
+            let billsHtml = '';
+            state.budget.bills.forEach(b => {
+                billsHtml += `
+                    <div class="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl text-xs">
+                        <div class="flex items-center gap-2">
+                            <button onclick="toggleBillPaid(${b.id})" class="text-slate-400 hover:text-theme-${themeColor}-600">
+                                <i data-lucide="${b.paid ? 'check-circle' : 'circle'}" class="w-4 h-4"></i>
+                            </button>
+                            <span class="${b.paid ? 'line-through text-slate-400' : 'font-bold'}">${b.name}</span>
                         </div>
-                        <p class="text-[10px] text-slate-400 mt-1">Detonante: ${s.trigger}</p>
+                        <span class="font-bold">$${b.amount}</span>
                     </div>
                 `;
             });
+
+            const totalIncome = state.budget.monthlyIncome;
+            const totalBills = state.budget.bills.reduce((sum, b) => sum + (b.paid ? 0 : b.amount), 0);
 
             return `
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Registro y Seguimiento -->
-                    <div class="space-y-6">
-                        <!-- Alcohol -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Tarjetas de crédito -->
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
                             <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                <i data-lucide="wine" class="w-5 h-5 text-rose-500"></i>
-                                Observar Consumo de Alcohol
+                                <i data-lucide="credit-card" class="w-5 h-5 text-indigo-500"></i>
+                                Mi Tarjeta de Crédito Principal
                             </h3>
-                            <form onsubmit="addAlcoholRecord(event)" class="space-y-3 text-xs">
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-slate-400 mb-1">¿Qué bebiste?</label>
-                                        <input type="text" id="alc-beverage" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Cerveza, Vino" required>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-slate-400 mb-1">Costo ($)</label>
-                                        <input type="number" id="alc-cost" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. 12" required>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-slate-400 mb-1">Emoción antes</label>
-                                        <input type="text" id="alc-before" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Ansiedad, estrés" required>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-slate-400 mb-1">Emoción después</label>
-                                        <input type="text" id="alc-after" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Relajación rápida" required>
-                                    </div>
-                                </div>
-                                <button type="submit" class="w-full py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl font-semibold shadow-sm">Registrar Trago</button>
-                            </form>
-                            <div class="space-y-2 pt-2">
-                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Últimos Registros</h4>
-                                ${alcoholHtml !== '' ? alcoholHtml : '<p class="text-xs text-slate-400 py-2">No hay consumos registrados esta semana.</p>'}
-                            </div>
-                        </div>
-
-                        <!-- Tabaco o Cigarros -->
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                <i data-lucide="flame" class="w-5 h-5 text-amber-500"></i>
-                                Reducción de Cigarros / Nicotina
-                            </h3>
-                            <form onsubmit="addSmokeRecord(event)" class="space-y-3 text-xs">
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-slate-400 mb-1">Cantidad fumada</label>
-                                        <input type="number" id="smk-qty" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" value="1" required>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-slate-400 mb-1">Deseo (1 al 10)</label>
-                                        <input type="number" id="smk-urge" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" min="1" max="10" value="5" required>
-                                    </div>
+                            <form onsubmit="saveCardDetails(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Día de Corte (1 al 31)</label>
+                                    <input type="number" id="card-cutoff" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="${card.cutoffDay}" required>
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Situación detonante</label>
-                                    <input type="text" id="smk-trigger" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Al salir de junta de trabajo" required>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Días límite tras corte</label>
+                                    <input type="number" id="card-limit" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="${card.limitDay}" required>
                                 </div>
-                                <button type="submit" class="w-full py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl font-semibold shadow-sm">Registrar Cigarro</button>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Saldo para NO generar intereses ($)</label>
+                                    <input type="number" id="card-no-interest" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="${card.noInterestBalance}" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Pago mínimo requerido ($)</label>
+                                    <input type="number" id="card-min-pay" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="${card.minPay}" required>
+                                </div>
+                                <button type="submit" class="sm:col-span-2 py-2 bg-theme-${themeColor}-600 text-white font-bold rounded-xl text-xs shadow-sm">Guardar Estado de Tarjeta</button>
                             </form>
-                            <div class="space-y-2 pt-2">
-                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Últimos Registros</h4>
-                                ${smokeHtml !== '' ? smokeHtml : '<p class="text-xs text-slate-400 py-2">No hay registros de nicotina.</p>'}
+                        </div>
+
+                        <!-- Deudas -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                                <h3 class="text-base font-bold">Control de Deudas</h3>
+                                <button onclick="openAddDeudaModal()" class="text-xs font-bold text-theme-${themeColor}-600">+ Añadir Deuda</button>
                             </div>
+                            <div class="space-y-2">
+                                ${deudasHtml !== '' ? deudasHtml : '<p class="text-xs text-slate-400 text-center py-4">¡Felicidades! No tienes deudas registradas.</p>'}
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="showDebtStrategy('avalancha')" class="flex-1 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/20 text-indigo-600 text-xs font-bold rounded-xl">Estrategia Avalancha</button>
+                                <button onclick="showDebtStrategy('bola')" class="flex-1 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/20 text-emerald-600 text-xs font-bold rounded-xl">Estrategia Bola de Nieve</button>
+                            </div>
+                            <div id="strategy-explanation" class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs text-slate-500 leading-relaxed hidden"></div>
                         </div>
                     </div>
 
-                    <!-- Técnicas y Guías Hábitos Atómicos -->
-                    <div class="space-y-6 text-xs leading-relaxed">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                            <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                <i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i>
-                                Guía Atómica de Reducción
-                            </h3>
-                            <div class="space-y-3">
-                                <div class="p-3 bg-emerald-50 dark:bg-emerald-950/20 border-l-3 border-emerald-500 rounded-r-xl">
-                                    <strong>Fórmula de Sustitución:</strong><br>
-                                    "Después de [situación detonante], haré [acción alternativa] durante [tiempo]."
-                                    <p class="mt-1 text-slate-500 italic">Ejemplo: "Después de comer, masticaré un chicle y esperaré 10 minutos antes de decidir si fumo."</p>
+                    <!-- Presupuesto e Impuestos -->
+                    <div class="space-y-6">
+                        <!-- Presupuesto -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-xs">
+                            <div class="flex justify-between items-center border-b pb-2">
+                                <h3 class="font-bold text-sm">Mi Presupuesto</h3>
+                                <button onclick="updateIncome()" class="text-theme-${themeColor}-600 font-bold hover:underline">Ajustar Ingreso</button>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 text-center">
+                                <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                                    <span class="text-[10px] text-slate-400 block font-bold">INGRESO NETO</span>
+                                    <strong class="text-base text-emerald-600">$${totalIncome}</strong>
                                 </div>
-                                <div class="p-3 bg-amber-50 dark:bg-amber-950/20 border-l-3 border-amber-500 rounded-r-xl">
-                                    <strong>Incrementa la Fricción (Trucos):</strong><br>
-                                    • Elimina ceniceros y encendedores de tu vista.<br>
-                                    • No guardes reservas ni compres cajas completas; compra unidades sueltas.<br>
-                                    • Retira tu tarjeta de las aplicaciones de delivery de alcohol a domicilio.<br>
-                                    • Evita transitar de forma rutinaria por las calles de tu tienda habitual.
+                                <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                                    <span class="text-[10px] text-slate-400 block font-bold">FACTURAS PEN.</span>
+                                    <strong class="text-base text-rose-600">$${totalBills}</strong>
                                 </div>
+                            </div>
+                            <div class="space-y-2">
+                                ${billsHtml}
                             </div>
                         </div>
 
-                        <!-- Botón de urgencia temporal -->
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center space-y-3">
-                            <h4 class="font-bold text-slate-800 dark:text-white">¿Tienes un antojo o impulso fuerte justo ahora?</h4>
-                            <p class="text-xs text-slate-400">Nombra el impulso, puntúalo de nivel y asume el reto de posponerlo por solo 10 minutos.</p>
-                            <button onclick="triggerTenMinutesReset()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold shadow-md shadow-rose-500/10 flex items-center justify-center gap-2">
-                                <i data-lucide="shield-alert" class="w-4 h-4"></i> ¡Activar Reto de 10 Minutos!
-                            </button>
+                        <!-- Impuestos -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="calculator" class="w-5 h-5 text-emerald-500"></i>
+                                Retención Impuestos (30%)
+                            </h3>
+                            <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span>Impuesto estimado (30%):</span>
+                                    <strong class="text-emerald-600">$${Math.round(totalIncome * 0.3)}</strong>
+                                </div>
+                                <div class="pt-2 border-t">
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Monto separado actualmente ($)</label>
+                                    <input type="number" id="tax-separated" onblur="updateTaxSeparated(this.value)" class="w-full px-3 py-1.5 border rounded-lg dark:bg-slate-800" value="${state.impuestos.separatedTax}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        // --- MÓDULO 4: CASA FUNCIONAL Y CLIMA ---
+        // --- SUB-RENDER MÓDULO 2 ---
+        function renderModuloCompras() {
+            const themeColor = state.theme;
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Asistente "Evaluar Compra" -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i data-lucide="help-circle" class="w-5 h-5 text-indigo-500"></i>
+                            Asistente: Evaluar Gasto / Compra
+                        </h3>
+                        <p class="text-xs text-slate-400">Antes de gastar en un impulso o tomar una decisión financiera, sigue estas cinco sencillas preguntas:</p>
+
+                        <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-4 text-xs">
+                            <div>
+                                <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">1. Precio del producto/servicio ($)</label>
+                                <input type="number" id="eval-price" oninput="calculateHoursCost()" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700" placeholder="Ej. 150">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-slate-700 dark:text-slate-200 mb-1">2. Tu salario neto por hora trabajada ($)</label>
+                                <input type="number" id="eval-hourly" oninput="calculateHoursCost()" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700" value="${state.hourlyWage}">
+                            </div>
+
+                            <div class="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-sm font-bold text-slate-800 dark:text-white">
+                                <span>Costo real en esfuerzo:</span>
+                                <span id="eval-hours-result" class="text-indigo-600 dark:text-indigo-400">0 horas de trabajo</span>
+                            </div>
+                        </div>
+
+                        <!-- Pausa obligatoria basada en precio -->
+                        <div class="p-3 bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 rounded-r-xl text-xs text-slate-600 dark:text-slate-300">
+                            <strong>Pauta de espera recomendada:</strong>
+                            <p id="eval-pause-rule" class="mt-1">Espera 24 horas antes de comprar un objeto menor a $20.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cable a Tierra (Ansiedad por comprar vs Impulso) -->
+                    <div class="space-y-6">
+                        <!-- Pantalla contra impulsos -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="compass" class="w-5 h-5 text-rose-500"></i>
+                                Control de Impulso - Lee esto
+                            </h3>
+                            <div class="space-y-3.5 text-xs text-slate-500 dark:text-slate-300 italic">
+                                <p>"La urgencia que siento por comprar no demuestra que necesite el objeto."</p>
+                                <p>"Una oferta no es un ahorro real si no planeaba comprar este artículo."</p>
+                                <p>"Puedo desear algo y apreciar su diseño sin tener que poseerlo hoy."</p>
+                                <p>"No necesito compensar una emoción incómoda mediante una transacción comercial."</p>
+                            </div>
+
+                            <div class="pt-2">
+                                <button onclick="triggerTenMinutesReset()" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
+                                    <i data-lucide="timer" class="w-4 h-4"></i> Alternativa de 10 minutos
+                                </button>
+                                <p id="ten-min-status" class="text-[10px] text-slate-400 text-center mt-2 italic hidden"></p>
+                            </div>
+                        </div>
+
+                        <!-- Alivio de Ansiedad por Gastos Necesarios -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="smile" class="w-5 h-5 text-emerald-500"></i>
+                                Culpa al Gastar (Gastos Necesarios)
+                            </h3>
+                            <p class="text-xs text-slate-400">Si este gasto es necesario (salud, comida, vivienda) pero sientes culpa:</p>
+                            <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                                <p>✔️ <em>"Este gasto no es una falla de carácter, es el mantenimiento de mi vida."</em></p>
+                                <p>✔️ <em>"Ahorrar no significa privarse de todo. Significa acumular recursos para usarlos cuando cumplen una función crucial."</em></p>
+                                <p>✔️ <em>"Pagar por mi salud, mi descanso, mi seguridad o el mantenimiento preventivo no es desperdiciar dinero."</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- LÓGICA DE TAREAS Y SÍPER RECREATIVA RULETA CANVAS ---
+        function addTodo(e) {
+            e.preventDefault();
+            const titleInput = document.getElementById('new-todo-title');
+            const categorySelect = document.getElementById('new-todo-category');
+            if (!titleInput) return;
+
+            state.todos.push({
+                id: Date.now(),
+                title: titleInput.value.trim(),
+                category: categorySelect.value,
+                completed: false,
+                recurring: 'libre',
+                lastDone: null
+            });
+            saveState();
+            navigate('todos');
+        }
+
+        function toggleTodo(id) {
+            state.todos = state.todos.map(t => t.id === id ? { ...t, completed: !t.completed, lastDone: !t.completed ? new Date().toISOString().split('T')[0] : t.lastDone } : t);
+            saveState();
+            navigate('todos');
+        }
+
+        function deleteTodo(id) {
+            state.todos = state.todos.filter(t => t.id !== id);
+            saveState();
+            navigate('todos');
+        }
+
+        let isSpinning = false;
+        let wheelAngle = 0;
+
+        function drawWheel() {
+            const canvas = document.getElementById('wheel-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const center = canvas.width / 2;
+
+            let activeTasks = state.todos.filter(t => !t.completed).map(t => t.title);
+            if (activeTasks.length === 0) {
+                activeTasks = ['Lavar trastes', 'Tomar agua', 'Hacer ejercicio', 'Leer un libro', 'Llamar abuela', 'Meditar 5m'];
+            }
+
+            const slices = activeTasks.length;
+            const sliceAngle = (2 * Math.PI) / slices;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const colors = ['#a855f7', '#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#6366f1', '#14b8a6'];
+
+            for (let i = 0; i < slices; i++) {
+                ctx.beginPath();
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.moveTo(center, center);
+                ctx.arc(center, center, center - 8, i * sliceAngle + wheelAngle, (i + 1) * sliceAngle + wheelAngle);
+                ctx.lineTo(center, center);
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(center, center);
+                ctx.rotate(i * sliceAngle + sliceAngle / 2 + wheelAngle);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 9px sans-serif";
+
+                let text = activeTasks[i];
+                if (text.length > 18) text = text.substring(0, 15) + '...';
+                ctx.fillText(text, center - 16, 3);
+                ctx.restore();
+            }
+
+            ctx.beginPath();
+            ctx.arc(center, center, 16, 0, 2 * Math.PI);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+            let activeTasks = state.todos.filter(t => !t.completed);
+            if (activeTasks.length === 0) {
+                activeTasks = [{ title: 'Lavar trastes' }, { title: 'Tomar agua' }, { title: 'Hacer ejercicio' }, { title: 'Leer un libro' }, { title: 'Llamar abuela' }, { title: 'Meditar 5m' }];
+            }
+
+            isSpinning = true;
+            const resultText = document.getElementById('wheel-result');
+            if (resultText) resultText.innerText = 'Eligiendo tu destino...';
+
+            const spinSpeed = 0.4 + Math.random() * 0.3;
+            let currentSpeed = spinSpeed;
+            const friction = 0.985;
+
+            function animate() {
+                if (currentSpeed < 0.002) {
+                    isSpinning = false;
+                    const slices = activeTasks.length;
+                    const sliceAngle = (2 * Math.PI) / slices;
+
+                    let normalizedAngle = (1.5 * Math.PI - wheelAngle) % (2 * Math.PI);
+                    if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
+
+                    const chosenIndex = Math.floor(normalizedAngle / sliceAngle) % slices;
+                    const chosenTask = activeTasks[chosenIndex];
+
+                    if (resultText) {
+                        resultText.innerHTML = `⭐ ¡Tarea elegida:<br><span class="text-sm text-purple-700 dark:text-purple-300 font-extrabold">"${chosenTask.title}"</span>!`;
+                    }
+                    return;
+                }
+
+                wheelAngle += currentSpeed;
+                currentSpeed *= friction;
+                drawWheel();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // --- HOOKS DE INICIALIZACION ---
+        const prevInitPage = initializePageComponents;
+        function initializePageComponents(page) {
+            if (page === 'todos') {
+                drawWheel();
+            }
+            if (typeof prevInitPage === 'function') prevInitPage(page);
+        }
+
+
+        // --- SUB-RENDER MÓDULO 3: HÁBITOS & SALUD ---
+        function renderModuloHealth() {
+            const themeColor = state.theme;
+
+            // Consumos de alcohol
+            let alcHtml = '';
+            state.habits.alcoholDaily.slice(0, 4).forEach(a => {
+                alcHtml += `
+                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-[11px] leading-relaxed">
+                        <div class="flex justify-between items-center font-bold">
+                            <span>${a.date} - ${a.beverage}</span>
+                            <span class="text-rose-600">$${a.cost}</span>
+                        </div>
+                        <p class="text-slate-400 mt-1">Sentía antes: ${a.beforeMood} • Sentí después: ${a.afterMood}</p>
+                    </div>
+                `;
+            });
+
+            // Consumos de tabaco
+            let smkHtml = '';
+            state.habits.smokeDaily.slice(0, 4).forEach(s => {
+                smkHtml += `
+                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-[11px]">
+                        <div class="flex justify-between items-center font-bold">
+                            <span>${s.date} - ${s.qty} cigarrillo(s)</span>
+                            <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-400 text-[9px] rounded-full font-bold">Deseo: ${s.urgeLevel}/10</span>
+                        </div>
+                        <p class="text-slate-400 mt-1">Detonante: ${s.trigger}</p>
+                    </div>
+                `;
+            });
+
+            // Recetas médicas
+            let presHtml = '';
+            state.health.prescriptions.forEach(p => {
+                presHtml += `
+                    <div class="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-900 border rounded-xl text-xs">
+                        <div class="flex items-center gap-2">
+                            <span class="p-2 bg-rose-50 dark:bg-rose-950 text-rose-500 rounded-lg">
+                                <i data-lucide="pill" class="w-4 h-4"></i>
+                            </span>
+                            <div>
+                                <strong class="block">${p.name}</strong>
+                                <span class="text-[10px] text-slate-400">Dosis: ${p.dosage} • Hora: ${p.time}</span>
+                            </div>
+                        </div>
+                        <button onclick="deletePrescription(${p.id})" class="text-[10px] text-slate-400 hover:text-rose-500">Eliminar</button>
+                    </div>
+                `;
+            });
+
+            // Mascotas con Signo Zodiacal calculado
+            let petsHtml = '';
+            state.pets.forEach(p => {
+                const sign = getZodiacSign(p.birthday);
+                petsHtml += `
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between items-center pb-1 border-b">
+                            <div>
+                                <strong class="text-sm block">${p.name}</strong>
+                                <span class="text-[10px] text-slate-400">${p.species} • ${p.breed}</span>
+                            </div>
+                            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-[10px] rounded-full font-bold">${sign}</span>
+                        </div>
+                        <p><strong>Microchip:</strong> ${p.microchip || 'S/N'} • <strong>Vet:</strong> ${p.vetName}</p>
+                        <p class="italic text-slate-500">"${p.notes}"</p>
+                        <button onclick="deletePet(${p.id})" class="text-[9px] text-rose-500 hover:underline">Eliminar perfil</button>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Sección Izquierda (Alcohol y Cigarrillos Hábitos Atómicos) -->
+                    <div class="space-y-6">
+                        <!-- Alcohol -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="wine" class="w-5 h-5 text-rose-500"></i>
+                                Control de Alcohol (Hábitos Atómicos)
+                            </h3>
+                            <form onsubmit="addAlcoholRecord(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                                <div class="sm:col-span-2">
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Bebida</label>
+                                    <input type="text" id="alc-bev" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Cerveza, Copa de vino" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Costo ($)</label>
+                                    <input type="number" id="alc-cost" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="0" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Emoción antes</label>
+                                    <input type="text" id="alc-before" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Estrés laboral" required>
+                                </div>
+                                <button type="submit" class="sm:col-span-2 py-2 bg-theme-${themeColor}-600 text-white font-bold rounded-xl shadow-sm">Registrar Bebida</button>
+                            </form>
+                            <div class="space-y-2 pt-2">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Historial Reciente</h4>
+                                ${alcHtml !== '' ? alcHtml : '<p class="text-xs text-slate-400 text-center py-2">No hay consumos registrados.</p>'}
+                            </div>
+                        </div>
+
+                        <!-- Cigarrillos o Nicotina -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="flame" class="w-5 h-5 text-amber-500"></i>
+                                Reducción de Cigarrillos
+                            </h3>
+                            <form onsubmit="addSmokeRecord(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Cantidad</label>
+                                    <input type="number" id="smk-qty" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="1" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Intensidad (1 al 10)</label>
+                                    <input type="number" id="smk-urge" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" min="1" max="10" value="5" required>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label class="block text-[10px] font-bold text-slate-400 mb-1">Situación detonante</label>
+                                    <input type="text" id="smk-trigger" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Esperando el autobús" required>
+                                </div>
+                                <button type="submit" class="sm:col-span-2 py-2 bg-theme-${themeColor}-600 text-white font-bold rounded-xl shadow-sm">Registrar Cigarro</button>
+                            </form>
+                            <div class="space-y-2 pt-2">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Historial Reciente</h4>
+                                ${smkHtml !== '' ? smkHtml : '<p class="text-xs text-slate-400 text-center py-2">No hay consumos de nicotina.</p>'}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Derecha (Recetas médicas, Alergias y Mascotas con signo zodiacal) -->
+                    <div class="space-y-6">
+                        <!-- Recetas médicas y alergias -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <div class="flex justify-between items-center border-b pb-2">
+                                <h3 class="font-bold text-sm">Mis Medicamentos</h3>
+                                <button onclick="openAddPrescriptionModal()" class="text-xs text-theme-${themeColor}-600 font-bold hover:underline">+ Agregar</button>
+                            </div>
+                            <div class="space-y-2">
+                                ${presHtml !== '' ? presHtml : '<p class="text-xs text-slate-400 text-center py-2">No tienes recetas guardadas.</p>'}
+                            </div>
+                            <div class="pt-2">
+                                <label class="block text-[10px] font-bold text-slate-400 mb-1">Alergias Conocidas</label>
+                                <textarea id="health-allergies" onblur="updateAllergies(this.value)" class="w-full p-2.5 text-xs border rounded-xl dark:bg-slate-900" placeholder="Escribe aquí tus alergias...">${state.health.allergies}</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Mascotas -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <div class="flex justify-between items-center border-b pb-2">
+                                <h3 class="font-bold text-sm">Mis Mascotas</h3>
+                                <button onclick="openAddPetModal()" class="text-xs text-theme-${themeColor}-600 font-bold hover:underline">+ Añadir Mascota</button>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4">
+                                ${petsHtml !== '' ? petsHtml : '<p class="text-xs text-slate-400 text-center py-2">No tienes mascotas guardadas.</p>'}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modales de Salud -->
+                    <div id="add-pres-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+                            <h4 class="font-bold text-base">Añadir Prescripción</h4>
+                            <form onsubmit="addPrescription(event)" class="space-y-3 text-sm">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 mb-1">Nombre</label>
+                                    <input type="text" id="add-pr-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900 dark:border-slate-700" placeholder="Ej. Multivitamínico" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Dosis</label>
+                                        <input type="text" id="add-pr-dose" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. 1 tableta" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Hora</label>
+                                        <input type="time" id="add-pr-time" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 pt-2">
+                                    <button type="button" onclick="closeAddPrescriptionModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                    <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="add-pet-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl space-y-4">
+                            <h4 class="font-bold text-base">Añadir Mascota</h4>
+                            <form onsubmit="addPet(event)" class="space-y-3 text-sm">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Nombre</label>
+                                        <input type="text" id="add-pet-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Especie</label>
+                                        <input type="text" id="add-pet-spec" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Gato, Perro" required>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Raza</label>
+                                        <input type="text" id="add-pet-breed" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Siamés">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Cumpleaños</label>
+                                        <input type="date" id="add-pet-birth" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 mb-1">Notas especiales (alimentación, vacunas)</label>
+                                    <textarea id="add-pet-notes" class="w-full p-2 border rounded-xl dark:bg-slate-900" placeholder="Escribe aquí cuidados especiales..."></textarea>
+                                </div>
+                                <div class="flex gap-2 pt-2">
+                                    <button type="button" onclick="closeAddPetModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                    <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- SUB-RENDER MÓDULO 4: CASA & GARAJE ---
         function renderModuloCasa() {
             const themeColor = state.theme;
 
@@ -769,156 +1259,433 @@
                 `;
             });
 
+            // Garaje de vehículos
+            let vehicleCardsHtml = '';
+            state.vehicles.forEach(v => {
+                const oilProgress = Math.min(((v.mileage - v.lastOilMileage) / v.oilChangeInterval) * 100, 100);
+                const isOilOverdue = (v.mileage - v.lastOilMileage) >= v.oilChangeInterval;
+
+                vehicleCardsHtml += `
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-3 text-xs">
+                        <div class="flex justify-between items-center border-b pb-1">
+                            <div>
+                                <strong class="text-sm block">${v.name}</strong>
+                                <span class="text-[10px] text-slate-400">${v.brand} ${v.model} • Placa: ${v.plate}</span>
+                            </div>
+                        </div>
+                        <p><strong>Kilometraje:</strong> ${v.mileage} km • <strong>Límite de aceite:</strong> ${v.oilChangeInterval} km</p>
+                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div class="${isOilOverdue ? 'bg-rose-500' : 'bg-emerald-500'} h-2 rounded-full" style="width: ${oilProgress}%"></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="quickUpdateMileage(${v.id})" class="flex-1 py-1.5 bg-slate-200 dark:bg-slate-800 font-bold rounded-lg text-[10px]">Actualizar Km</button>
+                            <button onclick="resetOilChange(${v.id})" class="flex-1 py-1.5 bg-theme-${themeColor}-600 text-white font-bold rounded-lg text-[10px]">Cambiar Aceite</button>
+                        </div>
+                    </div>
+                `;
+            });
+
             return `
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Columna Izquierda (Mínimos y Reset) -->
+                    <!-- Columna Izquierda (Mínimos, Reset de 15m y Despensas) -->
                     <div class="lg:col-span-2 space-y-6">
-                        <!-- Mínimos diarios -->
+                        <!-- Mínimos -->
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-2">
-                                <div>
-                                    <h3 class="text-base font-bold text-slate-900 dark:text-white">Checklist: Mis 5 Mínimos Diarios</h3>
-                                    <p class="text-[10px] text-slate-400">Lo suficiente para que tu casa siga funcionando.</p>
-                                </div>
-                                <button onclick="resetHouseTodos()" class="text-xs text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 font-bold hover:underline">Reiniciar Lista</button>
+                            <div class="flex justify-between items-center border-b pb-2">
+                                <h3 class="font-bold text-sm">Mis Mínimos del Hogar</h3>
+                                <button onclick="resetHouseTodos()" class="text-xs font-bold text-theme-${themeColor}-600 hover:underline">Reiniciar Lista</button>
                             </div>
                             <div class="space-y-2">
                                 ${todosHtml}
                             </div>
                         </div>
 
-                        <!-- Reset de 15 Minutos -->
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-center">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">Botón de Pánico: Reset de 15 Minutos</h3>
-                            <p class="text-xs text-slate-400">Pon un temporizador rápido, recolecta la basura visible y detente de inmediato cuando acabe el tiempo. ¡No te sobre-exijas!</p>
-
+                        <!-- Reset de 15 minutos -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center space-y-4">
+                            <h3 class="font-bold text-sm">Botón de Pánico: Reset de 15 Minutos</h3>
+                            <p class="text-xs text-slate-400">Pon un temporizador rápido, recolecta la basura visible y detente sin culpa cuando acabe el tiempo.</p>
                             <div class="py-4">
                                 <span id="reset-timer-display" class="text-4xl font-extrabold text-amber-500">15:00</span>
                             </div>
-
                             <div class="flex gap-2 max-w-xs mx-auto">
-                                <button onclick="startResetTimer()" class="flex-1 py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl text-xs font-bold shadow-sm">Iniciar</button>
+                                <button onclick="startResetTimer()" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl text-xs font-bold">Iniciar</button>
                                 <button onclick="stopResetTimer()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl text-xs font-bold">Pausar</button>
                             </div>
                         </div>
 
-                        <!-- Despensa Mínima Balanceada -->
+                        <!-- Despensas -->
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">🥕 Guía de Despensa Mínima Balanceada</h3>
-                            <p class="text-xs text-slate-400">Estructura de alimentos que duran y alimentan según los días que necesites cubrir:</p>
-
+                            <h3 class="font-bold text-sm">🥕 Guía de Despensa Mínima Balanceada</h3>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                                 <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-1">
-                                    <span class="font-bold text-amber-600">🍞 3 Días (Básico)</span>
-                                    <p class="text-[10px] text-slate-500">Huevo o tofu, leche o equivalente, pan integral, 1 lata de atún o frijol, fruta fresca (plátano/manzana).</p>
+                                    <span class="font-bold text-amber-600">3 Días</span>
+                                    <p class="text-[10px] text-slate-400">Huevo, leche o equivalente, pan integral, frijoles enlatados, fruta fresca (plátano/manzana).</p>
                                 </div>
                                 <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-1">
-                                    <span class="font-bold text-amber-600">🥫 5 Días (Seguro)</span>
-                                    <p class="text-[10px] text-slate-500">Arroz, pasta, puré de tomate, verduras congeladas (mix), avena, ajo y cebolla, legumbres secas.</p>
+                                    <span class="font-bold text-amber-600">5 Días</span>
+                                    <p class="text-[10px] text-slate-400">Arroz, pasta, puré de tomate, verduras congeladas, avena, ajo y cebolla.</p>
                                 </div>
                                 <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-1">
-                                    <span class="font-bold text-amber-600">📦 15 Días (Reserva)</span>
-                                    <p class="text-[10px] text-slate-500">Lentejas y garbanzos secos, aceite de cocina, café/té, sal y especias, conservas enlatadas, frutos secos.</p>
+                                    <span class="font-bold text-amber-600">15 Días</span>
+                                    <p class="text-[10px] text-slate-400">Lentejas secas, aceite, café, sal y especias, conservas enlatadas, frutos secos.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Columna Derecha (Insumos de limpieza y Qué me pongo) -->
+                    <!-- Columna Derecha (Garaje de coches, Insumos y Clima Qué me pongo) -->
                     <div class="space-y-6">
-                        <!-- Insumos que se compran periódicamente -->
+                        <!-- Garaje -->
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">🧴 Insumos Recurrentes</h3>
-                            <p class="text-xs text-slate-400">Cosas que debes comprar periódicamente para mantener la casa limpia y funcional:</p>
+                            <div class="flex justify-between items-center border-b pb-2">
+                                <h3 class="font-bold text-sm">Mi Garaje</h3>
+                                <button onclick="openAddVehicleModal()" class="text-xs font-bold text-theme-${themeColor}-600">+ Añadir coche</button>
+                            </div>
+                            <div class="space-y-3">
+                                ${vehicleCardsHtml !== '' ? vehicleCardsHtml : '<p class="text-xs text-slate-400 text-center py-2">No tienes vehículos registrados.</p>'}
+                            </div>
+                        </div>
+
+                        <!-- Insumos recurrentes -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="font-bold text-sm">🧴 Insumos Recurrentes</h3>
                             <div class="space-y-2">
                                 ${productsHtml}
                             </div>
                         </div>
 
-                        <!-- Clima y Vestimenta (Qué me pongo) -->
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">🧥 ¿Qué me pongo hoy?</h3>
-                            <p class="text-xs text-slate-400">Recomendador integrado según tu clima:</p>
-                            <button onclick="navigate('outfit')" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
-                                <i data-lucide="shirt" class="w-4 h-4"></i> Abrir Clima & Vestimenta
-                            </button>
+                        <!-- Abrir Clima -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-3">
+                            <h3 class="font-bold text-sm">🧥 ¿Qué me pongo hoy?</h3>
+                            <p class="text-xs text-slate-400">Abre el recomendador climático para ver tu outfit hoy.</p>
+                            <button onclick="navigate('outfit')" class="w-full py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold shadow-sm">Abrir Recomendador</button>
+                        </div>
+                    </div>
+
+                    <!-- Modales Garaje -->
+                    <div id="add-vehicle-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl space-y-4">
+                            <h4 class="font-bold text-base">Añadir Vehículo</h4>
+                            <form onsubmit="addVehicle(event)" class="space-y-3 text-sm">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 mb-1">Nombre descriptivo</label>
+                                    <input type="text" id="add-v-name" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" placeholder="Ej. Mi coche diario" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Marca</label>
+                                        <input type="text" id="add-v-brand" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Modelo</label>
+                                        <input type="text" id="add-v-model" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Kilometraje</label>
+                                        <input type="number" id="add-v-mileage" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 mb-1">Límite Aceite (km)</label>
+                                        <input type="number" id="add-v-oil" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900" value="10000" required>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 pt-2">
+                                    <button type="button" onclick="closeAddVehicleModal()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 rounded-xl font-semibold">Cancelar</button>
+                                    <button type="submit" class="flex-1 py-2 bg-theme-${themeColor}-600 text-white rounded-xl font-semibold">Guardar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        // --- MÓDULO 5: REDES SOCIALES Y SATURACIÓN ---
-        function renderModuloRedes() {
+        // --- SUB-RENDER MÓDULO 5: PAZ EN REDES ---
+        function renderModuloPaz() {
             const themeColor = state.theme;
+
+            let journalHtml = '';
+            state.journalEntries.forEach(entry => {
+                journalHtml += `
+                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-xs italic">
+                        <span class="text-[9px] font-bold text-slate-400 block">${entry.date}</span>
+                        "${entry.text}"
+                    </div>
+                `;
+            });
+
             return `
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Redirección del Scroll -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-center">
-                        <h3 class="text-base font-bold text-slate-900 dark:text-white">¿Saturado por el Scroll Infinito?</h3>
-                        <p class="text-xs text-slate-400">Si te sientes abrumado por las redes sociales o la vida de otros, haz clic aquí:</p>
+                    <!-- Columna Izquierda (Saturación y Respiración de caja de 12s) -->
+                    <div class="space-y-6">
+                        <!-- Saturación -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-center">
+                            <h3 class="font-bold text-base">¿Abrumado por las redes sociales o la vida de otros?</h3>
+                            <button onclick="triggerSaturadoReset()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl text-xs font-bold shadow-md flex items-center justify-center gap-2">
+                                <i data-lucide="alert-circle" class="w-5 h-5"></i> ¡ESTOY SATURADO / RESET DE REDES!
+                            </button>
+                            <div id="saturation-reset-area" class="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl text-xs text-left italic space-y-3 hidden">
+                                <p class="font-bold text-rose-500">⚠️ Cable a Tierra cognitivo:</p>
+                                <p>"Lo que vi es una selección minuciosamente editada y pulida, no una vida real completa."</p>
+                                <p>"Estoy comparando mi experiencia de vida interna con la presentación pública y artificial de otra persona."</p>
+                                <p class="text-[10px] text-slate-400 text-center">Cierra tus aplicaciones y regálate 5 minutos de silencio absoluto.</p>
+                            </div>
+                        </div>
 
-                        <button onclick="triggerSaturadoReset()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl text-xs font-bold shadow-md shadow-rose-500/10 flex items-center justify-center gap-2">
-                            <i data-lucide="alert-circle" class="w-5 h-5"></i> ¡ESTOY SATURADO / REDES!
-                        </button>
-
-                        <div id="saturation-reset-area" class="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300 italic space-y-3 leading-relaxed hidden">
-                            <p class="font-bold text-rose-600 dark:text-rose-400">⚠️ Respira profundamente e identifica lo siguiente:</p>
-                            <p>"Lo que vi fue una selección editada y pulida, no una vida real completa."</p>
-                            <p>"Estoy comparando mi experiencia de vida interna con la presentación pública editada de otra persona."</p>
-                            <p>"No necesito resolver mi aburrimiento, soledad o estrés mediante la compra impulsiva o la comparación."</p>
-                            <p class="text-[10px] text-slate-400 text-center pt-2">Cierra el teléfono por 5 minutos y tómate un vaso con agua.</p>
+                        <!-- Respiración Guiada -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm text-center flex flex-col items-center justify-center min-h-[280px] space-y-4">
+                            <h4 class="font-bold text-sm">Respiración Guiada en Caja (12s)</h4>
+                            <div class="w-28 h-28 rounded-full bg-purple-500/20 flex items-center justify-center breathing-circle">
+                                <div class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-[10px]">Respira</div>
+                            </div>
+                            <p class="text-[10px] text-slate-400">Inhala profundamente (4s) • Mantén (4s) • Exhala (4s). Libera la mandíbula y relaja los hombros.</p>
                         </div>
                     </div>
 
-                    <!-- Técnicas para TDAH -->
+                    <!-- Diario de Gratitud -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="font-bold text-base">Mi Diario de Gratitud</h3>
+                        <p class="text-xs text-slate-400">Registra tus pensamientos o algo por lo que estés agradecido hoy de forma privada:</p>
+                        <form onsubmit="addJournalEntry(event)" class="space-y-3">
+                            <textarea id="new-journal-text" class="w-full p-3 text-xs border rounded-xl dark:bg-slate-900" placeholder="Hoy agradezco..." required></textarea>
+                            <button type="submit" class="w-full py-2 bg-theme-${themeColor}-600 text-white rounded-xl text-xs font-bold">Guardar Entrada</button>
+                        </form>
+                        <div class="space-y-2 max-h-[180px] overflow-y-auto">
+                            ${journalHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- SISTEMA DE METODOS JS ADICIONALES ---
+        function deletePrescription(id) {
+            state.health.prescriptions = state.health.prescriptions.filter(p => p.id !== id);
+            saveState();
+            navigate('health');
+        }
+
+        function deletePet(id) {
+            state.pets = state.pets.filter(p => p.id !== id);
+            saveState();
+            navigate('health');
+        }
+
+        function openAddPrescriptionModal() {
+            document.getElementById('add-pres-modal').classList.remove('hidden');
+        }
+        function closeAddPrescriptionModal() {
+            document.getElementById('add-pres-modal').classList.add('hidden');
+        }
+
+        function addPrescription(e) {
+            e.preventDefault();
+            const name = document.getElementById('add-pr-name').value.trim();
+            const dosage = document.getElementById('add-pr-dose').value.trim();
+            const time = document.getElementById('add-pr-time').value;
+
+            state.health.prescriptions.push({
+                id: Date.now(),
+                name,
+                dosage,
+                time,
+                alert: true
+            });
+            saveState();
+            closeAddPrescriptionModal();
+            navigate('health');
+        }
+
+        function openAddPetModal() {
+            document.getElementById('add-pet-modal').classList.remove('hidden');
+        }
+        function closeAddPetModal() {
+            document.getElementById('add-pet-modal').classList.add('hidden');
+        }
+
+        function addPet(e) {
+            e.preventDefault();
+            const name = document.getElementById('add-pet-name').value.trim();
+            const spec = document.getElementById('add-pet-spec').value.trim();
+            const breed = document.getElementById('add-pet-breed').value.trim();
+            const birth = document.getElementById('add-pet-birth').value;
+            const notes = document.getElementById('add-pet-notes').value.trim();
+
+            state.pets.push({
+                id: Date.now(),
+                name,
+                species: spec,
+                breed,
+                birthday: birth,
+                microchip: '',
+                vetName: 'Veterinaria Local',
+                notes
+            });
+            saveState();
+            closeAddPetModal();
+            navigate('health');
+        }
+
+        function openAddVehicleModal() {
+            document.getElementById('add-vehicle-modal').classList.remove('hidden');
+        }
+        function closeAddVehicleModal() {
+            document.getElementById('add-vehicle-modal').classList.add('hidden');
+        }
+
+        function addVehicle(e) {
+            e.preventDefault();
+            const name = document.getElementById('add-v-name').value.trim();
+            const brand = document.getElementById('add-v-brand').value.trim();
+            const model = document.getElementById('add-v-model').value.trim();
+            const mileage = parseInt(document.getElementById('add-v-mileage').value) || 0;
+            const oil = parseInt(document.getElementById('add-v-oil').value) || 10000;
+
+            state.vehicles.push({
+                id: Date.now(),
+                name,
+                brand,
+                model,
+                year: '2018',
+                plate: 'S/N',
+                mileage,
+                oilChangeInterval: oil,
+                lastOilMileage: mileage
+            });
+            saveState();
+            closeAddVehicleModal();
+            navigate('house');
+        }
+
+        function quickUpdateMileage(id) {
+            const current = state.vehicles.find(v => v.id === id).mileage;
+            const val = prompt("Ingresa el kilometraje actual:", current);
+            if (val !== null && !isNaN(val) && parseInt(val) >= current) {
+                state.vehicles = state.vehicles.map(v => v.id === id ? { ...v, mileage: parseInt(val) } : v);
+                saveState();
+                navigate('house');
+            }
+        }
+
+        function resetOilChange(id) {
+            const v = state.vehicles.find(v => v.id === id);
+            if (confirm("¿Confirmar cambio de aceite hoy para " + v.name + "?")) {
+                state.vehicles = state.vehicles.map(v => v.id === id ? { ...v, lastOilMileage: v.mileage } : v);
+                saveState();
+                navigate('house');
+            }
+        }
+
+        function toggleBillPaid(id) {
+            state.budget.bills = state.budget.bills.map(b => b.id === id ? { ...b, paid: !b.paid } : b);
+            saveState();
+            navigate('money');
+        }
+
+        function updateIncome() {
+            const val = prompt("Ingresa tu ingreso neto mensual:", state.budget.monthlyIncome);
+            if (val !== null && !isNaN(val)) {
+                state.budget.monthlyIncome = parseFloat(val);
+                saveState();
+                navigate('money');
+            }
+        }
+
+        function addJournalEntry(e) {
+            e.preventDefault();
+            const text = document.getElementById('new-journal-text').value.trim();
+            state.journalEntries.unshift({
+                id: Date.now(),
+                date: new Date().toISOString().split('T')[0],
+                text
+            });
+            saveState();
+            navigate('paz');
+        }
+
+        function getZodiacSign(dateString) {
+            if (!dateString) return "Desconocido";
+            const date = new Date(dateString);
+            const m = date.getMonth() + 1;
+            const d = date.getDate();
+            if ((m == 3 && d >= 21) || (m == 4 && d <= 19)) return "Aries ♈";
+            if ((m == 4 && d >= 20) || (m == 5 && d <= 20)) return "Tauro ♉";
+            if ((m == 5 && d >= 21) || (m == 6 && d <= 20)) return "Géminis ♊";
+            if ((m == 6 && d >= 21) || (m == 7 && d <= 22)) return "Cáncer ♋";
+            if ((m == 7 && d >= 23) || (m == 8 && d <= 22)) return "Leo ♌";
+            if ((m == 8 && d >= 23) || (m == 9 && d <= 22)) return "Virgo ♍";
+            if ((m == 9 && d >= 23) || (m == 10 && d <= 22)) return "Libra ♎";
+            if ((m == 10 && d >= 23) || (m == 11 && d <= 21)) return "Escorpio ♏";
+            if ((m == 11 && d >= 22) || (m == 12 && d <= 21)) return "Sagitario ♐";
+            if ((m == 12 && d >= 22) || (m == 1 && d <= 19)) return "Capricornio ♑";
+            if ((m == 1 && d >= 20) || (m == 2 && d <= 18)) return "Acuario ♒";
+            return "Piscis ♓";
+        }
+
+
+        // --- SUB-RENDER MÓDULO 6: GUÍAS & VÍNCULOS ---
+        function renderModuloGuides() {
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Guías y Guiones -->
+                    <div class="lg:col-span-2 space-y-6 text-xs leading-relaxed">
+                        <!-- Guiones contra la Ansiedad -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-2">
+                                <i data-lucide="phone" class="w-4 h-4 text-indigo-500"></i>
+                                Guiones de Asertividad contra la Ansiedad Social
+                            </h3>
+                            <p class="text-slate-400">Guiones redactados listos para leer directamente cuando tengas que hacer llamadas telefónicas abrumadoras:</p>
+                            <div class="space-y-3">
+                                <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-2">
+                                    <span class="font-bold text-indigo-700 dark:text-indigo-400">📞 Pedir una cita médica</span>
+                                    <p class="text-slate-600 dark:text-slate-300 italic">"Hola, buen día. Quisiera agendar una cita de valoración médica general con el doctor de turno. Tengo disponibilidad los días martes por la tarde. ¿Tendrán algún espacio libre?"</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl space-y-2">
+                                    <span class="font-bold text-indigo-700 dark:text-indigo-400">❌ Cancelar un servicio / suscripción</span>
+                                    <p class="text-slate-600 dark:text-slate-300 italic">"Hola. Llamo para solicitar la cancelación inmediata de mi suscripción o servicio con número de contrato XXXX. No deseo renovación alguna. Por favor, indíqueme cuál es el folio de mi trámite de cancelación."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Guías Alquiler e Impuestos -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                            <h3 class="font-bold text-sm text-slate-800 dark:text-white">Manuales de Supervivencia offline</h3>
+                            <details class="group bg-slate-50 dark:bg-slate-900 p-4 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                                    <span class="font-bold">🏠 Rentar tu primer departamento (Alquiler)</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                </summary>
+                                <p class="text-slate-500 mt-2">No destines más del 30%-35% de tus ingresos netos en el pago del alquiler mensual. Considera servicios adicionales (agua, luz, gas, internet) que suelen sumar un 15% extra.</p>
+                            </details>
+                            <details class="group bg-slate-50 dark:bg-slate-900 p-4 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                                    <span class="font-bold">💸 Conceptos Básicos de Impuestos</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                </summary>
+                                <p class="text-slate-500 mt-2">Son contribuciones obligatorias que pagamos al Estado. Las deducciones personales te permiten reducir legalmente la cantidad de impuestos guardando facturas de gastos en salud o educación.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Hacer Amigos tras los 20/30 -->
                     <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4 text-xs leading-relaxed">
-                        <h3 class="text-base font-bold text-slate-900 dark:text-white">🧠 Diseño del Entorno (TDAH / TDA)</h3>
-                        <p class="text-slate-400">No dependas únicamente de la fuerza de voluntad. Cambia tu entorno para reducir estímulos:</p>
+                        <h3 class="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-2">
+                            <i data-lucide="smile" class="w-4 h-4 text-indigo-500"></i>
+                            Hacer amigos después de los 20/30 años
+                        </h3>
+                        <p class="text-slate-400">Hacer amistades en la adultez requiere intención, regularidad y vencer el miedo al rechazo inicial.</p>
 
                         <div class="space-y-3 pt-2">
-                            <div class="p-3 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl">
-                                <strong>1. Quita la Adicción Visual:</strong><br>
-                                Pon tu pantalla en escala de grises (Modo Monocromático) en los ajustes de tu móvil. Las redes sociales perderán el 80% de su atractivo inmediato.
+                            <div class="p-3 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl space-y-1">
+                                <strong>La regla de la regularidad y proximidad:</strong>
+                                <p class="text-[10px] text-slate-500">El cerebro humano genera confianza por mera exposición repetida. Apúntate a una actividad fija semanal (idiomas, dibujo, running local).</p>
                             </div>
-                            <div class="p-3 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl">
-                                <strong>2. Aumenta la Fricción:</strong><br>
-                                Desinstala las apps adictivas del teléfono y úsalas únicamente desde el navegador web. Te dará pereza iniciar sesión cada vez.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- GUÍA DE RELACIONES (HACER AMIGOS TRAS LOS 20/30) ---
-        function renderModuloRelaciones() {
-            return `
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6 text-xs leading-relaxed">
-                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i data-lucide="smile" class="w-5 h-5 text-indigo-500"></i>
-                        🤝 Cómo hacer vínculos y amigos después de los 20 o 30 años
-                    </h3>
-                    <p class="text-slate-400">Hacer amistades en la adultez es diferente. Ya no estamos en un aula con personas de nuestra edad de manera obligatoria. Requiere intención, regularidad y vencer el miedo al rechazo inicial.</p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">1. La regla de la regularidad y proximidad</h4>
-                            <p class="text-slate-500">Es difícil ser amigo de alguien a quien ves de manera aislada una vez al año. El cerebro humano genera confianza por mera exposición repetida. Apúntate a una actividad fija semanal:</p>
-                            <ul class="list-disc pl-5 text-slate-500 space-y-1">
-                                <li>Clases de cocina, idiomas o dibujo.</li>
-                                <li>Clubes de running o senderismo locales.</li>
-                                <li>Voluntariados o colectivos de ayuda social.</li>
-                            </ul>
-                        </div>
-
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">2. Guion de conversación sin presión</h4>
-                            <p class="text-slate-500">Evita los temas de conversación aburridos como el clima o el tráfico. Busca intereses genuinos utilizando estas preguntas abiertas:</p>
-                            <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl italic text-slate-600 dark:text-slate-300">
-                                • "Oye, ¿qué te trajo por este club/clase?"<br>
-                                • "Recomiéndame algún libro o serie que te haya enganchado últimamente, ando buscando algo nuevo."<br>
-                                • "Qué bien pinta tu proyecto de dibujo, ¿llevas mucho tiempo haciéndolo?"
+                            <div class="p-3 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl space-y-1">
+                                <strong>Conversación sin presión (Guion):</strong>
+                                <p class="text-[10px] italic text-slate-500">"Oye, ¿qué te trajo por este club/clase? Recomiéndame algún libro o serie que te haya enganchado últimamente, ando buscando algo nuevo."</p>
                             </div>
                         </div>
                     </div>
@@ -926,12 +1693,12 @@
             `;
         }
 
-        // --- SUB-RENDER: AJUSTES Y PANEL REFLEXIVO ---
+        // --- SUB-RENDER MÓDULO 7: AJUSTES Y PANEL REFLEXIVO ---
         function renderModuloAjustes() {
             const themeColor = state.theme;
             return `
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Personalización del tema -->
+                    <!-- Personalización -->
                     <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6">
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                             <i data-lucide="palette" class="w-5 h-5 text-theme-${themeColor}-500"></i>
@@ -983,7 +1750,7 @@
                         </div>
                     </div>
 
-                    <!-- Privacidad, Respaldo e Historial Semanal -->
+                    <!-- Datos y Privacidad -->
                     <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6">
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                             <i data-lucide="shield" class="w-5 h-5 text-emerald-500"></i>
@@ -999,13 +1766,13 @@
                             <button onclick="exportData()" class="flex-1 py-2 bg-theme-${themeColor}-600 hover:bg-theme-${themeColor}-700 text-white rounded-xl font-semibold flex items-center justify-center gap-1.5 shadow-sm">
                                 <i data-lucide="download" class="w-4 h-4"></i> Exportar Respaldo
                             </button>
-                            <button onclick="triggerImport()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-semibold flex items-center justify-center gap-1.5">
+                            <button onclick="triggerImport()" class="flex-1 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-semibold flex items-center justify-center gap-1.5 hover:bg-slate-200">
                                 <i data-lucide="upload" class="w-4 h-4"></i> Importar Respaldo
                             </button>
                             <input type="file" id="import-file" class="hidden" accept=".json" onchange="importData(event)">
                         </div>
 
-                        <!-- Botón de Evaluación Semanal Reflexiva -->
+                        <!-- Evaluación Semanal Reflexiva -->
                         <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 text-center space-y-2">
                             <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200">¿Deseas realizar tu Evaluación Semanal?</h4>
                             <p class="text-[10px] text-slate-400">Revisa cómo se comportó tu dinero, tus deudas, consumos y atención esta semana.</p>
@@ -1016,564 +1783,6 @@
             `;
         }
 
-        // --- LOGICA DE SOPORTE PARA DINERO ---
-        function saveCardDetails(e) {
-            e.preventDefault();
-            state.card.cutoffDay = parseInt(document.getElementById('card-cutoff').value) || 15;
-            state.card.limitDay = parseInt(document.getElementById('card-limit').value) || 5;
-            state.card.noInterestBalance = parseFloat(document.getElementById('card-no-interest').value) || 0;
-            state.card.minPay = parseFloat(document.getElementById('card-min-pay').value) || 0;
-            saveState();
-            alert("¡Detalles de tarjeta guardados!");
-            navigate('money');
-        }
-
-        function updateTaxSeparated(val) {
-            state.impuestos.separatedTax = parseFloat(val) || 0;
-            saveState();
-        }
-
-        function openAddDeudaModal() {
-            document.getElementById('add-deuda-modal').classList.remove('hidden');
-        }
-
-        function closeAddDeudaModal() {
-            document.getElementById('add-deuda-modal').classList.add('hidden');
-        }
-
-        function addDeuda(e) {
-            e.preventDefault();
-            const name = document.getElementById('add-d-name').value.trim();
-            const balance = parseFloat(document.getElementById('add-d-balance').value) || 0;
-            const interest = parseFloat(document.getElementById('add-d-interest').value) || 0;
-            const minPay = parseFloat(document.getElementById('add-d-min').value) || 0;
-            const date = document.getElementById('add-d-date').value;
-
-            state.deudas.push({
-                id: Date.now(),
-                name,
-                balance,
-                interest,
-                minPay,
-                dueDate: date
-            });
-            saveState();
-            closeAddDeudaModal();
-            navigate('money');
-        }
-
-        function deleteDeuda(id) {
-            state.deudas = state.deudas.filter(d => d.id !== id);
-            saveState();
-            navigate('money');
-        }
-
-        function openAddSeguroModal() {
-            document.getElementById('add-seguro-modal').classList.remove('hidden');
-        }
-
-        function closeAddSeguroModal() {
-            document.getElementById('add-seguro-modal').classList.add('hidden');
-        }
-
-        function addSeguro(e) {
-            e.preventDefault();
-            const type = document.getElementById('add-s-type').value.trim();
-            const company = document.getElementById('add-s-comp').value.trim();
-            const policy = document.getElementById('add-s-policy').value.trim();
-            const phone = document.getElementById('add-s-phone').value.trim();
-            const expiry = document.getElementById('add-s-expiry').value;
-
-            state.seguros.push({
-                id: Date.now(),
-                type,
-                company,
-                policy,
-                cost: 0,
-                renewal: expiry,
-                deductible: 'N/D',
-                maxCoverage: 'Normal',
-                exclusions: 'Normales',
-                phone,
-                claimSteps: 'Reportar de inmediato.'
-            });
-            saveState();
-            closeAddSeguroModal();
-            navigate('money');
-        }
-
-        function deleteSeguro(id) {
-            state.seguros = state.seguros.filter(s => s.id !== id);
-            saveState();
-            navigate('money');
-        }
-
-        function showDebtStrategy(type) {
-            const container = document.getElementById('strategy-explanation');
-            container.classList.remove('hidden');
-
-            if (type === 'avalancha') {
-                const highestDebt = state.deudas.length > 0 ? [...state.deudas].sort((a,b)=>b.interest-a.interest)[0].name : 'Ninguna';
-                container.innerHTML = "<strong>Metodología Avalancha:</strong><br>Ordena tus deudas de mayor a menor tasa de interés. Paga el mínimo de todas. El dinero sobrante o adicional destínalo completamente a la deuda con el interés más alto (en tu caso: <strong>" + highestDebt + "</strong>).<br><em>Ventaja:</em> Ahorras la máxima cantidad de dinero posible en intereses a largo plazo.";
-            } else {
-                const lowestDebt = state.deudas.length > 0 ? [...state.deudas].sort((a,b)=>a.balance-b.balance)[0].name : 'Ninguna';
-                container.innerHTML = "<strong>Metodología Bola de Nieve:</strong><br>Ordena tus deudas de menor a mayor saldo pendiente. Paga el mínimo de todas. El dinero sobrante o adicional destínalo completamente a la deuda más pequeña (en tu caso: <strong>" + lowestDebt + "</strong>).<br><em>Ventaja:</em> Consigues pequeñas victorias psicológicas muy rápido, lo que te ayuda a mantener el hábito.";
-            }
-        }
-
-        // --- LOGICA PARA COMPRAS ---
-        function calculateHoursCost() {
-            const price = parseFloat(document.getElementById('eval-price').value) || 0;
-            const wage = parseFloat(document.getElementById('eval-hourly').value) || 15;
-            state.hourlyWage = wage;
-            saveState();
-
-            const hours = price > 0 ? (price / wage).toFixed(1) : 0;
-            document.getElementById('eval-hours-result').innerText = hours + " horas de trabajo neto";
-
-            // Pausa obligatoria
-            let rule = "Espera 24 horas antes de comprar un objeto menor a $20.";
-            if (price >= 100) rule = "¡Compra grande! Espera al menos 7 días y compara 3 opciones de precios diferentes.";
-            else if (price >= 20) rule = "Espera al menos 72 horas para decidir de forma madura y racional.";
-
-            document.getElementById('eval-pause-rule').innerText = "Pauta de espera sugerida: " + rule;
-        }
-
-        let resetTimerInterval = null;
-        function triggerTenMinutesReset() {
-            const status = document.getElementById('ten-min-status');
-            status.classList.remove('hidden');
-            let seconds = 600; // 10 minutos
-
-            if (resetTimerInterval) clearInterval(resetTimerInterval);
-
-            resetTimerInterval = setInterval(() => {
-                if (seconds <= 0) {
-                    status.innerText = "¡Terminaron los 10 minutos! Evalúa nuevamente con calma.";
-                    clearInterval(resetTimerInterval);
-                } else {
-                    const min = Math.floor(seconds / 60);
-                    const sec = seconds % 60;
-                    status.innerText = "Pausa de impulso activa: " + min + "m " + (sec < 10 ? '0' : '') + sec + " restantes. Distráete tomando agua o dando un paseo.";
-                    seconds--;
-                }
-            }, 1000);
-        }
-
-
-        // --- LÓGICA DE SOPORTE MÓDULO 3: HÁBITOS ---
-        function addAlcoholRecord(e) {
-            e.preventDefault();
-            const beverage = document.getElementById('alc-beverage').value.trim();
-            const cost = parseFloat(document.getElementById('alc-cost').value) || 0;
-            const before = document.getElementById('alc-before').value.trim();
-            const after = document.getElementById('alc-after').value.trim();
-
-            state.habits.alcoholDaily.unshift({
-                date: new Date().toISOString().split('T')[0],
-                beverage,
-                qty: 1,
-                beforeMood: before,
-                afterMood: after,
-                nextDayMood: 'Por evaluar',
-                cost
-            });
-            saveState();
-            navigate('habits');
-        }
-
-        function addSmokeRecord(e) {
-            e.preventDefault();
-            const qty = parseInt(document.getElementById('smk-qty').value) || 1;
-            const urge = parseInt(document.getElementById('smk-urge').value) || 5;
-            const trigger = document.getElementById('smk-trigger').value.trim();
-
-            state.habits.smokeDaily.unshift({
-                date: new Date().toISOString().split('T')[0],
-                qty,
-                trigger,
-                urgeLevel: urge
-            });
-            saveState();
-            navigate('habits');
-        }
-
-        // --- LÓGICA DE SOPORTE MÓDULO 4: CASA ---
-        function toggleHouseTodo(id) {
-            state.houseTodos = state.houseTodos.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
-            saveState();
-            navigate('house');
-        }
-
-        function resetHouseTodos() {
-            state.houseTodos = state.houseTodos.map(t => ({ ...t, completed: false }));
-            saveState();
-            navigate('house');
-        }
-
-        function updateProductStatus(id, value) {
-            state.products = state.products.map(p => p.id === id ? { ...p, status: value } : p);
-            saveState();
-        }
-
-        // Temporizador 15 minutos (Reset de la Casa)
-        let resetHouseInterval = null;
-        let resetHouseSeconds = 900; // 15 minutos
-
-        function startResetTimer() {
-            if (resetHouseInterval) clearInterval(resetHouseInterval);
-            resetHouseInterval = setInterval(() => {
-                if (resetHouseSeconds <= 0) {
-                    clearInterval(resetHouseInterval);
-                    alert("¡Tiempo cumplido! Tu reset de 15 minutos ha finalizado. Buen trabajo.");
-                } else {
-                    resetHouseSeconds--;
-                    const m = Math.floor(resetHouseSeconds / 60);
-                    const s = resetHouseSeconds % 60;
-                    document.getElementById('reset-timer-display').innerText = m + ":" + (s < 10 ? "0" : "") + s;
-                }
-            }, 1000);
-        }
-
-        function stopResetTimer() {
-            if (resetHouseInterval) clearInterval(resetHouseInterval);
-        }
-
-        // --- LÓGICA DE SOPORTE MÓDULO 5: REDES ---
-        function triggerSaturadoReset() {
-            const area = document.getElementById('saturation-reset-area');
-            area.classList.remove('hidden');
-        }
-
-        // --- PERSONALIZACIÓN ---
-        function changeThemeColor(color) {
-            state.theme = color;
-            saveState();
-            navigate('settings');
-        }
-
-        function changeFontStyle(style) {
-            state.fontStyle = style;
-            saveState();
-            navigate('settings');
-        }
-
-        function changeFontSize(size) {
-            state.fontSize = size;
-            saveState();
-            navigate('settings');
-        }
-
-        function toggleAffirmationMode() {
-            state.affirmationMode = !state.affirmationMode;
-            saveState();
-            navigate('settings');
-        }
-
-        // --- EXPORTAR E IMPORTAR ---
-        function exportData() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", "modo_adulto_backup_" + new Date().toISOString().split('T')[0] + ".json");
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-        }
-
-        function triggerImport() {
-            document.getElementById('import-file').click();
-        }
-
-        function importData(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                try {
-                    const parsedData = JSON.parse(evt.target.result);
-                    if (parsedData && typeof parsedData === 'object' && parsedData.deudas) {
-                        state = parsedData;
-                        saveState();
-                        alert("¡Datos de Modo Adulto importados exitosamente!");
-                        navigate('dashboard');
-                    } else {
-                        alert("El archivo de respaldo no tiene el formato correcto.");
-                    }
-                } catch (err) {
-                    alert("Error al leer el archivo de respaldo.");
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        // --- INICIALIZADOR ---
-        function initializePageComponents(page) {
-            // Inicializador opcional
-        }
-
-        window.onload = function() {
-            navigate('dashboard');
-        };
-
-
-        // --- MODALES DE EMERGENCIA ---
-        function openModoMinimoModal() {
-            document.getElementById('modo-minimo-modal').classList.remove('hidden');
-        }
-        function closeModoMinimoModal() {
-            document.getElementById('modo-minimo-modal').classList.add('hidden');
-        }
-
-        function openWeeklyEvaluationModal() {
-            document.getElementById('weekly-eval-modal').classList.remove('hidden');
-        }
-        function closeWeeklyEvaluationModal() {
-            document.getElementById('weekly-eval-modal').classList.add('hidden');
-        }
-
-        function saveWeeklyEvaluation(e) {
-            e.preventDefault();
-            const money = document.getElementById('eval-money').value.trim();
-            const habits = document.getElementById('eval-habits').value.trim();
-            const house = document.getElementById('eval-house').value.trim();
-            const attention = document.getElementById('eval-attention').value.trim();
-
-            state.weeklyEvaluations.push({
-                id: Date.now(),
-                date: new Date().toISOString().split('T')[0],
-                money,
-                habits,
-                house,
-                attention
-            });
-            saveState();
-            closeWeeklyEvaluationModal();
-            alert("¡Evaluación Semanal guardada! Sigue construyendo tu camino paso a paso.");
-            navigate('settings');
-        }
-
-
-        // --- MÓDULO AUXILIAR: CLIMA & VESTIMENTA ---
-        function renderModuloOutfit() {
-            const themeColor = state.theme;
-            const oSettings = state.outfitSettings;
-            const w = oSettings.weatherData;
-
-            // Traducir prendas del guardarropa cápsula
-            const ESP_CAPSULE_WARDROBE = {
-                'dark-trousers':  { label: 'Pantalones oscuros de vestir', icon: 'shirt' },
-                'chinos':         { label: 'Pantalones chinos / semi-vestir', icon: 'shirt' },
-                'jeans':          { label: 'Pantalones vaqueros (Jeans)', icon: 'shirt' },
-                'oxford-shirt':   { label: 'Camisa Oxford formal', icon: 'shirt' },
-                'blouse':         { label: 'Blusa elegante', icon: 'shirt' },
-                'plain-tshirt':   { label: 'Camiseta lisa informal', icon: 'shirt' },
-                'blazer':         { label: 'Saco Blazer', icon: 'pocket' },
-                'sweater':        { label: 'Suéter abrigador', icon: 'pocket' },
-                'cardigan':       { label: 'Cárdigan ligero', icon: 'pocket' },
-                'wool-coat':      { label: 'Abrigo pesado de lana', icon: 'umbrella' },
-                'trench-coat':    { label: 'Gabardina impermeable', icon: 'umbrella' },
-                'light-jacket':   { label: 'Chaqueta ligera', icon: 'pocket' },
-                'leather-shoes':  { label: 'Zapatos de cuero formales', icon: 'footprints' },
-                'white-sneakers': { label: 'Tenis blancos cómodos', icon: 'footprints' },
-                'ankle-boots':    { label: 'Botines de tobillo', icon: 'footprints' },
-                'umbrella':       { label: 'Paraguas', icon: 'umbrella' },
-                'scarf':          { label: 'Bufanda cálida', icon: 'wind' }
-            };
-
-            const recommendation = generateEspRecommendation(w, oSettings.dayType);
-            const renderItemsList = (slots) => {
-                const parts = [];
-                const addPart = (slotName, id) => {
-                    if (id && ESP_CAPSULE_WARDROBE[id]) {
-                        parts.push(`
-                            <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-                                <span class="p-2 bg-theme-${themeColor}-50 dark:bg-theme-${themeColor}-950/40 text-theme-${themeColor}-600 dark:text-theme-${themeColor}-400 rounded-lg">
-                                    <i data-lucide="${ESP_CAPSULE_WARDROBE[id].icon}" class="w-4 h-4"></i>
-                                </span>
-                                <div>
-                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">${slotName}</span>
-                                    <span class="text-xs font-bold text-slate-800 dark:text-slate-200">${ESP_CAPSULE_WARDROBE[id].label}</span>
-                                </div>
-                            </div>
-                        `);
-                    }
-                };
-
-                addPart('Prenda de Abajo', slots.bottom);
-                addPart('Prenda de Arriba', slots.top);
-                addPart('Capa Intermedia', slots.layer);
-                addPart('Prenda Exterior', slots.outer);
-                addPart('Calzado', slots.shoes);
-
-                if (slots.extras) {
-                    slots.extras.forEach(extraId => {
-                        addPart('Accesorio Clima', extraId);
-                    });
-                }
-
-                return parts.join('');
-            };
-
-            return `
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Tarjeta del Clima Actual -->
-                    <div class="bg-gradient-to-br from-theme-${themeColor}-500 to-theme-${themeColor}-600 text-white p-6 rounded-3xl shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-                        <div class="absolute -right-6 -bottom-6 opacity-10">
-                            <i data-lucide="cloud-rain" class="w-36 h-36"></i>
-                        </div>
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-widest text-white/80 flex items-center gap-1.5">
-                                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> ${oSettings.lastCity}
-                                </span>
-                                <h3 class="text-4xl font-extrabold mt-3">${Math.round(w.temp)}°C</h3>
-                            </div>
-                            <span class="px-2.5 py-1 bg-white/20 text-white rounded-full text-xs font-semibold">${w.label}</span>
-                        </div>
-                        <div class="border-t border-white/20 pt-4 mt-4 text-xs flex justify-between">
-                            <span>Viento: <strong>${Math.round(w.temp > 20 ? 12 : 28)} km/h</strong></span>
-                            <button onclick="fetchLocalWeather()" class="text-white/80 hover:text-white font-bold underline flex items-center gap-1">
-                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Actualizar
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Configuración del Tipo de Día -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">¿Cuál es tu plan de hoy?</h4>
-                            <p class="text-xs text-slate-400 mt-1">La recomendación cambiará su nivel de formalidad según tu agenda:</p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <button onclick="changeOutfitDayType('casual')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'casual' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Casual / Diario</button>
-                            <button onclick="changeOutfitDayType('work')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'work' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Trabajo / Negocios</button>
-                            <button onclick="changeOutfitDayType('event')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'event' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Evento Social</button>
-                            <button onclick="changeOutfitDayType('conference')" class="py-2 px-3 border rounded-xl text-xs font-bold text-center transition-all ${oSettings.dayType === 'conference' ? `bg-theme-${themeColor}-50 border-theme-${themeColor}-500 text-theme-${themeColor}-600 dark:bg-slate-700` : 'hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-150'}">Conferencia / Gala</button>
-                        </div>
-                    </div>
-
-                    <!-- Consejos de Clima Integrados -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">Nota del Clima de hoy</h4>
-                            <p class="text-xs text-slate-500 dark:text-slate-300 mt-2 leading-relaxed">"${recommendation.reason}"</p>
-                        </div>
-                        <span class="text-[10px] px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 rounded-xl font-bold self-start mt-4">100% Sin Rastreo de Datos</span>
-                    </div>
-                </div>
-
-                <!-- Desglose de Combinaciones de Ropa -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                    <!-- Outfit Principal Sugerido -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                        <h4 class="font-extrabold text-slate-900 dark:text-white text-base flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 bg-theme-${themeColor}-500 rounded-full"></span>
-                            Outfit Recomendado (Principal)
-                        </h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            ${renderItemsList(recommendation.primary)}
-                        </div>
-                    </div>
-
-                    <!-- Outfit Alternativo -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                        <h4 class="font-extrabold text-slate-900 dark:text-white text-base flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
-                            Outfit Alternativo (Opción B)
-                        </h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            ${renderItemsList(recommendation.alternative)}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function generateEspRecommendation(weather, dayType) {
-            const ESP_MATRIX = {
-                HOT: {
-                    RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: null,      outer: null,          shoes: 'white-sneakers' },
-                    BUSINESS_CASUAL: { bottom: 'chinos',          top: 'oxford-shirt', layer: null,      outer: null,          shoes: 'leather-shoes'  },
-                    SMART_CASUAL:    { bottom: 'chinos',          top: 'blouse',       layer: null,      outer: null,          shoes: 'leather-shoes'  },
-                    FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',  outer: null,          shoes: 'leather-shoes'  }
-                },
-                WARM: {
-                    RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'cardigan', outer: null,          shoes: 'white-sneakers' },
-                    BUSINESS_CASUAL: { bottom: 'chinos',          top: 'oxford-shirt', layer: null,       outer: null,          shoes: 'leather-shoes'  },
-                    SMART_CASUAL:    { bottom: 'chinos',          top: 'blouse',       layer: 'blazer',   outer: null,          shoes: 'leather-shoes'  },
-                    FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: null,          shoes: 'leather-shoes'  }
-                },
-                MILD: {
-                    RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'sweater',  outer: 'light-jacket', shoes: 'white-sneakers' },
-                    BUSINESS_CASUAL: { bottom: 'chinos',          top: 'oxford-shirt', layer: 'blazer',   outer: null,           shoes: 'leather-shoes'  },
-                    SMART_CASUAL:    { bottom: 'dark-trousers',   top: 'blouse',       layer: 'blazer',   outer: null,           shoes: 'leather-shoes'  },
-                    FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'trench-coat',  shoes: 'leather-shoes'  }
-                },
-                COOL: {
-                    RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'sweater',  outer: 'light-jacket', shoes: 'ankle-boots'    },
-                    BUSINESS_CASUAL: { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'trench-coat',  shoes: 'leather-shoes'  },
-                    SMART_CASUAL:    { bottom: 'dark-trousers',   top: 'blouse',       layer: 'blazer',   outer: 'trench-coat',  shoes: 'leather-shoes'  },
-                    FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'wool-coat',    shoes: 'leather-shoes'  }
-                },
-                COLD: {
-                    RELAXED:         { bottom: 'jeans',          top: 'plain-tshirt', layer: 'sweater',  outer: 'wool-coat',    shoes: 'ankle-boots'    },
-                    BUSINESS_CASUAL: { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'sweater',  outer: 'wool-coat',    shoes: 'leather-shoes'  },
-                    SMART_CASUAL:    { bottom: 'dark-trousers',   top: 'blouse',       layer: 'sweater',  outer: 'wool-coat',    shoes: 'leather-shoes'  },
-                    FORMAL:          { bottom: 'dark-trousers',   top: 'oxford-shirt', layer: 'blazer',   outer: 'wool-coat',    shoes: 'leather-shoes'  }
-                }
-            };
-
-            const tempBand = weather.temp >= 25 ? 'HOT' : (weather.temp >= 18 ? 'WARM' : (weather.temp >= 10 ? 'MILD' : (weather.temp >= 3 ? 'COOL' : 'COLD')));
-            const ESP_FORMALITY = { work: 'BUSINESS_CASUAL', casual: 'RELAXED', event: 'SMART_CASUAL', conference: 'FORMAL' };
-            const formality = ESP_FORMALITY[dayType] ?? 'RELAXED';
-
-            const baseSlots = ESP_MATRIX[tempBand]?.[formality] ?? ESP_MATRIX['MILD']['RELAXED'];
-            const primary = { ...baseSlots };
-            const reason = "El clima actual requiere de ropa ligera para mantener la comodidad.";
-
-            // Generar alternativas
-            const alt = { ...primary };
-            if (primary.layer === 'blazer') alt.layer = 'sweater';
-
-            return { primary, alternative: alt, reason };
-        }
-
-        function fetchLocalWeather() {
-            if (!navigator.geolocation) {
-                alert("Geolocalización no soportada.");
-                return;
-            }
-            navigator.geolocation.getCurrentPosition(async (pos) => {
-                const lat = pos.coords.latitude;
-                const lng = pos.coords.longitude;
-                try {
-                    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=\${lat}&longitude=\${lng}&current_weather=true`);
-                    const data = await res.json();
-                    if (data && data.current_weather) {
-                        const w = data.current_weather;
-                        state.outfitSettings.weatherData = {
-                            temp: w.temperature,
-                            condition: 'cloudy',
-                            label: 'Clima obtenido localmente⛅',
-                            wind: 'light',
-                            rain: false
-                        };
-                        state.outfitSettings.lastCity = "Tu Ubicación Actual";
-                        saveState();
-                        navigate('outfit');
-                    }
-                } catch (e) {
-                    alert("Error al conectar con la API de clima.");
-                }
-            });
-        }
-
-        function changeOutfitDayType(type) {
-            state.outfitSettings.dayType = type;
-            saveState();
-            navigate('outfit');
-        }
-
 </script>
+</body>
+</html>
