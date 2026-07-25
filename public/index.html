@@ -517,6 +517,10 @@
         }
 
         function navigate(page) {
+            if (window.isTestingSandbox && page === 'health') {
+                // Quiet update during sandbox testing to protect the logs in the console DOM
+                return;
+            }
             currentPage = page;
             const pageTitle = document.getElementById('page-title');
             if (pageTitle) pageTitle.innerText = pageTitles[page] || 'Modo Adulto';
@@ -980,19 +984,50 @@
 
         function renderModuloSettings() {
             const acc = state.accessibility;
+            const themeColor = state.theme;
+
+            // Generar toggles para los módulos visibles en el Dashboard
+            const modulesList = [
+                { key: 'todos', label: '🎯 Tareas & Ruleta' },
+                { key: 'money', label: '💳 Dinero sin Drama' },
+                { key: 'shopping', label: '🛍️ ¿Comprar o no?' },
+                { key: 'food', label: '🥑 Alimentación' },
+                { key: 'pets', label: '🐶 Mis Mascotas' },
+                { key: 'auto', label: '🚘 Mi Automóvil' },
+                { key: 'health', label: '🏥 Hábitos & Salud' },
+                { key: 'house', label: '🏠 Casa Funcional' },
+                { key: 'paz', label: '📱 Paz en Redes' }
+            ];
+
+            let modulesTogglesHtml = '';
+            modulesList.forEach(m => {
+                const isVisible = acc.visibleModules[m.key] !== false;
+                modulesTogglesHtml += `
+                    <div class="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-100 rounded-xl">
+                        <span class="font-semibold text-slate-700 dark:text-slate-200 text-xs">${m.label}</span>
+                        <button onclick="toggleModuleVisibility('${m.key}')" class="px-3 py-1 text-[10px] font-bold rounded-lg ${isVisible ? `bg-theme-${themeColor}-600 text-white` : 'bg-slate-200 dark:bg-slate-700 text-slate-500'}" aria-label="Alternar visibilidad de ${m.label}">
+                            ${isVisible ? 'Visible' : 'Oculto'}
+                        </button>
+                    </div>
+                `;
+            });
+
             return `
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-6 text-xs max-w-2xl mx-auto">
                     <div>
-                        <h3 class="font-bold text-sm">🛠️ Ajustes de Accesibilidad & Confort Cognitivo</h3>
-                        <p class="text-slate-400">Modo Adulto se adapta a tus necesidades sensoriales y cognitivas. Configura cada estímulo visual o auditivo de manera independiente.</p>
+                        <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-1.5">
+                            <i data-lucide="settings" class="w-4 h-4 text-theme-${themeColor}-500" aria-hidden="true"></i>
+                            🛠️ Ajustes de Accesibilidad & Confort Cognitivo (ADHD / Autism Friendly)
+                        </h3>
+                        <p class="text-slate-400">Modo Adulto se adapta de forma amable a tus necesidades sensoriales y cognitivas. Configura cada estímulo de manera independiente y libre de presiones.</p>
                     </div>
 
                     <div class="space-y-4">
                         <!-- Fuente y Letra -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-b pb-4">
                             <div>
-                                <label class="block font-bold text-slate-500 mb-1">Tipografía para Lectura</label>
-                                <select onchange="updateFontStyleSetting(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900">
+                                <label for="font-style-select" class="block font-bold text-slate-500 mb-1">Tipografía para Lectura</label>
+                                <select id="font-style-select" onchange="updateFontStyleSetting(this.value)" class="w-full px-3 py-2 border rounded-xl bg-slate-50 dark:bg-slate-900 dark:text-white">
                                     <option value="sans" ${state.fontStyle === "sans" ? "selected" : ""}>Sans Serif Estándar</option>
                                     <option value="serif" ${state.fontStyle === "serif" ? "selected" : ""}>Serif Tradicional</option>
                                     <option value="atkinson" ${state.fontStyle === "atkinson" ? "selected" : ""}>Atkinson Hyperlegible (Baja Visión)</option>
@@ -1000,8 +1035,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block font-bold text-slate-500 mb-1">Tamaño de Texto</label>
-                                <select onchange="updateFontSizeSetting(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900">
+                                <label for="font-size-select" class="block font-bold text-slate-500 mb-1">Tamaño de Texto</label>
+                                <select id="font-size-select" onchange="updateFontSizeSetting(this.value)" class="w-full px-3 py-2 border rounded-xl bg-slate-50 dark:bg-slate-900 dark:text-white">
                                     <option value="xs" ${acc.fontSize === "xs" ? "selected" : ""}>Muy Pequeño</option>
                                     <option value="sm" ${acc.fontSize === "sm" ? "selected" : ""}>Pequeño (Defecto)</option>
                                     <option value="base" ${acc.fontSize === "base" ? "selected" : ""}>Estándar</option>
@@ -1014,53 +1049,79 @@
                         <!-- Estilo Visual -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-b pb-4">
                             <div class="space-y-3">
-                                <label class="block font-bold text-slate-500">Ajustes Sensoriales</label>
+                                <span class="block font-bold text-slate-500">Ajustes Sensoriales</span>
                                 <div class="flex items-center justify-between">
-                                    <span>Contraste Elevado</span>
-                                    <input type="checkbox" ${acc.contrastElevated ? "checked" : ""} onchange="toggleContrastSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                    <label for="contrast-chk" class="text-slate-700 dark:text-slate-300">Contraste Elevado</label>
+                                    <input type="checkbox" id="contrast-chk" ${acc.contrastElevated ? "checked" : ""} onchange="toggleContrastSetting()" class="w-4 h-4 text-theme-${themeColor}-600 rounded">
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <span>Escala de Grises</span>
-                                    <input type="checkbox" ${acc.grayscale ? "checked" : ""} onchange="toggleGrayscaleSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                    <label for="grayscale-chk" class="text-slate-700 dark:text-slate-300">Escala de Grises</label>
+                                    <input type="checkbox" id="grayscale-chk" ${acc.grayscale ? "checked" : ""} onchange="toggleGrayscaleSetting()" class="w-4 h-4 text-theme-${themeColor}-600 rounded">
                                 </div>
                             </div>
                             <div class="space-y-3">
-                                <label class="block font-bold text-slate-500">Recordatorios & Voz</label>
+                                <span class="block font-bold text-slate-500">Recordatorios & Voz</span>
                                 <div class="flex items-center justify-between">
-                                    <span>Reducir Señales de Urgencia (Evita colores rojos/alarmistas)</span>
-                                    <input type="checkbox" ${acc.reduceUrgencies ? "checked" : ""} onchange="toggleUrgenciesSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                    <label for="urgencies-chk" class="text-slate-700 dark:text-slate-300">Reducir Señales de Urgencia (Sin colores rojos)</label>
+                                    <input type="checkbox" id="urgencies-chk" ${acc.reduceUrgencies ? "checked" : ""} onchange="toggleUrgenciesSetting()" class="w-4 h-4 text-theme-${themeColor}-600 rounded">
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <span>Mostrar Frases Motivacionales</span>
-                                    <input type="checkbox" ${state.affirmationMode ? "checked" : ""} onchange="toggleAffirmationSetting()" class="w-4 h-4 text-purple-600 rounded">
+                                    <label for="affirmations-chk" class="text-slate-700 dark:text-slate-300">Mostrar Frases Motivacionales</label>
+                                    <input type="checkbox" id="affirmations-chk" ${state.affirmationMode ? "checked" : ""} onchange="toggleAffirmationSetting()" class="w-4 h-4 text-theme-${themeColor}-600 rounded">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Temas de Color -->
                         <div class="border-b pb-4">
-                            <label class="block font-bold text-slate-500 mb-2">Paleta de Colores de Acompañamiento</label>
+                            <span class="block font-bold text-slate-500 mb-2">Paleta de Colores de Acompañamiento Calma (ADHD/Autismo Friendly)</span>
                             <div class="flex gap-3">
-                                <button onclick="updateThemeSetting('purple')" class="w-8 h-8 bg-purple-500 rounded-full border-2 ${state.theme === "purple" ? "border-black" : "border-transparent"}" title="Púrpura"></button>
-                                <button onclick="updateThemeSetting('blue')" class="w-8 h-8 bg-blue-500 rounded-full border-2 ${state.theme === "blue" ? "border-black" : "border-transparent"}" title="Azul"></button>
-                                <button onclick="updateThemeSetting('green')" class="w-8 h-8 bg-green-500 rounded-full border-2 ${state.theme === "green" ? "border-black" : "border-transparent"}" title="Verde"></button>
-                                <button onclick="updateThemeSetting('rose')" class="w-8 h-8 bg-rose-500 rounded-full border-2 ${state.theme === "rose" ? "border-black" : "border-transparent"}" title="Rosa"></button>
-                                <button onclick="updateThemeSetting('orange')" class="w-8 h-8 bg-orange-500 rounded-full border-2 ${state.theme === "orange" ? "border-black" : "border-transparent"}" title="Naranja"></button>
+                                <button onclick="updateThemeSetting('purple')" class="w-8 h-8 bg-purple-500 rounded-full border-2 ${state.theme === "purple" ? "border-black dark:border-white" : "border-transparent"}" title="Púrpura Tranquilo" aria-label="Cambiar tema a púrpura"></button>
+                                <button onclick="updateThemeSetting('blue')" class="w-8 h-8 bg-blue-500 rounded-full border-2 ${state.theme === "blue" ? "border-black dark:border-white" : "border-transparent"}" title="Azul Relajante" aria-label="Cambiar tema a azul"></button>
+                                <button onclick="updateThemeSetting('green')" class="w-8 h-8 bg-green-500 rounded-full border-2 ${state.theme === "green" ? "border-black dark:border-white" : "border-transparent"}" title="Verde Naturaleza" aria-label="Cambiar tema a verde"></button>
+                                <button onclick="updateThemeSetting('rose')" class="w-8 h-8 bg-rose-500 rounded-full border-2 ${state.theme === "rose" ? "border-black dark:border-white" : "border-transparent"}" title="Rosa Amable" aria-label="Cambiar tema a rosa"></button>
+                                <button onclick="updateThemeSetting('orange')" class="w-8 h-8 bg-orange-500 rounded-full border-2 ${state.theme === "orange" ? "border-black dark:border-white" : "border-transparent"}" title="Naranja Suave" aria-label="Cambiar tema a naranja"></button>
                             </div>
                         </div>
 
                         <!-- Tono de Voz -->
                         <div class="border-b pb-4">
-                            <label class="block font-bold text-slate-500 mb-1">Tono de los Avisos y Recordatorios</label>
-                            <select onchange="updateToneSetting(this.value)" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-900">
+                            <label for="tone-select" class="block font-bold text-slate-500 mb-1">Tono de los Avisos y Recordatorios (No Punitivos)</label>
+                            <select id="tone-select" onchange="updateToneSetting(this.value)" class="w-full px-3 py-2 border rounded-xl bg-slate-50 dark:bg-slate-900 dark:text-white">
                                 <option value="amable" ${acc.tone === "amable" ? "selected" : ""}>Amable: "Tu seguro vence mañana. Puedes revisarlo ahora o programar otro recordatorio."</option>
                                 <option value="directo" ${acc.tone === "directo" ? "selected" : ""}>Directo: "El seguro vence mañana."</option>
                                 <option value="corto" ${acc.tone === "corto" ? "selected" : ""}>Muy breve: "Seguro · vence mañana."</option>
                             </select>
                         </div>
+
+                        <!-- Ocultar y Simplificar Dashboard -->
+                        <div class="border-b pb-4 space-y-3">
+                            <div>
+                                <h4 class="font-bold text-slate-500">Ocultar y Simplificar Módulos del Dashboard</h4>
+                                <p class="text-[10px] text-slate-400">Apaga de forma rápida y sencilla los módulos que no requieras hoy para reducir el ruido visual y evitar la parálisis por análisis:</p>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                                ${modulesTogglesHtml}
+                            </div>
+                        </div>
+
+                        <!-- Recordatorios Posponibles de Medicación -->
+                        <div class="pb-2 space-y-2">
+                            <h4 class="font-bold text-slate-500">Recordatorios Posponibles</h4>
+                            <p class="text-[10px] text-slate-400">Cualquier alarma o recordatorio sonoro de receta/medicación activa un temporizador posponible de 15 minutos de forma amigable y sin presiones.</p>
+                        </div>
                     </div>
                 </div>
             `;
+        }
+
+        function toggleModuleVisibility(moduleKey) {
+            if (!state.accessibility.visibleModules) {
+                state.accessibility.visibleModules = {};
+            }
+            state.accessibility.visibleModules[moduleKey] = state.accessibility.visibleModules[moduleKey] === false ? true : false;
+            saveState();
+            navigate('settings');
         }
 
         function updateFontStyleSetting(val) {
@@ -2536,26 +2597,229 @@
                                 </div>
                             </div>
 
-                            <!-- Biblioteca Ginecológica Offline -->
+                            <!-- Biblioteca Ginecológica Offline (Women's Wellness Resources) -->
                             <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
-                                <h3 class="font-bold text-sm">📖 Biblioteca Ginecológica Offline</h3>
+                                <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-1.5">
+                                    <i data-lucide="book-open" class="w-4 h-4 text-rose-500" aria-hidden="true"></i>
+                                    📖 Biblioteca Ginecológica (Women's Wellness Resources)
+                                </h3>
+                                <p class="text-[10px] text-slate-400">Recursos informativos y educativos offline sobre la salud y bienestar de la mujer:</p>
+
                                 <div class="space-y-3 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                                    <!-- 1. Normal Vaginal Discharge -->
                                     <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                                        <summary class="flex justify-between items-center cursor-pointer font-bold">
-                                            <span>🌸 Síndrome de Ovario Poliquístico (SOP)</span>
-                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🤍 Flujo Vaginal Normal (Normal Vaginal Discharge)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
                                         </summary>
-                                        <p class="mt-2 text-[11px] text-slate-500 leading-normal">El SOP es un desorden hormonal común que afecta la ovulación y los periodos. Puede causar acné, vello corporal incrementado e irregularidad menstrual. Consultar a un ginecólogo o endocrinólogo para un diagnóstico certero.</p>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            El flujo vaginal normal es claro, elástico o blanco y no tiene olor desagradable. Cumple una función de limpieza, lubricación y protección contra infecciones. Su consistencia varía según la fase del ciclo menstrual.
+                                        </p>
                                     </details>
 
+                                    <!-- 2. Using Tampons, Pads, and Menstrual Discs -->
                                     <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                                        <summary class="flex justify-between items-center cursor-pointer font-bold">
-                                            <span>🩸 Dolor Menstrual (Dismenorrea) ¿Qué es normal?</span>
-                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🛡️ Uso de Tampones, Toallas y Discos (Using Tampons, Pads, and Menstrual Discs)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
                                         </summary>
-                                        <p class="mt-2 text-[11px] text-slate-500 leading-normal">Cierto nivel de molestia es habitual debido a las contracciones del útero por prostaglandinas. Sin embargo, un dolor incapacitante que te impide ir al trabajo o estudiar NO es normal y puede indicar condiciones como la endometriosis.</p>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Existen diversas alternativas de higiene íntima. Las toallas absorben externamente, mientras que los tampones y copas/discos se colocan internamente. Se recomienda cambiar los tampones y toallas cada 4-6 horas para prevenir el Síndrome de Shock Tóxico (SST) y mantener una adecuada higiene.
+                                        </p>
+                                    </details>
+
+                                    <!-- 3. Birth Control & Safe Contraception -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>💊 Métodos Anticonceptivos Seguros (Birth Control & Safe Contraception)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Los métodos anticonceptivos previenen embarazos no planificados. Se dividen en hormonales (píldoras, implante, DIU), de barrera (condón masculino/femenino) y naturales. El condón es el único método que también previene Infecciones de Transmisión Sexual (ITS).
+                                        </p>
+                                    </details>
+
+                                    <!-- 4. Understanding UTIs -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🧪 Infecciones de Vías Urinarias (Understanding UTIs)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Las IVU son causadas por bacterias en el tracto urinario. Los síntomas comunes incluyen ardor al orinar, aumento en la frecuencia urinaria y dolor pélvico. Se previenen manteniendo una buena hidratación, orinando después del coito y limpiándose de adelante hacia atrás.
+                                        </p>
+                                    </details>
+
+                                    <!-- 5. Breast Cancer Information -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🌸 Información de Cáncer de Mama (Breast Cancer Information)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            La detección oportuna salva vidas. Se recomienda realizar una autoexploración mamaria mensual 7 días después de iniciar el periodo y consultar a un médico especialista para mastografías preventivas periódicas a partir de los 40 años o antes si existen factores de riesgo familiares.
+                                        </p>
+                                    </details>
+
+                                    <!-- 6. Polycystic Ovary Syndrome (PCOS) -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🌿 Síndrome de Ovario Poliquístico / SOP (Polycystic Ovary Syndrome - PCOS)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            El SOP es un trastorno endocrino común. Sus características incluyen periodos menstruales irregulares, niveles elevados de hormonas masculinas (andrógenos) y ovarios con múltiples folículos pequeños. Su manejo implica cambios en el estilo de vida, nutrición y fármacos prescritos.
+                                        </p>
+                                    </details>
+
+                                    <!-- 7. Premenstrual Dysphoric Disorder (PMDD) -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🧠 Trastorno Disfórico Premenstrual / TDPM (Premenstrual Dysphoric Disorder)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            El TDPM es una extensión grave y a veces debilitante del SPM. Causa síntomas emocionales y conductuales severos (depresión, irritabilidad extrema, ansiedad) en las semanas previas a la menstruación, requiriendo un abordaje médico y terapéutico integral.
+                                        </p>
+                                    </details>
+
+                                    <!-- 8. Endometriosis -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🩸 Endometriosis (Endometriosis)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Ocurre cuando el tejido similar al endometrio crece fuera del útero (en ovarios, pelvis, etc.). Provoca dolor pélvico crónico intenso, cólicos menstruales severos, dolor durante el coito e infertilidad. El diagnóstico temprano con un especialista es clave.
+                                        </p>
+                                    </details>
+
+                                    <!-- 9. STD Testing -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🔬 Pruebas de ITS (STD Testing)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Muchas Infecciones de Transmisión Sexual son asintomáticas. Realizarse tamizajes periódicos de laboratorio (VIH, sífilis, clamidia, gonorrea) es una conducta responsable para proteger tu salud y la de tus parejas.
+                                        </p>
+                                    </details>
+
+                                    <!-- 10. Menstrual Cramps & Pain Management -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🧘 Cólicos Menstruales y Manejo del Dolor (Menstrual Cramps)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            La dismenorrea leve o moderada puede aliviarse mediante la aplicación de compresas calientes en el abdomen bajo, estiramientos suaves, mantenimiento de una buena hidratación y analgésicos antiinflamatorios prescritos de venta libre.
+                                        </p>
+                                    </details>
+
+                                    <!-- 11. Vulvodynia & Pelvic Floor Health -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>💎 Vulvodinia y Suelo Pélvico (Vulvodynia & Pelvic Floor Health)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            La vulvodinia es un dolor o molestia crónica inexplicable alrededor de la vulva. La fisioterapia y ejercicios de rehabilitación del suelo pélvico ( Kegel y estiramientos miofasciales) contribuyen en gran medida a su tratamiento y alivio del dolor.
+                                        </p>
                                     </details>
                                 </div>
+
+                                <!-- Nota de Descargo / Disclaimer Profesional Obligatorio -->
+                                <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 leading-relaxed italic text-left">
+                                    Disclaimer: This information is for educational purposes only. It is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always consult with a healthcare professional regarding any medical concerns.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (activeTab === 'hombre') {
+                // --- PESTAÑA 4: SALUD MASCULINA ---
+                tabContentHtml = `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <!-- Guías y Recursos de Salud Masculina -->
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-1.5">
+                                    <i data-lucide="book-open" class="w-4 h-4 text-indigo-500" aria-hidden="true"></i>
+                                    📘 Recursos de Salud Masculina (Men's Wellness Resources)
+                                </h3>
+                                <p class="text-[10px] text-slate-400">Guías preventivas e informativas esenciales para la salud del hombre:</p>
+
+                                <div class="space-y-3 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                                    <!-- 1. Prostate Health -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🩺 Salud de la Próstata (Prostate Health)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Monitorear la salud prostática mediante estudios preventivos como el antígeno prostático específico (PSA) en sangre y la valoración médica anual a partir de los 40-50 años. El diagnóstico a tiempo permite un tratamiento sumamente eficaz.
+                                        </p>
+                                    </details>
+
+                                    <!-- 2. Testicular Self-Exam -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🛡️ Autoexploración Testicular (Testicular Self-Exam)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            La autoexploración testicular mensual de forma suave después de una ducha caliente ayuda a familiarizarse con la anatomía normal e identificar oportunamente cualquier bulto, dolor, dureza o cambio inusual en el tamaño o consistencia.
+                                        </p>
+                                    </details>
+
+                                    <!-- 3. Cardiovascular Health -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>❤️ Salud Cardiovascular (Cardiovascular Health)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Estadísticamente, las cardiopatías suelen manifestarse de forma más temprana en hombres. Es fundamental monitorear los niveles de colesterol, triglicéridos y presión arterial periódicamente, así como evitar el tabaquismo y favorecer la actividad física aeróbica.
+                                        </p>
+                                    </details>
+
+                                    <!-- 4. Men's Mental Health -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>🧠 Salud Mental Masculina (Men's Mental Health)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            Es crucial erradicar los estigmas de género en torno a la salud emocional del hombre. Sentirse abrumado, experimentar depresión o altos niveles de estrés requiere de la misma empatía y acompañamiento psicoterapéutico profesional que cualquier otra afección física.
+                                        </p>
+                                    </details>
+
+                                    <!-- 5. Hormonal Health -->
+                                    <details class="group bg-slate-50 dark:bg-slate-900 p-3 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                                        <summary class="flex justify-between items-center cursor-pointer font-bold select-none">
+                                            <span>💎 Salud Hormonal y Testosterona (Hormonal Health)</span>
+                                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                                        </summary>
+                                        <p class="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                                            La testosterona influye directamente en la energía, densidad ósea, masa muscular y estado de ánimo. Sus niveles descienden lentamente de forma natural con los años; se fomenta mantener hábitos saludables de sueño, nutrición balanceada y entrenamiento de fuerza regular.
+                                        </p>
+                                    </details>
+                                </div>
+
+                                <!-- Nota de Descargo / Disclaimer Profesional Obligatorio -->
+                                <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 leading-relaxed italic text-left">
+                                    Disclaimer: This information is for educational purposes only. It is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always consult with a healthcare professional regarding any medical concerns.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel de Consejos Rápidos Adicionales -->
+                        <div class="space-y-6">
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm space-y-4">
+                                <h3 class="font-bold text-sm">💡 Prevención y Hábitos Diarios</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-normal">
+                                    Adicionalmente, se recomienda programar un examen de laboratorio preventivo anual, cuidar el consumo excesivo de alcohol, e integrar estiramientos y ejercicios de suelo pélvico masculino para una salud urinaria óptima.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -2701,7 +2965,8 @@
                         <button id="tab-btn-ficha" onclick="setHealthTab('ficha')" class="${tabBtnClass('ficha')}">📋 Pestaña 1: Ficha Médica</button>
                         <button id="tab-btn-historial" onclick="setHealthTab('historial')" class="${tabBtnClass('historial')}">💊 Pestaña 2: Historial y Recetas</button>
                         <button id="tab-btn-mujer" onclick="setHealthTab('mujer')" class="${tabBtnClass('mujer')}">🩺 Pestaña 3: Salud Femenina</button>
-                        <button id="tab-btn-seguros" onclick="setHealthTab('seguros')" class="${tabBtnClass('seguros')}">🛡️ Pestaña 4: Seguros de Salud</button>
+                        <button id="tab-btn-hombre" onclick="setHealthTab('hombre')" class="${tabBtnClass('hombre')}">🧔 Pestaña 4: Salud Masculina</button>
+                        <button id="tab-btn-seguros" onclick="setHealthTab('seguros')" class="${tabBtnClass('seguros')}">🛡️ Pestaña 5: Seguros de Salud</button>
                     </div>
 
                     <!-- Panel de Pruebas Automatizadas de Integración Sandbox -->
@@ -3068,12 +3333,22 @@
                 playBeep(659.25, 0.2, now + 0.15); // E5
                 playBeep(783.99, 0.3, now + 0.3);  // G5
 
-                alert(`⏰ ¡Recordatorio de Medicación! Es hora de tomar su medicina: "${medName}".`);
+                // Ofrecer opción posponible amigable (Snooze)
+                const confirmTake = confirm(`⏰ ¡Recordatorio de Medicación Amigable!\nEs hora de tomar su medicina: "${medName}".\n\n¿Desea tomarla ahora mismo?\n(Presione Cancelar si desea posponerla 15 minutos de forma libre y sin presiones)`);
+                if (!confirmTake) {
+                    alert(`💤 ¡Recordatorio Pospuesto! Te recordaremos tomar "${medName}" nuevamente en 15 minutos. No te preocupes, tómate tu tiempo.`);
+                } else {
+                    alert(`✅ ¡Excelente! Registro guardado de la toma de "${medName}".`);
+                }
             } catch (err) {
-                alert(`⏰ Recordatorio de Medicación: Es hora de tomar "${medName}".`);
+                const confirmTake = confirm(`⏰ Recordatorio de Medicación: Es hora de tomar "${medName}".\n\n¿Tomar ahora o posponer?`);
+                if (!confirmTake) {
+                    alert(`💤 Recordatorio pospuesto por 15 minutos.`);
+                } else {
+                    alert(`✅ Registro guardado.`);
+                }
             }
         }
-
         function openAddFamilyModal() {
             document.getElementById('add-familyhistory-modal').classList.remove('hidden');
         }
@@ -3355,6 +3630,7 @@
         function runSandboxTests() {
             const consoleEl = document.getElementById('test-runner-console');
             if (!consoleEl) return;
+            window.isTestingSandbox = true;
             consoleEl.classList.remove('hidden');
             consoleEl.innerHTML = '<p class="text-amber-400 font-bold">🚀 Iniciando suite automatizada de 8 pruebas de usuario en Sandbox...</p>';
 
@@ -3456,17 +3732,21 @@
                     }
 
                     saveState();
+                    window.isTestingSandbox = false;
                     log('🏆 suite de pruebas completada impecablemente con un 100% de éxito.', true);
                     navigate('health');
+                    // Ensure the console remains visible after navigate has re-rendered
+                    const finalConsole = document.getElementById('test-runner-console');
+                    if (finalConsole) {
+                        finalConsole.classList.remove('hidden');
+                        finalConsole.innerHTML = consoleEl.innerHTML;
+                    }
                 } catch (testErr) {
-                    log('Error durante las pruebas automatizadas: ' + testErr.message, false);
+                    window.isTestingSandbox = false;
+                    console.error('Test Suite Stack Trace:', testErr.stack);
+                    log('Error durante las pruebas automatizadas: ' + testErr.message + ' (Stack: ' + testErr.stack + ')', false);
                 }
             }, 800);
-        }
-
-        function updateAllergies(val) {
-            state.health.allergies = val.trim();
-            saveState();
         }
         // --- HELPER FUNCTIONS FOR CASA FUNCIONAL ---
         function toggleHouseTodo(id) {
@@ -3987,7 +4267,6 @@
         }
 
         // --- HOOKS DE INICIALIZACION ---
-        const prevInitPageGames = initializePageComponents;
         function initializePageComponents(page) {
             if (page !== 'ellie' && ellieGameActive) {
                 stopEllieGame();
@@ -3998,7 +4277,6 @@
             if (page === 'outfit') {
                 fetchLocalClimate();
             }
-            if (typeof prevInitPageGames === 'function') prevInitPageGames(page);
         }
 
         window.onload = function() {
