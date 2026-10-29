@@ -106,3 +106,16 @@ Toda la información personal introducida se almacena localmente en el dispositi
    node server.js
    ```
 3. Abre la URL en tu navegador: `http://localhost:3000`
+
+---
+
+## 🗺️ Plan de trabajo y Biblia de diseño
+
+- **Plan de ejecución por fases** (de hoy a las tiendas): [`docs/PLAN-EJECUCION.md`](docs/PLAN-EJECUCION.md)
+- **Biblia de diseño** (reglas, evidencia y tokens que la app debe cumplir): [`docs/bible/`](docs/bible/)
+  - [`CORE.md`](docs/bible/CORE.md): principios, color, tipografía, voz y QA gates
+  - [`tokens.css`](docs/bible/tokens.css): valores de diseño
+  - [`VOL-0-evidence-framework.md`](docs/bible/VOL-0-evidence-framework.md): por qué cada regla tiene su grado
+  - [`ARCHITECTURE.md`](docs/bible/ARCHITECTURE.md) y [`PROMPTS.md`](docs/bible/PROMPTS.md)
+
+La guía de producción anterior (Capacitor, Firebase, RevenueCat, tiendas) sigue en el historial, commit `f2e936d`. El plan nuevo la reemplaza.
