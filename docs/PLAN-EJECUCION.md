@@ -96,6 +96,8 @@ Notas al cerrar la fase:
 **Listo cuando:** cada pantalla pasa los gates 1–15, con el resultado anotado.
 
 ### Fase 3 — Probar con personas reales (2–3 semanas, poco código)
+Material listo (29 oct): guion, 8 tareas, preguntas de cierre, hoja de notas y cómo ordenar hallazgos en [`fase-3-pruebas.md`](fase-3-pruebas.md).
+
 - [ ] De 5 a 8 personas de la audiencia usan la versión web de Railway durante una semana.
 - [ ] Una tarea guiada por persona (por ejemplo, "registra tu tarjeta y averigua cuándo pagar"), observada sin ayudar.
 - [ ] Corregir lo que aparezca y repetir con 2–3 personas.
