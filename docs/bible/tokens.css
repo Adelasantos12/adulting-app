@@ -1,0 +1,171 @@
+/* ============================================================
+   adultos.entraining — design tokens
+   Every colour value below has a measured contrast ratio in the
+   comment. Grades refer to VOL-0-evidence-framework.md.
+
+   Rules that are not negotiable:
+   - No token in --pastel-* may ever encode meaning. Surface only. [C4, C5]
+   - Colour never carries a distinction alone. Always + icon, label,
+     shape, or position. [WCAG 1.4.1, grade B; C4 grade A]
+   - --text-tracking is user-adjustable. It is the one typographic
+     intervention with real evidence. [T2, grade A]
+   - Motion tokens all have a reduced counterpart. [M3, grade B]
+   ============================================================ */
+
+:root {
+  /* ---------- ground and ink, light (default) ---------- */
+  --ground:          #FDFBF6;              /* brand cream. Grade D: taste + glare, NOT an accessibility feature [C7/C8] */
+  --surface-1:       #F6F2E9;              /* 1.08:1 vs ground — invisible alone, always pair with --border */
+  --surface-2:       #EFEAE0;              /* 1.16:1 vs ground */
+  --border:          #8F8A7E;              /* 3.33:1 vs ground — clears WCAG 1.4.11 for component boundaries */
+
+  --ink:             #1E232C;              /* 15.25:1 */
+  --ink-soft:        #4A4F58;              /*  7.96:1 */
+  --ink-faint:       #6B707A;              /*  4.81:1 — floor for normal text, do not go lighter */
+
+  --accent:          #4F7F4A;              /*  4.55:1 — one job per screen */
+  --accent-strong:   #3F6B3B;              /*  6.01:1 — pressed / active */
+  --attention:       #8A5A00;              /*  5.73:1 — amber, not red. Never alone: + icon + text */
+  --link:            #1F5C8B;              /*  6.86:1 */
+  --focus-ring:      #1E232C;              /* 15.25:1 */
+
+  /* ---------- decorative pastels: SURFACE ONLY ----------
+     Measured against --ground. None clears 3:1. None may mark,
+     categorise, or differentiate anything.
+     Worst case: --pastel-green vs --pastel-peach is 1.03:1 —
+     identical luminance, adjacent hue. Invisible to a red-green
+     colour-blind reader with nothing to fall back on. [C5, grade A] */
+  --pastel-green:    #A7D7A3;              /* 1.58:1 */
+  --pastel-blue:     #8DB4E2;              /* 2.08:1 */
+  --pastel-yellow:   #FFD97A;              /* 1.31:1 */
+  --pastel-peach:    #FFB7A3;              /* 1.62:1 */
+  --pastel-lavender: #DCCCF4;              /* 1.45:1 */
+  --pastel-grey:     #F1F2F4;              /* 1.08:1 */
+
+  /* ---------- mascot ---------- */
+  --blob-fill:       var(--pastel-green);
+  --blob-outline:    var(--ink);           /* MANDATORY. Fill is 1.58:1; without the outline the body has no edge */
+  --blob-shadow:     #F0ECE3;              /* one flat ellipse. Never a scribble, never hatched [N3, grade A] */
+
+  /* ---------- type ---------- */
+  --font-family:     'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Nunito, not Poppins Rounded: Poppins has a single-storey 'a' and low letterform
+     distinctness. Grade C — practice consensus, weak experimental base. [T4]
+     NOT shipping OpenDyslexic or Dyslexie. Grade E, refuted. [T1] */
+
+  --text-xs:         0.875rem;             /* 14px — captions only, never body */
+  --text-sm:         1rem;                 /* 16px */
+  --text-base:       1.125rem;             /* 18px — body default, generous on purpose [T3, grade A] */
+  --text-lg:         1.375rem;             /* 22px */
+  --text-xl:         1.75rem;              /* 28px */
+  --text-2xl:        2.25rem;              /* 36px */
+
+  --leading-tight:   1.3;
+  --leading-body:    1.6;
+  --leading-loose:   1.8;                  /* user-selectable */
+
+  --text-tracking:   0.04em;               /* DEFAULT. User-adjustable 0 → 0.12em.
+                                              Increased letter spacing improves reading in dyslexia.
+                                              Zorzi et al. 2012 PNAS, replicated. [T2, grade A] */
+  --measure:         60ch;                 /* max line length */
+
+  /* ---------- spacing, 4px base ---------- */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-6: 1.5rem;  --space-8: 2rem;
+  --space-12: 3rem;    --space-16: 4rem;
+
+  --radius-sm: 8px;  --radius-md: 14px;  --radius-lg: 22px;  --radius-full: 999px;
+
+  /* ---------- targets ----------
+     WCAG 2.2 SC 2.5.8 minimum is 24×24 CSS px (grade B).
+     48 is the platform convention on both iOS and Android (grade C).
+     Use 48. The standard is a floor, not a goal. */
+  --target-min:      48px;
+  --target-gap:      8px;
+
+  /* ---------- motion ----------
+     Durations and easing are CRAFT, grade C. No evidence base worth the name. [M4]
+     What is NOT craft: no flashing above 3Hz, ever. [M1, grade A, absolute] */
+  --dur-instant:     90ms;
+  --dur-quick:       160ms;
+  --dur-base:        240ms;
+  --dur-calm:        420ms;
+  --dur-breath:      4200ms;               /* mascot idle loop, one full cycle */
+
+  --ease-out:        cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-breath:     cubic-bezier(0.45, 0, 0.55, 1);
+
+  --blob-breath-scale: 1.018;              /* amplitude of the idle loop. Deliberately small */
+}
+
+/* ---------- dark ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground:        #171B22;
+    --surface-1:     #20252E;              /* 1.12:1 vs ground */
+    --surface-2:     #2A3038;              /* 1.30:1 vs ground */
+    --border:        #6B717A;              /* 3.51:1 vs ground */
+
+    --ink:           #E9E6DF;              /* 13.85:1 — NOT pure white. Halation at max luminance */
+    --ink-soft:      #B4B0A8;              /*  7.99:1 */
+    --ink-faint:     #8A8780;              /*  4.82:1 */
+
+    --accent:        #8FC489;              /*  8.57:1 */
+    --accent-strong: #A9D6A3;              /* 10.55:1 */
+    --attention:     #E0B45C;              /*  8.92:1 */
+    --link:          #8CBFE6;              /*  8.81:1 */
+    --focus-ring:    #E9E6DF;              /* 13.85:1 */
+
+    --blob-outline:  var(--ink);
+    --blob-shadow:   #1F242C;
+  }
+}
+
+/* ---------- reduced motion: mandatory, not optional ----------
+   Reduced means removed or cross-faded. NOT "slightly faster".
+   [M3, grade B — platform API on iOS, Android and web] */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 1ms; --dur-quick: 1ms; --dur-base: 1ms;
+    --dur-calm: 1ms;    --dur-breath: 1ms;
+    --blob-breath-scale: 1;
+  }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- baseline ---------- */
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  letter-spacing: var(--text-tracking);
+  text-align: left;                        /* never justified [BDA, grade C] */
+}
+
+p, li { max-width: var(--measure); }
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+button, a, [role="button"], input, select {
+  min-height: var(--target-min);
+  min-width: var(--target-min);
+}
+
+/* PROHIBITED — kept here as a visible reminder, do not remove
+   - text-transform: uppercase        [T5, grade A for body copy]
+   - background-image: repeating-linear-gradient(...)  hatching, stripes [N3, grade A]
+   - any animation above 3 flashes per second          [M1, grade A, absolute]
+   - parallax on scroll, large-field zoom              [M2]
+   - colour as the only differentiator                 [WCAG 1.4.1, grade B]
+*/
