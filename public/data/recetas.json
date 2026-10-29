@@ -1,0 +1,4067 @@
+[
+ {
+  "id": "huevos-a-la-mexicana",
+  "titulo": "Huevos a la mexicana",
+  "resumen": "Huevo revuelto con jitomate, cebolla y chile serrano. Listo en 15 minutos.",
+  "comida": [
+   "desayuno",
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 15,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "alta-proteina",
+   "economica",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "huevo",
+    "texto": "4 huevos"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "1 jitomate"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla"
+   },
+   {
+    "clave": "chile-serrano",
+    "texto": "1 chile serrano",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite y sal"
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "Tortillas para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pica el jitomate, la cebolla y el chile en cubitos."
+   },
+   {
+    "texto": "Calienta el aceite en el sartén a fuego medio."
+   },
+   {
+    "texto": "Agrega la cebolla, el chile y el jitomate y cocina moviendo de vez en cuando.",
+    "minutos": 3
+   },
+   {
+    "texto": "Bate los huevos en un plato con una pizca de sal."
+   },
+   {
+    "texto": "Vierte el huevo en el sartén y mueve sin parar hasta que no quede nada líquido.",
+    "minutos": 3
+   }
+  ],
+  "seguridad": "Cocina el huevo hasta que esté firme y sin partes líquidas.",
+  "consejo": "Si no tienes chile fresco, sirve con salsa de botella encima.",
+  "revisada": false
+ },
+ {
+  "id": "molletes-en-freidora",
+  "titulo": "Molletes en freidora de aire",
+  "resumen": "Bolillo con frijoles y queso gratinado en la freidora. Listos en 15 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 15,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "bolillo",
+    "texto": "2 bolillos"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1 taza de frijoles refritos"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "1 taza de queso manchego rallado"
+   },
+   {
+    "clave": "mantequilla",
+    "texto": "1 cucharada de mantequilla",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa o pico de gallo al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta la freidora a 180 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Parte los bolillos a lo largo y úntales una capa delgada de mantequilla."
+   },
+   {
+    "texto": "Unta los frijoles sobre cada mitad y cubre con el queso."
+   },
+   {
+    "texto": "Acomoda las mitades en la canastilla sin encimarlas."
+   },
+   {
+    "texto": "Cocina a 180 °C hasta que el queso se derrita. No hace falta voltearlos; revisa a la mitad.",
+    "minutos": 7
+   },
+   {
+    "texto": "Sírvelos con salsa encima."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si caben solo dos mitades, cocina en dos tandas; la segunda tarda un minuto menos.",
+  "revisada": false
+ },
+ {
+  "id": "chilaquiles-rojos-con-huevo-estrellado",
+  "titulo": "Chilaquiles rojos con huevo estrellado",
+  "resumen": "Totopos en salsa roja con un huevo estrellado encima, crema y queso. Unos 25 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 25,
+  "energia": "ganas",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "totopos",
+    "texto": "3 tazas de totopos"
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "1 1/2 tazas de salsa roja"
+   },
+   {
+    "clave": "huevo",
+    "texto": "2 huevos"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla en rodajas"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "Queso fresco desmoronado al gusto"
+   },
+   {
+    "clave": "basico",
+    "texto": "2 cucharadas de aceite y sal"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Corta la cebolla en rodajas delgadas y apártala."
+   },
+   {
+    "texto": "Calienta la salsa en un sartén a fuego medio hasta que hierva."
+   },
+   {
+    "texto": "Baja el fuego al mínimo y deja la salsa tapada mientras haces los huevos."
+   },
+   {
+    "texto": "Calienta el aceite en otro sartén a fuego medio."
+   },
+   {
+    "texto": "Rompe los huevos en una taza y deslízalos con cuidado al aceite."
+   },
+   {
+    "texto": "Cocina sin mover hasta que la clara esté blanca por completo.",
+    "minutos": 4
+   },
+   {
+    "texto": "Saca los huevos a un plato y apaga ese fuego."
+   },
+   {
+    "texto": "Agrega los totopos a la salsa y mueve hasta que se cubran.",
+    "minutos": 2
+   },
+   {
+    "texto": "Sirve los chilaquiles con un huevo encima, crema, queso y cebolla."
+   }
+  ],
+  "seguridad": "Rompe el huevo en una taza antes de echarlo al aceite para que no salpique; mantén la cara lejos del sartén. Si prefieres la yema firme, tapa el sartén el último minuto.",
+  "consejo": "Si te gustan los totopos crujientes, sírvelos en cuanto se cubran de salsa.",
+  "revisada": false
+ },
+ {
+  "id": "avena-de-microondas-con-platano",
+  "titulo": "Avena de microondas con plátano",
+  "resumen": "Avena caliente con leche, plátano y canela, hecha en un tazón. Lista en 6 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 6,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "avena",
+    "texto": "1/2 taza de avena"
+   },
+   {
+    "clave": "leche",
+    "texto": "1 taza de leche"
+   },
+   {
+    "clave": "platano",
+    "texto": "1 plátano"
+   },
+   {
+    "clave": "canela",
+    "texto": "1 pizca de canela molida"
+   },
+   {
+    "clave": "miel",
+    "texto": "1 cucharadita de miel",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon la avena y la leche en un tazón grande para que no se derrame."
+   },
+   {
+    "texto": "Calienta en el microondas a potencia alta.",
+    "minutos": 2
+   },
+   {
+    "texto": "Mueve, y si sigue aguada, calienta 30 segundos más."
+   },
+   {
+    "texto": "Deja reposar para que espese.",
+    "minutos": 1
+   },
+   {
+    "texto": "Agrega el plátano en rodajas, la canela y la miel."
+   }
+  ],
+  "seguridad": "El tazón y la avena salen muy calientes; sácalo con un trapo.",
+  "consejo": "Con agua en lugar de leche también funciona; queda menos cremosa.",
+  "revisada": false
+ },
+ {
+  "id": "licuado-de-platano-y-avena",
+  "titulo": "Licuado de plátano y avena",
+  "resumen": "Licuado de leche, plátano, avena y crema de cacahuate. Listo en 5 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "licuadora"
+  ],
+  "minutos": 5,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "para-llevar",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "leche",
+    "texto": "1 taza de leche fría"
+   },
+   {
+    "clave": "platano",
+    "texto": "1 plátano"
+   },
+   {
+    "clave": "avena",
+    "texto": "2 cucharadas de avena"
+   },
+   {
+    "clave": "crema-cacahuate",
+    "texto": "1 cucharada de crema de cacahuate",
+    "opcional": true
+   },
+   {
+    "clave": "canela",
+    "texto": "1 pizca de canela",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pela el plátano y pártelo en tres pedazos."
+   },
+   {
+    "texto": "Pon todo en la licuadora."
+   },
+   {
+    "texto": "Licua hasta que no veas grumos de avena, alrededor de un minuto."
+   },
+   {
+    "texto": "Sirve en un vaso o en un termo."
+   }
+  ],
+  "seguridad": "Si tienes alergia al cacahuate, omite la crema de cacahuate.",
+  "consejo": "Con un plátano congelado en rodajas queda más espeso y frío.",
+  "revisada": false
+ },
+ {
+  "id": "sandwich-de-jamon-y-queso-dorado",
+  "titulo": "Sándwich de jamón y queso dorado",
+  "resumen": "Pan de caja con jamón y queso, dorado en el sartén hasta que el queso se derrite. 10 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pan-caja",
+    "texto": "2 rebanadas de pan de caja"
+   },
+   {
+    "clave": "jamon",
+    "texto": "2 rebanadas de jamón"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "2 rebanadas de queso manchego"
+   },
+   {
+    "clave": "mantequilla",
+    "texto": "1 cucharadita de mantequilla"
+   },
+   {
+    "clave": "mostaza",
+    "texto": "Mostaza o mayonesa al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Arma el sándwich con mostaza, jamón y queso entre las dos rebanadas."
+   },
+   {
+    "texto": "Unta la mantequilla por fuera, en ambas caras del pan."
+   },
+   {
+    "texto": "Dora en el sartén a fuego medio-bajo.",
+    "minutos": 3
+   },
+   {
+    "texto": "Voltea y dora el otro lado hasta que el queso se derrita.",
+    "minutos": 3
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si el pan se dora antes de que se derrita el queso, baja el fuego y tapa el sartén.",
+  "revisada": false
+ },
+ {
+  "id": "quesadillas-de-queso-oaxaca",
+  "titulo": "Quesadillas de queso Oaxaca",
+  "resumen": "Tortillas de maíz con queso Oaxaca derretido en el sartén. Listas en 10 minutos.",
+  "comida": [
+   "desayuno",
+   "comida",
+   "cena",
+   "botana"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "economica",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tortilla-maiz",
+    "texto": "6 tortillas de maíz"
+   },
+   {
+    "clave": "queso-oaxaca",
+    "texto": "200 g de queso Oaxaca"
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa verde al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "aguacate",
+    "texto": "1/2 aguacate",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Deshebra el queso con los dedos."
+   },
+   {
+    "texto": "Calienta el sartén a fuego medio, sin aceite."
+   },
+   {
+    "texto": "Pon una tortilla, agrega queso en una mitad y dóblala."
+   },
+   {
+    "texto": "Cocina volteando una vez, hasta que el queso se derrita.",
+    "minutos": 3
+   },
+   {
+    "texto": "Repite con las demás y sirve con salsa y aguacate."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si la tortilla se rompe al doblarla, caliéntala unos segundos antes de rellenar.",
+  "revisada": false
+ },
+ {
+  "id": "yogur-con-granola-y-fruta",
+  "titulo": "Tazón de yogur con granola y fruta",
+  "resumen": "Yogur natural con fresas, plátano, granola y miel. Listo en 5 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "sin-cocinar"
+  ],
+  "minutos": 5,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "yogur",
+    "texto": "1 taza de yogur natural"
+   },
+   {
+    "clave": "granola",
+    "texto": "1/3 de taza de granola"
+   },
+   {
+    "clave": "fresa",
+    "texto": "4 fresas"
+   },
+   {
+    "clave": "platano",
+    "texto": "1/2 plátano",
+    "opcional": true
+   },
+   {
+    "clave": "miel",
+    "texto": "1 cucharadita de miel",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Sirve el yogur en un tazón."
+   },
+   {
+    "texto": "Corta las fresas y el plátano en rodajas y ponlos encima."
+   },
+   {
+    "texto": "Agrega la granola y la miel justo antes de comer."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si lo llevas, guarda la granola aparte para que no se ablande.",
+  "revisada": false
+ },
+ {
+  "id": "huevo-en-taza-de-microondas",
+  "titulo": "Huevo en taza de microondas",
+  "resumen": "Huevo batido con jamón y queso, cocido en una taza en el microondas. Listo en 5 minutos.",
+  "comida": [
+   "desayuno"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 5,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "huevo",
+    "texto": "2 huevos"
+   },
+   {
+    "clave": "leche",
+    "texto": "1 cucharada de leche"
+   },
+   {
+    "clave": "jamon",
+    "texto": "1 rebanada de jamón en pedacitos",
+    "opcional": true
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "2 cucharadas de queso rallado",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y unas gotas de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Unta la taza por dentro con unas gotas de aceite."
+   },
+   {
+    "texto": "Bate en la taza los huevos, la leche, la sal, el jamón y el queso."
+   },
+   {
+    "texto": "Calienta en el microondas a potencia alta.",
+    "minutos": 1
+   },
+   {
+    "texto": "Mueve con un tenedor y calienta 30 segundos más, hasta que no quede huevo líquido."
+   },
+   {
+    "texto": "Deja reposar un minuto antes de comer.",
+    "minutos": 1
+   }
+  ],
+  "seguridad": "Cocina hasta que el huevo esté firme. Nunca metas un huevo con cáscara al microondas: puede reventar. Usa una taza que diga que es apta para microondas.",
+  "consejo": "Si el huevo sube mucho, es normal; baja al reposar.",
+  "revisada": false
+ },
+ {
+  "id": "papas-gajo-en-freidora",
+  "titulo": "Papas gajo en freidora de aire",
+  "resumen": "Papas en gajos con cáscara, doradas en la freidora con poco aceite. Unos 30 minutos.",
+  "comida": [
+   "botana"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 30,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-lacteos",
+   "sin-gluten",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "papa",
+    "texto": "2 papas medianas"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite, sal y pimienta"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo",
+    "opcional": true
+   },
+   {
+    "clave": "catsup",
+    "texto": "Cátsup o salsa para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Lava bien las papas y sécalas con un trapo."
+   },
+   {
+    "texto": "Corta cada papa en 8 gajos a lo largo."
+   },
+   {
+    "texto": "Revuelve los gajos en un tazón con el aceite, la sal, la pimienta y el ajo."
+   },
+   {
+    "texto": "Precalienta la freidora a 200 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Acomoda los gajos en una sola capa y cocina a 200 °C.",
+    "minutos": 10
+   },
+   {
+    "texto": "Agita la canastilla y cocina otros 8 a 10 minutos, hasta que estén doradas y suaves por dentro.",
+    "minutos": 10
+   }
+  ],
+  "seguridad": "La canastilla sale muy caliente; sácala por el mango y apóyala en una superficie que aguante calor.",
+  "consejo": "Si al picarlas con un tenedor siguen duras, dales 3 minutos más.",
+  "revisada": false
+ },
+ {
+  "id": "garbanzos-crujientes-en-freidora",
+  "titulo": "Garbanzos crujientes en freidora",
+  "resumen": "Garbanzos de lata tostados con limón y sal en la freidora. Unos 25 minutos.",
+  "comida": [
+   "botana"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-lacteos",
+   "sin-gluten",
+   "para-llevar",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "garbanzos",
+    "texto": "1 lata de garbanzos (400 g)"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharadita de aceite y sal"
+   },
+   {
+    "clave": "limon",
+    "texto": "1/2 limón"
+   },
+   {
+    "clave": "chipotle-lata",
+    "texto": "1 cucharadita del adobo de chipotle",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Escurre los garbanzos y enjuágalos con agua."
+   },
+   {
+    "texto": "Sécalos bien con un trapo limpio; entre más secos, más crujientes."
+   },
+   {
+    "texto": "Precalienta la freidora a 200 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Revuelve los garbanzos con el aceite y la sal, y ponlos en la canastilla."
+   },
+   {
+    "texto": "Cocina a 200 °C y agita la canastilla cada 5 minutos.",
+    "minutos": 15
+   },
+   {
+    "texto": "Pásalos a un tazón con el jugo de limón y el adobo, y déjalos enfriar para que crujan.",
+    "minutos": 5
+   }
+  ],
+  "seguridad": "Algunos garbanzos pueden brincar en la freidora; abre la canastilla con cuidado.",
+  "consejo": "Guárdalos en un frasco abierto; tapados se ablandan.",
+  "revisada": false
+ },
+ {
+  "id": "totopos-caseros-en-freidora",
+  "titulo": "Totopos caseros en freidora",
+  "resumen": "Tortillas de maíz en triángulos, tostadas en la freidora sin freír en aceite. Unos 20 minutos.",
+  "comida": [
+   "botana"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 20,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-lacteos",
+   "sin-gluten",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tortilla-maiz",
+    "texto": "6 tortillas de maíz, mejor si son del día anterior"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite y sal"
+   },
+   {
+    "clave": "limon",
+    "texto": "1 limón",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Corta cada tortilla en 6 triángulos."
+   },
+   {
+    "texto": "Unta o rocía los triángulos con el aceite por ambos lados."
+   },
+   {
+    "texto": "Precalienta la freidora a 180 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Pon una capa de triángulos y cocina a 180 °C, agitando a los 3 minutos.",
+    "minutos": 6
+   },
+   {
+    "texto": "Sácalos, ponles sal y limón, y repite con la siguiente tanda."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si siguen suaves, dales 1 o 2 minutos más; terminan de endurecer al enfriarse.",
+  "revisada": false
+ },
+ {
+  "id": "platano-con-canela-en-freidora",
+  "titulo": "Plátano macho con canela en freidora",
+  "resumen": "Plátano macho maduro en rodajas, dorado en la freidora con canela. Listo en 15 minutos.",
+  "comida": [
+   "postre",
+   "desayuno"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 15,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "platano-macho",
+    "texto": "1 plátano macho bien maduro (cáscara casi negra)"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharadita de aceite y 1 cucharadita de azúcar"
+   },
+   {
+    "clave": "canela",
+    "texto": "1/2 cucharadita de canela molida"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta la freidora a 180 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Pela el plátano y córtalo en rodajas diagonales de un dedo de grueso."
+   },
+   {
+    "texto": "Revuelve las rodajas con el aceite, el azúcar y la canela."
+   },
+   {
+    "texto": "Cocina a 180 °C en una sola capa y voltéalas a la mitad.",
+    "minutos": 10
+   },
+   {
+    "texto": "Sirve con crema encima."
+   }
+  ],
+  "seguridad": "El azúcar caramelizada quema mucho; deja enfriar un par de minutos antes de comer.",
+  "consejo": "Si tu plátano está amarillo y firme, dale 3 minutos más; queda menos dulce.",
+  "revisada": false
+ },
+ {
+  "id": "huevos-duros-en-freidora",
+  "titulo": "Huevos duros en freidora",
+  "resumen": "Huevos cocidos con cáscara en la freidora, sin poner agua a hervir. Unos 25 minutos.",
+  "comida": [
+   "desayuno",
+   "botana"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "alta-proteina",
+   "sin-gluten",
+   "para-llevar",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "huevo",
+    "texto": "4 huevos"
+   },
+   {
+    "clave": "basico",
+    "texto": "Agua fría con hielo y sal"
+   },
+   {
+    "clave": "limon",
+    "texto": "Limón para servir",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon los huevos fríos directo en la canastilla, sin precalentar."
+   },
+   {
+    "texto": "Cocina a 130 °C. No hace falta voltearlos.",
+    "minutos": 16
+   },
+   {
+    "texto": "Pásalos con una cuchara a un tazón con agua fría y hielo.",
+    "minutos": 5
+   },
+   {
+    "texto": "Pela uno y revisa que la yema esté firme."
+   }
+  ],
+  "seguridad": "Las freidoras varían. Si la yema sale líquida o la clara transparente, regresa los demás 2 o 3 minutos. Si alguno se estrella mucho en la freidora, cómelo ese mismo día.",
+  "consejo": "Sin pelar duran hasta una semana en el refri.",
+  "revisada": false
+ },
+ {
+  "id": "pepino-y-mango-con-limon",
+  "titulo": "Pepino y mango con limón y chile",
+  "resumen": "Bastones de pepino y mango con limón, sal y chile en polvo. Listos en 10 minutos.",
+  "comida": [
+   "botana"
+  ],
+  "utensilios": [
+   "sin-cocinar"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-lacteos",
+   "sin-gluten",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pepino",
+    "texto": "1 pepino"
+   },
+   {
+    "clave": "mango",
+    "texto": "1 mango"
+   },
+   {
+    "clave": "limon",
+    "texto": "2 limones"
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal al gusto"
+   },
+   {
+    "clave": "basico",
+    "texto": "Chile en polvo al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pela el pepino y córtalo en bastones."
+   },
+   {
+    "texto": "Pela el mango y corta la pulpa en bastones alrededor del hueso."
+   },
+   {
+    "texto": "Ponlos en un vaso o tazón y exprime los limones encima."
+   },
+   {
+    "texto": "Agrega sal y chile en polvo al gusto."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si el mango está muy maduro, córtalo en cubos y cómelo con tenedor.",
+  "revisada": false
+ },
+ {
+  "id": "carlota-de-limon",
+  "titulo": "Carlota de limón",
+  "resumen": "Capas de galletas María con crema de limón licuada. 20 minutos de trabajo y 4 horas de refri.",
+  "comida": [
+   "postre"
+  ],
+  "utensilios": [
+   "licuadora"
+  ],
+  "minutos": 260,
+  "energia": "ganas",
+  "porciones": 6,
+  "etiquetas": [
+   "vegetariana"
+  ],
+  "ingredientes": [
+   {
+    "clave": "leche-condensada",
+    "texto": "1 lata de leche condensada"
+   },
+   {
+    "clave": "leche-evaporada",
+    "texto": "1 lata de leche evaporada"
+   },
+   {
+    "clave": "limon",
+    "texto": "5 limones"
+   },
+   {
+    "clave": "galletas-maria",
+    "texto": "1 paquete de galletas María (unas 30)"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Exprime los limones hasta juntar alrededor de 1/2 taza de jugo."
+   },
+   {
+    "texto": "Licua la leche condensada y la evaporada unos segundos."
+   },
+   {
+    "texto": "Con la licuadora encendida, agrega el jugo de limón poco a poco."
+   },
+   {
+    "texto": "Licua hasta que la mezcla espese, alrededor de un minuto."
+   },
+   {
+    "texto": "Cubre el fondo de un refractario con galletas."
+   },
+   {
+    "texto": "Unta una capa de la crema sobre las galletas."
+   },
+   {
+    "texto": "Repite galletas y crema hasta terminar con una capa de crema."
+   },
+   {
+    "texto": "Tapa y refrigera hasta que las galletas se ablanden.",
+    "minutos": 240
+   }
+  ],
+  "seguridad": "Contiene gluten y lácteos.",
+  "consejo": "Ralla un poco de cáscara de limón encima antes de servir. Si queda aguada, le faltó limón o refri.",
+  "revisada": false
+ },
+ {
+  "id": "gelatina-con-fruta",
+  "titulo": "Gelatina con fruta picada",
+  "resumen": "Gelatina de sabor con fresas y plátano adentro. 15 minutos de trabajo y 4 horas de refri.",
+  "comida": [
+   "postre"
+  ],
+  "utensilios": [
+   "olla"
+  ],
+  "minutos": 255,
+  "energia": "normal",
+  "porciones": 4,
+  "etiquetas": [
+   "sin-gluten",
+   "sin-lacteos",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "gelatina",
+    "texto": "1 sobre de gelatina de sabor (120 g)"
+   },
+   {
+    "clave": "basico",
+    "texto": "2 tazas de agua"
+   },
+   {
+    "clave": "fresa",
+    "texto": "6 fresas"
+   },
+   {
+    "clave": "platano",
+    "texto": "1 plátano",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon a hervir 1 taza de agua en la olla."
+   },
+   {
+    "texto": "Apaga el fuego, agrega el polvo de gelatina y mueve hasta que no queden granitos.",
+    "minutos": 2
+   },
+   {
+    "texto": "Agrega 1 taza de agua fría y mezcla."
+   },
+   {
+    "texto": "Pica la fruta y repártela en vasitos o en un recipiente."
+   },
+   {
+    "texto": "Vierte la gelatina sobre la fruta."
+   },
+   {
+    "texto": "Refrigera hasta que cuaje.",
+    "minutos": 240
+   }
+  ],
+  "seguridad": "Ten cuidado al verter el agua hirviendo. La gelatina de grenetina viene de origen animal: no es vegetariana.",
+  "consejo": "Si la fruta flota, deja cuajar la gelatina una hora y luego agrega la fruta.",
+  "revisada": false
+ },
+ {
+  "id": "queso-fundido-con-champinones",
+  "titulo": "Queso fundido con champiñones en microondas",
+  "resumen": "Queso Oaxaca derretido con champiñones, para comer en tortillas. Listo en 12 minutos.",
+  "comida": [
+   "botana"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 12,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "queso-oaxaca",
+    "texto": "200 g de queso Oaxaca"
+   },
+   {
+    "clave": "champinones",
+    "texto": "1 taza de champiñones rebanados"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "2 cucharadas de cebolla picada",
+    "opcional": true
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "Tortillas calientes"
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon los champiñones y la cebolla en un plato hondo con una pizca de sal."
+   },
+   {
+    "texto": "Tapa y calienta en el microondas.",
+    "minutos": 2
+   },
+   {
+    "texto": "Escurre el líquido que soltaron los champiñones."
+   },
+   {
+    "texto": "Deshebra el queso encima de los champiñones."
+   },
+   {
+    "texto": "Calienta en el microondas, mueve y calienta 30 segundos más si falta.",
+    "minutos": 1
+   },
+   {
+    "texto": "Sirve con tortillas calientes y salsa."
+   }
+  ],
+  "seguridad": "El queso derretido quema; sopla antes de comer y saca el plato con un trapo.",
+  "consejo": "Cómelo en cuanto salga; si se endurece, dale 20 segundos más de microondas.",
+  "revisada": false
+ },
+ {
+  "id": "esquites-de-microondas",
+  "titulo": "Esquites de microondas",
+  "resumen": "Elote desgranado con mayonesa, queso, limón y chile, en un vaso. Listos en 10 minutos.",
+  "comida": [
+   "botana"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "elote",
+    "texto": "2 tazas de elote desgranado, congelado o de lata"
+   },
+   {
+    "clave": "mayonesa",
+    "texto": "2 cucharadas de mayonesa"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "1/4 de taza de queso fresco rallado"
+   },
+   {
+    "clave": "limon",
+    "texto": "1 limón"
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y chile en polvo al gusto"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon el elote en un tazón con 2 cucharadas de agua y tápalo."
+   },
+   {
+    "texto": "Calienta en el microondas y mueve a la mitad.",
+    "minutos": 4
+   },
+   {
+    "texto": "Escurre el agua que quede."
+   },
+   {
+    "texto": "Sirve en vasos con mayonesa, queso, limón, sal y chile."
+   }
+  ],
+  "seguridad": "Destapa el tazón lejos de la cara: sale vapor muy caliente.",
+  "consejo": "Si es de lata, basta con 2 minutos porque ya viene cocido.",
+  "revisada": false
+ },
+ {
+  "id": "tostadas-de-aguacate-y-queso",
+  "titulo": "Tostadas de aguacate con queso fresco",
+  "resumen": "Tostadas con aguacate machacado, queso fresco, limón y jitomate. Listas en 8 minutos.",
+  "comida": [
+   "desayuno",
+   "botana"
+  ],
+  "utensilios": [
+   "sin-cocinar"
+  ],
+  "minutos": 8,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tostadas",
+    "texto": "3 tostadas"
+   },
+   {
+    "clave": "aguacate",
+    "texto": "1 aguacate"
+   },
+   {
+    "clave": "limon",
+    "texto": "1/2 limón"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "Queso fresco desmoronado al gusto"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "1/2 jitomate en cubitos",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Machaca el aguacate con un tenedor, el jugo de limón y sal."
+   },
+   {
+    "texto": "Unta el aguacate sobre las tostadas."
+   },
+   {
+    "texto": "Pon encima el queso y el jitomate."
+   },
+   {
+    "texto": "Come de inmediato para que no se ablanden."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si te sobra aguacate, guárdalo con la semilla y un chorrito de limón, bien tapado.",
+  "revisada": false
+ },
+ {
+  "id": "fa-salchichas-doradas-tortillas",
+  "titulo": "Salchichas doradas en tacos",
+  "resumen": "Salchichas doradas en freidora, en tortilla con salsa. Listas en 10 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "salchicha",
+    "texto": "6 salchichas"
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "6 tortillas de maíz"
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa roja al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "aguacate",
+    "texto": "1 aguacate",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Haz dos o tres cortes en cada salchicha para que no revienten."
+   },
+   {
+    "texto": "Ponlas en la canasta sin precalentar, a 180 °C.",
+    "minutos": 7
+   },
+   {
+    "texto": "Agita la canasta a la mitad del tiempo."
+   },
+   {
+    "texto": "Calienta las tortillas en la canasta los últimos 2 minutos, encima de las salchichas.",
+    "minutos": 2
+   },
+   {
+    "texto": "Arma los tacos con salsa y aguacate si tienes."
+   }
+  ],
+  "seguridad": "Las salchichas ya vienen cocidas: solo deben quedar bien calientes por dentro. Si son de pollo o pavo, revisa que estén calientes en el centro.",
+  "consejo": "Si tu freidora es chica, calienta las tortillas en el comal o en el microondas.",
+  "revisada": false
+ },
+ {
+  "id": "fa-quesadillas-freidora",
+  "titulo": "Quesadillas en freidora",
+  "resumen": "Tortillas de harina con queso, doradas sin vigilar el comal. Listas en 10 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tortilla-harina",
+    "texto": "4 tortillas de harina"
+   },
+   {
+    "clave": "queso-oaxaca",
+    "texto": "200 g de queso Oaxaca deshebrado"
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa verde al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta la freidora a 180 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Pon queso en media tortilla y dóblala."
+   },
+   {
+    "texto": "Acomoda dos quesadillas en la canasta sin encimarlas y cocina.",
+    "minutos": 5
+   },
+   {
+    "texto": "Voltéalas a la mitad del tiempo con unas pinzas."
+   },
+   {
+    "texto": "Sírvelas con salsa y repite con las demás."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si la tortilla se levanta con el aire, detenla con un palillo de madera.",
+  "revisada": false
+ },
+ {
+  "id": "fa-tostadas-frijol-queso",
+  "titulo": "Tostadas gratinadas de frijol y queso",
+  "resumen": "Tostadas con frijoles y queso derretido en la freidora. Listas en 10 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tostadas",
+    "texto": "4 tostadas"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1 taza de frijoles refritos"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "1 taza de queso manchego rallado"
+   },
+   {
+    "clave": "lechuga",
+    "texto": "Lechuga picada",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Unta frijoles sobre cada tostada."
+   },
+   {
+    "texto": "Cubre con queso."
+   },
+   {
+    "texto": "Pon dos tostadas en la canasta sin precalentar, a 180 °C, hasta que el queso se derrita.",
+    "minutos": 4
+   },
+   {
+    "texto": "Sácalas con una espátula y repite con las demás."
+   },
+   {
+    "texto": "Agrega lechuga y salsa si tienes."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Los frijoles de bolsa o de lata funcionan igual que los de olla.",
+  "revisada": false
+ },
+ {
+  "id": "fa-camarones-ajo-limon",
+  "titulo": "Camarones al ajo con limón",
+  "resumen": "Camarones en freidora con ajo y limón, para tacos o con arroz. Listos en 15 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 15,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "camaron",
+    "texto": "300 g de camarón pelado y desvenado"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 cucharadita de ajo en polvo o 2 dientes picados"
+   },
+   {
+    "clave": "limon",
+    "texto": "1 limón"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite, sal y pimienta"
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "Tortillas para servir",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta la freidora a 200 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Revuelve los camarones con aceite, ajo, sal y pimienta en un tazón."
+   },
+   {
+    "texto": "Acomódalos en una sola capa en la canasta y cocina.",
+    "minutos": 7
+   },
+   {
+    "texto": "Agita la canasta a la mitad del tiempo."
+   },
+   {
+    "texto": "Exprime el limón encima y sirve."
+   }
+  ],
+  "seguridad": "Los camarones están listos cuando se ven rosados y opacos, sin partes grises transparentes (63 °C si tienes termómetro). Lávate las manos y las superficies después de tocarlos crudos. Si alguien es alérgico a mariscos, no los cocines en la misma canasta que su comida.",
+  "consejo": "Si están congelados, descongélalos en el refri desde la noche anterior o bajo el chorro de agua fría en una bolsa cerrada.",
+  "revisada": false
+ },
+ {
+  "id": "fa-pescado-limon",
+  "titulo": "Pescado con limón en freidora",
+  "resumen": "Filete de pescado blanco con limón y ajo, sin olor en toda la casa. Listo en 15 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 15,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "filete-pescado",
+    "texto": "2 filetes de pescado blanco (tilapia o basa)"
+   },
+   {
+    "clave": "limon",
+    "texto": "1 limón"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite, sal y pimienta"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta la freidora a 200 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Seca los filetes con papel y úntalos con aceite, ajo, sal y pimienta."
+   },
+   {
+    "texto": "Ponlos en la canasta sin encimarlos y cocina.",
+    "minutos": 9
+   },
+   {
+    "texto": "No los voltees: se rompen. Revisa que se separen en lajas con un tenedor."
+   },
+   {
+    "texto": "Sácalos con una espátula y exprime el limón encima."
+   }
+  ],
+  "seguridad": "El pescado está listo cuando se ve blanco opaco y se separa en lajas con un tenedor; si tienes termómetro, 63 °C por dentro. Lávate las manos y las superficies después de tocarlo crudo.",
+  "consejo": "Un pedazo de papel para freidora debajo evita que el pescado se pegue. Si el filete es grueso, agrega 2 o 3 minutos.",
+  "revisada": false
+ },
+ {
+  "id": "fa-tacos-dorados-frijol",
+  "titulo": "Tacos dorados de frijol",
+  "resumen": "Tacos de frijol con queso, dorados en la freidora con poco aceite. Listos en 15 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 15,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tortilla-maiz",
+    "texto": "8 tortillas de maíz"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1 taza de frijoles refritos"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "Queso fresco desmoronado",
+    "opcional": true
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa verde al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Calienta las tortillas 30 segundos en el microondas, tapadas con un trapo, para que no se rompan."
+   },
+   {
+    "texto": "Unta frijoles en cada tortilla y enróllala apretada."
+   },
+   {
+    "texto": "Barniza los tacos con aceite y acomódalos en la canasta con la orilla hacia abajo."
+   },
+   {
+    "texto": "Cocina sin precalentar a 200 °C, volteando a la mitad.",
+    "minutos": 8
+   },
+   {
+    "texto": "Sírvelos con queso, crema y salsa."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si se abren, detén cada taco con un palillo de madera.",
+  "revisada": false
+ },
+ {
+  "id": "fa-sincronizadas-jamon",
+  "titulo": "Sincronizadas de jamón y queso",
+  "resumen": "Dos tortillas de harina con jamón y queso, doradas en la freidora. Listas en 10 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "economica",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tortilla-harina",
+    "texto": "4 tortillas de harina"
+   },
+   {
+    "clave": "jamon",
+    "texto": "4 rebanadas de jamón"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "4 rebanadas de queso manchego"
+   },
+   {
+    "clave": "aguacate",
+    "texto": "Aguacate o guacamole",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta la freidora a 180 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Arma cada sincronizada: tortilla, queso, jamón, queso y otra tortilla."
+   },
+   {
+    "texto": "Pon una en la canasta y cocina.",
+    "minutos": 5
+   },
+   {
+    "texto": "Voltéala a la mitad del tiempo."
+   },
+   {
+    "texto": "Córtala en triángulos y repite con la otra."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Poner queso abajo y arriba del jamón ayuda a que todo se pegue y no se desarme.",
+  "revisada": false
+ },
+ {
+  "id": "fa-pollo-chipotle-pechuga",
+  "titulo": "Pollo al chipotle en freidora",
+  "resumen": "Filetes de pechuga con adobo de chipotle, para servir con arroz o en tacos. Listo en 25 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-pechuga",
+    "texto": "2 filetes de pechuga delgados (1 cm)"
+   },
+   {
+    "clave": "chipotle-lata",
+    "texto": "2 chiles chipotles de lata con un poco de adobo"
+   },
+   {
+    "clave": "mayonesa",
+    "texto": "2 cucharadas de mayonesa o crema"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal"
+   },
+   {
+    "clave": "arroz",
+    "texto": "Arroz para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pica los chipotles finito y revuélvelos con la mayonesa, el ajo y sal."
+   },
+   {
+    "texto": "Unta los filetes por los dos lados con esa mezcla."
+   },
+   {
+    "texto": "Precalienta la freidora a 190 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Pon los filetes en la canasta sin encimarlos y cocina.",
+    "minutos": 6
+   },
+   {
+    "texto": "Voltéalos y cocina otro rato.",
+    "minutos": 6
+   },
+   {
+    "texto": "Corta el filete más grueso: si no está rosado y los jugos salen claros, ya está."
+   },
+   {
+    "texto": "Déjalo reposar 3 minutos antes de rebanarlo.",
+    "minutos": 3
+   }
+  ],
+  "seguridad": "Cocina el pollo hasta que no quede nada rosado y los jugos salgan claros; si tienes termómetro, 74 °C en la parte más gruesa. Lávate las manos y lava tabla y cuchillo con agua y jabón después de tocar el pollo crudo.",
+  "consejo": "Si tu pechuga es entera y gruesa, ábrela en dos filetes o súbele 4 a 6 minutos.",
+  "revisada": false
+ },
+ {
+  "id": "fa-alitas-limon-pimienta",
+  "titulo": "Alitas limón pimienta",
+  "resumen": "Alitas crujientes en freidora con limón y pimienta, sin freír en aceite. Listas en 35 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 35,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-piezas",
+    "texto": "1 kg de alitas"
+   },
+   {
+    "clave": "limon",
+    "texto": "2 limones"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharadita de sal y 1 de pimienta negra"
+   },
+   {
+    "clave": "zanahoria",
+    "texto": "Zanahoria en bastones",
+    "opcional": true
+   },
+   {
+    "clave": "pepino",
+    "texto": "Pepino en bastones",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Seca las alitas muy bien con papel."
+   },
+   {
+    "texto": "Revuélvelas en un tazón con sal, pimienta, ajo y la ralladura de un limón."
+   },
+   {
+    "texto": "Acomódalas en una sola capa en la canasta, sin precalentar."
+   },
+   {
+    "texto": "Cocina a 180 °C, agitando la canasta cada 7 minutos.",
+    "minutos": 20
+   },
+   {
+    "texto": "Sube a 200 °C para que se doren.",
+    "minutos": 5
+   },
+   {
+    "texto": "Revisa la alita más grande: sin partes rosadas junto al hueso."
+   },
+   {
+    "texto": "Exprime el jugo de limón encima y sirve con verduras."
+   }
+  ],
+  "seguridad": "Cocina el pollo hasta que no quede nada rosado y los jugos salgan claros; si tienes termómetro, 74 °C en la parte más gruesa. Lávate las manos y lava tabla y cuchillo con agua y jabón después de tocar el pollo crudo.",
+  "consejo": "Si no caben en una capa, hazlas en dos tandas: amontonadas no quedan crujientes.",
+  "revisada": false
+ },
+ {
+  "id": "fa-muslos-ajo-limon",
+  "titulo": "Muslos de pollo con ajo y limón",
+  "resumen": "Muslos con piel dorados en freidora, con ensalada o tortillas. Listos en 40 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 40,
+  "energia": "normal",
+  "porciones": 3,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-piezas",
+    "texto": "6 muslos de pollo con hueso y piel"
+   },
+   {
+    "clave": "ajo",
+    "texto": "3 dientes de ajo picados o 1 cucharadita en polvo"
+   },
+   {
+    "clave": "limon",
+    "texto": "2 limones"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite, sal y pimienta"
+   },
+   {
+    "clave": "lechuga",
+    "texto": "Lechuga para ensalada",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Seca los muslos con papel."
+   },
+   {
+    "texto": "Úntalos con aceite, ajo, el jugo de un limón, sal y pimienta."
+   },
+   {
+    "texto": "Precalienta la freidora a 190 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Pon los muslos con la piel hacia abajo y cocina.",
+    "minutos": 13
+   },
+   {
+    "texto": "Voltéalos con la piel hacia arriba y cocina otro rato.",
+    "minutos": 12
+   },
+   {
+    "texto": "Pica junto al hueso: si los jugos salen claros y no hay rosado, ya están."
+   },
+   {
+    "texto": "Sírvelos con el otro limón en gajos."
+   }
+  ],
+  "seguridad": "Cocina el pollo hasta que no quede nada rosado y los jugos salgan claros; si tienes termómetro, 74 °C en la parte más gruesa. Lávate las manos y lava tabla y cuchillo con agua y jabón después de tocar el pollo crudo.",
+  "consejo": "Los muslos sin hueso tardan menos: revisa a los 18 minutos en total.",
+  "revisada": false
+ },
+ {
+  "id": "fa-chuleta-cerdo-freidora",
+  "titulo": "Chuletas de cerdo en freidora",
+  "resumen": "Chuletas sazonadas y doradas, con ensalada o frijoles. Listas en 25 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "chuleta-cerdo",
+    "texto": "2 chuletas de cerdo de 1.5 cm"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "mostaza",
+    "texto": "1 cucharada de mostaza",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Aceite, sal y pimienta"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "Frijoles para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Seca las chuletas y haz pequeños cortes en la grasa de la orilla para que no se enrosquen."
+   },
+   {
+    "texto": "Úntalas con aceite, mostaza, ajo, sal y pimienta."
+   },
+   {
+    "texto": "Precalienta la freidora a 200 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Cocina las chuletas en una sola capa.",
+    "minutos": 6
+   },
+   {
+    "texto": "Voltéalas y cocina otro rato.",
+    "minutos": 6
+   },
+   {
+    "texto": "Déjalas reposar en el plato antes de cortar.",
+    "minutos": 3
+   }
+  ],
+  "seguridad": "Cocina la chuleta hasta que los jugos salgan claros; si tienes termómetro, 63 °C por dentro y deja reposar 3 minutos. Lávate las manos y lava tabla y cuchillo después de tocar la carne cruda.",
+  "consejo": "Si son delgadas (menos de 1 cm), cocina 4 minutos por lado.",
+  "revisada": false
+ },
+ {
+  "id": "fa-bistec-nopales-freidora",
+  "titulo": "Bistec con nopales en freidora",
+  "resumen": "Bistec delgado y nopales asados juntos, para tacos. Listo en 25 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "bistec",
+    "texto": "400 g de bistec de res delgado"
+   },
+   {
+    "clave": "nopales",
+    "texto": "3 nopales limpios"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/2 cebolla en rodajas gruesas"
+   },
+   {
+    "clave": "basico",
+    "texto": "Aceite, sal y pimienta"
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "Tortillas de maíz"
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Barniza nopales y cebolla con aceite y sal."
+   },
+   {
+    "texto": "Cocínalos en la canasta sin precalentar a 200 °C.",
+    "minutos": 8
+   },
+   {
+    "texto": "Voltéalos a la mitad y sácalos a un plato al terminar."
+   },
+   {
+    "texto": "Sazona los bisteces con sal y pimienta y ponlos en la canasta sin encimarlos."
+   },
+   {
+    "texto": "Cocina a 200 °C, volteando a la mitad.",
+    "minutos": 6
+   },
+   {
+    "texto": "Corta la carne y los nopales en tiras y arma los tacos."
+   }
+  ],
+  "seguridad": "Lávate las manos y la tabla después de tocar la carne cruda. Si alguien prefiere la carne bien cocida, deja 1 o 2 minutos más.",
+  "consejo": "Si los nopales sueltan baba, sécalos con papel antes de meterlos.",
+  "revisada": false
+ },
+ {
+  "id": "fa-verduras-rostizadas",
+  "titulo": "Verduras rostizadas en freidora",
+  "resumen": "Calabacita, zanahoria, pimiento y cebolla doradas, con arroz o en tortilla. Listas en 25 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten",
+   "sin-lacteos",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "calabacita",
+    "texto": "2 calabacitas"
+   },
+   {
+    "clave": "zanahoria",
+    "texto": "2 zanahorias"
+   },
+   {
+    "clave": "pimiento",
+    "texto": "1 pimiento"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/2 cebolla"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite, sal y pimienta"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Corta la zanahoria en rodajas delgadas."
+   },
+   {
+    "texto": "Corta calabacita, pimiento y cebolla en trozos del tamaño de un bocado."
+   },
+   {
+    "texto": "Revuelve todo con aceite, sal, pimienta y ajo."
+   },
+   {
+    "texto": "Cocina sin precalentar a 190 °C, agitando la canasta cada 5 minutos.",
+    "minutos": 16
+   },
+   {
+    "texto": "Prueba una zanahoria: si está suave por dentro, ya está."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "La zanahoria tarda más que la calabacita: córtala más delgada para que todo esté al mismo tiempo.",
+  "revisada": false
+ },
+ {
+  "id": "fa-tofu-dorado-brocoli",
+  "titulo": "Tofu dorado con brócoli y soya",
+  "resumen": "Tofu crujiente y brócoli en freidora, con salsa de soya. Listo en 30 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 30,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-lacteos",
+   "alta-proteina"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tofu",
+    "texto": "1 bloque de tofu firme (400 g)"
+   },
+   {
+    "clave": "brocoli",
+    "texto": "1 brócoli chico en arbolitos"
+   },
+   {
+    "clave": "salsa-soya",
+    "texto": "3 cucharadas de salsa de soya"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite"
+   },
+   {
+    "clave": "arroz",
+    "texto": "Arroz para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Envuelve el tofu en un trapo limpio y pon algo pesado encima.",
+    "minutos": 10
+   },
+   {
+    "texto": "Córtalo en cubos de 2 cm."
+   },
+   {
+    "texto": "Revuélvelo con 1 cucharada de soya, el ajo y el aceite."
+   },
+   {
+    "texto": "Cocina el tofu sin precalentar a 200 °C.",
+    "minutos": 8
+   },
+   {
+    "texto": "Agita la canasta y agrega el brócoli."
+   },
+   {
+    "texto": "Cocina otro rato, agitando una vez.",
+    "minutos": 7
+   },
+   {
+    "texto": "Sirve con el resto de la salsa de soya encima."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si tienes intolerancia al gluten, busca salsa de soya que diga sin gluten en la etiqueta.",
+  "revisada": false
+ },
+ {
+  "id": "fa-camote-relleno-horno",
+  "titulo": "Camote al horno con frijoles y queso",
+  "resumen": "Camote horneado, abierto y relleno de frijoles y queso. Casi todo es esperar: 60 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "horno"
+  ],
+  "minutos": 60,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten",
+   "economica"
+  ],
+  "ingredientes": [
+   {
+    "clave": "camote",
+    "texto": "2 camotes medianos"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1 taza de frijoles de olla o refritos"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "100 g de queso fresco"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa verde al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta el horno a 200 °C.",
+    "minutos": 10
+   },
+   {
+    "texto": "Lava los camotes y pícalos varias veces con un tenedor."
+   },
+   {
+    "texto": "Ponlos sobre papel aluminio en una charola y hornea.",
+    "minutos": 45
+   },
+   {
+    "texto": "Revisa que un cuchillo entre suave hasta el centro; si no, déjalos 10 minutos más."
+   },
+   {
+    "texto": "Ábrelos a lo largo y rellénalos con frijoles calientes, queso, crema y salsa."
+   }
+  ],
+  "seguridad": "Usa guantes de horno: el camote suelta vapor muy caliente al abrirlo.",
+  "consejo": "En freidora: 190 °C por 35 a 40 minutos, volteando a la mitad, si los camotes caben.",
+  "revisada": false
+ },
+ {
+  "id": "fa-pollo-papas-horno",
+  "titulo": "Pollo con papas al horno",
+  "resumen": "Piezas de pollo y papas en una sola charola, sin estar al pendiente. Listo en 65 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "horno"
+  ],
+  "minutos": 65,
+  "energia": "normal",
+  "porciones": 4,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos",
+   "una-sola-olla"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-piezas",
+    "texto": "1 kg de piezas de pollo (piernas y muslos)"
+   },
+   {
+    "clave": "papa",
+    "texto": "4 papas medianas"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1 cebolla en gajos"
+   },
+   {
+    "clave": "ajo",
+    "texto": "4 dientes de ajo enteros"
+   },
+   {
+    "clave": "consome-pollo",
+    "texto": "1 cucharadita de consomé en polvo",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "2 cucharadas de aceite, sal y pimienta"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Precalienta el horno a 200 °C.",
+    "minutos": 10
+   },
+   {
+    "texto": "Corta las papas en cuartos."
+   },
+   {
+    "texto": "Revuelve en la charola papas, cebolla y ajo con la mitad del aceite y sal."
+   },
+   {
+    "texto": "Acomoda el pollo encima, con la piel hacia arriba."
+   },
+   {
+    "texto": "Úntalo con el resto del aceite, consomé, sal y pimienta."
+   },
+   {
+    "texto": "Hornea.",
+    "minutos": 25
+   },
+   {
+    "texto": "Voltea las papas con una cuchara y hornea otro rato.",
+    "minutos": 25
+   },
+   {
+    "texto": "Pica la pieza más grande junto al hueso: si los jugos salen claros, ya está."
+   }
+  ],
+  "seguridad": "Cocina el pollo hasta que no quede nada rosado y los jugos salgan claros; si tienes termómetro, 74 °C en la parte más gruesa. Lávate las manos y lava tabla y cuchillo con agua y jabón después de tocar el pollo crudo.",
+  "consejo": "Cubre la charola con papel aluminio antes de empezar y lavas mucho menos.",
+  "revisada": false
+ },
+ {
+  "id": "fa-albondigas-salsa-roja",
+  "titulo": "Albóndigas en freidora con salsa roja",
+  "resumen": "Albóndigas de res doradas en freidora y bañadas en salsa caliente. Listas en 30 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora",
+   "microondas"
+  ],
+  "minutos": 30,
+  "energia": "normal",
+  "porciones": 3,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "carne-molida",
+    "texto": "500 g de carne molida de res"
+   },
+   {
+    "clave": "huevo",
+    "texto": "1 huevo"
+   },
+   {
+    "clave": "pan-caja",
+    "texto": "1 rebanada de pan de caja desmoronada"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y pimienta"
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "1 1/2 tazas de salsa roja"
+   },
+   {
+    "clave": "arroz",
+    "texto": "Arroz para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Mezcla con las manos la carne, el huevo, el pan, el ajo, sal y pimienta."
+   },
+   {
+    "texto": "Forma bolitas del tamaño de una nuez grande."
+   },
+   {
+    "texto": "Lávate las manos."
+   },
+   {
+    "texto": "Acomoda las albóndigas en la canasta sin que se toquen."
+   },
+   {
+    "texto": "Cocina sin precalentar a 190 °C, agitando la canasta a la mitad.",
+    "minutos": 11
+   },
+   {
+    "texto": "Calienta la salsa en el microondas en un tazón tapado.",
+    "minutos": 2
+   },
+   {
+    "texto": "Parte una albóndiga: si no está rosada por dentro, pásalas a la salsa y sirve."
+   }
+  ],
+  "seguridad": "Cocina la carne molida hasta que no quede rosada por dentro; si tienes termómetro, 71 °C. Lava manos, tabla y tazón después de tocar la carne cruda.",
+  "consejo": "Puedes formarlas y congelarlas crudas; se cocinan igual con 4 minutos más.",
+  "revisada": false
+ },
+ {
+  "id": "fa-milanesa-pollo-freidora",
+  "titulo": "Milanesa de pollo en freidora",
+  "resumen": "Milanesa empanizada y dorada con poco aceite, con ensalada o en torta. Lista en 35 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 35,
+  "energia": "ganas",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-pechuga",
+    "texto": "2 milanesas de pechuga (delgadas)"
+   },
+   {
+    "clave": "huevo",
+    "texto": "1 huevo"
+   },
+   {
+    "clave": "harina",
+    "texto": "1/2 taza de harina"
+   },
+   {
+    "clave": "pan-molido",
+    "texto": "1 taza de pan molido"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1/2 cucharadita de ajo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "Aceite en aerosol o 1 cucharada de aceite, sal y pimienta"
+   },
+   {
+    "clave": "limon",
+    "texto": "Limón para servir",
+    "opcional": true
+   },
+   {
+    "clave": "lechuga",
+    "texto": "Lechuga y jitomate para ensalada",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon en tres platos hondos: harina con sal, huevo batido y pan molido con ajo."
+   },
+   {
+    "texto": "Pasa cada milanesa por harina y sacude el exceso."
+   },
+   {
+    "texto": "Pásala por el huevo."
+   },
+   {
+    "texto": "Cúbrela de pan molido presionando con la mano."
+   },
+   {
+    "texto": "Lávate las manos."
+   },
+   {
+    "texto": "Precalienta la freidora a 200 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Rocía o barniza las milanesas con aceite por los dos lados y ponlas en la canasta.",
+    "minutos": 5
+   },
+   {
+    "texto": "Voltéalas, rocía un poco más de aceite y cocina otro rato.",
+    "minutos": 5
+   },
+   {
+    "texto": "Corta la parte más gruesa: si no está rosada, ya está."
+   }
+  ],
+  "seguridad": "Cocina el pollo hasta que no quede nada rosado y los jugos salgan claros; si tienes termómetro, 74 °C en la parte más gruesa. Lávate las manos y lava tabla y cuchillo con agua y jabón después de tocar el pollo crudo. Tira la harina, el huevo y el pan que sobren: tocaron pollo crudo.",
+  "consejo": "Si no tienes pan molido, tritura totopos o galletas saladas.",
+  "revisada": false
+ },
+ {
+  "id": "fa-flautas-tinga-pollo",
+  "titulo": "Flautas de tinga de pollo",
+  "resumen": "Tinga de pollo con chipotle enrollada en tortilla y dorada en freidora. Lista en 60 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora",
+   "olla",
+   "sarten"
+  ],
+  "minutos": 60,
+  "energia": "ganas",
+  "porciones": 4,
+  "etiquetas": [
+   "alta-proteina"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-pechuga",
+    "texto": "1 pechuga entera (unos 600 g)"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1 cebolla en rodajas delgadas"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "3 jitomates"
+   },
+   {
+    "clave": "chipotle-lata",
+    "texto": "2 chiles chipotles de lata con adobo"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo"
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "16 tortillas de maíz"
+   },
+   {
+    "clave": "basico",
+    "texto": "Aceite y sal"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema",
+    "opcional": true
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "Queso fresco",
+    "opcional": true
+   },
+   {
+    "clave": "lechuga",
+    "texto": "Lechuga picada",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Cubre la pechuga con agua en la olla, agrega sal y cuécela a fuego medio.",
+    "minutos": 25
+   },
+   {
+    "texto": "Revisa que no esté rosada por dentro y déjala enfriar en un plato."
+   },
+   {
+    "texto": "Licúa o pica muy fino los jitomates con el ajo y los chipotles."
+   },
+   {
+    "texto": "Acitrona la cebolla en el sartén con un poco de aceite.",
+    "minutos": 5
+   },
+   {
+    "texto": "Agrega la salsa de jitomate y deja que hierva.",
+    "minutos": 5
+   },
+   {
+    "texto": "Deshebra el pollo, agrégalo a la salsa y cocina hasta que se seque un poco.",
+    "minutos": 5
+   },
+   {
+    "texto": "Calienta las tortillas para que no se rompan."
+   },
+   {
+    "texto": "Pon una cucharada de tinga en cada tortilla y enróllala apretada."
+   },
+   {
+    "texto": "Barniza las flautas con aceite y acomódalas con la orilla hacia abajo."
+   },
+   {
+    "texto": "Cocina en tandas sin precalentar a 200 °C, volteando a la mitad.",
+    "minutos": 8
+   },
+   {
+    "texto": "Sirve con crema, queso y lechuga."
+   }
+  ],
+  "seguridad": "Cocina el pollo hasta que no quede nada rosado y los jugos salgan claros; si tienes termómetro, 74 °C en la parte más gruesa. Lávate las manos y lava tabla y cuchillo con agua y jabón después de tocar el pollo crudo.",
+  "consejo": "La tinga se guarda 3 días en el refri. Puedes hacerla un día y las flautas otro.",
+  "revisada": false
+ },
+ {
+  "id": "fa-calabacitas-rellenas-elote",
+  "titulo": "Calabacitas rellenas de elote y queso",
+  "resumen": "Calabacitas rellenas de elote, jitomate y queso, gratinadas en freidora. Listas en 35 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "freidora"
+  ],
+  "minutos": 35,
+  "energia": "ganas",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "calabacita",
+    "texto": "4 calabacitas redondas o largas"
+   },
+   {
+    "clave": "elote",
+    "texto": "1 taza de granos de elote"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "1 jitomate picado"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla picada"
+   },
+   {
+    "clave": "queso-panela",
+    "texto": "100 g de queso panela en cubitos"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "1/2 taza de queso manchego rallado"
+   },
+   {
+    "clave": "chile-serrano",
+    "texto": "1 chile serrano picado",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y pimienta"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Corta las calabacitas a la mitad a lo largo."
+   },
+   {
+    "texto": "Saca la pulpa con una cuchara chica y deja una orilla de medio centímetro."
+   },
+   {
+    "texto": "Pica la pulpa."
+   },
+   {
+    "texto": "Mezcla en un tazón la pulpa, elote, jitomate, cebolla, chile, panela, sal y pimienta."
+   },
+   {
+    "texto": "Rellena las calabacitas con la mezcla."
+   },
+   {
+    "texto": "Precalienta la freidora a 180 °C.",
+    "minutos": 3
+   },
+   {
+    "texto": "Acomoda las calabacitas en la canasta y cocina.",
+    "minutos": 10
+   },
+   {
+    "texto": "Cubre con queso manchego y cocina hasta que se derrita.",
+    "minutos": 3
+   },
+   {
+    "texto": "Sácalas con una espátula: están muy calientes."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si no caben todas, hazlas en dos tandas. El elote congelado sirve tal cual.",
+  "revisada": false
+ },
+ {
+  "id": "st-ensalada-de-atun",
+  "titulo": "Ensalada de atún con elote",
+  "resumen": "Atún de lata con elote, pepino y mayonesa. Sin estufa, lista en 10 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sin-cocinar"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "economica",
+   "para-llevar",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "atun-lata",
+    "texto": "2 latas de atún escurrido"
+   },
+   {
+    "clave": "elote",
+    "texto": "1 lata chica de elote escurrido"
+   },
+   {
+    "clave": "pepino",
+    "texto": "1 pepino en cubos",
+    "opcional": true
+   },
+   {
+    "clave": "mayonesa",
+    "texto": "2 cucharadas de mayonesa"
+   },
+   {
+    "clave": "limon",
+    "texto": "Jugo de 1 limón"
+   },
+   {
+    "clave": "tostadas",
+    "texto": "Tostadas o galletas saladas para acompañar",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Escurre el atún y el elote, y ponlos en un tazón."
+   },
+   {
+    "texto": "Corta el pepino en cubos y agrégalo."
+   },
+   {
+    "texto": "Añade la mayonesa, el limón, sal y pimienta."
+   },
+   {
+    "texto": "Mezcla y sirve sola o sobre tostadas."
+   }
+  ],
+  "seguridad": "Guarda lo que sobre en el refri en un recipiente tapado y cómelo en máximo 2 días.",
+  "consejo": "Si no tienes pepino, funciona con jitomate o solo con elote.",
+  "revisada": false
+ },
+ {
+  "id": "st-tostadas-de-pollo-deshebrado",
+  "titulo": "Tostadas de pollo deshebrado",
+  "resumen": "Pollo ya cocido sobre tostadas con frijoles, lechuga y crema. Unos 10 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sin-cocinar"
+  ],
+  "minutos": 10,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-cocido",
+    "texto": "2 tazas de pollo cocido deshebrado (de rosticería o sobrante)"
+   },
+   {
+    "clave": "tostadas",
+    "texto": "6 tostadas"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1 taza de frijoles refritos de bolsa o lata"
+   },
+   {
+    "clave": "lechuga",
+    "texto": "2 tazas de lechuga picada"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto"
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa verde al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Unta una capa delgada de frijoles en cada tostada."
+   },
+   {
+    "texto": "Pon encima el pollo deshebrado."
+   },
+   {
+    "texto": "Agrega la lechuga, la crema y la salsa."
+   }
+  ],
+  "seguridad": "El pollo cocido aguanta 3 a 4 días en el refri. Si lleva más tiempo o huele raro, no lo uses.",
+  "consejo": "Si prefieres el pollo tibio, caliéntalo 1 minuto en el microondas antes de armar.",
+  "revisada": false
+ },
+ {
+  "id": "st-burrito-de-frijoles-y-queso",
+  "titulo": "Burrito de frijoles y queso en microondas",
+  "resumen": "Tortilla de harina con frijoles y queso derretido. Listo en 5 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 5,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "economica",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "tortilla-harina",
+    "texto": "2 tortillas de harina grandes"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1/2 taza de frijoles refritos"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "1/2 taza de queso manchego rallado"
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa roja al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Unta los frijoles en el centro de cada tortilla."
+   },
+   {
+    "texto": "Pon el queso encima de los frijoles."
+   },
+   {
+    "texto": "Enrolla cada tortilla doblando primero los lados."
+   },
+   {
+    "texto": "Calienta en el microondas en un plato hasta que el queso se derrita.",
+    "minutos": 1
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si el centro sigue frío, dale 20 segundos más.",
+  "revisada": false
+ },
+ {
+  "id": "st-bowl-de-arroz-y-frijoles",
+  "titulo": "Bowl de arroz, frijoles y aguacate",
+  "resumen": "Arroz ya cocido con frijoles, aguacate y salsa, calentado en microondas. Unos 8 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 8,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "sin-carne",
+   "economica",
+   "sin-gluten",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "arroz",
+    "texto": "1 taza de arroz ya cocido"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1/2 taza de frijoles enteros de lata, escurridos"
+   },
+   {
+    "clave": "aguacate",
+    "texto": "1/2 aguacate en rebanadas"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "Queso fresco desmoronado",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-verde",
+    "texto": "Salsa verde al gusto"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Pon el arroz y los frijoles en un plato hondo para microondas."
+   },
+   {
+    "texto": "Rocía una cucharada de agua y tapa el plato."
+   },
+   {
+    "texto": "Calienta hasta que salga vapor de todo el plato.",
+    "minutos": 2
+   },
+   {
+    "texto": "Agrega el aguacate, el queso y la salsa."
+   }
+  ],
+  "seguridad": "El arroz cocido se enfría rápido y se guarda en el refri en menos de 1 hora; dura hasta 1 día. Recaliéntalo hasta que humee por todos lados y hazlo solo una vez.",
+  "consejo": "Sirve también con arroz de bolsa para microondas si no tienes arroz hecho.",
+  "revisada": false
+ },
+ {
+  "id": "st-papa-con-frijoles-y-queso",
+  "titulo": "Papa en microondas con frijoles y queso",
+  "resumen": "Papa cocida en microondas, abierta y rellena de frijoles y queso. Unos 12 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "microondas"
+  ],
+  "minutos": 12,
+  "energia": "poca",
+  "porciones": 1,
+  "etiquetas": [
+   "vegetariana",
+   "economica",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "papa",
+    "texto": "1 papa grande"
+   },
+   {
+    "clave": "frijoles",
+    "texto": "1/3 de taza de frijoles refritos"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "1/4 de taza de queso rallado"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto",
+    "opcional": true
+   },
+   {
+    "clave": "salsa-roja",
+    "texto": "Salsa al gusto",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Lava la papa y pícala varias veces con un tenedor."
+   },
+   {
+    "texto": "Cocínala en el microondas en un plato.",
+    "minutos": 5
+   },
+   {
+    "texto": "Voltéala y cocina otro rato hasta que un cuchillo entre sin esfuerzo.",
+    "minutos": 3
+   },
+   {
+    "texto": "Ábrela a lo largo y rellena con frijoles y queso."
+   },
+   {
+    "texto": "Calienta hasta que el queso se derrita y agrega crema y salsa.",
+    "minutos": 1
+   }
+  ],
+  "seguridad": "La papa sale muy caliente. Ábrela con un trapo o con tenedor y cuchillo.",
+  "consejo": "Si la papa sigue dura en el centro, sigue de minuto en minuto.",
+  "revisada": false
+ },
+ {
+  "id": "st-pasta-con-atun",
+  "titulo": "Pasta con atún y jitomate",
+  "resumen": "Pasta corta con atún, aceite y jitomate picado. Unos 15 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "olla"
+  ],
+  "minutos": 15,
+  "energia": "poca",
+  "porciones": 2,
+  "etiquetas": [
+   "alta-proteina",
+   "economica",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pasta",
+    "texto": "200 g de pasta corta (codito o pluma)"
+   },
+   {
+    "clave": "atun-lata",
+    "texto": "1 lata de atún en aceite"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "1 jitomate picado"
+   },
+   {
+    "clave": "limon",
+    "texto": "Jugo de 1/2 limón",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal, pimienta y un chorrito de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Hierve agua con sal en la olla y agrega la pasta."
+   },
+   {
+    "texto": "Cuece la pasta hasta que esté suave pero firme.",
+    "minutos": 10
+   },
+   {
+    "texto": "Escurre la pasta y regrésala a la olla sin fuego."
+   },
+   {
+    "texto": "Agrega el atún con su aceite, el jitomate y el limón."
+   },
+   {
+    "texto": "Mezcla y ajusta de sal y pimienta."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si el atún es en agua, agrega una cucharada de aceite o de mayonesa.",
+  "revisada": false
+ },
+ {
+  "id": "st-enfrijoladas",
+  "titulo": "Enfrijoladas",
+  "resumen": "Tortillas bañadas en salsa de frijol, con queso y crema. Unos 20 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten",
+   "licuadora",
+   "microondas"
+  ],
+  "minutos": 20,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "economica",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "frijoles",
+    "texto": "1 lata de frijoles enteros con su caldo"
+   },
+   {
+    "clave": "chipotle-lata",
+    "texto": "1 chile chipotle de lata",
+    "opcional": true
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "8 tortillas de maíz"
+   },
+   {
+    "clave": "queso-fresco",
+    "texto": "1/2 taza de queso fresco desmoronado"
+   },
+   {
+    "clave": "crema",
+    "texto": "Crema al gusto"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "Cebolla en rodajas",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Licúa los frijoles con su caldo, el chipotle y 1/2 taza de agua."
+   },
+   {
+    "texto": "Vierte la salsa en el sartén y calienta a fuego bajo hasta que hierva.",
+    "minutos": 5
+   },
+   {
+    "texto": "Calienta las tortillas en el microondas envueltas en un trapo.",
+    "minutos": 1
+   },
+   {
+    "texto": "Pasa cada tortilla por la salsa y dóblala en cuatro en el plato."
+   },
+   {
+    "texto": "Báñalas con el resto de la salsa."
+   },
+   {
+    "texto": "Termina con queso, crema y cebolla."
+   }
+  ],
+  "seguridad": "La salsa de frijol salpica al hervir. Usa fuego bajo y mueve de vez en cuando.",
+  "consejo": "Si la salsa queda espesa, agrega agua de poco en poco. Puedes rellenarlas con huevo o pollo.",
+  "revisada": false
+ },
+ {
+  "id": "st-sopa-de-fideo",
+  "titulo": "Sopa de fideo",
+  "resumen": "Fideo dorado en caldo de jitomate, todo en una olla. Unos 25 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "olla",
+   "licuadora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 4,
+  "etiquetas": [
+   "economica",
+   "una-sola-olla"
+  ],
+  "ingredientes": [
+   {
+    "clave": "fideo",
+    "texto": "1 paquete de fideo (200 g)"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "2 jitomates"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo"
+   },
+   {
+    "clave": "consome-pollo",
+    "texto": "1 cucharada de consomé de pollo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "6 tazas de agua y 2 cucharadas de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Licúa los jitomates, la cebolla y el ajo con 1 taza de agua."
+   },
+   {
+    "texto": "Calienta el aceite en la olla a fuego medio."
+   },
+   {
+    "texto": "Dora el fideo moviendo sin parar hasta que tome color café claro.",
+    "minutos": 3
+   },
+   {
+    "texto": "Vierte el licuado con cuidado y deja que hierva.",
+    "minutos": 3
+   },
+   {
+    "texto": "Agrega 5 tazas de agua y el consomé."
+   },
+   {
+    "texto": "Cocina a fuego medio-bajo hasta que el fideo esté suave.",
+    "minutos": 10
+   }
+  ],
+  "seguridad": "Al verter el licuado sobre el aceite caliente salpica. Hazlo despacio y alejando la cara y las manos.",
+  "consejo": "Si se quema un poco el fideo, sácalo y empieza otra vez: el sabor amargo no se quita.",
+  "revisada": false
+ },
+ {
+  "id": "st-lentejas-en-una-olla",
+  "titulo": "Lentejas en una olla",
+  "resumen": "Lentejas con jitomate, zanahoria y papa, en una sola olla. Unos 40 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "olla"
+  ],
+  "minutos": 40,
+  "energia": "normal",
+  "porciones": 4,
+  "etiquetas": [
+   "vegetariana",
+   "sin-carne",
+   "economica",
+   "una-sola-olla",
+   "sin-gluten",
+   "sin-lacteos",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "lentejas",
+    "texto": "1 1/2 tazas de lentejas"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "2 jitomates picados"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/2 cebolla picada"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo picado"
+   },
+   {
+    "clave": "zanahoria",
+    "texto": "1 zanahoria en cubos"
+   },
+   {
+    "clave": "papa",
+    "texto": "1 papa en cubos",
+    "opcional": true
+   },
+   {
+    "clave": "platano-macho",
+    "texto": "1 plátano macho en rodajas",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "6 tazas de agua, sal y 1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Enjuaga las lentejas y quita piedritas si ves alguna."
+   },
+   {
+    "texto": "Calienta el aceite en la olla y sofríe la cebolla y el ajo.",
+    "minutos": 3
+   },
+   {
+    "texto": "Agrega el jitomate y cocina hasta que se deshaga.",
+    "minutos": 4
+   },
+   {
+    "texto": "Añade las lentejas, la zanahoria, la papa y el agua."
+   },
+   {
+    "texto": "Tapa y cocina a fuego medio-bajo hasta que las lentejas estén suaves.",
+    "minutos": 25
+   },
+   {
+    "texto": "Agrega sal al final y prueba."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Las lentejas no necesitan remojo. Si se espesan mucho, agrega agua caliente.",
+  "revisada": false
+ },
+ {
+  "id": "st-arroz-rojo",
+  "titulo": "Arroz rojo",
+  "resumen": "Arroz frito y cocido en caldo de jitomate, en una sola olla. Unos 35 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "olla",
+   "licuadora"
+  ],
+  "minutos": 35,
+  "energia": "ganas",
+  "porciones": 4,
+  "etiquetas": [
+   "economica",
+   "una-sola-olla",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "arroz",
+    "texto": "1 taza de arroz"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "2 jitomates"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo"
+   },
+   {
+    "clave": "consome-pollo",
+    "texto": "1 cucharadita de consomé de pollo en polvo"
+   },
+   {
+    "clave": "verduras-congeladas",
+    "texto": "1/2 taza de chícharos con zanahoria congelados",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "2 tazas de agua y 2 cucharadas de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Enjuaga el arroz en un colador hasta que el agua salga casi clara y escúrrelo bien."
+   },
+   {
+    "texto": "Licúa los jitomates, la cebolla, el ajo y el consomé con 1 taza de agua."
+   },
+   {
+    "texto": "Calienta el aceite en la olla a fuego medio."
+   },
+   {
+    "texto": "Fríe el arroz moviendo seguido hasta que se vea blanco opaco.",
+    "minutos": 5
+   },
+   {
+    "texto": "Vierte el licuado despacio y agrega 1 taza más de agua y los chícharos."
+   },
+   {
+    "texto": "Cuando hierva, baja el fuego al mínimo y tapa.",
+    "minutos": 18
+   },
+   {
+    "texto": "Apaga y deja reposar tapado sin destapar.",
+    "minutos": 5
+   }
+  ],
+  "seguridad": "El arroz escurrido salpica en el aceite caliente; agrégalo poco a poco. Si sobra, enfríalo rápido extendido en un recipiente, guárdalo en el refri en menos de 1 hora y recaliéntalo una sola vez hasta que humee.",
+  "consejo": "Si al final queda duro, agrega 1/4 de taza de agua caliente y tapa 5 minutos más.",
+  "revisada": false
+ },
+ {
+  "id": "st-arroz-con-pollo",
+  "titulo": "Arroz con pollo en una olla",
+  "resumen": "Pollo en trozos y arroz cocidos juntos con jitomate y verduras. Unos 45 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "olla"
+  ],
+  "minutos": 45,
+  "energia": "ganas",
+  "porciones": 4,
+  "etiquetas": [
+   "alta-proteina",
+   "una-sola-olla",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-pechuga",
+    "texto": "500 g de pechuga de pollo en cubos"
+   },
+   {
+    "clave": "arroz",
+    "texto": "1 1/2 tazas de arroz"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "2 jitomates picados"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/2 cebolla picada"
+   },
+   {
+    "clave": "ajo",
+    "texto": "2 dientes de ajo picados"
+   },
+   {
+    "clave": "verduras-congeladas",
+    "texto": "1 taza de chícharos con zanahoria congelados"
+   },
+   {
+    "clave": "consome-pollo",
+    "texto": "1 cucharada de consomé de pollo en polvo"
+   },
+   {
+    "clave": "basico",
+    "texto": "3 tazas de agua, sal y 2 cucharadas de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Sazona el pollo con sal y pimienta."
+   },
+   {
+    "texto": "Calienta el aceite en la olla y dora el pollo por todos lados.",
+    "minutos": 6
+   },
+   {
+    "texto": "Agrega la cebolla y el ajo y cocina hasta que suavicen.",
+    "minutos": 2
+   },
+   {
+    "texto": "Añade el arroz y mueve hasta que se cubra de aceite.",
+    "minutos": 2
+   },
+   {
+    "texto": "Agrega el jitomate, los chícharos, el agua y el consomé."
+   },
+   {
+    "texto": "Cuando hierva, baja el fuego al mínimo y tapa.",
+    "minutos": 20
+   },
+   {
+    "texto": "Apaga y deja reposar tapado.",
+    "minutos": 5
+   },
+   {
+    "texto": "Abre un trozo de pollo grande y revisa que no esté rosado por dentro."
+   }
+  ],
+  "seguridad": "Lávate las manos y lava tabla y cuchillo con jabón después de tocar el pollo crudo. El pollo está listo sin partes rosadas y con jugos claros (74 °C por dentro). El aceite salpica al poner el pollo: sécalo con papel antes. Si sobra arroz, enfríalo rápido, guárdalo en el refri en menos de 1 hora y recaliéntalo una sola vez hasta que humee.",
+  "consejo": "Puedes usar muslos sin hueso: quedan más jugosos y cuestan menos.",
+  "revisada": false
+ },
+ {
+  "id": "st-tinga-de-pollo",
+  "titulo": "Tinga de pollo",
+  "resumen": "Pollo ya cocido en salsa de jitomate con chipotle y cebolla. Unos 25 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten",
+   "licuadora"
+  ],
+  "minutos": 25,
+  "energia": "normal",
+  "porciones": 4,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pollo-cocido",
+    "texto": "3 tazas de pollo cocido deshebrado (de rosticería o sobrante)"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "3 jitomates"
+   },
+   {
+    "clave": "chipotle-lata",
+    "texto": "2 chiles chipotles de lata con un poco de su salsa"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1 cebolla en rodajas delgadas"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo"
+   },
+   {
+    "clave": "tostadas",
+    "texto": "Tostadas o tortillas para servir",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y 1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Licúa los jitomates, los chipotles y el ajo con 1/4 de taza de agua."
+   },
+   {
+    "texto": "Calienta el aceite en el sartén y cocina la cebolla hasta que se suavice.",
+    "minutos": 4
+   },
+   {
+    "texto": "Vierte la salsa licuada con cuidado y deja que hierva.",
+    "minutos": 5
+   },
+   {
+    "texto": "Agrega el pollo deshebrado y mezcla."
+   },
+   {
+    "texto": "Cocina a fuego bajo hasta que el pollo esté caliente y la salsa espese.",
+    "minutos": 6
+   },
+   {
+    "texto": "Prueba y ajusta de sal."
+   }
+  ],
+  "seguridad": "La salsa salpica al caer en el aceite caliente; viértela despacio. El pollo cocido dura 3 a 4 días en el refri.",
+  "consejo": "Empieza con un chipotle si no te gusta muy picante; puedes agregar otro después.",
+  "revisada": false
+ },
+ {
+  "id": "st-picadillo",
+  "titulo": "Picadillo con papa y zanahoria",
+  "resumen": "Carne molida con jitomate, papa, zanahoria y chícharos. Unos 30 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten",
+   "licuadora"
+  ],
+  "minutos": 30,
+  "energia": "normal",
+  "porciones": 4,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "carne-molida",
+    "texto": "500 g de carne molida de res"
+   },
+   {
+    "clave": "papa",
+    "texto": "2 papas en cubos chicos"
+   },
+   {
+    "clave": "zanahoria",
+    "texto": "1 zanahoria en cubos chicos"
+   },
+   {
+    "clave": "chicharos",
+    "texto": "1/2 taza de chícharos congelados",
+    "opcional": true
+   },
+   {
+    "clave": "jitomate",
+    "texto": "2 jitomates"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo"
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal, pimienta y 1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Licúa los jitomates, la cebolla y el ajo con 1/2 taza de agua."
+   },
+   {
+    "texto": "Calienta el aceite en el sartén y agrega la carne."
+   },
+   {
+    "texto": "Cocina la carne deshaciéndola con la pala hasta que no quede rosada.",
+    "minutos": 7
+   },
+   {
+    "texto": "Agrega la papa y la zanahoria y mezcla."
+   },
+   {
+    "texto": "Vierte el licuado, sal y pimienta, y deja que hierva."
+   },
+   {
+    "texto": "Tapa y cocina a fuego bajo hasta que la papa esté suave.",
+    "minutos": 15
+   },
+   {
+    "texto": "Agrega los chícharos y cocina un poco más.",
+    "minutos": 2
+   }
+  ],
+  "seguridad": "La carne molida se cocina por completo, sin partes rosadas. Lávate las manos después de tocarla cruda.",
+  "consejo": "Si se seca antes de que la papa esté suave, agrega un poco de agua.",
+  "revisada": false
+ },
+ {
+  "id": "st-bistec-a-la-mexicana",
+  "titulo": "Bistec a la mexicana",
+  "resumen": "Bistec en tiras con jitomate, cebolla y chile serrano. Unos 30 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 30,
+  "energia": "ganas",
+  "porciones": 3,
+  "etiquetas": [
+   "alta-proteina",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "bistec",
+    "texto": "500 g de bistec de res delgado"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "3 jitomates picados"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/2 cebolla picada"
+   },
+   {
+    "clave": "chile-serrano",
+    "texto": "2 chiles serranos picados"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo picado"
+   },
+   {
+    "clave": "tortilla-maiz",
+    "texto": "Tortillas para acompañar"
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal, pimienta y 2 cucharadas de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Corta el bistec en tiras o cuadros y sazona con sal y pimienta."
+   },
+   {
+    "texto": "Pica el jitomate, la cebolla, el chile y el ajo."
+   },
+   {
+    "texto": "Calienta el aceite en el sartén a fuego alto."
+   },
+   {
+    "texto": "Dora la carne en dos tandas para que no suelte agua.",
+    "minutos": 5
+   },
+   {
+    "texto": "Baja a fuego medio y agrega la cebolla, el ajo y el chile.",
+    "minutos": 3
+   },
+   {
+    "texto": "Añade el jitomate y cocina hasta que se haga salsa.",
+    "minutos": 6
+   },
+   {
+    "texto": "Si la carne quedó dura, agrega 1/2 taza de agua, tapa y cocina a fuego bajo.",
+    "minutos": 10
+   }
+  ],
+  "seguridad": "Seca la carne con papel antes de ponerla en el aceite caliente para que no salpique. Lávate las manos y la tabla después de cortar carne cruda.",
+  "consejo": "Si quieres menos picante, quítale las venas y semillas al chile.",
+  "revisada": false
+ },
+ {
+  "id": "st-calabacitas-con-elote",
+  "titulo": "Calabacitas con elote",
+  "resumen": "Calabacita, elote y jitomate guisados con queso panela. Unos 20 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 20,
+  "energia": "normal",
+  "porciones": 3,
+  "etiquetas": [
+   "vegetariana",
+   "economica",
+   "sin-gluten"
+  ],
+  "ingredientes": [
+   {
+    "clave": "calabacita",
+    "texto": "3 calabacitas en cubos"
+   },
+   {
+    "clave": "elote",
+    "texto": "1 taza de granos de elote (de lata o congelado)"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "1 jitomate picado"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla picada"
+   },
+   {
+    "clave": "queso-panela",
+    "texto": "150 g de queso panela en cubos",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y 1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Calienta el aceite en el sartén y sofríe la cebolla.",
+    "minutos": 2
+   },
+   {
+    "texto": "Agrega el jitomate y cocina hasta que se ablande.",
+    "minutos": 3
+   },
+   {
+    "texto": "Añade la calabacita, el elote y sal."
+   },
+   {
+    "texto": "Tapa y cocina a fuego medio-bajo hasta que la calabacita esté suave.",
+    "minutos": 8
+   },
+   {
+    "texto": "Agrega el queso panela y apaga el fuego."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Acompaña con tortillas o con arroz. También sirve como relleno de quesadillas.",
+  "revisada": false
+ },
+ {
+  "id": "st-nopales-a-la-mexicana",
+  "titulo": "Nopales a la mexicana",
+  "resumen": "Nopales ya picados con jitomate, cebolla y chile. Unos 20 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 20,
+  "energia": "normal",
+  "porciones": 3,
+  "etiquetas": [
+   "vegetariana",
+   "sin-carne",
+   "economica",
+   "sin-gluten",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "nopales",
+    "texto": "500 g de nopales ya picados (de bolsa)"
+   },
+   {
+    "clave": "jitomate",
+    "texto": "2 jitomates picados"
+   },
+   {
+    "clave": "cebolla",
+    "texto": "1/4 de cebolla picada"
+   },
+   {
+    "clave": "chile-serrano",
+    "texto": "1 chile serrano picado",
+    "opcional": true
+   },
+   {
+    "clave": "huevo",
+    "texto": "2 huevos",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "Sal y 1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Enjuaga los nopales en un colador."
+   },
+   {
+    "texto": "Cocínalos en el sartén sin tapa, a fuego medio, hasta que se evapore la baba.",
+    "minutos": 10
+   },
+   {
+    "texto": "Agrega el aceite, la cebolla y el chile, y mezcla.",
+    "minutos": 2
+   },
+   {
+    "texto": "Añade el jitomate y sal, y cocina hasta que se suavice.",
+    "minutos": 4
+   },
+   {
+    "texto": "Si usas huevo, rómpelo encima y revuelve hasta que se cueza.",
+    "minutos": 2
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Si siguen con baba, déjalos más tiempo sin tapa: se seca sola.",
+  "revisada": false
+ },
+ {
+  "id": "st-pasta-crema-chipotle",
+  "titulo": "Pasta con crema y chipotle",
+  "resumen": "Pasta en salsa de crema con chipotle y queso. Unos 20 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "olla",
+   "licuadora"
+  ],
+  "minutos": 20,
+  "energia": "normal",
+  "porciones": 3,
+  "etiquetas": [
+   "vegetariana",
+   "para-llevar"
+  ],
+  "ingredientes": [
+   {
+    "clave": "pasta",
+    "texto": "250 g de pasta (pluma o espagueti)"
+   },
+   {
+    "clave": "crema",
+    "texto": "1 taza de crema"
+   },
+   {
+    "clave": "chipotle-lata",
+    "texto": "2 chiles chipotles de lata"
+   },
+   {
+    "clave": "queso-crema",
+    "texto": "90 g de queso crema",
+    "opcional": true
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo"
+   },
+   {
+    "clave": "queso-manchego",
+    "texto": "Queso rallado para servir",
+    "opcional": true
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Hierve agua con sal en la olla y agrega la pasta."
+   },
+   {
+    "texto": "Cuece la pasta hasta que esté suave pero firme.",
+    "minutos": 10
+   },
+   {
+    "texto": "Mientras, licúa la crema, los chipotles, el queso crema y el ajo."
+   },
+   {
+    "texto": "Guarda 1/2 taza del agua de la pasta y escurre el resto."
+   },
+   {
+    "texto": "Regresa la pasta a la olla, agrega la salsa y calienta a fuego bajo.",
+    "minutos": 3
+   },
+   {
+    "texto": "Si queda espesa, agrega un poco del agua guardada y mezcla."
+   }
+  ],
+  "seguridad": "",
+  "consejo": "Puedes agregar pollo cocido deshebrado o atún para que rinda más.",
+  "revisada": false
+ },
+ {
+  "id": "st-salteado-verduras-soya",
+  "titulo": "Salteado de verduras con soya",
+  "resumen": "Brócoli, zanahoria y pimiento salteados con salsa de soya. Unos 20 minutos.",
+  "comida": [
+   "comida",
+   "cena"
+  ],
+  "utensilios": [
+   "sarten"
+  ],
+  "minutos": 20,
+  "energia": "normal",
+  "porciones": 2,
+  "etiquetas": [
+   "vegetariana",
+   "sin-carne",
+   "sin-lacteos"
+  ],
+  "ingredientes": [
+   {
+    "clave": "brocoli",
+    "texto": "2 tazas de brócoli en ramitos"
+   },
+   {
+    "clave": "zanahoria",
+    "texto": "1 zanahoria en rodajas delgadas"
+   },
+   {
+    "clave": "pimiento",
+    "texto": "1 pimiento en tiras"
+   },
+   {
+    "clave": "ajo",
+    "texto": "1 diente de ajo picado"
+   },
+   {
+    "clave": "salsa-soya",
+    "texto": "3 cucharadas de salsa de soya"
+   },
+   {
+    "clave": "tofu",
+    "texto": "200 g de tofu firme en cubos",
+    "opcional": true
+   },
+   {
+    "clave": "arroz",
+    "texto": "Arroz cocido para servir",
+    "opcional": true
+   },
+   {
+    "clave": "basico",
+    "texto": "1 cucharada de aceite"
+   }
+  ],
+  "pasos": [
+   {
+    "texto": "Calienta el aceite en el sartén a fuego alto."
+   },
+   {
+    "texto": "Si usas tofu, dóralo primero y sácalo del sartén.",
+    "minutos": 5
+   },
+   {
+    "texto": "Agrega la zanahoria y el brócoli y mueve seguido.",
+    "minutos": 4
+   },
+   {
+    "texto": "Añade el pimiento y el ajo.",
+    "minutos": 2
+   },
+   {
+    "texto": "Agrega la soya y 2 cucharadas de agua, y tapa.",
+    "minutos": 2
+   },
+   {
+    "texto": "Regresa el tofu, mezcla y sirve sobre arroz."
+   }
+  ],
+  "seguridad": "Seca bien el tofu y las verduras antes de ponerlas en el aceite caliente para que no salpique. Si usas arroz recalentado, caliéntalo hasta que humee por todos lados.",
+  "consejo": "Una bolsa de verduras congeladas funciona igual y te ahorra picar.",
+  "revisada": false
+ }
+]

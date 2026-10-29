@@ -95,6 +95,23 @@ Notas al cerrar la fase:
 
 **Listo cuando:** cada pantalla pasa los gates 1–15, con el resultado anotado.
 
+### Contenido interactivo (en paralelo a la Fase 3)
+
+Idea del 29 oct: que recetas, guías de auto y "Qué me pongo" no sean listas que se leen una vez, sino contenido que se busca y te muestra una cosa a la vez según tu situación. País: **México**.
+
+**Recetas — hecho (29 oct)**
+- [x] 58 recetas en `public/data/recetas.json` (formato en [`recetas-formato.md`](recetas-formato.md)): 24 en freidora de aire, 9 en microondas, 5 sin cocinar; 23 de poca energía.
+- [x] "¿Qué cocino hoy?": una sugerencia a la vez, "Otra" sin repetir, buscador sin acentos, filtros de energía, utensilio, tiempo y tipo de comida.
+- [x] "Lo que tengo": despensa marcable; filtra recetas que puedes hacer ya y dice qué falta.
+- [x] Agregar lo que falta a la lista del súper; quitar lo comprado con "Deshacer".
+- [x] Modo cocina: un paso por pantalla, temporizador, "Terminé" guarda en "Hechas hace poco".
+- [x] Favoritas y notas por receta.
+- [ ] **Probar las recetas en cocina.** Son borradores redactados con IA (`revisada: false`) y la app lo dice. Prioridad: las de pollo, cerdo y pescado en freidora.
+- [ ] IA para adaptar una receta existente (cambiar ingrediente, porciones, pasar a freidora). Requiere servidor y llave de la API de Anthropic.
+- [ ] Crecer hacia 365 recetas.
+
+**Siguientes:** guías de auto (buscador, entrada por síntoma, paso a paso con dibujos) y "Qué me pongo" (capas, pronóstico por hora, variedad).
+
 ### Fase 3 — Probar con personas reales (2–3 semanas, poco código)
 Material listo (29 oct): guion, 8 tareas, preguntas de cierre, hoja de notas y cómo ordenar hallazgos en [`fase-3-pruebas.md`](fase-3-pruebas.md).
 

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/tailwind.css">
     <!-- Lucide Icons, versión fija servida desde public/vendor: npm run vendor -->
     <script src="vendor/lucide.min.js"></script>
+    <script src="js/recetas.js"></script>
     <style>
         /* Custom scrollbars */
         ::-webkit-scrollbar {
@@ -188,12 +189,12 @@
                     { id: 3, name: 'Frutas (Plátano, Manzana o Naranja)', checked: false },
                     { id: 4, name: 'Carbohidratos (Arroz integral, Avena, Pasta)', checked: false }
                 ],
-                notes: 'Notas de mi alimentación diaria: Recuerda que debes comer esto como mínimo para nutrirte adecuadamente.',
-                easyRecipes: [
-                    { title: 'Ensalada de Atún Express', steps: '1. Abre una lata de atún en agua y drénala.\n2. Mezcla en un plato hondo con 1 cucharada de mayonesa, cebolla picada y tomate.\n3. Agrega unas gotas de limón y sal. Acompaña con tostadas o galletas saladas.' },
-                    { title: 'Huevo Cocido Cremoso (Huevo Duro)', steps: '1. Pon agua a hervir en una cacerola pequeña.\n2. Coloca los huevos despacio y déjalos hervir durante exactamente 9 minutos para yema firme o 6 minutos para yema cremosa.\n3. Pásalos por agua helada para pelarlos fácilmente. Corta por la mitad, agrega pizca de sal, pimienta y un chorrito de aceite de oliva.' },
-                    { title: 'Omelette con Huevo Cocido Picado (Sorprendente)', steps: '1. Bate dos huevos crudos en un plato con sal y pimienta.\n2. En un sartén caliente con mantequilla, vierte los huevos batidos.\n3. Agrega un huevo cocido picado en trocitos pequeños en el centro junto con queso rallado antes de doblarlo a la mitad. Doble proteína.' }
-                ]
+                notes: '',
+                pantry: [],
+                recipeFavorites: [],
+                recipeHistory: [],
+                recipeNotes: {},
+                recipeSeen: []
             },
 
             // 4. Mascotas (Independiente)
@@ -444,7 +445,11 @@
 
             const pageContent = document.getElementById('page-content');
             if (pageContent) {
+                // Al cambiar de sección se empieza arriba; al redibujar la misma sección se conserva la posición
+                const samePage = pageContent.dataset.page === page;
                 pageContent.innerHTML = renderPage(page);
+                pageContent.dataset.page = page;
+                if (!samePage) pageContent.scrollTop = 0;
                 initializePageComponents(page);
             }
 
@@ -1669,68 +1674,49 @@
         }
 
         // --- SUB-RENDER MÓDULO: ALIMENTACIÓN ---
+        function renderShoppingItems() {
+            if (state.food.indispensables.length === 0) {
+                return '<p class="text-ink-soft">Aquí va lo que necesitas comprar. Desde una receta puedes agregar lo que te falta.</p>';
+            }
+            return state.food.indispensables.map(item => `
+                <label class="flex items-center gap-3 p-3 bg-surface-1 rounded-xl border border-line">
+                    <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleIndispensable(${item.id})">
+                    <span class="font-semibold ${item.checked ? 'line-through text-ink-faint' : 'text-ink-soft'}">${escapeHtml(item.name)}</span>
+                </label>
+            `).join('');
+        }
+
         function renderModuloFood() {
-            const themeColor = state.theme;
-
-            // Listado de indispensables para el super
-            let indispensablesHtml = '';
-            state.food.indispensables.forEach(item => {
-                indispensablesHtml += `
-                    <div class="flex items-center gap-3 p-3 bg-surface-1 rounded-xl border border-line">
-                        <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleIndispensable(${item.id})" class="w-6 h-6 rounded text-accent">
-                        <span class="text-sm font-semibold ${item.checked ? 'line-through text-ink-faint' : 'text-ink-soft '}">${item.name}</span>
-                    </div>
-                `;
-            });
-
-            // Recetas rápidas para novatos
-            let recipesHtml = '';
-            state.food.easyRecipes.forEach(r => {
-                recipesHtml += `
-                    <details class="group bg-surface-1 p-3.5 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-                            <span class="text-sm font-bold text-ink-soft">${r.title}</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-ink-faint transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <p class="text-xs text-ink-faint mt-2 leading-relaxed whitespace-pre-line">${r.steps}</p>
-                    </details>
-                `;
-            });
-
+            const hasBought = state.food.indispensables.some(item => item.checked);
             return `
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Lista de Indispensables y Notas -->
-                    <div class="space-y-6">
-                        <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-4">
-                            <h3 class="font-bold text-base text-ink flex items-center gap-1.5">
-                                <i data-lucide="shopping-cart" class="w-4 h-4 text-accent"></i>
-                                Mi Despensa de Indispensables (Súper)
-                            </h3>
-                            <p class="text-xs text-ink-faint">Lo básico para comer balanceado. Revísalo antes de ir al súper.</p>
-
-                            <div class="space-y-2">
-                                ${indispensablesHtml}
+                <div class="space-y-8">
+                    <section class="bg-card p-6 sm:p-8 rounded-3xl border border-line space-y-5" aria-labelledby="recipes-title">
+                        <div class="flex items-start gap-4">
+                            <span class="w-12 h-12 rounded-2xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="chef-hat" class="w-6 h-6" aria-hidden="true"></i>
+                            </span>
+                            <div>
+                                <h3 id="recipes-title" class="font-bold text-lg">¿Qué cocino hoy?</h3>
+                                <p class="text-ink-faint">Una idea a la vez. Ajusta los filtros a tu energía y a lo que tienes.</p>
                             </div>
                         </div>
+                        ${renderRecipesSection()}
+                    </section>
 
-                        <!-- Notas de alimentación -->
-                        <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-3">
-                            <h4 class="font-bold text-sm text-ink-soft">Recordatorio y notas nutritivas</h4>
-                            <textarea id="food-notes" onblur="updateFoodNotes(this.value)" class="w-full p-3 text-sm border rounded-xl min-h-[100px]" placeholder="Notas sobre mi alimentación o metas para no olvidar...">${state.food.notes}</textarea>
-                        </div>
-                    </div>
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                        <section class="bg-card p-6 rounded-3xl border border-line space-y-4" aria-labelledby="shopping-title">
+                            <h3 id="shopping-title" class="font-bold text-base text-ink flex items-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-5 h-5 text-accent" aria-hidden="true"></i>
+                                Lista del súper
+                            </h3>
+                            <div id="shopping-list-items" class="space-y-2">${renderShoppingItems()}</div>
+                            ${hasBought ? '<button type="button" onclick="clearBoughtItems()" class="px-4 bg-card border border-edge rounded-xl text-sm font-bold">Quitar lo que ya compré</button>' : ''}
+                        </section>
 
-                    <!-- Consejos e Ideas para quienes no saben cocinar -->
-                    <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-4">
-                        <h3 class="font-bold text-base text-ink flex items-center gap-1.5">
-                            <i data-lucide="chef-hat" class="w-4 h-4 text-accent"></i>
-                            Cocinar fácil y rápido: Recetas Básicas
-                        </h3>
-                        <p class="text-sm text-ink-faint">Guías paso a paso para novatos absolutos utilizando ingredientes duraderos como el atún o huevo cocido:</p>
-
-                        <div class="space-y-3 pt-2">
-                            ${recipesHtml}
-                        </div>
+                        <section class="bg-card p-6 rounded-3xl border border-line space-y-3">
+                            <label for="food-notes" class="block font-bold text-base text-ink">Notas de alimentación</label>
+                            <textarea id="food-notes" onblur="updateFoodNotes(this.value)" class="w-full p-3 border rounded-xl min-h-[120px]" placeholder="Metas, alergias, lo que te cae bien">${escapeHtml(state.food.notes)}</textarea>
+                        </section>
                     </div>
                 </div>
             `;
@@ -1879,6 +1865,18 @@
             state.food.indispensables = state.food.indispensables.map(item => item.id === id ? { ...item, checked: !item.checked } : item);
             saveState();
             navigate('food');
+        }
+
+        function clearBoughtItems() {
+            const bought = state.food.indispensables.filter(item => item.checked);
+            state.food.indispensables = state.food.indispensables.filter(item => !item.checked);
+            saveState();
+            navigate('food');
+            showUndoToast(`Se quitaron ${bought.length} de la lista.`, () => {
+                state.food.indispensables.push(...bought);
+                saveState();
+                navigate('food');
+            });
         }
 
         function updateFoodNotes(val) {
