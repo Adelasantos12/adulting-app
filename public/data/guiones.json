@@ -1,0 +1,2373 @@
+[
+  {
+    "id": "llamar-para-agendar-cita-medica",
+    "necesidad": "llamar",
+    "titulo": "Agendar una cita médica por teléfono",
+    "situacion": "Necesitas una cita y te cuesta llamar.",
+    "objetivo": "Salir de la llamada con fecha y hora.",
+    "antes": [
+      "Ten a la mano tu credencial o número de afiliación.",
+      "Piensa en dos horarios que te queden bien.",
+      "Antes de empezar, suelta el aire despacio un par de veces. No tiene que salir perfecto."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenos días. Quisiera agendar una cita con {especialidad}, por favor."
+      },
+      {
+        "texto": "Mi nombre es {nombre}."
+      },
+      {
+        "texto": "Me quedan bien los {dias} por la {turno}. ¿Tienen algo disponible?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "No hay citas esta semana.",
+        "respondes": "Entiendo. ¿Cuál es la fecha más próxima que tienen?"
+      },
+      {
+        "si": "¿Para qué es la consulta?",
+        "respondes": "Es para una revisión por una molestia que tengo desde hace unos días."
+      },
+      {
+        "si": "Le tenemos que regresar la llamada.",
+        "respondes": "Claro. ¿Más o menos a qué hora me llamarían? Así estoy pendiente."
+      }
+    ],
+    "para_cerrar": "Perfecto, entonces quedo el {fecha} a las {hora}. Muchas gracias.",
+    "mensaje": "Hola, buen día. Mi nombre es {nombre}. Quisiera agendar una cita con {especialidad}. Me quedan bien los {dias} por la {turno}. ¿Tienen disponibilidad? Gracias.",
+    "campos": [
+      {
+        "clave": "especialidad",
+        "etiqueta": "Con quién es la cita",
+        "ejemplo": "medicina general"
+      },
+      {
+        "clave": "nombre",
+        "etiqueta": "Tu nombre completo",
+        "ejemplo": "Ana López Ruiz"
+      },
+      {
+        "clave": "dias",
+        "etiqueta": "Qué días puedes",
+        "ejemplo": "martes o jueves"
+      },
+      {
+        "clave": "turno",
+        "etiqueta": "Mañana o tarde",
+        "ejemplo": "tarde"
+      },
+      {
+        "clave": "fecha",
+        "etiqueta": "Fecha que te den",
+        "ejemplo": "jueves 12"
+      },
+      {
+        "clave": "hora",
+        "etiqueta": "Hora que te den",
+        "ejemplo": "4:30"
+      }
+    ],
+    "despues": "Ya está. Anota la fecha en tu calendario.",
+    "revisada": false
+  },
+  {
+    "id": "llamar-reportar-falla-de-servicio",
+    "necesidad": "llamar",
+    "titulo": "Reportar una falla de internet, gas o luz",
+    "situacion": "Algo dejó de funcionar en casa y tienes que llamar a la compañía.",
+    "objetivo": "Colgar con un número de reporte y una fecha aproximada de solución.",
+    "antes": [
+      "Busca tu número de cliente o de contrato; viene en el recibo.",
+      "Anota desde cuándo falla y qué ya intentaste.",
+      "Ten papel para anotar el número de reporte."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Quiero reportar una falla en mi servicio de {servicio}."
+      },
+      {
+        "texto": "Mi número de cliente es {numero_cliente}, a nombre de {titular}."
+      },
+      {
+        "texto": "Desde el {desde} {falla}."
+      },
+      {
+        "texto": "Ya {intentado} y sigue igual."
+      },
+      {
+        "texto": "¿Me puede dar un número de reporte, por favor?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Ya reinició el equipo?",
+        "respondes": "Sí, ya lo hice y sigue igual. Por eso estoy llamando."
+      },
+      {
+        "si": "No vemos ninguna falla en el sistema.",
+        "respondes": "Entiendo, pero de mi lado sigue sin funcionar. Le pido que quede registrado el reporte de todos modos."
+      },
+      {
+        "si": "Le mandamos un técnico en los próximos días.",
+        "respondes": "Está bien. ¿Me da el número de reporte y en qué horario llegaría?"
+      },
+      {
+        "si": "Tiene un pago pendiente.",
+        "respondes": "No tenía ese dato. ¿Me dice el monto y si eso es lo que está causando la falla?"
+      }
+    ],
+    "para_cerrar": "Gracias. Entonces mi número de reporte es el {folio}. Quedo pendiente.",
+    "mensaje": "Hola, buen día. Quiero reportar una falla en mi servicio de {servicio}. Número de cliente: {numero_cliente}, a nombre de {titular}. Desde el {desde} {falla}. Ya {intentado} y sigue igual. ¿Me pueden dar un número de reporte? Gracias.",
+    "campos": [
+      {
+        "clave": "servicio",
+        "etiqueta": "Qué servicio",
+        "ejemplo": "internet"
+      },
+      {
+        "clave": "numero_cliente",
+        "etiqueta": "Número de cliente o contrato",
+        "ejemplo": "1234567890"
+      },
+      {
+        "clave": "titular",
+        "etiqueta": "A nombre de quién está",
+        "ejemplo": "Ana López Ruiz"
+      },
+      {
+        "clave": "desde",
+        "etiqueta": "Desde qué día",
+        "ejemplo": "lunes"
+      },
+      {
+        "clave": "falla",
+        "etiqueta": "Qué pasa",
+        "ejemplo": "no hay señal en ningún aparato"
+      },
+      {
+        "clave": "intentado",
+        "etiqueta": "Qué ya intentaste",
+        "ejemplo": "reinicié el módem dos veces"
+      },
+      {
+        "clave": "folio",
+        "etiqueta": "Número de reporte que te den",
+        "ejemplo": "R-458721"
+      }
+    ],
+    "despues": "Listo. Guarda el número de reporte por si tienes que volver a llamar.",
+    "revisada": false
+  },
+  {
+    "id": "llamar-pedir-informes",
+    "necesidad": "llamar",
+    "titulo": "Pedir informes de un gimnasio o un curso",
+    "situacion": "Quieres saber precio y horarios, pero te da pena preguntar sin haber decidido nada.",
+    "objetivo": "Saber cuánto cuesta, qué incluye y los horarios, sin comprometerte.",
+    "antes": [
+      "Escribe las tres preguntas que más te importan: precio, horarios y costos extra.",
+      "Recuerda que pedir informes no te obliga a nada."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, qué tal. Quisiera pedir informes sobre {que}."
+      },
+      {
+        "texto": "¿Me podría decir cuánto cuesta y qué incluye?"
+      },
+      {
+        "texto": "¿Qué horarios manejan?"
+      },
+      {
+        "texto": "¿Hay que pagar inscripción o algún otro costo aparte?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Mejor venga a conocer las instalaciones.",
+        "respondes": "Con gusto voy, pero antes me ayudaría saber el precio aproximado para ver si me conviene."
+      },
+      {
+        "si": "Tenemos una promoción si se inscribe hoy.",
+        "respondes": "Gracias. Hoy todavía no voy a decidir. ¿Hasta cuándo es la promoción?"
+      },
+      {
+        "si": "¿Me deja su nombre y teléfono?",
+        "respondes": "Por ahora prefiero solo la información. Si me decido, yo les llamo."
+      },
+      {
+        "si": "Eso se lo tiene que decir el coordinador.",
+        "respondes": "Está bien. ¿A qué hora lo encuentro o a qué número le escribo?"
+      }
+    ],
+    "para_cerrar": "Muchas gracias por la información. Lo pienso y les aviso.",
+    "mensaje": "Hola, buen día. Me gustaría recibir informes sobre {que}. ¿Me podrían decir el costo, qué incluye, los horarios y si hay pago de inscripción? Gracias.",
+    "campos": [
+      {
+        "clave": "que",
+        "etiqueta": "Sobre qué quieres informes",
+        "ejemplo": "las clases de natación para adultos"
+      }
+    ],
+    "despues": "Ya tienes la información. Decidir puede esperar.",
+    "revisada": false
+  },
+  {
+    "id": "llamar-reservar-en-restaurante",
+    "necesidad": "llamar",
+    "titulo": "Hacer una reservación en un restaurante",
+    "situacion": "Te toca reservar y prefieres no marcar.",
+    "objetivo": "Tener la mesa apartada con día, hora y nombre.",
+    "antes": [
+      "Confirma cuántas personas van y a qué hora.",
+      "Piensa en un horario de respaldo por si no hay lugar."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Quisiera hacer una reservación, por favor."
+      },
+      {
+        "texto": "Sería para {personas} personas el {dia} a las {hora}."
+      },
+      {
+        "texto": "A nombre de {nombre}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "A esa hora ya no tenemos lugar.",
+        "respondes": "Entiendo. ¿Qué horario más cercano tienen libre?"
+      },
+      {
+        "si": "No tomamos reservaciones para grupos chicos.",
+        "respondes": "Ah, va. ¿Entonces se llega directo? ¿A qué hora suele haber menos gente?"
+      },
+      {
+        "si": "La reservación se respeta solo quince minutos.",
+        "respondes": "Perfecto, gracias por avisarme."
+      },
+      {
+        "si": "¿Me deja un teléfono de contacto?",
+        "respondes": "Claro, es el mismo del que estoy llamando."
+      }
+    ],
+    "para_cerrar": "Perfecto. Entonces queda para {personas} personas el {dia} a las {hora}. Gracias.",
+    "mensaje": "Hola, buenas tardes. Quisiera hacer una reservación para {personas} personas el {dia} a las {hora}, a nombre de {nombre}. ¿Tienen disponibilidad? Gracias.",
+    "campos": [
+      {
+        "clave": "personas",
+        "etiqueta": "Cuántas personas",
+        "ejemplo": "4"
+      },
+      {
+        "clave": "dia",
+        "etiqueta": "Qué día",
+        "ejemplo": "sábado 14"
+      },
+      {
+        "clave": "hora",
+        "etiqueta": "A qué hora",
+        "ejemplo": "8:00 de la noche"
+      },
+      {
+        "clave": "nombre",
+        "etiqueta": "A nombre de quién",
+        "ejemplo": "Ana López"
+      }
+    ],
+    "despues": "Ya quedó. Avísale al grupo la hora.",
+    "revisada": false
+  },
+  {
+    "id": "llamar-numero-desconocido-dice-ser-tu-banco",
+    "necesidad": "llamar",
+    "titulo": "Te llaman de un número desconocido diciendo que son tu banco",
+    "situacion": "Alguien dice ser de tu banco y te pide datos o que actúes rápido.",
+    "objetivo": "Colgar sin dar ningún dato y verificar directo con el número oficial.",
+    "antes": [
+      "Tu banco no te pide por teléfono contraseñas, el número secreto de tu tarjeta ni códigos que te lleguen por mensaje.",
+      "El número oficial de tu banco viene atrás de tu tarjeta.",
+      "Puedes colgar en cualquier momento. No es grosería, es cuidarte."
+    ],
+    "guion": [
+      {
+        "texto": "Gracias. Prefiero no dar ningún dato por esta vía."
+      },
+      {
+        "texto": "Voy a colgar y yo llamo al número que viene atrás de mi tarjeta."
+      },
+      {
+        "texto": "Hasta luego."
+      },
+      {
+        "texto": "Ya con el banco: Hola, buenas tardes. Me acaban de llamar diciendo que eran de aquí. Quiero confirmar si hay algún problema con mi cuenta."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Es urgente, están usando su cuenta en este momento.",
+        "respondes": "Entiendo. Por eso mismo voy a llamar yo directo al banco. Hasta luego."
+      },
+      {
+        "si": "Solo confírmeme el código que le acaba de llegar.",
+        "respondes": "No voy a compartir ningún código. Hasta luego."
+      },
+      {
+        "si": "Si cuelga, se bloquea su tarjeta.",
+        "respondes": "Está bien. Lo reviso directo con el banco."
+      },
+      {
+        "si": "Ya tengo sus datos, nada más los estoy verificando.",
+        "respondes": "Entonces no necesita que yo se los dé. Hasta luego."
+      }
+    ],
+    "para_cerrar": "Gracias, lo verifico directo con el banco. Hasta luego.",
+    "mensaje": "",
+    "campos": [],
+    "despues": "Colgar estuvo bien. Si alcanzaste a dar algún dato, llama ahora a tu banco; ellos te dicen qué bloquear.",
+    "revisada": false
+  },
+  {
+    "id": "reclamar-cobro-no-reconocido-en-tarjeta",
+    "necesidad": "reclamar",
+    "titulo": "Reportar un cobro que no reconoces en tu tarjeta",
+    "situacion": "Viste un cargo en tu tarjeta que tú no hiciste.",
+    "objetivo": "Levantar la aclaración y salir con un número de folio.",
+    "antes": [
+      "Ten a la mano la fecha, el monto y el nombre del comercio como aparece en tu estado de cuenta.",
+      "Ten tu tarjeta cerca; llama al número que viene atrás.",
+      "Ten papel para anotar el folio."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Quiero reportar un cargo que no reconozco en mi tarjeta con terminación {terminacion}."
+      },
+      {
+        "texto": "Es un cargo por {monto} del {fecha}, que aparece como {comercio}."
+      },
+      {
+        "texto": "Yo no hice esa compra. Quiero levantar una aclaración."
+      },
+      {
+        "texto": "¿Me puede dar el número de folio, por favor?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Seguro que no fue alguien de su familia?",
+        "respondes": "Sí, ya lo revisé. Nadie más usa mi tarjeta. Quiero levantar la aclaración."
+      },
+      {
+        "si": "Le recomendamos contactar directamente al comercio.",
+        "respondes": "Lo puedo hacer también, pero quiero que la aclaración quede levantada con ustedes hoy."
+      },
+      {
+        "si": "Vamos a tener que cancelar su tarjeta.",
+        "respondes": "Está bien. ¿Cuándo me llega la nueva y qué pasa con los pagos que tengo domiciliados?"
+      },
+      {
+        "si": "La aclaración tarda en resolverse.",
+        "respondes": "Entiendo. ¿Cuánto tiempo aproximado y cómo me van a avisar?"
+      }
+    ],
+    "para_cerrar": "Gracias. Entonces mi folio es el {folio}. Quedo pendiente de su respuesta.",
+    "mensaje": "Hola. Quiero reportar un cargo no reconocido en mi tarjeta con terminación {terminacion}: {monto} del {fecha}, que aparece como {comercio}. No hice esa compra y quiero levantar una aclaración. ¿Me pueden dar un número de folio? Gracias.",
+    "campos": [
+      {
+        "clave": "terminacion",
+        "etiqueta": "Últimos cuatro dígitos de tu tarjeta",
+        "ejemplo": "4821"
+      },
+      {
+        "clave": "monto",
+        "etiqueta": "Monto del cargo",
+        "ejemplo": "$1,349"
+      },
+      {
+        "clave": "fecha",
+        "etiqueta": "Fecha del cargo",
+        "ejemplo": "3 de octubre"
+      },
+      {
+        "clave": "comercio",
+        "etiqueta": "Cómo aparece el comercio",
+        "ejemplo": "Pago serv digital"
+      },
+      {
+        "clave": "folio",
+        "etiqueta": "Folio que te den",
+        "ejemplo": "AC-99812"
+      }
+    ],
+    "despues": "Hecho. Guarda el folio y revisa tu siguiente estado de cuenta.",
+    "revisada": false
+  },
+  {
+    "id": "reclamar-devolver-producto-en-tienda",
+    "necesidad": "reclamar",
+    "titulo": "Devolver un producto en la tienda",
+    "situacion": "Compraste algo que salió mal y tienes que regresarlo en persona.",
+    "objetivo": "Salir con el reembolso, el cambio o una fecha de solución.",
+    "antes": [
+      "Lleva el ticket y el producto, con su caja si la tienes.",
+      "Decide antes qué quieres: reembolso, cambio o reparación.",
+      "Antes de llegar al mostrador, suelta el aire despacio una vez."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Quiero devolver {producto}. Lo compré el {fecha}."
+      },
+      {
+        "texto": "El problema es que {motivo}."
+      },
+      {
+        "texto": "Aquí está mi ticket."
+      },
+      {
+        "texto": "Me gustaría {solucion}, por favor."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Eso ya no tiene devolución.",
+        "respondes": "Entiendo. ¿Me muestra dónde viene esa política? El producto salió con falla."
+      },
+      {
+        "si": "Solo le podemos dar un vale.",
+        "respondes": "Prefiero el reembolso, porque el producto no funcionó. ¿Quién lo puede autorizar?"
+      },
+      {
+        "si": "Tiene que verlo con la garantía del fabricante.",
+        "respondes": "Lo compré aquí y quisiera resolverlo aquí. ¿Me comunica con quien esté a cargo, por favor?"
+      },
+      {
+        "si": "Sin ticket no podemos hacer nada.",
+        "respondes": "Lo pagué con tarjeta. ¿Pueden buscar la compra con la fecha y el monto?"
+      }
+    ],
+    "para_cerrar": "Muchas gracias por su ayuda.",
+    "mensaje": "Hola, buen día. El {fecha} compré {producto} en su tienda. El problema es que {motivo}. Tengo mi ticket. Me gustaría {solucion}. ¿Me indican cómo hacerlo? Gracias.",
+    "campos": [
+      {
+        "clave": "producto",
+        "etiqueta": "Qué compraste",
+        "ejemplo": "una licuadora"
+      },
+      {
+        "clave": "fecha",
+        "etiqueta": "Cuándo lo compraste",
+        "ejemplo": "5 de octubre"
+      },
+      {
+        "clave": "motivo",
+        "etiqueta": "Qué tiene",
+        "ejemplo": "el motor se apagó a la semana"
+      },
+      {
+        "clave": "solucion",
+        "etiqueta": "Qué quieres",
+        "ejemplo": "que me devuelvan mi dinero"
+      }
+    ],
+    "despues": "Ya está. Guarda el comprobante de la devolución.",
+    "revisada": false
+  },
+  {
+    "id": "reclamar-pedido-que-no-llego",
+    "necesidad": "reclamar",
+    "titulo": "Reclamar un pedido que no llegó",
+    "situacion": "Pagaste algo en línea, ya pasó la fecha y no ha llegado.",
+    "objetivo": "Que te lo reenvíen o te devuelvan el dinero, con una fecha clara.",
+    "antes": [
+      "Ten el número de pedido y la fecha de entrega prometida.",
+      "Toma captura del rastreo.",
+      "Decide si prefieres que lo reenvíen o el reembolso."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buen día. Hice el pedido número {pedido} y no me ha llegado."
+      },
+      {
+        "texto": "La fecha de entrega era el {fecha_entrega}."
+      },
+      {
+        "texto": "En el rastreo aparece como {estatus}, pero yo no lo recibí."
+      },
+      {
+        "texto": "Me gustaría {solucion}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "El sistema dice que ya se entregó.",
+        "respondes": "Entiendo, pero yo no lo recibí. Le pido que abran una investigación con la paquetería."
+      },
+      {
+        "si": "Tiene que esperar unos días más.",
+        "respondes": "Está bien. ¿Hasta qué fecha exacta? Si para entonces no llega, quiero el reembolso."
+      },
+      {
+        "si": "Eso lo tiene que ver con la paquetería.",
+        "respondes": "Le compré a ustedes, así que les pido que lo vean ustedes con la paquetería."
+      },
+      {
+        "si": "¿Ya preguntó con sus vecinos o en recepción?",
+        "respondes": "Sí, ya pregunté y nadie lo recibió."
+      }
+    ],
+    "para_cerrar": "Gracias. ¿Me confirma por escrito lo que acordamos y el número de seguimiento?",
+    "mensaje": "Hola, buen día. Hice el pedido número {pedido} con fecha de entrega el {fecha_entrega} y no me ha llegado. En el rastreo aparece como {estatus}, pero yo no lo recibí. Me gustaría {solucion}. Quedo pendiente. Gracias.",
+    "campos": [
+      {
+        "clave": "pedido",
+        "etiqueta": "Número de pedido",
+        "ejemplo": "702-4419"
+      },
+      {
+        "clave": "fecha_entrega",
+        "etiqueta": "Fecha de entrega prometida",
+        "ejemplo": "20 de octubre"
+      },
+      {
+        "clave": "estatus",
+        "etiqueta": "Qué dice el rastreo",
+        "ejemplo": "entregado"
+      },
+      {
+        "clave": "solucion",
+        "etiqueta": "Qué quieres",
+        "ejemplo": "que me lo reenvíen esta semana"
+      }
+    ],
+    "despues": "Listo. Guarda la conversación por si tienes que darle seguimiento.",
+    "revisada": false
+  },
+  {
+    "id": "reclamar-error-en-la-cuenta",
+    "necesidad": "reclamar",
+    "titulo": "Corregir un error en tu cuenta",
+    "situacion": "Te llegó la cuenta del restaurante o de un servicio y algo no cuadra.",
+    "objetivo": "Que quiten o corrijan el cobro que no corresponde.",
+    "antes": [
+      "Revisa la cuenta con calma. No hay prisa.",
+      "Ubica exactamente qué línea no cuadra."
+    ],
+    "guion": [
+      {
+        "texto": "Disculpe, creo que hay un error en la cuenta."
+      },
+      {
+        "texto": "Aquí aparece {cobro_extra} y yo no lo pedí."
+      },
+      {
+        "texto": "¿Me la puede revisar, por favor?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Sí lo pidieron, se los trajimos.",
+        "respondes": "Creo que hubo una confusión. Nosotros no lo pedimos ni lo recibimos."
+      },
+      {
+        "si": "Es el cargo por servicio.",
+        "respondes": "Gracias. La propina prefiero decidirla yo. ¿Me la quita de la cuenta, por favor?"
+      },
+      {
+        "si": "Ese precio cambió.",
+        "respondes": "En la carta que nos dieron aparece otro precio. ¿Me la trae para revisarlo?"
+      },
+      {
+        "si": "Ahorita lo corrijo.",
+        "respondes": "Muchas gracias."
+      }
+    ],
+    "para_cerrar": "Gracias por corregirlo.",
+    "mensaje": "Hola, buen día. Revisé mi cuenta y aparece un cargo por {cobro_extra} que no reconozco. ¿Me ayudan a revisarlo y corregirlo? Gracias.",
+    "campos": [
+      {
+        "clave": "cobro_extra",
+        "etiqueta": "Qué cobro no cuadra",
+        "ejemplo": "dos limonadas"
+      }
+    ],
+    "despues": "Ya quedó. Revisar la cuenta es parte de pagarla.",
+    "revisada": false
+  },
+  {
+    "id": "pedir-descuento-o-mejor-tarifa",
+    "necesidad": "pedir",
+    "titulo": "Pedir un descuento o una mejor tarifa",
+    "situacion": "Sientes que pagas de más por tu plan y quieres pedir que te lo bajen.",
+    "objetivo": "Salir con un precio más bajo o con información para decidir si te cambias.",
+    "antes": [
+      "Busca cuánto cobra la competencia por algo parecido.",
+      "Ten claro cuánto tiempo llevas como cliente.",
+      "Decide cuál es el precio en el que sí te quedas."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Soy cliente desde hace {antiguedad} y quiero revisar mi plan."
+      },
+      {
+        "texto": "Estoy pagando {pago_actual} al mes y vi que {competencia} ofrece algo parecido por {precio_competencia}."
+      },
+      {
+        "texto": "Me gustaría seguir con ustedes. ¿Qué me pueden ofrecer?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "No tenemos promociones para clientes actuales.",
+        "respondes": "Entiendo. ¿Me comunica con el área de retención? Estoy considerando cambiarme."
+      },
+      {
+        "si": "Se lo puedo bajar, pero con plazo forzoso.",
+        "respondes": "¿Cuánto sería el plazo y qué pasa si cancelo antes? Lo quiero entender bien antes de aceptar."
+      },
+      {
+        "si": "Ese es el precio y no se puede mover.",
+        "respondes": "Está bien, gracias. Lo voy a pensar y si decido cambiarme les aviso."
+      },
+      {
+        "si": "Le puedo dar más velocidad por el mismo precio.",
+        "respondes": "Gracias, pero lo que necesito es pagar menos. ¿Hay alguna opción así?"
+      }
+    ],
+    "para_cerrar": "Gracias. ¿Me confirma el nuevo precio y desde cuándo aplica?",
+    "mensaje": "Hola, buen día. Soy cliente desde hace {antiguedad}. Estoy pagando {pago_actual} al mes y vi que {competencia} ofrece algo parecido por {precio_competencia}. Me gustaría seguir con ustedes. ¿Qué opciones me pueden ofrecer? Gracias.",
+    "campos": [
+      {
+        "clave": "antiguedad",
+        "etiqueta": "Cuánto tiempo llevas",
+        "ejemplo": "tres años"
+      },
+      {
+        "clave": "pago_actual",
+        "etiqueta": "Cuánto pagas",
+        "ejemplo": "$599"
+      },
+      {
+        "clave": "competencia",
+        "etiqueta": "Qué otra compañía",
+        "ejemplo": "otra compañía de mi zona"
+      },
+      {
+        "clave": "precio_competencia",
+        "etiqueta": "Cuánto cobra la otra",
+        "ejemplo": "$449"
+      }
+    ],
+    "despues": "Ya preguntaste. Con lo que te dijeron puedes decidir con calma.",
+    "revisada": false
+  },
+  {
+    "id": "pedir-que-te-repitan",
+    "necesidad": "pedir",
+    "titulo": "Pedir que te repitan algo que no entendiste",
+    "situacion": "Alguien te explicó algo y no le entendiste, y te da pena preguntar otra vez.",
+    "objetivo": "Entender bien lo que te dijeron antes de irte.",
+    "antes": [
+      "Pedir que te repitan es normal. La mayoría prefiere repetir a que algo salga mal.",
+      "Si puedes, ten algo para anotar."
+    ],
+    "guion": [
+      {
+        "texto": "Perdón, no le alcancé a entender."
+      },
+      {
+        "texto": "No me quedó claro lo de {duda}. ¿Me lo podría repetir un poco más despacio?"
+      },
+      {
+        "texto": "Para ver si entendí: {lo_que_entendi}. ¿Es así?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ya se lo había dicho.",
+        "respondes": "Sí, gracias. Solo quiero asegurarme de hacerlo bien."
+      },
+      {
+        "si": "Lo repite igual de rápido.",
+        "respondes": "Perdón, ¿me lo puede decir por partes? Así lo voy anotando."
+      },
+      {
+        "si": "Viene en la hoja que le di.",
+        "respondes": "Gracias. ¿Me señala en qué parte viene?"
+      },
+      {
+        "si": "Sí, eso es.",
+        "respondes": "Perfecto, gracias."
+      }
+    ],
+    "para_cerrar": "Muchas gracias por la paciencia.",
+    "mensaje": "Hola, gracias por la explicación. No me quedó claro lo de {duda}. Lo que entendí es que {lo_que_entendi}. ¿Me confirma si es así? Gracias.",
+    "campos": [
+      {
+        "clave": "duda",
+        "etiqueta": "Qué no te quedó claro",
+        "ejemplo": "los documentos que tengo que traer"
+      },
+      {
+        "clave": "lo_que_entendi",
+        "etiqueta": "Lo que sí entendiste",
+        "ejemplo": "tengo que traer copia de mi identificación y del comprobante de domicilio"
+      }
+    ],
+    "despues": "Ya está. Ahora sí sabes qué sigue.",
+    "revisada": false
+  },
+  {
+    "id": "pedir-ayuda-a-un-vecino",
+    "necesidad": "pedir",
+    "titulo": "Pedirle ayuda a un vecino",
+    "situacion": "Necesitas algo de alguien que vive cerca y con quien casi no hablas.",
+    "objetivo": "Hacer la petición clara y dejarle la puerta abierta para que diga que no.",
+    "antes": [
+      "Piensa qué necesitas exactamente y por cuánto tiempo.",
+      "Busca una hora razonable, ni muy temprano ni de noche."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Soy {nombre}, vivo en el {depto}."
+      },
+      {
+        "texto": "Fíjese que {necesidad_concreta}. ¿Me podría ayudar?"
+      },
+      {
+        "texto": "Si no se puede, no se preocupe."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ahorita no puedo.",
+        "respondes": "No se preocupe. ¿Más tarde le quedaría mejor, o busco por otro lado?"
+      },
+      {
+        "si": "Claro, ¿qué necesita?",
+        "respondes": "Muchas gracias. Le explico rápido."
+      },
+      {
+        "si": "¿Y me lo regresa cuándo?",
+        "respondes": "Hoy mismo. Yo se lo traigo."
+      },
+      {
+        "si": "No tengo, perdón.",
+        "respondes": "No se preocupe, gracias de todos modos."
+      }
+    ],
+    "para_cerrar": "Muchas gracias. Cualquier cosa que necesite, aquí estoy en el {depto}.",
+    "mensaje": "Hola, buenas tardes. Soy {nombre}, del {depto}. Fíjese que {necesidad_concreta}. ¿Me podría ayudar? Si no se puede, no se preocupe. Gracias.",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "Tu nombre",
+        "ejemplo": "Ana"
+      },
+      {
+        "clave": "depto",
+        "etiqueta": "Dónde vives",
+        "ejemplo": "departamento 3"
+      },
+      {
+        "clave": "necesidad_concreta",
+        "etiqueta": "Qué necesitas",
+        "ejemplo": "se me quedaron las llaves adentro y necesito una escalera un momento"
+      }
+    ],
+    "despues": "Ya preguntaste. Diga lo que diga, ahora ya se conocen un poco.",
+    "revisada": false
+  },
+  {
+    "id": "pedir-prestado-algo-a-una-amistad",
+    "necesidad": "pedir",
+    "titulo": "Pedirle prestado algo a una amistad",
+    "situacion": "Necesitas algo que tiene alguien cercano y te cuesta pedirlo.",
+    "objetivo": "Pedirlo claro, con fecha de regreso, y aceptar un no sin drama.",
+    "antes": [
+      "Ten claro para qué lo necesitas y cuándo lo regresas.",
+      "Piensa en un plan b por si te dice que no."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, {amigo}, te quiero pedir un favor."
+      },
+      {
+        "texto": "¿Me podrías prestar {cosa}? Lo necesito para {para_que}."
+      },
+      {
+        "texto": "Te lo regreso el {fecha_regreso}."
+      },
+      {
+        "texto": "Si no puedes, no pasa nada, de verdad."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Es que lo voy a usar.",
+        "respondes": "Claro, sin problema. Gracias de todos modos."
+      },
+      {
+        "si": "Va, pero cuídamelo mucho.",
+        "respondes": "Obvio. Te lo regreso tal cual."
+      },
+      {
+        "si": "Sí, pero lo necesito antes.",
+        "respondes": "Va. ¿Qué día te funciona? Me ajusto."
+      },
+      {
+        "si": "¿Y para qué lo quieres?",
+        "respondes": "Te cuento: es para algo puntual y en cuanto termine te lo regreso."
+      }
+    ],
+    "para_cerrar": "Mil gracias. Te lo regreso el {fecha_regreso} sin falta.",
+    "mensaje": "Oye, {amigo}, te quiero pedir un favor. ¿Me podrías prestar {cosa}? Lo necesito para {para_que} y te lo regreso el {fecha_regreso}. Si no puedes, no pasa nada, de verdad.",
+    "campos": [
+      {
+        "clave": "amigo",
+        "etiqueta": "Nombre de tu amistad",
+        "ejemplo": "Caro"
+      },
+      {
+        "clave": "cosa",
+        "etiqueta": "Qué necesitas",
+        "ejemplo": "tu maleta grande"
+      },
+      {
+        "clave": "para_que",
+        "etiqueta": "Para qué",
+        "ejemplo": "un viaje de una semana"
+      },
+      {
+        "clave": "fecha_regreso",
+        "etiqueta": "Cuándo lo regresas",
+        "ejemplo": "domingo 22"
+      }
+    ],
+    "despues": "Listo. Anota la fecha de regreso para que no se te pase.",
+    "revisada": false
+  },
+  {
+    "id": "pedir-cobrar-dinero-a-una-amistad",
+    "necesidad": "pedir",
+    "titulo": "Cobrarle a una amistad el dinero que te debe",
+    "situacion": "Le prestaste dinero o pagaste algo por alguien y no te lo ha regresado.",
+    "objetivo": "Recordárselo sin pelear y quedar en una fecha.",
+    "antes": [
+      "Ten el monto exacto y de qué fue.",
+      "Ten lista tu cuenta para mandársela.",
+      "Recuerda que cobrar lo que es tuyo no te hace mala amistad."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, {amigo}, una cosa rápida."
+      },
+      {
+        "texto": "¿Te acuerdas de los {monto} de {concepto}? Te quería preguntar cuándo me los puedes pasar."
+      },
+      {
+        "texto": "Te mando mi cuenta para que sea más rápido."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Uy, se me pasó por completo.",
+        "respondes": "No te preocupes, a cualquiera le pasa. ¿Me los puedes mandar esta semana?"
+      },
+      {
+        "si": "Ahorita ando corto de dinero.",
+        "respondes": "Entiendo. ¿Te parece si me lo pasas en dos partes? Dime qué fechas te funcionan."
+      },
+      {
+        "si": "¿No era menos?",
+        "respondes": "Lo tengo anotado así. Si quieres te mando el detalle y lo revisamos."
+      },
+      {
+        "si": "¿En serio me estás cobrando?",
+        "respondes": "Sí, porque lo necesito. No es nada contra ti."
+      }
+    ],
+    "para_cerrar": "Gracias. Entonces quedamos el {fecha_pago}.",
+    "mensaje": "Oye, {amigo}, una cosa rápida. ¿Te acuerdas de los {monto} de {concepto}? Te quería preguntar cuándo me los puedes pasar. Te dejo mi cuenta para que sea más rápido. Gracias.",
+    "campos": [
+      {
+        "clave": "amigo",
+        "etiqueta": "Nombre de tu amistad",
+        "ejemplo": "Beto"
+      },
+      {
+        "clave": "monto",
+        "etiqueta": "Cuánto te debe",
+        "ejemplo": "$800"
+      },
+      {
+        "clave": "concepto",
+        "etiqueta": "De qué fue",
+        "ejemplo": "los boletos del concierto"
+      },
+      {
+        "clave": "fecha_pago",
+        "etiqueta": "Fecha en que quedan",
+        "ejemplo": "viernes"
+      }
+    ],
+    "despues": "Ya lo dijiste. Lo que sigue le toca a la otra persona.",
+    "revisada": false
+  },
+  {
+    "id": "limites-decir-no-a-un-plan",
+    "necesidad": "limites",
+    "titulo": "Decir que no a un plan",
+    "situacion": "Te invitaron a algo y no quieres o no puedes ir.",
+    "objetivo": "Decir que no con cariño y sin inventar excusas.",
+    "antes": [
+      "No necesitas una razón perfecta. \"No puedo\" o \"no tengo ganas hoy\" es suficiente.",
+      "Si sí quieres ver a esa persona, piensa en otra opción para proponer."
+    ],
+    "guion": [
+      {
+        "texto": "Gracias por invitarme, {amigo}."
+      },
+      {
+        "texto": "Esta vez no voy a ir."
+      },
+      {
+        "texto": "Si quieres, nos vemos {alternativa}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ándale, nada más un rato.",
+        "respondes": "Gracias, de verdad, pero hoy no. Me quedo en casa."
+      },
+      {
+        "si": "¿Por qué no? ¿Qué vas a hacer?",
+        "respondes": "Nada en especial, solo hoy no tengo ganas de salir. Pero sí quiero verte pronto."
+      },
+      {
+        "si": "Siempre dices que no.",
+        "respondes": "Tienes razón, he dicho que no varias veces. Sí quiero verte; propón un día y lo apartamos."
+      },
+      {
+        "si": "Va, no hay problema.",
+        "respondes": "Gracias por entender."
+      }
+    ],
+    "para_cerrar": "Que se la pasen muy bien. Luego me cuentas.",
+    "mensaje": "Gracias por invitarme, {amigo}. Esta vez no voy a ir. Si quieres, nos vemos {alternativa}. Que se la pasen muy bien.",
+    "campos": [
+      {
+        "clave": "amigo",
+        "etiqueta": "Nombre de quien te invitó",
+        "ejemplo": "Dani"
+      },
+      {
+        "clave": "alternativa",
+        "etiqueta": "Otra opción que te late",
+        "ejemplo": "el domingo para un café"
+      }
+    ],
+    "despues": "Ya está. Dijiste que no y la amistad sigue igual.",
+    "revisada": false
+  },
+  {
+    "id": "limites-decir-no-a-trabajo-extra",
+    "necesidad": "limites",
+    "titulo": "Decir que no a una petición de trabajo extra",
+    "situacion": "Te piden algo más y ya no te alcanza el tiempo.",
+    "objetivo": "Decir lo que sí puedes entregar sin quedarte con todo.",
+    "antes": [
+      "Ten a la mano tu lista de pendientes de esta semana.",
+      "Piensa en cuándo sí podrías verlo, si es que puedes.",
+      "Antes de empezar, suelta el aire despacio un par de veces. No tiene que salir perfecto."
+    ],
+    "guion": [
+      {
+        "texto": "Gracias por pensar en mí para esto."
+      },
+      {
+        "texto": "Ahorita no puedo tomarlo: estoy con {pendiente_actual} y quiero entregarlo bien."
+      },
+      {
+        "texto": "Lo que sí puedo es verlo a partir del {cuando_si}."
+      },
+      {
+        "texto": "Si es prioridad, dime qué dejo para después y lo acomodo."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Es que no hay nadie más.",
+        "respondes": "Entiendo. Entonces dime qué de lo que tengo puede esperar y lo reacomodo."
+      },
+      {
+        "si": "Son nada más unas horitas.",
+        "respondes": "Aun así hoy no me alcanza. Si quieres, lo vemos mañana a primera hora."
+      },
+      {
+        "si": "Pensé que eras parte del equipo.",
+        "respondes": "Sí lo soy, por eso te digo con claridad lo que sí puedo entregar bien."
+      },
+      {
+        "si": "Va, se lo pido a alguien más.",
+        "respondes": "Gracias por entender."
+      }
+    ],
+    "para_cerrar": "Gracias. Si cambia algo en mis pendientes, te aviso.",
+    "mensaje": "Hola. Gracias por pensar en mí para esto. Ahorita no puedo tomarlo: estoy con {pendiente_actual} y quiero entregarlo bien. Lo que sí puedo es verlo a partir del {cuando_si}. Si es prioridad, dime qué dejo para después y lo acomodo.",
+    "campos": [
+      {
+        "clave": "pendiente_actual",
+        "etiqueta": "En qué estás ahorita",
+        "ejemplo": "el reporte mensual"
+      },
+      {
+        "clave": "cuando_si",
+        "etiqueta": "Cuándo sí podrías",
+        "ejemplo": "lunes"
+      }
+    ],
+    "despues": "Listo. Cuidar tu tiempo también es hacer bien tu trabajo.",
+    "revisada": false
+  },
+  {
+    "id": "limites-cancelar-un-plan",
+    "necesidad": "limites",
+    "titulo": "Cancelar un plan sin dar mil explicaciones",
+    "situacion": "Quedaste en algo y ya no puedes o no quieres ir.",
+    "objetivo": "Avisar a tiempo, ofrecer otra fecha y no justificarte de más.",
+    "antes": [
+      "Avisa en cuanto lo sepas. Entre más pronto, mejor para todos.",
+      "Una razón corta basta. No tienes que contar todo."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, {amigo}, al final no voy a poder ir {plan}."
+      },
+      {
+        "texto": "Perdón por avisar con poco tiempo."
+      },
+      {
+        "texto": "¿Lo movemos para {otra_fecha}?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Qué pasó? ¿Todo bien?",
+        "respondes": "Sí, todo bien. Solo hoy no me da para salir."
+      },
+      {
+        "si": "Ya había hecho la reservación.",
+        "respondes": "Tienes razón, lo siento. Si hay algún cargo por cancelar, yo lo cubro."
+      },
+      {
+        "si": "Siempre cancelas.",
+        "respondes": "Entiendo que se sienta así. La próxima la propongo yo y la cumplo."
+      },
+      {
+        "si": "No te preocupes.",
+        "respondes": "Gracias por entender."
+      }
+    ],
+    "para_cerrar": "Gracias por entender. Te escribo para cuadrar la otra fecha.",
+    "mensaje": "Oye, {amigo}, al final no voy a poder ir {plan}. Perdón por avisar con poco tiempo. ¿Lo movemos para {otra_fecha}?",
+    "campos": [
+      {
+        "clave": "amigo",
+        "etiqueta": "Con quién era el plan",
+        "ejemplo": "Luis"
+      },
+      {
+        "clave": "plan",
+        "etiqueta": "A qué plan",
+        "ejemplo": "a la cena de hoy"
+      },
+      {
+        "clave": "otra_fecha",
+        "etiqueta": "Otra fecha que propones",
+        "ejemplo": "la próxima semana"
+      }
+    ],
+    "despues": "Ya avisaste. Con eso basta.",
+    "revisada": false
+  },
+  {
+    "id": "limites-pedir-espacio",
+    "necesidad": "limites",
+    "titulo": "Pedir espacio cuando necesitas estar a solas",
+    "situacion": "Necesitas un rato sin gente y no quieres que la otra persona lo tome personal.",
+    "objetivo": "Tener tu tiempo a solas y que la otra persona sepa que todo está bien.",
+    "antes": [
+      "Piensa a dónde vas a ir o qué vas a hacer en ese rato.",
+      "Decide cuándo vas a volver a buscarle, aunque sea aproximado."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, te quiero decir algo para que no lo tomes a mal."
+      },
+      {
+        "texto": "Hoy necesito un rato a solas. No es por ti ni es que pase algo."
+      },
+      {
+        "texto": "Me voy a {donde} un rato y {cuando_vuelvo} te busco."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Hice algo mal?",
+        "respondes": "No, para nada. Es algo mío; solo necesito recargar."
+      },
+      {
+        "si": "¿Seguro que estás bien? Cuéntame.",
+        "respondes": "Gracias por preguntar. Si quiero platicarlo, te busco yo."
+      },
+      {
+        "si": "¿Y cuánto tiempo?",
+        "respondes": "Un rato nada más. Te aviso cuando esté de regreso."
+      },
+      {
+        "si": "Va, tómate tu tiempo.",
+        "respondes": "Gracias por entender."
+      }
+    ],
+    "para_cerrar": "Gracias. Al rato te busco.",
+    "mensaje": "Oye, te quiero decir algo para que no lo tomes a mal. Hoy necesito un rato a solas. No es por ti ni es que pase algo. Me voy a {donde} un rato y {cuando_vuelvo} te busco.",
+    "campos": [
+      {
+        "clave": "donde",
+        "etiqueta": "A dónde vas o qué vas a hacer",
+        "ejemplo": "mi cuarto a leer"
+      },
+      {
+        "clave": "cuando_vuelvo",
+        "etiqueta": "Cuándo vuelves a buscarle",
+        "ejemplo": "en la noche"
+      }
+    ],
+    "despues": "Ya lo pediste. Ahora date ese rato.",
+    "revisada": false
+  },
+  {
+    "id": "trabajo-pedir-un-aumento",
+    "necesidad": "trabajo",
+    "titulo": "Pedir un aumento",
+    "situacion": "Sientes que tu sueldo ya no corresponde a lo que haces.",
+    "objetivo": "Plantear una cifra concreta y salir con una fecha de respuesta.",
+    "antes": [
+      "Anota dos o tres logros concretos, con números si los tienes.",
+      "Busca cuánto se paga por un puesto parecido en tu ciudad.",
+      "Pide la reunión con tiempo; no lo hables de pasada en el pasillo."
+    ],
+    "guion": [
+      {
+        "texto": "Gracias por darme este espacio."
+      },
+      {
+        "texto": "Quiero hablar de mi sueldo. Llevo {tiempo_puesto} en el puesto y en este tiempo {logros}."
+      },
+      {
+        "texto": "Con base en eso y en lo que se paga en el mercado, me gustaría que mi sueldo quedara en {monto}."
+      },
+      {
+        "texto": "¿Qué se necesita para que eso pase?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ahorita no hay presupuesto.",
+        "respondes": "Entiendo. ¿Podemos poner una fecha para revisarlo de nuevo, y qué tendría que pasar para entonces?"
+      },
+      {
+        "si": "Lo tengo que consultar con dirección.",
+        "respondes": "Claro. ¿Para cuándo crees que tengas respuesta?"
+      },
+      {
+        "si": "Es mucho lo que pides.",
+        "respondes": "Es lo que estoy viendo en el mercado para este puesto. ¿Qué cifra sí te parece posible?"
+      },
+      {
+        "si": "¿Te estás pensando ir?",
+        "respondes": "No, quiero seguir aquí. Por eso prefiero hablarlo contigo directamente."
+      }
+    ],
+    "para_cerrar": "Gracias por escucharme. Quedo pendiente de la respuesta para el {fecha_respuesta}.",
+    "mensaje": "Hola, {jefe}. ¿Tendrás media hora esta semana o la próxima? Me gustaría hablar contigo sobre mi sueldo y mi crecimiento aquí. Gracias.",
+    "campos": [
+      {
+        "clave": "jefe",
+        "etiqueta": "Nombre de tu jefa o jefe",
+        "ejemplo": "Mariana"
+      },
+      {
+        "clave": "tiempo_puesto",
+        "etiqueta": "Cuánto tiempo llevas",
+        "ejemplo": "dos años"
+      },
+      {
+        "clave": "logros",
+        "etiqueta": "Qué lograste",
+        "ejemplo": "saqué adelante el cambio de sistema y reduje los tiempos de entrega"
+      },
+      {
+        "clave": "monto",
+        "etiqueta": "La cifra que pides",
+        "ejemplo": "$28,000 mensuales"
+      },
+      {
+        "clave": "fecha_respuesta",
+        "etiqueta": "Cuándo quedaron de responderte",
+        "ejemplo": "15 de noviembre"
+      }
+    ],
+    "despues": "Ya lo planteaste. Anota la fecha que quedaron y da seguimiento ese día.",
+    "revisada": false
+  },
+  {
+    "id": "trabajo-pedir-un-dia-libre",
+    "necesidad": "trabajo",
+    "titulo": "Pedir un día libre o un permiso",
+    "situacion": "Necesitas faltar un día y te cuesta pedirlo.",
+    "objetivo": "Tener el permiso y dejar claro cómo quedan tus pendientes.",
+    "antes": [
+      "Pídelo con anticipación, si se puede.",
+      "Ten listo qué vas a dejar hecho y quién te puede cubrir.",
+      "No tienes que dar detalles personales."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, {jefe}, te quiero pedir el {dia_libre} libre."
+      },
+      {
+        "texto": "Es por {motivo}."
+      },
+      {
+        "texto": "Antes dejo listo {pendientes}, y {cubre} me puede cubrir si sale algo."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ese día hay mucho trabajo.",
+        "respondes": "Entiendo. ¿Te sirve si adelanto lo de ese día? Si no, ¿qué otro día me podrías dar?"
+      },
+      {
+        "si": "¿Es por algo importante?",
+        "respondes": "Es algo personal que necesito atender."
+      },
+      {
+        "si": "Tienes que pedirlo en el sistema.",
+        "respondes": "Va, lo hago hoy. Quería avisarte primero a ti."
+      },
+      {
+        "si": "Sí, no hay problema.",
+        "respondes": "Gracias."
+      }
+    ],
+    "para_cerrar": "Gracias. Te mando por escrito lo que dejo listo.",
+    "mensaje": "Hola, {jefe}. Te quiero pedir el {dia_libre} libre. Es por {motivo}. Antes dejo listo {pendientes}, y {cubre} me puede cubrir si sale algo. ¿Te parece bien?",
+    "campos": [
+      {
+        "clave": "jefe",
+        "etiqueta": "Nombre de tu jefa o jefe",
+        "ejemplo": "Jorge"
+      },
+      {
+        "clave": "dia_libre",
+        "etiqueta": "Qué día",
+        "ejemplo": "viernes 7"
+      },
+      {
+        "clave": "motivo",
+        "etiqueta": "Motivo, en corto",
+        "ejemplo": "un trámite personal"
+      },
+      {
+        "clave": "pendientes",
+        "etiqueta": "Qué dejas listo",
+        "ejemplo": "el reporte de ventas"
+      },
+      {
+        "clave": "cubre",
+        "etiqueta": "Quién te cubre",
+        "ejemplo": "Paola"
+      }
+    ],
+    "despues": "Ya está pedido. Disfruta ese día sin culpa.",
+    "revisada": false
+  },
+  {
+    "id": "trabajo-decir-no-entendi-la-instruccion",
+    "necesidad": "trabajo",
+    "titulo": "Decir que no entendiste una instrucción",
+    "situacion": "Te pidieron algo en el trabajo y no te quedó claro qué hay que hacer.",
+    "objetivo": "Saber qué se espera y para cuándo, antes de empezar.",
+    "antes": [
+      "Escribe lo que sí entendiste, aunque sea a medias.",
+      "Preguntar ahora ahorra tiempo después."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, una pregunta sobre {tarea}."
+      },
+      {
+        "texto": "Quiero asegurarme de hacerlo bien: ¿lo que necesitas es {lo_que_entendi}?"
+      },
+      {
+        "texto": "¿Y para cuándo lo necesitas?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ya te lo había explicado.",
+        "respondes": "Sí, gracias. Me quedó una duda en una parte y prefiero preguntarte antes de hacerlo mal."
+      },
+      {
+        "si": "Haz lo que creas.",
+        "respondes": "Va. Entonces lo hago así y te lo enseño antes de entregarlo, por si hay que ajustar algo."
+      },
+      {
+        "si": "Pregúntale a alguien del equipo.",
+        "respondes": "Va, gracias. ¿A quién le pregunto?"
+      },
+      {
+        "si": "Sí, eso es.",
+        "respondes": "Perfecto, gracias."
+      }
+    ],
+    "para_cerrar": "Gracias. Si me surge otra duda, te pregunto antes de avanzar.",
+    "mensaje": "Hola. Una pregunta sobre {tarea}: quiero asegurarme de hacerlo bien. ¿Lo que necesitas es {lo_que_entendi}? ¿Y para cuándo lo necesitas? Gracias.",
+    "campos": [
+      {
+        "clave": "tarea",
+        "etiqueta": "Qué te pidieron",
+        "ejemplo": "la presentación para el cliente"
+      },
+      {
+        "clave": "lo_que_entendi",
+        "etiqueta": "Lo que entendiste",
+        "ejemplo": "un resumen de resultados en cinco diapositivas"
+      }
+    ],
+    "despues": "Listo. Ahora ya sabes qué hacer.",
+    "revisada": false
+  },
+  {
+    "id": "trabajo-avisar-que-vas-a-llegar-tarde",
+    "necesidad": "trabajo",
+    "titulo": "Avisar que vas a llegar tarde",
+    "situacion": "Se te hizo tarde y tienes que avisar en el trabajo.",
+    "objetivo": "Avisar antes de tu hora de entrada, con una hora realista.",
+    "antes": [
+      "Avisa antes de la hora de entrada, no después.",
+      "Calcula a qué hora llegas y súmale un margen."
+    ],
+    "guion": [
+      {
+        "texto": "Buenos días, {jefe}. Te aviso que hoy voy a llegar tarde."
+      },
+      {
+        "texto": "Tuve {motivo} y calculo llegar como a las {hora_llegada}."
+      },
+      {
+        "texto": "Si sale algo urgente, {mientras_tanto}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Tenemos junta temprano.",
+        "respondes": "Gracias por recordármelo. ¿Me puedo conectar en línea mientras llego?"
+      },
+      {
+        "si": "¿Otra vez?",
+        "respondes": "Sí, lo sé. Estoy viendo cómo organizarme para que no se repita."
+      },
+      {
+        "si": "¿Puedes reponer el tiempo?",
+        "respondes": "Sí, me quedo un rato más hoy para sacar lo pendiente."
+      },
+      {
+        "si": "Va, gracias por avisar.",
+        "respondes": "Gracias, nos vemos en un rato."
+      }
+    ],
+    "para_cerrar": "Gracias por la comprensión. Te aviso cuando llegue.",
+    "mensaje": "Buenos días, {jefe}. Te aviso que hoy voy a llegar tarde. Tuve {motivo} y calculo llegar como a las {hora_llegada}. Si sale algo urgente, {mientras_tanto}.",
+    "campos": [
+      {
+        "clave": "jefe",
+        "etiqueta": "Nombre de tu jefa o jefe",
+        "ejemplo": "Laura"
+      },
+      {
+        "clave": "motivo",
+        "etiqueta": "Qué pasó, en corto",
+        "ejemplo": "un problema con el transporte"
+      },
+      {
+        "clave": "hora_llegada",
+        "etiqueta": "A qué hora llegas",
+        "ejemplo": "10:15"
+      },
+      {
+        "clave": "mientras_tanto",
+        "etiqueta": "Qué puedes hacer mientras",
+        "ejemplo": "estoy al pendiente del celular y del correo"
+      }
+    ],
+    "despues": "Ya avisaste. Llega con calma.",
+    "revisada": false
+  },
+  {
+    "id": "trabajo-entrevista-hablame-de-ti",
+    "necesidad": "trabajo",
+    "titulo": "Responder \"háblame de ti\" en una entrevista",
+    "situacion": "Estás en una entrevista de trabajo y te piden que te presentes.",
+    "objetivo": "Contestar en menos de un minuto: qué haces, un logro y por qué te interesa el puesto.",
+    "antes": [
+      "Prepara tres partes: qué haces hoy, un logro concreto y por qué te interesa este puesto.",
+      "Dilo en voz alta una vez antes de la entrevista.",
+      "Antes de entrar, suelta el aire despacio un par de veces."
+    ],
+    "guion": [
+      {
+        "texto": "Claro. Actualmente trabajo como {puesto_actual} en {empresa_actual}, donde me encargo de {responsabilidad}."
+      },
+      {
+        "texto": "Un logro reciente fue {logro}."
+      },
+      {
+        "texto": "Me interesa este puesto porque {por_que}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Por qué quiere dejar su trabajo actual?",
+        "respondes": "Busco un reto nuevo, y este puesto encaja con lo que quiero seguir aprendiendo."
+      },
+      {
+        "si": "¿Cuál es su mayor área de mejora?",
+        "respondes": "A veces me cuesta delegar. Lo estoy trabajando acordando entregas claras con mi equipo."
+      },
+      {
+        "si": "No tiene experiencia directa en esto.",
+        "respondes": "Es cierto, directa no. Sí tengo experiencia parecida y aprendo rápido. ¿Le puedo dar un ejemplo?"
+      },
+      {
+        "si": "¿Tiene alguna pregunta?",
+        "respondes": "Sí. ¿Cómo es un día normal en este puesto?"
+      }
+    ],
+    "para_cerrar": "Muchas gracias por su tiempo. Me interesa mucho el puesto y quedo pendiente de los siguientes pasos.",
+    "mensaje": "",
+    "campos": [
+      {
+        "clave": "puesto_actual",
+        "etiqueta": "Tu puesto actual",
+        "ejemplo": "analista de compras"
+      },
+      {
+        "clave": "empresa_actual",
+        "etiqueta": "Dónde trabajas",
+        "ejemplo": "una distribuidora de alimentos"
+      },
+      {
+        "clave": "responsabilidad",
+        "etiqueta": "De qué te encargas",
+        "ejemplo": "negociar con proveedores"
+      },
+      {
+        "clave": "logro",
+        "etiqueta": "Un logro concreto",
+        "ejemplo": "bajar los costos de envío en un 10 % en seis meses"
+      },
+      {
+        "clave": "por_que",
+        "etiqueta": "Por qué te interesa",
+        "ejemplo": "quiero llevar lo que sé de compras a una empresa más grande"
+      }
+    ],
+    "despues": "Ya pasó. Anota qué preguntas te hicieron; te sirve para la próxima.",
+    "revisada": false
+  },
+  {
+    "id": "amistades-retomar-contacto",
+    "necesidad": "amistades",
+    "titulo": "Retomar contacto con alguien que no ves hace tiempo",
+    "situacion": "Extrañas a alguien, pero pasó tanto tiempo que te da pena escribir.",
+    "objetivo": "Mandar el primer mensaje y dejar abierta la puerta para verse.",
+    "antes": [
+      "Piensa en algo concreto que te recordó a esa persona.",
+      "No tienes que explicar por qué dejaron de hablar."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, {nombre}. Hoy me acordé de ti por {recuerdo}."
+      },
+      {
+        "texto": "Hace mucho que no hablamos y me dio gusto pensar en ti."
+      },
+      {
+        "texto": "¿Cómo has estado?"
+      },
+      {
+        "texto": "Si te late, ¿nos vemos un día para {plan}?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Qué milagro.",
+        "respondes": "Sí, ya sé, pasó mucho tiempo. Me dio gusto escribirte."
+      },
+      {
+        "si": "Ando con mucho trabajo.",
+        "respondes": "Claro, sin prisa. Cuando se te acomode, me dices."
+      },
+      {
+        "si": "No contesta en varios días.",
+        "respondes": "Hola, solo para saludarte otra vez. Sin presión de contestar."
+      },
+      {
+        "si": "Sí, ¿cuándo?",
+        "respondes": "Dime qué día te queda y lo acomodo."
+      }
+    ],
+    "para_cerrar": "Me dio gusto saber de ti. Hablamos pronto.",
+    "mensaje": "Hola, {nombre}. Hoy me acordé de ti por {recuerdo}. Hace mucho que no hablamos y me dio gusto pensar en ti. ¿Cómo has estado? Si te late, ¿nos vemos un día para {plan}?",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "Su nombre",
+        "ejemplo": "Fer"
+      },
+      {
+        "clave": "recuerdo",
+        "etiqueta": "Qué te hizo acordarte",
+        "ejemplo": "una canción que poníamos en la prepa"
+      },
+      {
+        "clave": "plan",
+        "etiqueta": "Qué podrían hacer",
+        "ejemplo": "un café"
+      }
+    ],
+    "despues": "Ya escribiste. Lo que conteste, ese paso ya lo diste.",
+    "revisada": false
+  },
+  {
+    "id": "amistades-invitar-por-primera-vez",
+    "necesidad": "amistades",
+    "titulo": "Invitar a alguien a hacer algo por primera vez",
+    "situacion": "Te cae bien alguien y quieres verle fuera de donde se conocen.",
+    "objetivo": "Hacer una invitación concreta, con día y lugar.",
+    "antes": [
+      "Elige un plan concreto, con día y lugar.",
+      "Mejor algo corto: un café, una exposición, una caminata."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, {nombre}, ¿te late ir a {plan} {cuando}?"
+      },
+      {
+        "texto": "Yo voy a ir de todos modos y pensé que te podría gustar."
+      },
+      {
+        "texto": "Si no puedes, no pasa nada; hay más ocasiones."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ese día no puedo.",
+        "respondes": "Va, no hay problema. ¿Te gustaría otro día?"
+      },
+      {
+        "si": "¿Quién más va?",
+        "respondes": "Por ahora solo yo. Si quieres invitar a alguien, va."
+      },
+      {
+        "si": "Déjame ver y te digo.",
+        "respondes": "Claro. Me avisas cuando sepas."
+      },
+      {
+        "si": "Sí, va.",
+        "respondes": "Qué bien. Te mando la ubicación y la hora."
+      }
+    ],
+    "para_cerrar": "Va, entonces nos vemos ahí.",
+    "mensaje": "Oye, {nombre}, ¿te late ir a {plan} {cuando}? Yo voy a ir de todos modos y pensé que te podría gustar. Si no puedes, no pasa nada; hay más ocasiones.",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "Su nombre",
+        "ejemplo": "Sofi"
+      },
+      {
+        "clave": "plan",
+        "etiqueta": "A dónde",
+        "ejemplo": "la feria del libro"
+      },
+      {
+        "clave": "cuando",
+        "etiqueta": "Cuándo",
+        "ejemplo": "este sábado en la tarde"
+      }
+    ],
+    "despues": "Ya invitaste. Esa parte era la tuya.",
+    "revisada": false
+  },
+  {
+    "id": "amistades-iniciar-conversacion-en-un-evento",
+    "necesidad": "amistades",
+    "titulo": "Iniciar una conversación en un evento donde no conoces a nadie",
+    "situacion": "Llegaste a una reunión o evento y no conoces a nadie.",
+    "objetivo": "Tener una plática corta con al menos una persona.",
+    "antes": [
+      "Busca a alguien que también esté sin grupo; suele agradecer que le hablen.",
+      "Ten lista una pregunta sobre el evento.",
+      "Antes de empezar, suelta el aire despacio un par de veces. No tiene que salir perfecto."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, qué tal. Soy {nombre}."
+      },
+      {
+        "texto": "Es la primera vez que vengo a algo así. ¿Tú ya habías venido?"
+      },
+      {
+        "texto": "¿Y cómo llegaste a {evento}?"
+      },
+      {
+        "texto": "Qué interesante. ¿Y a qué te dedicas?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Contesta corto y se queda en silencio.",
+        "respondes": "¿Y qué te ha gustado más hasta ahora?"
+      },
+      {
+        "si": "Yo tampoco conozco a nadie.",
+        "respondes": "Entonces ya somos dos. ¿Vamos por algo de tomar?"
+      },
+      {
+        "si": "Está con un grupo platicando.",
+        "respondes": "Perdón, ¿puedo unirme? No conozco a nadie todavía."
+      },
+      {
+        "si": "Es mi primera vez también.",
+        "respondes": "Ah, mira. ¿Y qué te trajo?"
+      }
+    ],
+    "para_cerrar": "Me dio gusto platicar contigo. Voy a saludar a alguien más; nos vemos al rato.",
+    "mensaje": "",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "Tu nombre",
+        "ejemplo": "Ana"
+      },
+      {
+        "clave": "evento",
+        "etiqueta": "Qué evento es",
+        "ejemplo": "este taller"
+      }
+    ],
+    "despues": "Ya hablaste con alguien. Si quieres irte ahora, también está bien.",
+    "revisada": false
+  },
+  {
+    "id": "amistades-salir-de-una-conversacion",
+    "necesidad": "amistades",
+    "titulo": "Salir de una conversación sin quedar mal",
+    "situacion": "Llevas rato platicando con alguien y quieres moverte, pero no sabes cómo cortar.",
+    "objetivo": "Despedirte con amabilidad y seguir con lo tuyo.",
+    "antes": [
+      "Espera una pausa natural en la plática.",
+      "Ten pensado a dónde vas: por algo de tomar, a saludar a alguien, al baño."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, qué gusto platicar contigo."
+      },
+      {
+        "texto": "Voy a {a_donde}."
+      },
+      {
+        "texto": "Nos vemos al rato."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Espérate, te cuento algo más.",
+        "respondes": "Me encantaría, pero sí me tengo que mover. Me lo cuentas al rato."
+      },
+      {
+        "si": "¿Ya te vas?",
+        "respondes": "Sí, ya me voy moviendo. Me dio gusto verte."
+      },
+      {
+        "si": "¿Me pasas tu número?",
+        "respondes": "Claro, va."
+      },
+      {
+        "si": "Va, nos vemos.",
+        "respondes": "Nos vemos."
+      }
+    ],
+    "para_cerrar": "Me dio mucho gusto. Nos vemos.",
+    "mensaje": "",
+    "campos": [
+      {
+        "clave": "a_donde",
+        "etiqueta": "A dónde vas",
+        "ejemplo": "saludar a mi amiga que acaba de llegar"
+      }
+    ],
+    "despues": "Ya está. Cerrar una plática también es parte de platicar.",
+    "revisada": false
+  },
+  {
+    "id": "amistades-responder-mensaje-que-dejaste-en-visto",
+    "necesidad": "amistades",
+    "titulo": "Responder un mensaje que dejaste en visto mucho tiempo",
+    "situacion": "Alguien te escribió hace días o semanas y no has contestado.",
+    "objetivo": "Contestar ahora, sin disculparte de más.",
+    "antes": [
+      "Una disculpa corta basta.",
+      "Contesta lo que te preguntaron, aunque sea en corto."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, {nombre}. Perdón por la tardanza en contestarte."
+      },
+      {
+        "texto": "Sobre lo que me preguntaste: {respuesta}."
+      },
+      {
+        "texto": "¿Cómo vas tú?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Pensé que te habías enojado conmigo.",
+        "respondes": "Para nada. Fue cosa mía, no tuvo que ver contigo."
+      },
+      {
+        "si": "Ya ni te acordabas de mí.",
+        "respondes": "Sí me acordaba, solo me costó contestar. Me da gusto escribirte."
+      },
+      {
+        "si": "No te preocupes, a mí también me pasa.",
+        "respondes": "Gracias. Qué bueno saber de ti."
+      },
+      {
+        "si": "Ya no es necesario, ya lo resolví.",
+        "respondes": "Qué bueno que se resolvió. Perdón por no haber contestado a tiempo."
+      }
+    ],
+    "para_cerrar": "Gracias por la paciencia. Aquí estoy.",
+    "mensaje": "Hola, {nombre}. Perdón por la tardanza en contestarte. Sobre lo que me preguntaste: {respuesta}. ¿Cómo vas tú?",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "Su nombre",
+        "ejemplo": "Pau"
+      },
+      {
+        "clave": "respuesta",
+        "etiqueta": "Tu respuesta a lo que te preguntó",
+        "ejemplo": "sí me late ir a la boda, cuenta conmigo"
+      }
+    ],
+    "despues": "Ya contestaste. Eso era lo pendiente.",
+    "revisada": false
+  },
+  {
+    "id": "familia-limite-con-preguntas-incomodas",
+    "necesidad": "familia-pareja",
+    "titulo": "Poner un límite con la familia sobre preguntas incómodas",
+    "situacion": "En las reuniones te preguntan de tu pareja, tu trabajo, tu peso o cuándo vas a tener hijos.",
+    "objetivo": "Cortar el tema con cariño y cambiar de conversación.",
+    "antes": [
+      "Elige de antemano el tema que no quieres tocar.",
+      "Ten lista una pregunta para cambiar de tema."
+    ],
+    "guion": [
+      {
+        "texto": "{familiar}, sé que preguntas con cariño."
+      },
+      {
+        "texto": "Prefiero no hablar de {tema}."
+      },
+      {
+        "texto": "Cuando tenga algo que contar, yo te lo cuento."
+      },
+      {
+        "texto": "Mejor cuéntame, ¿cómo has estado tú?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ay, solo es una pregunta.",
+        "respondes": "Sí, lo sé. Aun así prefiero no hablarlo."
+      },
+      {
+        "si": "Es que ya estás en edad.",
+        "respondes": "Puede ser. De todos modos es un tema que prefiero llevar yo."
+      },
+      {
+        "si": "Nada más me preocupo por ti.",
+        "respondes": "Te lo agradezco. Estoy bien, y si necesito algo te lo digo."
+      },
+      {
+        "si": "Alguien más vuelve a preguntar.",
+        "respondes": "Ya lo platicamos, gracias. Mejor cambiemos de tema."
+      }
+    ],
+    "para_cerrar": "Gracias por entender. Me da gusto estar aquí con ustedes.",
+    "mensaje": "Hola, {familiar}. Te quiero pedir algo con cariño: prefiero que no me pregunten sobre {tema}. Cuando tenga algo que contar, yo lo cuento. Gracias por entender.",
+    "campos": [
+      {
+        "clave": "familiar",
+        "etiqueta": "A quién le hablas",
+        "ejemplo": "Tía Lupe"
+      },
+      {
+        "clave": "tema",
+        "etiqueta": "El tema que no quieres tocar",
+        "ejemplo": "cuándo me voy a casar"
+      }
+    ],
+    "despues": "Ya lo dijiste. Si vuelven a preguntar, repites lo mismo y ya.",
+    "revisada": false
+  },
+  {
+    "id": "pareja-decir-algo-que-te-molesto",
+    "necesidad": "familia-pareja",
+    "titulo": "Decirle a tu pareja algo que te molestó sin pelear",
+    "situacion": "Algo que hizo tu pareja te quedó dando vueltas y no sabes cómo sacarlo.",
+    "objetivo": "Decir qué pasó y qué te gustaría, sin atacar.",
+    "antes": [
+      "Espera a que los dos estén tranquilos, no en medio de otra discusión.",
+      "Elige una sola cosa concreta, no una lista.",
+      "Piensa qué te gustaría que pasara la próxima vez."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, ¿tienes un rato? Quiero platicar algo que me quedó dando vueltas."
+      },
+      {
+        "texto": "Cuando {lo_que_paso}, {como_me_senti}."
+      },
+      {
+        "texto": "No te lo digo para pelear, sino porque me importa."
+      },
+      {
+        "texto": "Me ayudaría que la próxima vez {lo_que_pides}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "No es para tanto.",
+        "respondes": "Para mí sí fue importante. Por eso te lo digo."
+      },
+      {
+        "si": "Tú también haces cosas.",
+        "respondes": "Puede ser, y lo podemos platicar también. Ahorita quiero que hablemos de esto."
+      },
+      {
+        "si": "Perdón, no me di cuenta.",
+        "respondes": "Gracias por escucharme."
+      },
+      {
+        "si": "No quiero hablar ahorita.",
+        "respondes": "Está bien. ¿Lo platicamos hoy en la noche o mañana?"
+      }
+    ],
+    "para_cerrar": "Gracias por escucharme. Te quiero.",
+    "mensaje": "Oye, ¿tienes un rato hoy para platicar? Hay algo de cuando {lo_que_paso} que me quedó dando vueltas y prefiero hablarlo contigo en persona. No es para pelear.",
+    "campos": [
+      {
+        "clave": "lo_que_paso",
+        "etiqueta": "Qué pasó",
+        "ejemplo": "cancelaste la cena con mis papás a última hora"
+      },
+      {
+        "clave": "como_me_senti",
+        "etiqueta": "Cómo te sentiste",
+        "ejemplo": "me sentí de lado"
+      },
+      {
+        "clave": "lo_que_pides",
+        "etiqueta": "Qué te gustaría",
+        "ejemplo": "me avises antes y lo decidamos juntos"
+      }
+    ],
+    "despues": "Ya lo dijiste. Lo demás se puede seguir platicando.",
+    "revisada": false
+  },
+  {
+    "id": "familia-pedir-apoyo-en-un-mal-momento",
+    "necesidad": "familia-pareja",
+    "titulo": "Pedir apoyo cuando estás pasando un mal momento",
+    "situacion": "No andas bien y te cuesta pedir ayuda a alguien cercano.",
+    "objetivo": "Decir que no estás bien y pedir algo concreto.",
+    "antes": [
+      "Piensa en algo concreto que te ayudaría: compañía, una llamada, que te escuchen.",
+      "Elige a una persona con la que te sientas en confianza.",
+      "Si sientes que no puedes con esto, también puedes buscar a un profesional o a la Línea de la Vida."
+    ],
+    "guion": [
+      {
+        "texto": "Oye, {nombre}, no ando muy bien estos días."
+      },
+      {
+        "texto": "No necesito que me resuelvas nada."
+      },
+      {
+        "texto": "Me ayudaría {apoyo}."
+      },
+      {
+        "texto": "¿Puedes?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Qué pasó? Cuéntame todo.",
+        "respondes": "Te cuento poco a poco. Por ahora me ayuda que estés."
+      },
+      {
+        "si": "Échale ganas, todo va a estar bien.",
+        "respondes": "Gracias. Ahorita lo que más me sirve es que me acompañes un rato."
+      },
+      {
+        "si": "Ahorita no puedo.",
+        "respondes": "Está bien. ¿Te puedo marcar más tarde o mañana?"
+      },
+      {
+        "si": "Claro, aquí estoy.",
+        "respondes": "Gracias, de verdad."
+      }
+    ],
+    "para_cerrar": "Gracias por estar. Me hace bien saber que puedo contar contigo.",
+    "mensaje": "Oye, {nombre}, no ando muy bien estos días. No necesito que me resuelvas nada. Me ayudaría {apoyo}. ¿Puedes?",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "A quién le escribes",
+        "ejemplo": "mamá"
+      },
+      {
+        "clave": "apoyo",
+        "etiqueta": "Qué te ayudaría",
+        "ejemplo": "que vinieras a comer conmigo este fin"
+      }
+    ],
+    "despues": "Ya lo pediste. Eso cuenta mucho.",
+    "revisada": false
+  },
+  {
+    "id": "salud-explicar-sintomas-al-medico",
+    "necesidad": "salud",
+    "titulo": "Explicar tus síntomas al médico",
+    "situacion": "En consulta te pones en blanco y luego no entiendes lo que te dijeron.",
+    "objetivo": "Contar bien lo que te pasa y salir sabiendo qué hacer.",
+    "antes": [
+      "Anota qué sientes, desde cuándo y qué lo empeora o lo mejora.",
+      "Lleva la lista de medicinas que tomas.",
+      "Escribe tus preguntas para no olvidarlas."
+    ],
+    "guion": [
+      {
+        "texto": "Vengo porque desde hace {desde_cuando} tengo {sintoma}."
+      },
+      {
+        "texto": "Se pone peor {cuando_empeora}."
+      },
+      {
+        "texto": "Estoy tomando {medicinas}."
+      },
+      {
+        "texto": "Antes de irme, ¿me podría explicar qué cree que tengo y qué tengo que hacer?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Le explica con palabras técnicas.",
+        "respondes": "Perdón, ¿me lo puede explicar con otras palabras?"
+      },
+      {
+        "si": "Es normal, no se preocupe.",
+        "respondes": "Gracias. ¿Qué señales me dirían que tengo que regresar?"
+      },
+      {
+        "si": "Le receta algo.",
+        "respondes": "¿Cuánto tiempo lo tomo y qué hago si me cae mal?"
+      },
+      {
+        "si": "Hay que hacer estudios.",
+        "respondes": "Va. ¿Para qué es cada estudio y dónde me los hago?"
+      }
+    ],
+    "para_cerrar": "Muchas gracias por explicarme. Me queda claro.",
+    "mensaje": "Buen día. Le escribo porque desde hace {desde_cuando} tengo {sintoma}. Se pone peor {cuando_empeora}. Estoy tomando {medicinas}. ¿Me podría decir si necesito consulta? Gracias.",
+    "campos": [
+      {
+        "clave": "desde_cuando",
+        "etiqueta": "Desde cuándo",
+        "ejemplo": "dos semanas"
+      },
+      {
+        "clave": "sintoma",
+        "etiqueta": "Qué sientes",
+        "ejemplo": "dolor de cabeza casi diario"
+      },
+      {
+        "clave": "cuando_empeora",
+        "etiqueta": "Cuándo empeora",
+        "ejemplo": "en la tarde y frente a la computadora"
+      },
+      {
+        "clave": "medicinas",
+        "etiqueta": "Qué tomas",
+        "ejemplo": "paracetamol de vez en cuando"
+      }
+    ],
+    "despues": "Ya está. Anota lo que te dijeron antes de que se te olvide.",
+    "revisada": false
+  },
+  {
+    "id": "salud-pedir-una-segunda-opinion",
+    "necesidad": "salud",
+    "titulo": "Pedir una segunda opinión médica",
+    "situacion": "Te dieron un diagnóstico o un tratamiento importante y quieres que otra persona lo revise.",
+    "objetivo": "Pedir tus estudios y agendar con otro especialista.",
+    "antes": [
+      "Recuerda que pedir otra opinión es común y es tu derecho.",
+      "Pide tus estudios y el diagnóstico por escrito."
+    ],
+    "guion": [
+      {
+        "texto": "Le agradezco mucho la explicación."
+      },
+      {
+        "texto": "Como es una decisión importante, me gustaría tener una segunda opinión antes de {tratamiento}."
+      },
+      {
+        "texto": "¿Me podría dar una copia de mis estudios y del diagnóstico por escrito?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "No hace falta, yo sé lo que hago.",
+        "respondes": "No lo dudo. Es algo que necesito para decidir con calma."
+      },
+      {
+        "si": "Si espera, puede empeorar.",
+        "respondes": "Entiendo. ¿Cuánto tiempo puedo tomarme sin que sea un riesgo?"
+      },
+      {
+        "si": "Los estudios se piden en archivo.",
+        "respondes": "Gracias. ¿Me dice dónde está y qué necesito para pedirlos?"
+      },
+      {
+        "si": "Claro, está en su derecho.",
+        "respondes": "Gracias por entenderlo."
+      }
+    ],
+    "para_cerrar": "Gracias. En cuanto tenga la otra opinión, regreso con usted para decidir.",
+    "mensaje": "Buen día. Quisiera agendar una consulta para una segunda opinión. Me diagnosticaron {diagnostico} y me recomendaron {tratamiento}. Tengo mis estudios. ¿Tienen disponibilidad? Gracias.",
+    "campos": [
+      {
+        "clave": "diagnostico",
+        "etiqueta": "Qué te diagnosticaron",
+        "ejemplo": "una hernia en la columna"
+      },
+      {
+        "clave": "tratamiento",
+        "etiqueta": "Qué te recomendaron",
+        "ejemplo": "una cirugía"
+      }
+    ],
+    "despues": "Ya lo pediste. Decidir con más información es cuidarte.",
+    "revisada": false
+  },
+  {
+    "id": "salud-agendar-primera-cita-con-psicologo",
+    "necesidad": "salud",
+    "titulo": "Agendar tu primera cita con un psicólogo",
+    "situacion": "Quieres empezar terapia y te cuesta escribir o llamar.",
+    "objetivo": "Salir con una cita agendada y saber cuánto cuesta.",
+    "antes": [
+      "Ten a la mano qué días y horarios puedes.",
+      "Decide si prefieres en línea o en persona.",
+      "No tienes que contar tu historia en la primera llamada."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Quisiera agendar una primera consulta."
+      },
+      {
+        "texto": "Es la primera vez que voy a terapia."
+      },
+      {
+        "texto": "¿Me podría decir cuánto cuesta la sesión y si es en línea o presencial?"
+      },
+      {
+        "texto": "Me quedan bien los {dias} por la {turno}."
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "¿Cuál es el motivo de consulta?",
+        "respondes": "Prefiero platicarlo con más calma en la sesión, si está bien."
+      },
+      {
+        "si": "No tenemos espacio hasta dentro de un mes.",
+        "respondes": "Está bien. ¿Me pueden anotar en lista de espera o recomendarme a alguien más?"
+      },
+      {
+        "si": "La sesión cuesta más de lo que pensabas.",
+        "respondes": "Gracias. ¿Manejan alguna cuota más accesible?"
+      },
+      {
+        "si": "¿Prefiere en línea o presencial?",
+        "respondes": "Me gustaría empezar en línea, si se puede."
+      }
+    ],
+    "para_cerrar": "Perfecto. Entonces quedo el {fecha} a las {hora}. Gracias.",
+    "mensaje": "Hola, buenas tardes. Quisiera agendar una primera consulta; es la primera vez que voy a terapia. ¿Me podría decir cuánto cuesta la sesión y si es en línea o presencial? Me quedan bien los {dias} por la {turno}. Gracias.",
+    "campos": [
+      {
+        "clave": "dias",
+        "etiqueta": "Qué días puedes",
+        "ejemplo": "lunes o miércoles"
+      },
+      {
+        "clave": "turno",
+        "etiqueta": "Mañana o tarde",
+        "ejemplo": "tarde"
+      },
+      {
+        "clave": "fecha",
+        "etiqueta": "Fecha que te den",
+        "ejemplo": "miércoles 13"
+      },
+      {
+        "clave": "hora",
+        "etiqueta": "Hora que te den",
+        "ejemplo": "6:00"
+      }
+    ],
+    "despues": "Ya agendaste. El siguiente paso es solo llegar.",
+    "revisada": false
+  },
+  {
+    "id": "vivienda-pedir-reparacion-al-casero",
+    "necesidad": "vivienda",
+    "titulo": "Pedirle al casero una reparación",
+    "situacion": "Algo se descompuso donde rentas y tienes que avisarle al dueño.",
+    "objetivo": "Que quede el aviso por escrito y una fecha para repararlo.",
+    "antes": [
+      "Toma fotos o un video del problema.",
+      "Anota desde cuándo pasa.",
+      "Ten a la mano tu contrato por si hay que revisarlo."
+    ],
+    "guion": [
+      {
+        "texto": "Buenas tardes, {casero}. Le escribo porque en el departamento {problema}."
+      },
+      {
+        "texto": "Empezó el {desde}."
+      },
+      {
+        "texto": "Le mando fotos. ¿Cuándo podría venir alguien a revisarlo?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Eso le toca a usted.",
+        "respondes": "¿Lo podemos revisar en el contrato? Hasta donde entiendo, es una falla de la instalación, no de uso."
+      },
+      {
+        "si": "Ahorita no tengo quién vaya.",
+        "respondes": "Está bien. ¿Me puede dar una fecha? Si prefiere, busco a alguien con su autorización y le paso la nota."
+      },
+      {
+        "si": "Ya va alguien para allá.",
+        "respondes": "Gracias. ¿Más o menos a qué hora?"
+      },
+      {
+        "si": "No contesta en varios días.",
+        "respondes": "Buenas tardes, le escribo otra vez por lo de la reparación. Sigue igual. Quedo pendiente."
+      }
+    ],
+    "para_cerrar": "Muchas gracias. Le aviso cuando quede resuelto.",
+    "mensaje": "Buenas tardes, {casero}. Le escribo porque en el departamento {problema}. Empezó el {desde}. Le mando fotos. ¿Cuándo podría venir alguien a revisarlo? Gracias.",
+    "campos": [
+      {
+        "clave": "casero",
+        "etiqueta": "Nombre del casero o casera",
+        "ejemplo": "señor Ramírez"
+      },
+      {
+        "clave": "problema",
+        "etiqueta": "Qué pasa",
+        "ejemplo": "hay una fuga de agua debajo del lavabo"
+      },
+      {
+        "clave": "desde",
+        "etiqueta": "Desde cuándo",
+        "ejemplo": "domingo"
+      }
+    ],
+    "despues": "Ya avisaste por escrito. Guarda el mensaje.",
+    "revisada": false
+  },
+  {
+    "id": "vivienda-hablar-con-vecino-por-ruido",
+    "necesidad": "vivienda",
+    "titulo": "Hablar con un vecino por el ruido",
+    "situacion": "El ruido de al lado no te deja descansar y no sabes cómo decirlo.",
+    "objetivo": "Pedir un cambio concreto sin pelear.",
+    "antes": [
+      "Háblale en un momento tranquilo, no a media noche ni en caliente.",
+      "Ten claro qué ruido es y a qué horas.",
+      "Antes de empezar, suelta el aire despacio un par de veces. No tiene que salir perfecto."
+    ],
+    "guion": [
+      {
+        "texto": "Hola, buenas tardes. Soy {nombre}, vivo en el {depto}."
+      },
+      {
+        "texto": "Fíjese que {ruido} se escucha mucho en mi casa, sobre todo {horario}."
+      },
+      {
+        "texto": "Seguro desde su lado no se nota. ¿Habría forma de {peticion}?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Yo no hago ruido.",
+        "respondes": "Puede ser que desde su casa no se note. Del mío se escucha bastante; si quiere, la próxima vez le aviso cuando pase."
+      },
+      {
+        "si": "Es mi casa y hago lo que quiero.",
+        "respondes": "Claro, es su casa. Solo le pido que en la noche le baje un poco. Si no, lo tendré que ver con la administración."
+      },
+      {
+        "si": "Uy, perdón, no sabía.",
+        "respondes": "No se preocupe. Gracias por la disposición."
+      },
+      {
+        "si": "Es que trabajo de noche.",
+        "respondes": "Entiendo. ¿Le parece si buscamos un horario que nos funcione a los dos?"
+      }
+    ],
+    "para_cerrar": "Muchas gracias. Cualquier cosa, estoy en el {depto}.",
+    "mensaje": "Hola, buenas tardes. Soy {nombre}, vivo en el {depto}. Fíjese que {ruido} se escucha mucho en mi casa, sobre todo {horario}. ¿Habría forma de {peticion}? Gracias.",
+    "campos": [
+      {
+        "clave": "nombre",
+        "etiqueta": "Tu nombre",
+        "ejemplo": "Ana"
+      },
+      {
+        "clave": "depto",
+        "etiqueta": "Dónde vives",
+        "ejemplo": "departamento 4"
+      },
+      {
+        "clave": "ruido",
+        "etiqueta": "Qué ruido",
+        "ejemplo": "la música"
+      },
+      {
+        "clave": "horario",
+        "etiqueta": "A qué horas",
+        "ejemplo": "después de las once de la noche"
+      },
+      {
+        "clave": "peticion",
+        "etiqueta": "Qué pides",
+        "ejemplo": "bajarle un poco a partir de esa hora"
+      }
+    ],
+    "despues": "Ya lo hablaste. Si no cambia, puedes acudir a la administración.",
+    "revisada": false
+  },
+  {
+    "id": "vivienda-negociar-renovacion-de-contrato",
+    "necesidad": "vivienda",
+    "titulo": "Negociar la renovación del contrato de renta",
+    "situacion": "Se acaba tu contrato y te quieren subir la renta más de lo que puedes.",
+    "objetivo": "Quedarte con un aumento razonable y por escrito.",
+    "antes": [
+      "Busca cuánto cuestan lugares parecidos en tu zona.",
+      "Ten presente tu historial: si pagas a tiempo y cuidas el lugar, eso cuenta.",
+      "Decide cuál es tu tope antes de hablar."
+    ],
+    "guion": [
+      {
+        "texto": "Buenas tardes, {casero}. Le escribo por la renovación del contrato, que vence el {vencimiento}."
+      },
+      {
+        "texto": "Me gustaría quedarme. He pagado siempre a tiempo y cuido el lugar."
+      },
+      {
+        "texto": "Vi que me propone {aumento_propuesto}. Revisé lugares parecidos en la zona y están alrededor de {precio_zona}."
+      },
+      {
+        "texto": "¿Podríamos dejarlo en {mi_propuesta}?"
+      }
+    ],
+    "si_dicen": [
+      {
+        "si": "Ese es el precio. Si no, se lo rento a alguien más.",
+        "respondes": "Entiendo. ¿Hay algo que sí podamos ajustar, como el plazo o un aumento en dos partes?"
+      },
+      {
+        "si": "Lo puedo dejar en un punto medio.",
+        "respondes": "Me parece bien. ¿Lo dejamos por escrito en el contrato nuevo?"
+      },
+      {
+        "si": "Todo subió.",
+        "respondes": "Lo sé, y entiendo que haya un aumento. Le propongo uno que nos funcione a los dos."
+      },
+      {
+        "si": "¿Y si firmamos por dos años?",
+        "respondes": "Puede ser. ¿Con qué renta y con qué aumento para el segundo año?"
+      }
+    ],
+    "para_cerrar": "Gracias. Quedo pendiente de su respuesta para firmar.",
+    "mensaje": "Buenas tardes, {casero}. Le escribo por la renovación del contrato, que vence el {vencimiento}. Me gustaría quedarme; he pagado siempre a tiempo y cuido el lugar. Vi que me propone {aumento_propuesto}. Revisé lugares parecidos en la zona y están alrededor de {precio_zona}. ¿Podríamos dejarlo en {mi_propuesta}? Gracias.",
+    "campos": [
+      {
+        "clave": "casero",
+        "etiqueta": "Nombre del casero o casera",
+        "ejemplo": "señora Martínez"
+      },
+      {
+        "clave": "vencimiento",
+        "etiqueta": "Cuándo vence",
+        "ejemplo": "30 de noviembre"
+      },
+      {
+        "clave": "aumento_propuesto",
+        "etiqueta": "Lo que te propone",
+        "ejemplo": "subir la renta a $12,000"
+      },
+      {
+        "clave": "precio_zona",
+        "etiqueta": "Precio en la zona",
+        "ejemplo": "$10,500"
+      },
+      {
+        "clave": "mi_propuesta",
+        "etiqueta": "Tu propuesta",
+        "ejemplo": "$10,800"
+      }
+    ],
+    "despues": "Ya lo planteaste. Lo que acuerden, que quede por escrito.",
+    "revisada": false
+  }
+]

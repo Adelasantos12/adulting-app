@@ -110,7 +110,21 @@ Idea del 29 oct: que recetas, guías de auto y "Qué me pongo" no sean listas qu
 - [ ] IA para adaptar una receta existente (cambiar ingrediente, porciones, pasar a freidora). Requiere servidor y llave de la API de Anthropic.
 - [ ] Crecer hacia 365 recetas.
 
-**Siguientes:** guías de auto (buscador, entrada por síntoma, paso a paso con dibujos) y "Qué me pongo" (capas, pronóstico por hora, variedad).
+**Qué me pongo — hecho (29 oct)**
+- [x] 125 prendas en `public/data/prendas.json`, por capa (base, media, exterior, abajo, calzado, accesorios), con rango de temperatura, lluvia, viento, sol y ocasión.
+- [x] Pronóstico de 7:00 a 21:00 (sensación térmica, lluvia, viento, UV); si cambia mucho durante el día, sugiere capas que se quitan.
+- [x] Ocasión (casual, trabajo, formal, noche, ejercicio), "Otra combinación", no repite lo de los últimos 3 días ("Me pongo esto").
+- [x] Clima a mano si no hay ubicación o conexión; "Mi clóset" para usar solo lo que tienes.
+
+**Dudas y conversaciones — hecho (29 oct)**
+- [x] 65 guías en `public/data/guias.json`: 21 del SAT (RFC, e.firma, régimen, declaración anual, deducciones, facturas, multas…), 8 de dinero, 10 de trámites, 8 de trabajo, 7 de vivienda, 5 de salud, 3 de casa y 3 de emergencias.
+- [x] 37 guiones en `public/data/guiones.json` para llamar, reclamar, pedir, decir que no, trabajo, amistades, familia y pareja, médico y vivienda.
+- [x] Entrada por necesidad ("Tengo una duda" / "Tengo que hablar con alguien") o buscador con sinónimos; máximo 6 resultados a la vez.
+- [x] Guiones con tus datos, "Si te dicen…", ensayo línea por línea y "Enviar como mensaje".
+- [x] Guardadas y notas; guía de temporada en Hoy (declaración anual en marzo y abril, aguinaldo en noviembre y diciembre, presupuesto en enero).
+- [ ] **Revisar los datos legales y teléfonos** listados en [`revision-contenido.md`](revision-contenido.md).
+
+**Siguientes:** guías de auto (buscador, entrada por síntoma, paso a paso con dibujos). Mover las guías de Casa funcional (lavadora, foco, apagón) a la biblioteca.
 
 ### Fase 3 — Probar con personas reales (2–3 semanas, poco código)
 Material listo (29 oct): guion, 8 tareas, preguntas de cierre, hoja de notas y cómo ordenar hallazgos en [`fase-3-pruebas.md`](fase-3-pruebas.md).

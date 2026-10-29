@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="css/tailwind.css">
     <!-- Lucide Icons, versión fija servida desde public/vendor: npm run vendor -->
     <script src="vendor/lucide.min.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/recetas.js"></script>
+    <script src="js/ropa.js"></script>
+    <script src="js/biblioteca.js"></script>
     <style>
         /* Custom scrollbars */
         ::-webkit-scrollbar {
@@ -374,7 +377,7 @@
             health: 'Hábitos y salud',
             house: 'Casa funcional',
             paz: 'Paz en redes',
-            guides: 'Guías y vínculos',
+            guides: 'Dudas y conversaciones',
             settings: 'Ajustes',
             outfit: 'Qué me pongo',
             solitaire: 'Solitario',
@@ -398,7 +401,7 @@
                 { id: 'house', label: 'Casa funcional', short: 'Casa', icon: 'home', visible: vis.house !== false },
                 { id: 'outfit', label: 'Qué me pongo', short: 'Clima', icon: 'cloud-sun', visible: vis.outfit !== false },
                 { id: 'paz', label: 'Paz en redes', short: 'Diario', icon: 'instagram', visible: vis.paz !== false },
-                { id: 'guides', label: 'Guías y vínculos', icon: 'book-open', visible: vis.guides !== false },
+                { id: 'guides', label: 'Dudas y conversaciones', short: 'Dudas', icon: 'book-open', visible: vis.guides !== false },
                 { id: 'settings', label: 'Ajustes', short: 'Ajustes', icon: 'settings', visible: true }
             ];
 
@@ -423,7 +426,7 @@
             // Render Inferior (Móvil)
             let mobileHtml = '';
             menuItems.forEach(item => {
-                if (item.visible && item.id !== 'guides') {
+                if (item.visible) {
                     const isActive = item.id === currentPage;
                     mobileHtml += `
                         <button onclick="navigate('${item.id}')" class="mobile-nav-btn flex-shrink-0 w-[4.75rem] flex flex-col items-center justify-center gap-0.5 text-xs font-semibold rounded-xl ${isActive ? activeColor.activeBg : 'text-ink-faint'}" data-page="${item.id}">
@@ -651,6 +654,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        ${(() => {
+                            const season = seasonalGuide();
+                            if (!season || state.accessibility.visibleModules.guides === false) return '';
+                            return `
+                                <button type="button" onclick="openGuideFromHome('${season.id}')" class="w-full text-left p-5 bg-card border border-line rounded-3xl flex items-center gap-4">
+                                    <span class="w-12 h-12 rounded-2xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0"><i data-lucide="calendar-clock" class="w-6 h-6" aria-hidden="true"></i></span>
+                                    <span>
+                                        <span class="block text-sm font-bold text-ink-faint">Para estas fechas</span>
+                                        <span class="block font-bold text-ink">${season.label}</span>
+                                    </span>
+                                </button>`;
+                        })()}
 
                         <!-- Botón de Ver todo (Acceso rápido a todos los módulos) -->
                         <div class="text-center pt-2">
@@ -1134,7 +1150,7 @@
                                     <input type="checkbox" ${state.accessibility.visibleModules.paz !== false ? "checked" : ""} onchange="toggleModuleVisibility('paz')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
-                                    <span class="font-medium">Guías y vínculos</span>
+                                    <span class="font-medium">Dudas y conversaciones</span>
                                     <input type="checkbox" ${state.accessibility.visibleModules.guides !== false ? "checked" : ""} onchange="toggleModuleVisibility('guides')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
@@ -1299,26 +1315,13 @@
 
         function renderModuloOutfit() {
             return `
-                <div class="bg-card p-6 sm:p-8 rounded-3xl border border-line space-y-6 max-w-xl">
-                    <div class="flex items-start gap-4">
-                        <span id="outfit-icon" class="w-12 h-12 rounded-2xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0">
-                            <i data-lucide="cloud-sun" class="w-6 h-6"></i>
-                        </span>
-                        <div>
-                            <h3 class="font-bold text-lg">Qué me pongo hoy</h3>
-                            <p class="text-ink-faint">Una sugerencia según el clima donde estás ahora.</p>
-                        </div>
+                <section class="bg-card p-6 sm:p-8 rounded-3xl border border-line space-y-6 max-w-2xl" aria-labelledby="outfit-title">
+                    <div>
+                        <h3 id="outfit-title" class="font-bold text-lg">Qué me pongo hoy</h3>
+                        <p class="text-ink-faint">Un outfit por capas según el clima de todo el día y a dónde vas.</p>
                     </div>
-
-                    <div id="climate-info-box" class="p-5 bg-surface-1 border border-line rounded-2xl" aria-live="polite">
-                        <div id="climate-status" class="space-y-3">
-                            <p class="text-ink-soft">Para ver el clima necesitamos tu ubicación. No se guarda.</p>
-                            <button onclick="fetchLocalClimate()" class="min-h-target px-5 bg-accent-fill text-white rounded-xl font-bold">Usar mi ubicación</button>
-                        </div>
-                    </div>
-
-                    <p class="text-sm text-ink-faint">El clima viene de Open-Meteo. Tus coordenadas se usan solo para esta consulta.</p>
-                </div>
+                    ${renderOutfitSection()}
+                </section>
             `;
         }
 
@@ -1330,73 +1333,6 @@
             if (code <= 67 || (code >= 80 && code <= 82)) return { label: 'Lluvia', icon: 'cloud-rain', rain: true };
             if (code <= 77 || code === 85 || code === 86) return { label: 'Nieve', icon: 'cloud-snow', rain: true };
             return { label: 'Tormenta', icon: 'cloud-lightning', rain: true };
-        }
-
-        function setClimateStatus(message, retry) {
-            const status = document.getElementById('climate-status');
-            if (!status) return;
-            status.innerHTML = `
-                <p class="text-ink-soft">${message}</p>
-                ${retry ? '<button onclick="fetchLocalClimate()" class="min-h-target px-5 bg-card border border-edge rounded-xl font-bold">Intentar otra vez</button>' : ''}
-            `;
-        }
-
-        function fetchLocalClimate() {
-            if (!document.getElementById('climate-status')) return;
-
-            if (!navigator.geolocation) {
-                setClimateStatus('Este navegador no permite usar la ubicación.', false);
-                return;
-            }
-
-            setClimateStatus('Buscando tu ubicación…', false);
-
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    const lat = position.coords.latitude.toFixed(2);
-                    const lon = position.coords.longitude.toFixed(2);
-                    setClimateStatus('Consultando el clima…', false);
-
-                    try {
-                        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
-                        const data = await response.json();
-                        const temp = Math.round(data.current_weather.temperature);
-                        const weather = describeWeather(data.current_weather.weathercode);
-
-                        let rec;
-                        if (temp < 15) {
-                            rec = 'Hace frío. Abrigo o chamarra, pantalón largo y calzado cerrado. Una bufanda si vas a estar afuera.';
-                        } else if (temp <= 22) {
-                            rec = 'Templado. Una capa ligera, como suéter o cárdigan, sobre playera. Pantalón cómodo y tenis.';
-                        } else {
-                            rec = 'Hace calor. Ropa ligera de algodón o lino, lentes de sol y bloqueador.';
-                        }
-                        if (weather.rain) rec += ' Lleva paraguas o impermeable.';
-
-                        const iconEl = document.getElementById('outfit-icon');
-                        if (iconEl) iconEl.innerHTML = `<i data-lucide="${weather.icon}" class="w-6 h-6"></i>`;
-
-                        const box = document.getElementById('climate-info-box');
-                        if (box) {
-                            box.innerHTML = `
-                                <div class="space-y-3">
-                                    <p class="flex items-baseline gap-3">
-                                        <span class="text-2xl font-bold text-ink">${temp}°C</span>
-                                        <span class="text-ink-soft">${weather.label}</span>
-                                    </p>
-                                    <p class="text-ink-soft">${rec}</p>
-                                </div>
-                            `;
-                        }
-                        lucide.createIcons();
-                    } catch (err) {
-                        setClimateStatus('No se pudo consultar el clima. Revisa tu conexión e inténtalo otra vez.', true);
-                    }
-                },
-                () => {
-                    setClimateStatus('No tenemos permiso para usar tu ubicación. Puedes darlo en los ajustes del navegador.', true);
-                }
-            );
         }
 
         // --- SUB-RENDERS: DINERO ---
@@ -3062,93 +2998,17 @@
         // --- SUB-RENDER MÓDULO: ADULTING (GUÍAS & SCRIPTS) ---
         function renderModuloGuides() {
             return `
-                <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 text-sm leading-relaxed">
-                    <!-- Guías y Guiones -->
-                    <div class="xl:col-span-2 space-y-6">
-                        <!-- Guiones contra la Ansiedad -->
-                        <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-4">
-                            <h3 class="font-bold text-base text-ink flex items-center gap-1.5">
-                                <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
-                                Guiones de Asertividad Telefónica contra la Ansiedad Social
-                            </h3>
-                            <p class="text-ink-faint">¿Llamada difícil por hacer? Lee directamente estos guiones redactados para mitigar los nervios:</p>
-
-                            <div class="space-y-3">
-                                <div class="p-3.5 bg-surface-1 rounded-xl space-y-1.5">
-                                    <span class="font-bold text-accent">Reservar cita médica</span>
-                                    <p class="italic">"Hola, buen día. Quisiera agendar una cita de valoración médica general con el doctor disponible. Tengo libre los martes por la tarde. ¿Tendrán algún espacio libre?"</p>
-                                </div>
-                                <div class="p-3.5 bg-surface-1 rounded-xl space-y-1.5">
-                                    <span class="font-bold text-accent">Reclamar un cobro no reconocido</span>
-                                    <p class="italic">"Hola. Llamo porque detecté un cobro no reconocido en mi estado de cuenta por un monto de X. No autoricé esta transacción. Por favor, ayúdeme a levantar un reporte de aclaración para congelar el cargo."</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Manuales Offline del Adulting 101 -->
-                        <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-4">
-                            <h3 class="font-bold text-base">Guías básicas de la vida adulta</h3>
-
-                            <details class="group bg-surface-1 p-3.5 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-                                    <span class="font-bold">Alquileres de departamentos</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-ink-faint transition-transform group-open:rotate-180"></i>
-                                </summary>
-                                <p class="text-ink-faint mt-2">No destines más del 30%-35% de tus ingresos netos en el pago del alquiler mensual. Exige un contrato de arrendamiento por escrito y toma fotos/video de todo el inmueble el día que te entreguen las llaves.</p>
-                            </details>
-
-                            <details class="group bg-surface-1 p-3.5 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-                                    <span class="font-bold">Impuestos y deducciones</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-ink-faint transition-transform group-open:rotate-180"></i>
-                                </summary>
-                                <p class="text-ink-faint mt-2">Las deducciones personales (salud, dentista, colegiaturas, ahorro retiro) reducen legalmente tus obligaciones fiscales anuales. Guarda siempre las facturas oficiales bajo el régimen tributario correspondiente.</p>
-                            </details>
-
-                            <details class="group bg-surface-1 p-3.5 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-                                    <span class="font-bold">Préstamos estudiantiles</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-ink-faint transition-transform group-open:rotate-180"></i>
-                                </summary>
-                                <p class="text-ink-faint mt-2">Prioriza planes de pago basados en tus ingresos si están disponibles. Trata de abonar más al capital del préstamo para acortar el tiempo y ahorrar intereses acumulados.</p>
-                            </details>
-
-                            <details class="group bg-surface-1 p-3.5 rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-                                    <span class="font-bold">Planificación de jubilación y retiro (401k)</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-ink-faint transition-transform group-open:rotate-180"></i>
-                                </summary>
-                                <p class="text-ink-faint mt-2">Si tu empresa ofrece plan de retiro 401k o fondo de ahorro con aportación patronal directa ("match"), aprovéchalo al máximo. Es dinero gratis y te garantiza libertad financiera en la vejez gracias al interés compuesto.</p>
-                            </details>
-                        </div>
+                <section class="bg-card p-6 sm:p-8 rounded-3xl border border-line space-y-6" aria-labelledby="library-title">
+                    <div>
+                        <h3 id="library-title" class="font-bold text-lg">¿Qué necesitas?</h3>
+                        <p class="text-ink-faint">Respuestas a dudas de la vida adulta y qué decir en conversaciones difíciles.</p>
                     </div>
-
-                    <!-- Amigos después de los 20/30 -->
-                    <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-4">
-                        <h3 class="font-bold text-base text-ink flex items-center gap-1.5">
-                            <i data-lucide="users" class="w-4 h-4 text-accent"></i>
-                            Conectar: Conseguir amigos tras los 20/30
-                        </h3>
-                        <p class="text-ink-faint">Hacer amistades en la adultez exige regularidad, intención y un poco de iniciativa:</p>
-
-                        <div class="space-y-3 pt-2 text-xs leading-relaxed">
-                            <div class="p-3 bg-accent-soft rounded-xl">
-                                <strong>La regla de la regularidad:</strong>
-                                <p class="mt-1 text-ink-faint">El cerebro humano genera confianza por mera exposición repetida. Apúntate a clases semanales de senderismo, dibujo o cocina.</p>
-                            </div>
-                            <div class="p-3 bg-accent-soft rounded-xl font-bold">
-                                Truco de iniciación: "Pregunta por intereses, pasatiempos o series, no por trabajo."
-                            </div>
-                        </div>
-
-                        <!-- Botón de Solitario -->
-                        <div class="pt-4 border-t ${state.accessibility.visibleModules.games === true ? '' : 'hidden'}">
-                            <button onclick="navigate('solitaire')" class="w-full py-2 bg-surface-2 hover:bg-surface-2 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                <i data-lucide="gamepad-2" class="w-4 h-4"></i> Jugar solitario
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                    ${renderLibrarySection()}
+                </section>
+                ${state.accessibility.visibleModules.games === true ? `
+                    <button onclick="navigate('solitaire')" class="w-full bg-surface-2 rounded-xl text-base font-bold flex items-center justify-center gap-2">
+                        <i data-lucide="gamepad-2" class="w-4 h-4"></i> Jugar solitario
+                    </button>` : ''}
             `;
         }
 
@@ -3378,8 +3238,11 @@
             if (page === 'todos') {
                 drawWheel();
             }
-            if (page === 'outfit') {
-                fetchLocalClimate();
+            // Si ya hay permiso de ubicación, el pronóstico se pide solo; si no, la persona decide con el botón
+            if (page === 'outfit' && !todayWeather && navigator.permissions) {
+                navigator.permissions.query({ name: 'geolocation' }).then((p) => {
+                    if (p.state === 'granted') requestOutfitWeather();
+                }).catch(() => {});
             }
             if (typeof prevInitPageGames === 'function' && prevInitPageGames !== initializePageComponents) {
                 prevInitPageGames(page);

@@ -1,0 +1,3067 @@
+[
+ {
+  "id": "sat-rfc-que-es-y-como-sacarlo",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué es el RFC y cómo lo saco?",
+  "resumen": "Es tu clave de registro ante el SAT. Si eres mayor de edad y tienes CURP, lo sacas en línea en el portal del SAT sin ir a una oficina.",
+  "etiquetas": [
+   "sat",
+   "rfc",
+   "tramite",
+   "curp"
+  ],
+  "lo_que_necesitas": [
+   "CURP vigente",
+   "Correo electrónico al que tengas acceso",
+   "Número de celular",
+   "Tu domicilio con código postal"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a sat.gob.mx y busca el trámite \"Inscripción en el RFC con CURP\"."
+   },
+   {
+    "texto": "Escribe tu CURP y revisa que tus datos personales salgan bien."
+   },
+   {
+    "texto": "Captura tu domicilio, tu correo y tu celular.",
+    "detalle": "El código postal que pongas será tu domicilio fiscal. Usa uno real y actual."
+   },
+   {
+    "texto": "Confirma los datos y envía la solicitud."
+   },
+   {
+    "texto": "Descarga y guarda el acuse.",
+    "detalle": "Ahí viene tu RFC con homoclave y tu cédula de identificación fiscal con código QR."
+   }
+  ],
+  "ojo": [
+   "La inscripción con CURP se hace una sola vez. Si ya te dieron de alta en un trabajo, probablemente ya tienes RFC; revísalo antes de volver a tramitarlo.",
+   "Sacar el RFC no te pone a pagar impuestos por sí solo. Lo que pagas depende de cómo ganas tu dinero."
+  ],
+  "si_no_puedes": "Si el sistema no reconoce tu CURP o te marca error, agenda cita en citas.sat.gob.mx y lleva tu CURP, identificación oficial y comprobante de domicilio. También puedes llamar a MarcaSAT al 55 627 22 728.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-contrasena-sat",
+  "necesidad": "impuestos",
+  "pregunta": "¿Cómo saco o recupero mi contraseña del SAT?",
+  "resumen": "La contraseña te deja entrar al portal del SAT. Puedes generarla o cambiarla en línea con SAT ID usando tu identificación y un video corto.",
+  "etiquetas": [
+   "sat",
+   "contrasena",
+   "sat id",
+   "tramite"
+  ],
+  "lo_que_necesitas": [
+   "Tu RFC",
+   "Identificación oficial vigente con foto (INE, pasaporte o cédula profesional física)",
+   "Correo electrónico personal",
+   "Celular o computadora con cámara"
+  ],
+  "pasos": [
+   {
+    "texto": "Abre la app SAT ID o entra a satid.sat.gob.mx."
+   },
+   {
+    "texto": "Elige la opción para generar o actualizar contraseña y escribe tu RFC."
+   },
+   {
+    "texto": "Toma foto de tu identificación por ambos lados."
+   },
+   {
+    "texto": "Graba el video diciendo en voz alta la frase que te muestra la pantalla.",
+    "detalle": "Busca buena luz y un lugar sin ruido."
+   },
+   {
+    "texto": "Dibuja tu firma parecida a la de tu identificación y envía la solicitud."
+   },
+   {
+    "texto": "Espera el correo del SAT con una liga.",
+    "detalle": "El SAT indica un plazo máximo de cinco días hábiles."
+   },
+   {
+    "texto": "Abre la liga, escribe tu folio y tu RFC, y crea tu nueva contraseña."
+   }
+  ],
+  "ojo": [
+   "Si ya tienes e.firma vigente, puedes cambiar tu contraseña directo en el portal del SAT sin esperar.",
+   "Si te rechazan la solicitud, el correo dice por qué. Puedes volver a intentarlo corrigiendo eso."
+  ],
+  "si_no_puedes": "Agenda cita en citas.sat.gob.mx y lleva tu identificación oficial. En la oficina te la generan en el momento. Para dudas, llama a MarcaSAT al 55 627 22 728.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-efirma-que-es-y-como-sacarla",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué es la e.firma y cómo la saco?",
+  "resumen": "Es tu firma digital ante el SAT. La primera vez se tramita en oficina con cita. Dura cuatro años y la necesitas para trámites más delicados.",
+  "etiquetas": [
+   "sat",
+   "e.firma",
+   "firma electronica",
+   "cita"
+  ],
+  "lo_que_necesitas": [
+   "Cita en el SAT",
+   "Identificación oficial vigente",
+   "CURP",
+   "Correo electrónico",
+   "Memoria USB"
+  ],
+  "pasos": [
+   {
+    "texto": "Agenda cita para e.firma en citas.sat.gob.mx."
+   },
+   {
+    "texto": "El día de la cita, lleva tu identificación, tu correo y una memoria USB."
+   },
+   {
+    "texto": "En la oficina te toman huellas, foto y firma."
+   },
+   {
+    "texto": "Crea la contraseña de tu e.firma cuando te la pidan.",
+    "detalle": "Es distinta a tu contraseña del SAT. Anótala en un lugar seguro."
+   },
+   {
+    "texto": "Guarda los archivos .cer y .key en la USB y haz una copia de respaldo."
+   }
+  ],
+  "ojo": [
+   "La e.firma vale cuatro años desde que se expide. Pon un recordatorio unos meses antes.",
+   "Si se vence hace menos de un año, normalmente puedes renovarla en línea. Si pasó más tiempo, toca ir con cita.",
+   "No compartas tus archivos ni tu contraseña de e.firma. Equivale a tu firma autógrafa."
+  ],
+  "si_no_puedes": "Si no encuentras citas disponibles, revisa el sistema de citas en distintos días y horas, porque se liberan espacios. MarcaSAT, 55 627 22 728, te orienta sobre requisitos.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-renovar-efirma",
+  "necesidad": "impuestos",
+  "pregunta": "Se me va a vencer la e.firma, ¿cómo la renuevo?",
+  "resumen": "Si tu e.firma sigue vigente o venció hace menos de un año, puedes renovarla en línea. Si pasó más de un año, necesitas cita en oficina.",
+  "etiquetas": [
+   "sat",
+   "e.firma",
+   "renovacion"
+  ],
+  "lo_que_necesitas": [
+   "Tus archivos .cer y .key actuales",
+   "La contraseña de tu e.firma",
+   "Computadora"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa en el portal del SAT la fecha de vencimiento de tu e.firma."
+   },
+   {
+    "texto": "Si sigue vigente, entra al servicio de renovación de e.firma en sat.gob.mx."
+   },
+   {
+    "texto": "Genera tu solicitud con tus archivos actuales y su contraseña."
+   },
+   {
+    "texto": "Descarga tu nuevo certificado y guárdalo junto con tu nueva llave.",
+    "detalle": "Haz una copia en otro lugar, por ejemplo una USB."
+   },
+   {
+    "texto": "Si ya venció hace menos de un año, usa la opción de renovación con SAT ID."
+   }
+  ],
+  "ojo": [
+   "El SAT permite renovar en línea hasta un día antes del vencimiento. No tienes que esperar al último momento.",
+   "Si venció hace más de un año, ya no se puede en línea y toca cita."
+  ],
+  "si_no_puedes": "Agenda cita en citas.sat.gob.mx con tu identificación oficial y una USB. Si tienes dudas sobre tu caso, llama a MarcaSAT al 55 627 22 728.",
+  "fuentes": [
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-constancia-situacion-fiscal",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué es la Constancia de Situación Fiscal y cómo la descargo?",
+  "resumen": "Es el documento que muestra tu RFC, nombre, régimen y código postal ante el SAT. Te la piden para trabajar o facturar. Se descarga gratis en el portal.",
+  "etiquetas": [
+   "sat",
+   "constancia",
+   "csf",
+   "factura"
+  ],
+  "lo_que_necesitas": [
+   "Tu RFC",
+   "Contraseña del SAT o e.firma"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a sat.gob.mx y busca \"Constancia de Situación Fiscal\"."
+   },
+   {
+    "texto": "Inicia sesión con tu RFC y contraseña o con tu e.firma."
+   },
+   {
+    "texto": "Da clic en generar constancia."
+   },
+   {
+    "texto": "Descarga el PDF y guárdalo en tu celular."
+   },
+   {
+    "texto": "Revisa que tu nombre, régimen y código postal sean correctos.",
+    "detalle": "Esos datos son los que te pedirán para cualquier factura."
+   }
+  ],
+  "ojo": [
+   "Si cambiaste de domicilio, actualízalo en el SAT. Si no, tus facturas pueden salir con error.",
+   "También puedes obtenerla desde la app SAT Móvil o pidiéndola por MarcaSAT."
+  ],
+  "si_no_puedes": "Si no tienes contraseña, primero sácala con SAT ID. Si necesitas la constancia hoy, llama a MarcaSAT al 55 627 22 728, donde también la tramitan.",
+  "fuentes": [
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-que-regimen-me-corresponde",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué régimen fiscal es el mío?",
+  "resumen": "Tu régimen depende de cómo ganas tu dinero: nómina, honorarios, negocio, plataformas o rentas. Puedes tener más de uno a la vez. Revísalo en tu constancia.",
+  "etiquetas": [
+   "sat",
+   "regimen",
+   "resico",
+   "sueldos",
+   "honorarios"
+  ],
+  "lo_que_necesitas": [
+   "Tu Constancia de Situación Fiscal"
+  ],
+  "pasos": [
+   {
+    "texto": "Si te pagan con recibo de nómina, estás en Sueldos y salarios.",
+    "detalle": "Tu empleador retiene y paga tu ISR cada quincena o mes."
+   },
+   {
+    "texto": "Si das servicios por tu cuenta y facturas, estás en Actividad empresarial y profesional o en RESICO."
+   },
+   {
+    "texto": "RESICO es para personas que facturan menos de 3.5 millones de pesos al año y pagan una tasa baja sobre lo cobrado.",
+    "detalle": "No permite deducciones personales en tu anual."
+   },
+   {
+    "texto": "Si vendes o das servicios por apps como Uber, Mercado Libre o Airbnb, aplica el régimen de plataformas tecnológicas."
+   },
+   {
+    "texto": "Si rentas un inmueble que es tuyo, aplica Arrendamiento."
+   },
+   {
+    "texto": "Abre tu constancia y revisa la sección de regímenes para ver cuáles tienes dados de alta."
+   }
+  ],
+  "ojo": [
+   "Puedes estar en nómina y además en otro régimen. Es común y no es un problema.",
+   "Si tu actividad real no coincide con tu régimen, puedes actualizarlo en el portal del SAT con el trámite de actualización de actividades."
+  ],
+  "si_no_puedes": "Si no sabes cuál elegir, Prodecon da orientación fiscal gratuita, y un contador puede revisar tu caso en una sola consulta. MarcaSAT, 55 627 22 728, también orienta.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat",
+   "gob.mx/prodecon"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-solo-sueldo-tengo-que-declarar",
+  "necesidad": "impuestos",
+  "pregunta": "Si solo tengo sueldo, ¿tengo que hacer declaración anual?",
+  "resumen": "Si tuviste un solo empleador todo el año, ganaste 400 mil pesos o menos y no tuviste otros ingresos, normalmente no. Aun así puedes presentarla si te conviene.",
+  "etiquetas": [
+   "sat",
+   "declaracion anual",
+   "sueldos",
+   "asalariados"
+  ],
+  "lo_que_necesitas": [
+   "Tus recibos de nómina o tu constancia de retenciones"
+  ],
+  "pasos": [
+   {
+    "texto": "Suma lo que ganaste por sueldo en el año. Si pasa de 400 mil pesos, sí tienes que declarar."
+   },
+   {
+    "texto": "Revisa si trabajaste con dos o más empleadores a la vez. Si fue así, sí declaras."
+   },
+   {
+    "texto": "Revisa si dejaste tu trabajo antes del 31 de diciembre. En ese caso también declaras."
+   },
+   {
+    "texto": "Revisa si tuviste otros ingresos, como honorarios, rentas o ventas por plataformas. Si sí, declaras."
+   },
+   {
+    "texto": "Si no aplica nada de lo anterior, no estás obligado, pero puedes declarar para recuperar saldo a favor por tus deducciones."
+   }
+  ],
+  "ojo": [
+   "Las reglas de obligación las confirma el SAT cada año en su comunicado de la Declaración Anual. Revísalo en abril.",
+   "Presentar la declaración sin estar obligado no te genera problemas. Puede regresarte dinero si tuviste gastos médicos o colegiaturas."
+  ],
+  "si_no_puedes": "Si no tienes claro si te toca, entra al portal y abre la declaración precargada: el SAT te muestra lo que ya sabe de ti. También puedes llamar a MarcaSAT al 55 627 22 728.",
+  "fuentes": [
+   "gob.mx/sat",
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-declaracion-anual-personas-fisicas",
+  "necesidad": "impuestos",
+  "pregunta": "¿Cómo hago mi declaración anual?",
+  "resumen": "Se presenta en abril, en línea, sobre lo que ganaste el año anterior. El SAT ya te la da precargada; tu trabajo es revisarla y corregir lo que falte.",
+  "etiquetas": [
+   "sat",
+   "declaracion anual",
+   "abril"
+  ],
+  "lo_que_necesitas": [
+   "RFC",
+   "Contraseña del SAT o e.firma",
+   "Facturas de tus deducciones",
+   "CLABE a tu nombre, por si te sale saldo a favor"
+  ],
+  "pasos": [
+   {
+    "texto": "En abril, entra a sat.gob.mx y busca la Declaración Anual de personas físicas."
+   },
+   {
+    "texto": "Inicia sesión y elige el año que vas a declarar."
+   },
+   {
+    "texto": "Revisa tus ingresos precargados contra tus recibos de nómina.",
+    "detalle": "Si falta un empleador o un monto no cuadra, corrígelo antes de enviar."
+   },
+   {
+    "texto": "Revisa las retenciones de ISR que te hicieron."
+   },
+   {
+    "texto": "Revisa tus deducciones personales. Agrega o quita las que no correspondan."
+   },
+   {
+    "texto": "Mira el resultado: saldo a favor, saldo a cargo o en ceros."
+   },
+   {
+    "texto": "Envía la declaración y descarga el acuse."
+   }
+  ],
+  "ojo": [
+   "Para el ejercicio 2025 la fecha límite fue el 30 de abril de 2026. El SAT publica la fecha cada año.",
+   "Si te sale a pagar, el acuse trae una línea de captura para pagar en tu banco.",
+   "Si te equivocas, puedes presentar una declaración complementaria para corregir."
+  ],
+  "si_no_puedes": "El SAT suele ampliar horarios de atención en abril. Agenda cita en citas.sat.gob.mx, llama a MarcaSAT al 55 627 22 728 o pide ayuda a un contador.",
+  "fuentes": [
+   "gob.mx/sat",
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-deducciones-personales",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué gastos puedo deducir en mi declaración anual?",
+  "resumen": "Gastos médicos, dentales, de psicología y nutrición, colegiaturas, intereses de hipoteca y otros. Necesitas factura y haber pagado con tarjeta o transferencia.",
+  "etiquetas": [
+   "sat",
+   "deducciones",
+   "declaracion anual",
+   "factura"
+  ],
+  "lo_que_necesitas": [
+   "Facturas de los gastos a tu RFC",
+   "Comprobante de que pagaste con tarjeta, transferencia o cheque nominativo"
+  ],
+  "pasos": [
+   {
+    "texto": "Junta las facturas de gastos médicos, dentales, psicología, nutrición, hospital y lentes graduados."
+   },
+   {
+    "texto": "Agrega colegiaturas, transporte escolar obligatorio, seguros de gastos médicos, intereses reales de hipoteca y gastos funerarios, si los tuviste."
+   },
+   {
+    "texto": "Agrega donativos a instituciones autorizadas y aportaciones voluntarias a tu Afore, si hiciste."
+   },
+   {
+    "texto": "Revisa que cada factura tenga tu RFC y el uso de CFDI de deducción personal."
+   },
+   {
+    "texto": "En la declaración anual, revisa que aparezcan precargadas. Si falta alguna, agrégala."
+   }
+  ],
+  "ojo": [
+   "Lo pagado en efectivo no se puede deducir. Paga desde una cuenta o tarjeta a tu nombre.",
+   "Hay un tope general: lo que sea menor entre cinco UMA anuales o el 15 por ciento de tus ingresos del año. Algunas deducciones, como donativos y aportaciones al retiro, tienen reglas propias.",
+   "Si estás en RESICO, no puedes aplicar deducciones personales."
+  ],
+  "si_no_puedes": "El SAT tiene un minisitio de deducciones personales con cada gasto explicado. Si tienes muchas facturas o dudas, un contador puede revisarlas antes de que envíes.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-como-pedir-factura",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué datos doy para que me hagan una factura?",
+  "resumen": "Con la factura 4.0 te piden RFC, nombre, código postal y régimen fiscal tal como vienen en tu constancia, más el uso que le darás. Si uno no coincide, falla.",
+  "etiquetas": [
+   "sat",
+   "factura",
+   "cfdi",
+   "constancia"
+  ],
+  "lo_que_necesitas": [
+   "Tu Constancia de Situación Fiscal",
+   "Ticket o comprobante de compra",
+   "Correo electrónico"
+  ],
+  "pasos": [
+   {
+    "texto": "Ten a la mano tu Constancia de Situación Fiscal."
+   },
+   {
+    "texto": "Da tu RFC con homoclave."
+   },
+   {
+    "texto": "Escribe tu nombre exactamente como aparece en la constancia, sin abreviar."
+   },
+   {
+    "texto": "Da el código postal de tu domicilio fiscal, el que sale en la constancia."
+   },
+   {
+    "texto": "Elige tu régimen fiscal, el mismo de la constancia."
+   },
+   {
+    "texto": "Elige el uso de CFDI.",
+    "detalle": "Para gastos médicos, por ejemplo, se usa el de honorarios médicos, dentales y gastos hospitalarios. Si es para tu negocio, el de gastos en general."
+   },
+   {
+    "texto": "Da tu correo y revisa que te lleguen el PDF y el XML."
+   }
+  ],
+  "ojo": [
+   "Muchos negocios solo facturan dentro del mismo mes de la compra. Pídela pronto.",
+   "Guarda el XML. Es el archivo que vale ante el SAT; el PDF es solo la representación impresa."
+  ],
+  "si_no_puedes": "Si el sistema rechaza tus datos, descarga una constancia nueva y copia los datos de ahí. Si sigue fallando, pide al negocio que revise o llama a MarcaSAT al 55 627 22 728.",
+  "fuentes": [
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-cancelar-o-corregir-factura",
+  "necesidad": "impuestos",
+  "pregunta": "Me equivoqué en una factura, ¿cómo la cancelo o corrijo?",
+  "resumen": "Una factura no se edita: se cancela y se emite una nueva. Muchas veces el cliente tiene que aceptar la cancelación en el portal del SAT.",
+  "etiquetas": [
+   "sat",
+   "factura",
+   "cfdi",
+   "cancelacion"
+  ],
+  "lo_que_necesitas": [
+   "Contraseña del SAT o e.firma",
+   "El folio fiscal de la factura"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra al servicio de Factura electrónica en sat.gob.mx o al sistema donde la emitiste."
+   },
+   {
+    "texto": "Busca la factura por su folio fiscal."
+   },
+   {
+    "texto": "Elige el motivo de cancelación.",
+    "detalle": "Si es por un error y la vas a sustituir, primero emite la nueva y relaciónala con la anterior."
+   },
+   {
+    "texto": "Envía la solicitud de cancelación."
+   },
+   {
+    "texto": "Avisa a tu cliente para que la acepte en su buzón del portal del SAT."
+   },
+   {
+    "texto": "Revisa el estatus hasta que diga cancelada."
+   }
+  ],
+  "ojo": [
+   "El receptor tiene tres días hábiles para aceptar o rechazar. En la primera solicitud, si no responde, se cancela.",
+   "Algunas facturas se cancelan sin aceptación, por ejemplo si lo haces dentro de las 24 horas siguientes a emitirla.",
+   "Hay un plazo anual para cancelar facturas de un ejercicio. Revisa la regla vigente en el SAT antes de dejarlo para después."
+  ],
+  "si_no_puedes": "Si el cliente no acepta o no responde, contáctalo y explícale el error. Si el problema sigue, un contador o MarcaSAT, 55 627 22 728, te dicen cómo proceder.",
+  "fuentes": [
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-saldo-a-favor-devolucion",
+  "necesidad": "impuestos",
+  "pregunta": "Me salió saldo a favor, ¿cómo me lo regresan?",
+  "resumen": "Si presentas tu anual a tiempo y pones una CLABE a tu nombre, el SAT puede depositarte en automático. Si el monto es alto te pedirá e.firma.",
+  "etiquetas": [
+   "sat",
+   "devolucion",
+   "saldo a favor",
+   "declaracion anual"
+  ],
+  "lo_que_necesitas": [
+   "CLABE de 18 dígitos a tu nombre",
+   "Contraseña o e.firma, según el monto"
+  ],
+  "pasos": [
+   {
+    "texto": "En la declaración anual, elige devolución cuando te muestre el saldo a favor."
+   },
+   {
+    "texto": "Escribe tu CLABE.",
+    "detalle": "La cuenta tiene que estar activa y a tu nombre."
+   },
+   {
+    "texto": "Envía la declaración y guarda el acuse."
+   },
+   {
+    "texto": "Espera unos días hábiles y consulta el estatus en el servicio de devolución automática del portal del SAT."
+   },
+   {
+    "texto": "Revisa tu buzón tributario por si te piden algún dato."
+   }
+  ],
+  "ojo": [
+   "Si eliges compensar en lugar de devolución, o tienes ingresos en copropiedad, no aplica la devolución automática.",
+   "Si el depósito falla por la CLABE, el SAT te pide un estado de cuenta reciente por buzón tributario. No es un problema grave.",
+   "Si te rechazan la devolución automática, puedes pedirla por el trámite \"Solicita tu devolución\"."
+  ],
+  "si_no_puedes": "Si pasan semanas sin respuesta, consulta el estatus en el portal o llama a MarcaSAT al 55 627 22 728. Si te la niegan sin razón clara, Prodecon te asesora gratis.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/prodecon"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-buzon-tributario",
+  "necesidad": "impuestos",
+  "pregunta": "¿Qué es el buzón tributario y por qué debo activarlo?",
+  "resumen": "Es tu bandeja oficial con el SAT: ahí te avisan y te notifican. Actívalo con tu correo y celular para no perderte nada.",
+  "etiquetas": [
+   "sat",
+   "buzon tributario",
+   "notificaciones"
+  ],
+  "lo_que_necesitas": [
+   "Contraseña del SAT o e.firma",
+   "Correo electrónico",
+   "Celular"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a sat.gob.mx y busca Buzón Tributario."
+   },
+   {
+    "texto": "Inicia sesión con tu RFC y contraseña o e.firma."
+   },
+   {
+    "texto": "Registra tus medios de contacto: correo y celular."
+   },
+   {
+    "texto": "Confirma el correo con la liga que te llega."
+   },
+   {
+    "texto": "Pon un recordatorio para revisarlo una vez al mes."
+   }
+  ],
+  "ojo": [
+   "Lo que el SAT te notifica por el buzón cuenta como entregado, aunque no lo abras.",
+   "La mayoría de los mensajes son avisos o recordatorios, no multas."
+  ],
+  "si_no_puedes": "Si no puedes entrar o no te llega la confirmación, llama a MarcaSAT al 55 627 22 728 o agenda cita en citas.sat.gob.mx.",
+  "fuentes": [
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-carta-invitacion-requerimiento",
+  "necesidad": "impuestos",
+  "pregunta": "Me llegó una carta invitación o un requerimiento del SAT, ¿qué hago?",
+  "resumen": "No es una multa. El SAT te avisa que algo no cuadra o falta. Léela con calma, revisa qué te piden y responde o aclara dentro del plazo.",
+  "etiquetas": [
+   "sat",
+   "carta invitacion",
+   "requerimiento",
+   "aclaracion"
+  ],
+  "lo_que_necesitas": [
+   "La carta o notificación",
+   "Contraseña del SAT o e.firma",
+   "Tus acuses y comprobantes del periodo que mencionan"
+  ],
+  "pasos": [
+   {
+    "texto": "Confirma que la carta sea real en el portal del SAT, con la consulta de cartas invitación o llamadas."
+   },
+   {
+    "texto": "Lee qué periodo y qué obligación mencionan."
+   },
+   {
+    "texto": "Busca si ya presentaste esa declaración o pago y ubica tu acuse."
+   },
+   {
+    "texto": "Si ya cumpliste, entra a Mi Portal y presenta una aclaración con tu acuse en PDF."
+   },
+   {
+    "texto": "Si de verdad faltaba algo, preséntalo y luego aclara que ya cumpliste."
+   }
+  ],
+  "ojo": [
+   "Para aclarar una carta invitación o requerimiento el SAT marca 15 días desde que la recibes.",
+   "Nunca pagues ni des datos por una liga que llegó en un correo o mensaje. Entra tú directo a sat.gob.mx."
+  ],
+  "si_no_puedes": "Prodecon asesora gratis cuando tienes un problema con el SAT. También puedes ir a una oficina del SAT con cita o pedir ayuda a un contador.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/prodecon"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-freelance-honorarios-facturar-y-pagar",
+  "necesidad": "impuestos",
+  "pregunta": "Soy freelance, ¿cómo facturo y pago mis impuestos cada mes?",
+  "resumen": "Emites una factura por cada cobro y cada mes presentas tu declaración de ISR e IVA, a más tardar el día 17 del mes siguiente, con unos días extra según tu RFC.",
+  "etiquetas": [
+   "sat",
+   "freelance",
+   "honorarios",
+   "resico",
+   "factura"
+  ],
+  "lo_que_necesitas": [
+   "RFC con el régimen correcto",
+   "e.firma o contraseña",
+   "Datos fiscales de tus clientes"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa en tu constancia que estés en RESICO o en Actividad empresarial y profesional."
+   },
+   {
+    "texto": "Cuando cobres, emite la factura en el servicio gratuito del SAT o en un sistema de facturación."
+   },
+   {
+    "texto": "Pide a cada cliente su constancia para llenar bien sus datos."
+   },
+   {
+    "texto": "Guarda en una carpeta las facturas que emites y las que recibes de tus gastos."
+   },
+   {
+    "texto": "Cada mes entra a la declaración de pagos de personas físicas en el portal del SAT."
+   },
+   {
+    "texto": "Revisa los ingresos precargados, presenta la declaración y paga con la línea de captura."
+   }
+  ],
+  "ojo": [
+   "Aparta una parte de cada cobro para impuestos en una cuenta separada.",
+   "En RESICO, no presentar tres o más pagos mensuales en el año puede sacarte del régimen.",
+   "Si un cliente es empresa, puede retenerte una parte del impuesto. Esa retención la restas en tu declaración."
+  ],
+  "si_no_puedes": "Un contador puede llevar tus declaraciones mensuales por una cuota fija. Si prefieres hacerlo tú, el SAT tiene guías y simuladores en su portal y MarcaSAT, 55 627 22 728, orienta.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-plataformas-digitales-retencion",
+  "necesidad": "impuestos",
+  "pregunta": "Vendo o trabajo por apps como Mercado Libre, Uber o Airbnb, ¿qué pasa con mis impuestos?",
+  "resumen": "La plataforma te retiene ISR e IVA de lo que cobras. Si ganas poco por esa vía, esa retención puede ser tu pago final y no tienes que hacer más.",
+  "etiquetas": [
+   "sat",
+   "plataformas",
+   "uber",
+   "mercado libre",
+   "airbnb",
+   "retencion"
+  ],
+  "lo_que_necesitas": [
+   "RFC dado de alta en la plataforma",
+   "Constancias de retención que te da la plataforma"
+  ],
+  "pasos": [
+   {
+    "texto": "Da tu RFC a la plataforma.",
+    "detalle": "Si no lo das, la retención suele ser más alta."
+   },
+   {
+    "texto": "Descarga cada mes la constancia de retenciones que te da la app."
+   },
+   {
+    "texto": "Revisa si tus ingresos del año por plataformas, sumados a sueldo e intereses, son menores a 300 mil pesos."
+   },
+   {
+    "texto": "Si es así, puedes elegir que las retenciones sean tu pago definitivo con el aviso correspondiente en el portal del SAT."
+   },
+   {
+    "texto": "Si superas ese monto o no eliges la opción, presenta declaraciones mensuales y anual."
+   }
+  ],
+  "ojo": [
+   "Si eliges el pago definitivo, ya no puedes aplicar deducciones de esa actividad y no puedes cambiar de opción en varios años.",
+   "Las tasas de retención cambian según la actividad: transporte, hospedaje o venta de bienes. Revisa la que te aplica en tu constancia de retenciones."
+  ],
+  "si_no_puedes": "Si no sabes si te conviene el pago definitivo, consulta a un contador antes de presentar el aviso. MarcaSAT, 55 627 22 728, te orienta sobre el trámite.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat",
+   "gob.mx/prodecon"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-rentar-departamento-arrendador",
+  "necesidad": "impuestos",
+  "pregunta": "Voy a rentar un depa que es mío, ¿qué tengo que hacer con el SAT?",
+  "resumen": "Te das de alta en el régimen de Arrendamiento, facturas cada renta y presentas declaraciones de pago provisional y la anual.",
+  "etiquetas": [
+   "sat",
+   "arrendamiento",
+   "renta",
+   "inmueble"
+  ],
+  "lo_que_necesitas": [
+   "RFC",
+   "e.firma o contraseña",
+   "Datos del inmueble",
+   "Contrato de arrendamiento"
+  ],
+  "pasos": [
+   {
+    "texto": "Actualiza tus actividades en el portal del SAT y agrega el régimen de Arrendamiento."
+   },
+   {
+    "texto": "Emite una factura por cada renta que cobres."
+   },
+   {
+    "texto": "Decide si vas a deducir gastos reales o la deducción opcional.",
+    "detalle": "La opcional es el 35 por ciento de tus ingresos por renta, sin comprobar gastos. La eliges en tu primer pago provisional del año."
+   },
+   {
+    "texto": "Presenta tus pagos provisionales en el portal del SAT, a más tardar el día 17 del mes siguiente."
+   },
+   {
+    "texto": "Presenta la declaración anual en abril."
+   }
+  ],
+  "ojo": [
+   "Si eliges la deducción opcional, aplica a todos los inmuebles que rentes.",
+   "Si tu inquilino es una empresa, puede retenerte una parte del ISR. Pídele la constancia."
+  ],
+  "si_no_puedes": "Un contador puede llevar las declaraciones de tu renta. Para dudas del trámite, llama a MarcaSAT al 55 627 22 728 o agenda cita en citas.sat.gob.mx.",
+  "fuentes": [
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-multas-y-recargos",
+  "necesidad": "impuestos",
+  "pregunta": "¿Cómo evito multas y recargos del SAT?",
+  "resumen": "Presenta tus declaraciones a tiempo aunque salgan en cero y paga dentro del plazo. Si te atrasas, regularízate antes de que el SAT te lo pida.",
+  "etiquetas": [
+   "sat",
+   "multas",
+   "recargos",
+   "fechas"
+  ],
+  "lo_que_necesitas": [
+   "Calendario o recordatorios",
+   "Contraseña o e.firma"
+  ],
+  "pasos": [
+   {
+    "texto": "Anota en tu calendario las fechas que te tocan: mensual si facturas y abril para la anual."
+   },
+   {
+    "texto": "Presenta la declaración aunque no hayas tenido ingresos ese mes, si estás obligado."
+   },
+   {
+    "texto": "Si no te alcanza para pagar todo, presenta la declaración de todas formas."
+   },
+   {
+    "texto": "Revisa tu buzón tributario una vez al mes."
+   },
+   {
+    "texto": "Si te atrasaste, presenta la declaración cuanto antes y paga actualización y recargos con la línea de captura."
+   }
+  ],
+  "ojo": [
+   "Cuando pagas tarde, se suman actualización por inflación y recargos. Crecen con el tiempo, así que conviene ponerse al día pronto.",
+   "Regularizarte por tu cuenta, antes de que el SAT te lo requiera, suele salir mejor que esperar.",
+   "En algunos casos el SAT permite pagar en parcialidades. Revisa la opción en el portal."
+  ],
+  "si_no_puedes": "Si ya tienes un adeudo grande, un contador puede ayudarte a calcularlo. Prodecon asesora gratis si te llega una multa que no entiendes.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/prodecon"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-cuando-contratar-contador",
+  "necesidad": "impuestos",
+  "pregunta": "¿Cuándo vale la pena contratar un contador?",
+  "resumen": "Si solo tienes sueldo, casi nunca. Si facturas cada mes, rentas un inmueble o tienes adeudos con el SAT, un contador te ahorra tiempo y errores.",
+  "etiquetas": [
+   "sat",
+   "contador",
+   "freelance"
+  ],
+  "lo_que_necesitas": [
+   "Tu Constancia de Situación Fiscal",
+   "Una idea de cuántas facturas emites al mes"
+  ],
+  "pasos": [
+   {
+    "texto": "Haz una lista de tus ingresos: nómina, facturas, rentas, plataformas."
+   },
+   {
+    "texto": "Si solo tienes nómina, intenta tú la anual con la precargada antes de pagar a alguien."
+   },
+   {
+    "texto": "Si facturas o rentas, pide cotización a dos o tres contadores."
+   },
+   {
+    "texto": "Pregunta qué incluye: declaraciones mensuales, anual, facturación, respuesta a cartas del SAT."
+   },
+   {
+    "texto": "Pide que te compartan los acuses de cada declaración que presenten."
+   }
+  ],
+  "ojo": [
+   "Los cobros varían mucho: una anual solo con sueldo suele costar poco y una iguala mensual cuesta más según cuántas facturas manejes. Compara antes de decidir.",
+   "No compartas tu e.firma si no hace falta. Para la mayoría de las declaraciones basta con la contraseña.",
+   "Aunque tengas contador, tú eres el responsable ante el SAT. Revisa los acuses."
+  ],
+  "si_no_puedes": "Si no puedes pagar un contador, Prodecon da asesoría fiscal gratuita y el SAT orienta en sus oficinas con cita y en MarcaSAT, 55 627 22 728.",
+  "fuentes": [
+   "gob.mx/prodecon",
+   "sat.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-agendar-cita",
+  "necesidad": "impuestos",
+  "pregunta": "¿Cómo agendo una cita en el SAT?",
+  "resumen": "Las citas se agendan gratis en citas.sat.gob.mx. Eliges el trámite, la oficina y el horario. Nadie debe cobrarte por una cita.",
+  "etiquetas": [
+   "sat",
+   "cita",
+   "oficina",
+   "tramite"
+  ],
+  "lo_que_necesitas": [
+   "RFC o CURP",
+   "Correo electrónico"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a citas.sat.gob.mx."
+   },
+   {
+    "texto": "Elige registrar cita para personas físicas."
+   },
+   {
+    "texto": "Escribe tu RFC o CURP y tu correo."
+   },
+   {
+    "texto": "Elige el trámite exacto que necesitas, por ejemplo e.firma."
+   },
+   {
+    "texto": "Elige la oficina, el día y la hora."
+   },
+   {
+    "texto": "Guarda el acuse de la cita y revisa qué documentos llevar."
+   }
+  ],
+  "ojo": [
+   "Si no ves fechas, vuelve a revisar otro día. Se liberan espacios con frecuencia.",
+   "Si alguien te ofrece citas a cambio de dinero, no es del SAT."
+  ],
+  "si_no_puedes": "Si no encuentras cita, llama a MarcaSAT al 55 627 22 728 para que te orienten o para ver si tu trámite se puede hacer en línea.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/sat"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "sat-no-presente-declaracion-regularizarme",
+  "necesidad": "impuestos",
+  "pregunta": "No presenté una declaración, ¿cómo me pongo al día?",
+  "resumen": "Puedes presentarla tarde. Hazlo cuanto antes, paga lo que salga con actualización y recargos, y guarda el acuse. Ponerte al día por tu cuenta suele salir mejor.",
+  "etiquetas": [
+   "sat",
+   "regularizacion",
+   "declaracion",
+   "omisiones"
+  ],
+  "lo_que_necesitas": [
+   "Contraseña o e.firma",
+   "Ingresos y facturas del periodo que falta"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a tu Opinión de cumplimiento en el portal del SAT para ver qué declaraciones te faltan."
+   },
+   {
+    "texto": "Empieza por la más antigua."
+   },
+   {
+    "texto": "Entra a la declaración que corresponda y elige el periodo atrasado."
+   },
+   {
+    "texto": "Captura o revisa los ingresos y envíala."
+   },
+   {
+    "texto": "Si sale a pagar, paga con la línea de captura en tu banco."
+   },
+   {
+    "texto": "Repite con cada periodo y vuelve a revisar tu Opinión de cumplimiento al final."
+   }
+  ],
+  "ojo": [
+   "Si solo tienes sueldo y no estabas obligado a declarar, puede que no debas nada. Revísalo antes de preocuparte.",
+   "El SAT a veces abre programas de regularización con facilidades. Revisa el portal."
+  ],
+  "si_no_puedes": "Si son varios años o no sabes por dónde empezar, un contador puede hacer el cálculo. Prodecon asesora gratis si ya te llegó un requerimiento.",
+  "fuentes": [
+   "sat.gob.mx",
+   "gob.mx/prodecon"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-fecha-corte-vs-limite-pago",
+  "necesidad": "dinero",
+  "pregunta": "¿Qué diferencia hay entre fecha de corte y fecha límite de pago de mi tarjeta?",
+  "resumen": "La fecha de corte cierra tu periodo de compras. La fecha límite es el último día para pagar. Si pagas el monto para no generar intereses antes del límite, no pagas intereses.",
+  "etiquetas": [
+   "tarjeta de credito",
+   "intereses",
+   "estado de cuenta"
+  ],
+  "lo_que_necesitas": [
+   "Tu estado de cuenta o la app del banco"
+  ],
+  "pasos": [
+   {
+    "texto": "Busca en tu estado de cuenta la fecha de corte y la fecha límite de pago."
+   },
+   {
+    "texto": "Busca también el renglón \"pago para no generar intereses\"."
+   },
+   {
+    "texto": "Paga ese monto completo antes de la fecha límite."
+   },
+   {
+    "texto": "Pon un recordatorio unos días antes de la fecha límite cada mes.",
+    "detalle": "O programa el pago automático desde tu cuenta de débito."
+   }
+  ],
+  "ojo": [
+   "El pago mínimo evita atrasos, pero te cobran intereses sobre el resto. Si pagas solo el mínimo, la deuda tarda mucho en bajar.",
+   "Las compras a meses sin intereses ya vienen incluidas en el pago para no generar intereses."
+  ],
+  "si_no_puedes": "Si no te alcanza para el pago para no generar intereses, paga lo más que puedas arriba del mínimo y llama al banco para pedir opciones. Condusef orienta gratis en el 55 53 400 999.",
+  "fuentes": [
+   "condusef.gob.mx",
+   "banxico.org.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-buro-de-credito-reporte-gratis",
+  "necesidad": "dinero",
+  "pregunta": "¿Qué es el Buró de Crédito y cómo veo mi reporte gratis?",
+  "resumen": "Es una empresa que guarda tu historial de créditos y pagos. Tienes derecho a pedir tu reporte gratis una vez cada 12 meses.",
+  "etiquetas": [
+   "buro de credito",
+   "historial",
+   "credito"
+  ],
+  "lo_que_necesitas": [
+   "Tu RFC o CURP",
+   "Datos de algún crédito que hayas tenido, si tienes"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra al sitio oficial burodecredito.com.mx escribiéndolo tú en el navegador."
+   },
+   {
+    "texto": "Elige solicitar tu Reporte de Crédito Especial."
+   },
+   {
+    "texto": "Llena tus datos y responde las preguntas de tus créditos."
+   },
+   {
+    "texto": "Revisa que todas las cuentas sean tuyas y que los pagos estén bien."
+   },
+   {
+    "texto": "Si algo está mal, presenta una reclamación desde el mismo sitio."
+   }
+  ],
+  "ojo": [
+   "Estar en el Buró no es malo. Ahí aparece todo tu historial, también el bueno.",
+   "Nadie puede borrarte del Buró a cambio de dinero. Condusef ha alertado sobre ese tipo de fraude."
+  ],
+  "si_no_puedes": "También puedes pedir tu reporte gratis a través de Condusef. Llama al 55 53 400 999 para que te orienten.",
+  "fuentes": [
+   "burodecredito.com.mx",
+   "condusef.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-afore-cual-es-mi-afore",
+  "necesidad": "dinero",
+  "pregunta": "¿Cómo sé en qué Afore estoy y cómo ahorro más para mi retiro?",
+  "resumen": "La Afore guarda el ahorro para tu retiro que se junta cuando trabajas con prestaciones. Localízala gratis con SARTEL, AforeWeb o la app AforeMóvil.",
+  "etiquetas": [
+   "afore",
+   "retiro",
+   "ahorro",
+   "consar"
+  ],
+  "lo_que_necesitas": [
+   "Tu NSS si cotizas en el IMSS, o tu CURP si cotizas en el ISSSTE",
+   "Correo electrónico"
+  ],
+  "pasos": [
+   {
+    "texto": "Llama a SARTEL al 55 1328 5000 o entra a aforeweb.com.mx en la sección Localiza tu Afore."
+   },
+   {
+    "texto": "Da tu NSS o CURP y anota en qué Afore estás."
+   },
+   {
+    "texto": "Descarga la app AforeMóvil y regístrate para ver tu saldo."
+   },
+   {
+    "texto": "Si quieres ahorrar más, haz aportaciones voluntarias desde la app o domicilia un monto fijo."
+   },
+   {
+    "texto": "Elige si es ahorro de corto plazo o de retiro.",
+    "detalle": "El de retiro puede ser deducible en tu declaración anual, con su propio tope."
+   }
+  ],
+  "ojo": [
+   "Solo puedes hacer una consulta de localización al día.",
+   "Si nunca elegiste Afore, te pudieron asignar una. Puedes cambiarte si otra te conviene más."
+  ],
+  "si_no_puedes": "Si no te encuentran con tu NSS o CURP, llama a SARTEL al 55 1328 5000 para que revisen tu caso. Condusef orienta si tienes un problema con tu Afore.",
+  "fuentes": [
+   "gob.mx/consar",
+   "aforeweb.com.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-presupuesto-simple",
+  "necesidad": "dinero",
+  "pregunta": "¿Cómo hago un presupuesto que sí pueda seguir?",
+  "resumen": "Anota lo que entra, separa lo fijo de lo variable y decide cuánto ahorras antes de gastar. Un presupuesto corto que revisas es mejor que uno perfecto que abandonas.",
+  "etiquetas": [
+   "presupuesto",
+   "ahorro",
+   "gastos"
+  ],
+  "lo_que_necesitas": [
+   "Tus estados de cuenta del último mes",
+   "Una hoja de cálculo, libreta o app"
+  ],
+  "pasos": [
+   {
+    "texto": "Escribe cuánto dinero te entra al mes, ya con descuentos."
+   },
+   {
+    "texto": "Lista tus gastos fijos: renta, servicios, transporte, deudas."
+   },
+   {
+    "texto": "Revisa tu último estado de cuenta y suma tus gastos variables por tipo: comida, salidas, compras."
+   },
+   {
+    "texto": "Decide una cantidad para ahorrar y apártala el día que cobras."
+   },
+   {
+    "texto": "Pon un límite a dos o tres gastos variables, no a todos."
+   },
+   {
+    "texto": "Revisa el presupuesto cada quincena durante cinco minutos."
+   }
+  ],
+  "ojo": [
+   "Si un mes te sales del presupuesto, ajusta el siguiente. No hace falta empezar de cero.",
+   "Pagar primero tus deudas con interés alto suele liberar más dinero a mediano plazo."
+  ],
+  "si_no_puedes": "Condusef tiene calculadoras y herramientas de presupuesto gratuitas en su sitio. Si tus deudas ya no te dejan cubrir lo básico, llama a Condusef al 55 53 400 999 para orientación.",
+  "fuentes": [
+   "condusef.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-fondo-de-emergencia",
+  "necesidad": "dinero",
+  "pregunta": "¿Qué es un fondo de emergencia y cuánto necesito?",
+  "resumen": "Es dinero apartado solo para imprevistos: perder el trabajo, una enfermedad, una reparación urgente. La meta es cubrir algunos meses de tus gastos básicos.",
+  "etiquetas": [
+   "ahorro",
+   "fondo de emergencia",
+   "imprevistos"
+  ],
+  "lo_que_necesitas": [
+   "Tu presupuesto o la suma de tus gastos básicos del mes",
+   "Una cuenta separada de la que usas diario"
+  ],
+  "pasos": [
+   {
+    "texto": "Suma tus gastos básicos de un mes: vivienda, comida, servicios, transporte y deudas."
+   },
+   {
+    "texto": "Pon una primera meta pequeña, por ejemplo un mes de esos gastos."
+   },
+   {
+    "texto": "Abre una cuenta de ahorro aparte, con disponibilidad inmediata."
+   },
+   {
+    "texto": "Programa una transferencia automática el día que cobras."
+   },
+   {
+    "texto": "Cuando llegues a la primera meta, sube a la siguiente."
+   }
+  ],
+  "ojo": [
+   "Revisa que la institución esté autorizada y protegida. El IPAB protege depósitos bancarios hasta cierto monto.",
+   "Si usas el fondo, no pasa nada. Para eso es. Vuelve a llenarlo poco a poco."
+  ],
+  "si_no_puedes": "Si ahora no te alcanza para ahorrar, empieza con una cantidad simbólica cada quincena. Condusef tiene comparadores de cuentas de ahorro en su sitio.",
+  "fuentes": [
+   "condusef.gob.mx",
+   "gob.mx/ipab"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-cargo-no-reconocido-tarjeta",
+  "necesidad": "dinero",
+  "pregunta": "Tengo un cargo que no reconozco en mi tarjeta, ¿qué hago?",
+  "resumen": "Llama a tu banco, reporta el cargo y bloquea la tarjeta. Luego presenta la aclaración por escrito en la Unidad Especializada del banco y guarda el folio.",
+  "etiquetas": [
+   "tarjeta",
+   "cargo no reconocido",
+   "aclaracion",
+   "condusef"
+  ],
+  "lo_que_necesitas": [
+   "Tu estado de cuenta o captura del cargo",
+   "Tu identificación"
+  ],
+  "pasos": [
+   {
+    "texto": "Llama al número que viene atrás de tu tarjeta o usa la app del banco."
+   },
+   {
+    "texto": "Reporta el cargo y pide bloquear o cancelar la tarjeta."
+   },
+   {
+    "texto": "Presenta la aclaración en la Unidad Especializada de Atención a Usuarios del banco, en sucursal o en línea."
+   },
+   {
+    "texto": "Pide tu acuse con folio, fecha y hora, y guárdalo."
+   },
+   {
+    "texto": "Revisa tu cuenta en los días siguientes para ver el abono."
+   }
+  ],
+  "ojo": [
+   "Reclama pronto. La ley te da 90 días naturales desde la fecha de corte o del cargo.",
+   "Según Condusef, el banco debe abonarte el monto mientras investiga y tiene hasta 45 días para responder. Mientras tanto, no puede cobrarte intereses moratorios por ese cargo ni reportarte al Buró."
+  ],
+  "si_no_puedes": "Si el banco no responde o te niega la aclaración, presenta tu queja ante Condusef. Su centro de atención es el 55 53 400 999.",
+  "fuentes": [
+   "condusef.gob.mx",
+   "gob.mx/condusef",
+   "banxico.org.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-meses-sin-intereses",
+  "necesidad": "dinero",
+  "pregunta": "¿Cuándo me conviene comprar a meses sin intereses?",
+  "resumen": "Conviene si la compra la ibas a hacer de todas formas, el precio es el mismo que de contado y la mensualidad cabe en tu presupuesto junto con las demás.",
+  "etiquetas": [
+   "tarjeta de credito",
+   "meses sin intereses",
+   "compras"
+  ],
+  "lo_que_necesitas": [
+   "El precio de contado",
+   "La lista de tus mensualidades actuales"
+  ],
+  "pasos": [
+   {
+    "texto": "Compara el precio a meses con el precio de contado."
+   },
+   {
+    "texto": "Suma la nueva mensualidad a las que ya pagas."
+   },
+   {
+    "texto": "Revisa que el total quepa en tu presupuesto sin dejar de ahorrar."
+   },
+   {
+    "texto": "Elige el plazo más corto que puedas pagar con calma."
+   },
+   {
+    "texto": "Anota en tu calendario cuándo termina cada compra a meses."
+   }
+  ],
+  "ojo": [
+   "Si no pagas completo el pago para no generar intereses, el banco puede cobrar intereses sobre el saldo. Ahí los meses dejan de ser gratis.",
+   "Varias compras pequeñas a meses se acumulan y reducen tu crédito disponible."
+  ],
+  "si_no_puedes": "Si ya tienes muchas mensualidades y no te alcanzan, habla con tu banco para revisar opciones de reestructura. Condusef orienta gratis en el 55 53 400 999.",
+  "fuentes": [
+   "condusef.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "din-identificar-fraudes-banco",
+  "necesidad": "dinero",
+  "pregunta": "¿Cómo distingo una llamada o mensaje falso del banco?",
+  "resumen": "Tu banco nunca te pide por teléfono, SMS o correo tus contraseñas, tu NIP, el código que te llega por mensaje ni que muevas dinero a otra cuenta.",
+  "etiquetas": [
+   "fraude",
+   "banco",
+   "seguridad",
+   "sms"
+  ],
+  "lo_que_necesitas": [
+   "El número oficial que viene atrás de tu tarjeta"
+  ],
+  "pasos": [
+   {
+    "texto": "Si te piden códigos, NIP o contraseñas, cuelga."
+   },
+   {
+    "texto": "No abras ligas de mensajes que dicen que tu cuenta está bloqueada."
+   },
+   {
+    "texto": "Llama tú al número que viene atrás de tu tarjeta para confirmar."
+   },
+   {
+    "texto": "Si diste datos, bloquea la tarjeta desde la app y cambia tus contraseñas."
+   },
+   {
+    "texto": "Reporta el intento a tu banco."
+   }
+  ],
+  "ojo": [
+   "Los fraudes suelen meter prisa: dicen que hay un cargo o un bloqueo. La prisa es la señal para colgar.",
+   "Lo mismo aplica al SAT: no pagues ni des datos por ligas que llegan por mensaje."
+  ],
+  "si_no_puedes": "Si ya te hicieron cargos, sigue los pasos de aclaración con tu banco. Condusef publica alertas de fraudes y orienta en el 55 53 400 999.",
+  "fuentes": [
+   "condusef.gob.mx",
+   "gob.mx/condusef"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-curp-consultar-descargar",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo consulto y descargo mi CURP?",
+  "resumen": "Entra a gob.mx/curp, busca con tu clave o con tus datos y descarga el PDF. No cuesta y no tienes que ir a ninguna oficina.",
+  "etiquetas": [
+   "curp",
+   "renapo",
+   "documentos"
+  ],
+  "lo_que_necesitas": [
+   "Tu nombre completo como aparece en tu acta",
+   "Fecha y estado de nacimiento",
+   "Tu CURP, si ya la sabes"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a gob.mx/curp desde tu celular o computadora."
+   },
+   {
+    "texto": "Elige si vas a buscar por clave CURP o por datos personales."
+   },
+   {
+    "texto": "Escribe tus datos tal como aparecen en tu acta de nacimiento.",
+    "detalle": "Acentos y segundos nombres cuentan. Si no sale a la primera, prueba con y sin acentos."
+   },
+   {
+    "texto": "Haz la verificación que te pide la página y da clic en buscar."
+   },
+   {
+    "texto": "Descarga el PDF."
+   },
+   {
+    "texto": "Guárdalo en una carpeta de documentos en tu celular y mándatelo por correo.",
+    "detalle": "Así lo tienes a la mano cuando te lo pidan en otro trámite."
+   }
+  ],
+  "ojo": [
+   "La consulta oficial no tiene costo. Si una página te cobra por \"tramitar\" tu CURP, no es la oficial.",
+   "Si ves un error en tus datos, la página no lo corrige. Eso se hace con el Registro Civil o con RENAPO."
+  ],
+  "si_no_puedes": "Ve al Registro Civil de tu municipio con tu acta de nacimiento y pide que revisen tu CURP. Ahí también te orientan si hay que corregir algo.",
+  "fuentes": [
+   "gob.mx/curp"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-ine-sacar-o-renovar",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo saco o renuevo mi credencial del INE?",
+  "resumen": "Haz cita en línea o por INETEL, ve al módulo con tus documentos originales y regresa por tu credencial al mismo módulo.",
+  "etiquetas": [
+   "ine",
+   "credencial",
+   "identificacion",
+   "cita"
+  ],
+  "lo_que_necesitas": [
+   "Acta de nacimiento",
+   "Identificación con foto",
+   "Comprobante de domicilio reciente",
+   "Tu CURP para hacer la cita",
+   "Tu credencial anterior, si renuevas"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa el año de vigencia impreso en tu credencial.",
+    "detalle": "También lo puedes consultar en listanominal.ine.mx."
+   },
+   {
+    "texto": "Revisa la lista de documentos aceptados en ine.mx, en la sección de credencial."
+   },
+   {
+    "texto": "Agenda tu cita en ine.mx o llamando a INETEL."
+   },
+   {
+    "texto": "Ubica tu módulo en ubicatumodulo.ine.mx y anota la dirección."
+   },
+   {
+    "texto": "Llega a tu cita con todos tus documentos en original."
+   },
+   {
+    "texto": "Guarda el comprobante que te entregan en el módulo."
+   },
+   {
+    "texto": "Regresa al mismo módulo por tu credencial cuando esté lista."
+   }
+  ],
+  "ojo": [
+   "Agenda solo en sitios ine.mx. Si alguien te cobra por conseguirte cita, no es un canal oficial.",
+   "Si tu credencial ya venció, muchos lugares ya no la aceptan como identificación. Conviene renovarla antes de necesitarla.",
+   "Si no tienes comprobante de domicilio o identificación con foto, el INE tiene opciones alternativas. Pregúntalas en INETEL antes de ir."
+  ],
+  "si_no_puedes": "Llama a INETEL al 800 433 2000, de lunes a viernes de 9:00 a 18:00. Te ayudan a agendar y a revisar qué documentos te sirven.",
+  "fuentes": [
+   "ine.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-ine-cambio-de-domicilio",
+  "necesidad": "tramites",
+  "pregunta": "Me mudé, ¿cómo cambio el domicilio de mi INE?",
+  "resumen": "Es un trámite en módulo con cita. Llevas tu credencial actual y un comprobante del nuevo domicilio, y te entregan una credencial nueva.",
+  "etiquetas": [
+   "ine",
+   "domicilio",
+   "mudanza"
+  ],
+  "lo_que_necesitas": [
+   "Tu credencial actual",
+   "Comprobante del nuevo domicilio",
+   "Tu CURP para la cita"
+  ],
+  "pasos": [
+   {
+    "texto": "Consigue un comprobante de domicilio a tu nombre o revisa en ine.mx qué otros documentos aceptan.",
+    "detalle": "Si rentas y los recibos no están a tu nombre, pregunta en INETEL qué alternativas hay."
+   },
+   {
+    "texto": "Agenda cita en ine.mx o por INETEL y elige \"cambio de domicilio\"."
+   },
+   {
+    "texto": "Ve al módulo que te quede cerca del nuevo domicilio."
+   },
+   {
+    "texto": "Entrega tu credencial anterior y tus documentos."
+   },
+   {
+    "texto": "Regresa por tu credencial nueva al mismo módulo cuando te avisen."
+   }
+  ],
+  "ojo": [
+   "Con tu nuevo domicilio cambia también la casilla donde votas.",
+   "Antes de cada elección el INE deja de hacer cambios por un tiempo. Si hay elecciones cerca, revisa las fechas en ine.mx."
+  ],
+  "si_no_puedes": "Llama a INETEL al 800 433 2000. Te dicen qué documentos te sirven y te ayudan a agendar.",
+  "fuentes": [
+   "ine.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-pasaporte-cita-y-requisitos",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo saco mi pasaporte?",
+  "resumen": "Haz cita en el portal de citas de la SRE, paga los derechos y ve en persona con tu identificación oficial y, si te la piden, tu acta de nacimiento.",
+  "etiquetas": [
+   "pasaporte",
+   "sre",
+   "viaje",
+   "cita"
+  ],
+  "lo_que_necesitas": [
+   "Identificación oficial vigente",
+   "Acta de nacimiento, si tu identificación no acredita nacionalidad mexicana",
+   "Comprobante de pago de derechos",
+   "Tu pasaporte anterior, si renuevas"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a citas.sre.gob.mx y crea tu cuenta."
+   },
+   {
+    "texto": "Agenda tu cita en la oficina de pasaportes que te quede mejor."
+   },
+   {
+    "texto": "Revisa en gob.mx/sre los requisitos y el costo vigentes para la vigencia que quieres."
+   },
+   {
+    "texto": "Paga los derechos como te indique la SRE y guarda el comprobante."
+   },
+   {
+    "texto": "Llega a tu cita con tus documentos en original.",
+    "detalle": "Ahí te toman foto y huellas, no necesitas llevar fotos."
+   },
+   {
+    "texto": "Revisa tus datos en la hoja que te muestran antes de firmar."
+   }
+  ],
+  "ojo": [
+   "Agenda solo en el portal oficial de la SRE. Hay páginas que cobran por citas que son gratuitas.",
+   "Puedes elegir entre varias vigencias. A más años, mayor costo. El precio cambia cada año.",
+   "Si tu pasaporte se perdió o te lo robaron, los requisitos son distintos. Revísalos antes de ir."
+  ],
+  "si_no_puedes": "Busca la oficina de enlace de la SRE en tu municipio o la delegación de la SRE en tu estado. Ahí te orientan con la cita y los requisitos.",
+  "fuentes": [
+   "sre.gob.mx",
+   "gob.mx/sre"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-licencia-de-conducir",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo saco o renuevo mi licencia de manejo?",
+  "resumen": "Cada estado tiene sus propios requisitos, costos y exámenes. Busca el trámite en el portal oficial de tu estado antes de ir.",
+  "etiquetas": [
+   "licencia",
+   "manejo",
+   "auto",
+   "estado"
+  ],
+  "lo_que_necesitas": [
+   "Identificación oficial",
+   "CURP",
+   "Comprobante de domicilio en tu estado",
+   "Lo que pida tu estado: examen, curso o certificado médico"
+  ],
+  "pasos": [
+   {
+    "texto": "Busca \"licencia de conducir\" y el nombre de tu estado, y entra solo a un sitio que termine en gob.mx."
+   },
+   {
+    "texto": "Elige el tipo de licencia que necesitas: automovilista, motociclista u otra."
+   },
+   {
+    "texto": "Haz la lista de documentos que te piden."
+   },
+   {
+    "texto": "Revisa si tu estado pide examen teórico, práctico o médico."
+   },
+   {
+    "texto": "Revisa si el trámite es en línea, con cita o en ventanilla."
+   },
+   {
+    "texto": "Paga en los medios oficiales que indique tu estado y guarda el comprobante."
+   },
+   {
+    "texto": "Ve a tu cita o a la oficina con tus documentos en original."
+   }
+  ],
+  "ojo": [
+   "En algunos estados puedes renovar en línea; en otros hay que ir en persona.",
+   "Si te mudaste de estado, revisa qué pide el estado nuevo para tramitar tu licencia ahí.",
+   "Evita gestores que ofrecen la licencia sin examen. Puede salir más caro y no ser válida."
+  ],
+  "si_no_puedes": "Llama o ve a la secretaría de movilidad, tránsito o finanzas de tu estado. Te dicen qué oficina te toca y qué llevar.",
+  "fuentes": [
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-acta-de-nacimiento-en-linea",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo saco mi acta de nacimiento en línea?",
+  "resumen": "Entra a gob.mx/ActaNacimiento, busca con tu CURP, paga en línea y descarga el PDF. El costo depende del estado donde te registraron.",
+  "etiquetas": [
+   "acta",
+   "nacimiento",
+   "registro civil",
+   "documentos"
+  ],
+  "lo_que_necesitas": [
+   "Tu CURP",
+   "Tarjeta o medio de pago en línea",
+   "Correo electrónico"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a gob.mx/ActaNacimiento."
+   },
+   {
+    "texto": "Escribe tu CURP y busca tu acta."
+   },
+   {
+    "texto": "Revisa que los datos que aparecen sean los tuyos."
+   },
+   {
+    "texto": "Paga con los medios que te ofrece la página."
+   },
+   {
+    "texto": "Descarga el PDF y guárdalo junto con tus otros documentos.",
+    "detalle": "Lo puedes imprimir en hoja blanca normal."
+   }
+  ],
+  "ojo": [
+   "Algunos trámites piden un acta reciente. Pregunta antes de imprimir una vieja.",
+   "Si tu acta no aparece en línea o tiene un error, eso se resuelve en el Registro Civil."
+  ],
+  "si_no_puedes": "Ve al Registro Civil de tu municipio con tu CURP. Ahí te dan el acta en ventanilla o te dicen por qué no sale en línea.",
+  "fuentes": [
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-nss-imss-sacar-o-recuperar",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo saco o recupero mi número de seguridad social (NSS)?",
+  "resumen": "Pídelo en imss.gob.mx o en la app IMSS Digital con tu CURP y un correo. Te llega por correo y no cuesta.",
+  "etiquetas": [
+   "imss",
+   "nss",
+   "seguro social"
+  ],
+  "lo_que_necesitas": [
+   "CURP",
+   "Correo electrónico personal"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a imss.gob.mx o abre la app IMSS Digital."
+   },
+   {
+    "texto": "Busca el trámite \"Asignación o localización de Número de Seguridad Social\"."
+   },
+   {
+    "texto": "Escribe tu CURP y tu correo."
+   },
+   {
+    "texto": "Abre tu correo y sigue el enlace de confirmación.",
+    "detalle": "Si no lo ves, revisa la carpeta de spam o no deseados."
+   },
+   {
+    "texto": "Descarga el documento con tu NSS y guárdalo."
+   }
+  ],
+  "ojo": [
+   "Tu NSS es uno solo para toda la vida. Si cambias de trabajo, das el mismo.",
+   "Usa un correo que sí revises. El IMSS lo liga a tu CURP."
+  ],
+  "si_no_puedes": "Llama al IMSS al 800 623 2323 o ve a tu subdelegación con identificación oficial, acta de nacimiento, CURP y comprobante de domicilio.",
+  "fuentes": [
+   "imss.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-semanas-cotizadas-imss",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo veo cuántas semanas he cotizado en el IMSS?",
+  "resumen": "Pide la constancia de semanas cotizadas en imss.gob.mx o en IMSS Digital con tu CURP, NSS y correo. Es gratis y sale al momento.",
+  "etiquetas": [
+   "imss",
+   "semanas cotizadas",
+   "pension",
+   "patron"
+  ],
+  "lo_que_necesitas": [
+   "CURP",
+   "NSS",
+   "Correo electrónico",
+   "Número de celular, si te lo pide la página"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a imss.gob.mx o a la app IMSS Digital."
+   },
+   {
+    "texto": "Busca \"Constancia de semanas cotizadas\"."
+   },
+   {
+    "texto": "Escribe tu CURP, tu NSS y tu correo."
+   },
+   {
+    "texto": "Abre el correo que te llega y descarga la constancia."
+   },
+   {
+    "texto": "Revisa que aparezcan todos tus trabajos y fechas."
+   },
+   {
+    "texto": "Compara el salario registrado con lo que de verdad ganabas.",
+    "detalle": "De ese salario dependen las incapacidades y la pensión."
+   }
+  ],
+  "ojo": [
+   "Si falta un periodo o el salario es menor al real, puedes pedir una constancia de aclaración. El IMSS puede tardar hasta 30 días hábiles en resolverla.",
+   "Si un patrón nunca te dio de alta, eso también se puede reclamar."
+  ],
+  "si_no_puedes": "Llama al IMSS al 800 623 2323 o ve a tu subdelegación con tu NSS, CURP e identificación. Si un patrón no te registró, Profedet te asesora sin costo.",
+  "fuentes": [
+   "imss.gob.mx",
+   "gob.mx/profedet"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-infonavit-cuanto-tengo",
+  "necesidad": "tramites",
+  "pregunta": "¿Cómo sé cuánto tengo ahorrado en el Infonavit?",
+  "resumen": "Regístrate en Mi Cuenta Infonavit con tu NSS y CURP. Ahí ves tu ahorro para vivienda y los movimientos de tus patrones.",
+  "etiquetas": [
+   "infonavit",
+   "vivienda",
+   "ahorro",
+   "patron"
+  ],
+  "lo_que_necesitas": [
+   "NSS",
+   "CURP",
+   "RFC",
+   "Correo electrónico o celular"
+  ],
+  "pasos": [
+   {
+    "texto": "Entra a infonavit.org.mx y busca Mi Cuenta Infonavit."
+   },
+   {
+    "texto": "Elige registrarte y escribe tu NSS, CURP y los datos que te pida."
+   },
+   {
+    "texto": "Confirma tu cuenta con el código o enlace que te llega."
+   },
+   {
+    "texto": "Entra y busca la sección de tu ahorro."
+   },
+   {
+    "texto": "Revisa que aparezcan aportaciones de cada trabajo formal que has tenido."
+   }
+  ],
+  "ojo": [
+   "Los trámites del Infonavit son gratuitos. No pagues a intermediarios que prometen sacar tu dinero.",
+   "Si un trabajo no aparece, puede que tu patrón no haya aportado. Revisa también tus semanas cotizadas en el IMSS."
+  ],
+  "si_no_puedes": "Llama a Infonatel (el número está en infonavit.org.mx) o ve a un Centro de Servicio Infonavit con tu NSS e identificación.",
+  "fuentes": [
+   "infonavit.org.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-cartilla-militar",
+  "necesidad": "tramites",
+  "pregunta": "¿Necesito la cartilla militar y cómo la saco?",
+  "resumen": "Es un trámite para hombres mexicanos a partir de los 18 años. Se inicia en la Junta Municipal de Reclutamiento de tu municipio o alcaldía.",
+  "etiquetas": [
+   "cartilla",
+   "servicio militar",
+   "sedena"
+  ],
+  "lo_que_necesitas": [
+   "Acta de nacimiento",
+   "CURP",
+   "Comprobante de domicilio",
+   "Lo que pida tu Junta Municipal, como fotos o comprobante de estudios"
+  ],
+  "pasos": [
+   {
+    "texto": "Ubica la Junta Municipal de Reclutamiento de tu municipio o alcaldía."
+   },
+   {
+    "texto": "Pregunta las fechas de registro y la lista de documentos.",
+    "detalle": "Los requisitos y fechas pueden variar por municipio."
+   },
+   {
+    "texto": "Lleva tus documentos y haz tu registro."
+   },
+   {
+    "texto": "Sigue las indicaciones que te den para el sorteo y el servicio."
+   },
+   {
+    "texto": "Guarda tu cartilla en un lugar seguro cuando la recibas."
+   }
+  ],
+  "ojo": [
+   "Pocos trámites la piden hoy, pero algunos empleos públicos sí. Revisa si la necesitas antes de hacer el trámite con prisa."
+  ],
+  "si_no_puedes": "Pregunta directamente en tu presidencia municipal o alcaldía por la Junta de Reclutamiento. Si te pasaste de la edad, ahí te dicen cómo hacerlo como remiso.",
+  "fuentes": [
+   "gob.mx/defensa"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-aguinaldo-minimo-y-fecha",
+  "necesidad": "trabajo",
+  "pregunta": "¿Cuánto me toca de aguinaldo y cuándo me lo deben pagar?",
+  "resumen": "Por ley, al menos 15 días de salario, pagados antes del 20 de diciembre. Si no cumpliste el año, te toca la parte proporcional.",
+  "etiquetas": [
+   "aguinaldo",
+   "prestaciones",
+   "diciembre"
+  ],
+  "lo_que_necesitas": [
+   "Tu salario diario",
+   "Tu fecha de ingreso"
+  ],
+  "pasos": [
+   {
+    "texto": "Saca tu salario diario: divide tu sueldo mensual entre 30."
+   },
+   {
+    "texto": "Multiplica tu salario diario por 15.",
+    "detalle": "Ese es el mínimo legal por un año completo. Tu contrato puede darte más."
+   },
+   {
+    "texto": "Si no trabajaste el año completo, divide ese resultado entre 365 y multiplícalo por los días que trabajaste."
+   },
+   {
+    "texto": "Revisa tu recibo de diciembre y compara."
+   },
+   {
+    "texto": "Si no llegó antes del 20 de diciembre, pídelo por escrito a Recursos Humanos y guarda una copia."
+   }
+  ],
+  "ojo": [
+   "También te toca la parte proporcional si dejaste el trabajo antes de diciembre. Va en tu finiquito.",
+   "Tienes un año para reclamarlo. Mejor no dejarlo pasar."
+  ],
+  "si_no_puedes": "Pide asesoría gratuita en Profedet (gob.mx/profedet) o en la Procuraduría de la Defensa del Trabajo de tu estado. Te ayudan a calcularlo y a reclamarlo.",
+  "fuentes": [
+   "diputados.gob.mx",
+   "gob.mx/profedet"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-vacaciones-dias-por-antiguedad",
+  "necesidad": "trabajo",
+  "pregunta": "¿Cuántos días de vacaciones me tocan?",
+  "resumen": "Desde 2023, al cumplir un año te tocan al menos 12 días. Suben 2 por año hasta 20, y después 2 más por cada 5 años.",
+  "etiquetas": [
+   "vacaciones",
+   "antiguedad",
+   "prestaciones",
+   "ley federal del trabajo"
+  ],
+  "lo_que_necesitas": [
+   "Tu fecha de ingreso"
+  ],
+  "pasos": [
+   {
+    "texto": "Cuenta cuántos años completos llevas en tu trabajo."
+   },
+   {
+    "texto": "Busca tus días: 1 año, 12 días; 2 años, 14; 3 años, 16; 4 años, 18; 5 años, 20."
+   },
+   {
+    "texto": "Del año 6 al 10 son 22 días; del 11 al 15, 24; del 16 al 20, 26; y así sigue, 2 días más cada 5 años."
+   },
+   {
+    "texto": "Pide a tu empresa la constancia anual de antigüedad y vacaciones.",
+    "detalle": "La ley dice que el patrón debe entregarla cada año."
+   },
+   {
+    "texto": "Pide tus días por escrito o por correo y guarda la respuesta."
+   }
+  ],
+  "ojo": [
+   "Al menos 12 de tus días deben ser seguidos, si tú así lo quieres. El resto lo puedes repartir.",
+   "Las vacaciones no se cambian por dinero mientras sigues trabajando. Solo se pagan las proporcionales si termina la relación.",
+   "El patrón debe darte tus vacaciones dentro de los seis meses siguientes a que cumples cada año."
+  ],
+  "si_no_puedes": "Si te niegan tus días, pide asesoría gratuita en Profedet (gob.mx/profedet) o en la Procuraduría de la Defensa del Trabajo de tu estado.",
+  "fuentes": [
+   "diputados.gob.mx",
+   "gob.mx/profedet"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-prima-vacacional",
+  "necesidad": "trabajo",
+  "pregunta": "¿Qué es la prima vacacional y cuánto me toca?",
+  "resumen": "Es un pago extra de al menos 25 % del salario de tus días de vacaciones. Se suma a tu sueldo normal.",
+  "etiquetas": [
+   "prima vacacional",
+   "vacaciones",
+   "prestaciones"
+  ],
+  "lo_que_necesitas": [
+   "Tu salario diario",
+   "Cuántos días de vacaciones te tocan"
+  ],
+  "pasos": [
+   {
+    "texto": "Multiplica tu salario diario por tus días de vacaciones del año."
+   },
+   {
+    "texto": "Multiplica ese resultado por 0.25.",
+    "detalle": "Ejemplo: 400 pesos diarios por 12 días son 4,800. El 25 % son 1,200 pesos de prima."
+   },
+   {
+    "texto": "Busca la prima vacacional en tu recibo de nómina."
+   },
+   {
+    "texto": "Si no aparece, pregunta por escrito a Recursos Humanos cuándo te la pagan."
+   }
+  ],
+  "ojo": [
+   "El 25 % es el mínimo. Tu contrato puede darte más.",
+   "Si dejas el trabajo, la parte proporcional de la prima va en tu finiquito."
+  ],
+  "si_no_puedes": "Pide asesoría gratuita en Profedet (gob.mx/profedet) o en la Procuraduría de la Defensa del Trabajo de tu estado.",
+  "fuentes": [
+   "diputados.gob.mx",
+   "gob.mx/profedet"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-finiquito-vs-liquidacion",
+  "necesidad": "trabajo",
+  "pregunta": "¿Qué diferencia hay entre finiquito y liquidación?",
+  "resumen": "El finiquito es lo que ya ganaste y te toca siempre. La liquidación suma una indemnización cuando te despiden sin causa justificada.",
+  "etiquetas": [
+   "finiquito",
+   "liquidacion",
+   "despido",
+   "renuncia"
+  ],
+  "lo_que_necesitas": [
+   "Tu fecha de ingreso",
+   "Tu salario diario",
+   "Tus últimos recibos de nómina"
+  ],
+  "pasos": [
+   {
+    "texto": "Haz la lista de tu finiquito: salario pendiente, aguinaldo proporcional, vacaciones no tomadas y su prima vacacional."
+   },
+   {
+    "texto": "Si te despidieron sin causa, suma la indemnización de tres meses de salario."
+   },
+   {
+    "texto": "Suma la prima de antigüedad: 12 días de salario por año trabajado.",
+    "detalle": "Al ser despedido te toca siempre. Si renuncias, solo con 15 años o más de antigüedad."
+   },
+   {
+    "texto": "Revisa si, por tu caso, también aplican 20 días por año.",
+    "detalle": "No aplica siempre. Profedet te dice si te corresponde."
+   },
+   {
+    "texto": "Compara tu cálculo con lo que te ofrecen antes de firmar."
+   }
+  ],
+  "ojo": [
+   "No firmes nada que no entiendas ni hojas en blanco. Pide tiempo para revisarlo.",
+   "Si te despidieron, tienes dos meses para reclamar. El plazo corre desde el día siguiente al despido.",
+   "Por ley no puedes renunciar a salarios ni prestaciones que ya ganaste, aunque firmes algo que diga lo contrario."
+  ],
+  "si_no_puedes": "Lleva tus recibos a Profedet (gob.mx/profedet) o a la Procuraduría de la Defensa del Trabajo de tu estado. Te hacen el cálculo y te representan sin costo.",
+  "fuentes": [
+   "diputados.gob.mx",
+   "gob.mx/profedet"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-revisar-contrato-laboral",
+  "necesidad": "trabajo",
+  "pregunta": "¿Qué reviso en un contrato de trabajo antes de firmarlo?",
+  "resumen": "Revisa tipo de contrato, puesto, lugar, horario, salario, día de pago y prestaciones. Pide copia firmada para ti.",
+  "etiquetas": [
+   "contrato",
+   "trabajo nuevo",
+   "prestaciones"
+  ],
+  "lo_que_necesitas": [
+   "El contrato completo",
+   "Una hora sin prisa para leerlo"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa que tus datos y los de la empresa estén correctos."
+   },
+   {
+    "texto": "Busca el tipo de contrato: por tiempo indeterminado, determinado, por obra o con periodo de prueba."
+   },
+   {
+    "texto": "Lee qué puesto y qué tareas dice que harás."
+   },
+   {
+    "texto": "Revisa el lugar o lugares de trabajo."
+   },
+   {
+    "texto": "Revisa el horario y los días de descanso."
+   },
+   {
+    "texto": "Confirma el salario, cómo te lo pagan y cada cuándo."
+   },
+   {
+    "texto": "Busca vacaciones, aguinaldo y cualquier prestación extra que te prometieron."
+   },
+   {
+    "texto": "Pide una copia firmada por ambas partes y guárdala."
+   }
+  ],
+  "ojo": [
+   "El periodo de prueba no puede pasar de 30 días, salvo puestos de dirección o muy especializados, donde puede llegar a 180.",
+   "Durante la prueba sí tienes salario, seguro social y prestaciones.",
+   "Si te piden firmar una renuncia sin fecha junto con el contrato, eso no es normal. Pide asesoría."
+  ],
+  "si_no_puedes": "Si algo no te queda claro, lleva el contrato a Profedet (gob.mx/profedet) o a la Procuraduría de la Defensa del Trabajo de tu estado. La revisión es gratuita.",
+  "fuentes": [
+   "diputados.gob.mx",
+   "gob.mx/profedet"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-recibo-de-nomina",
+  "necesidad": "trabajo",
+  "pregunta": "¿Cómo leo mi recibo de nómina?",
+  "resumen": "Arriba van tus datos, luego lo que ganas (percepciones), lo que te descuentan (deducciones) y al final lo que te depositan (neto).",
+  "etiquetas": [
+   "nomina",
+   "recibo",
+   "sueldo",
+   "descuentos"
+  ],
+  "lo_que_necesitas": [
+   "Tu recibo más reciente, en PDF o impreso"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa tus datos: nombre, CURP, NSS y fecha de ingreso."
+   },
+   {
+    "texto": "Revisa el periodo de pago: de qué fecha a qué fecha."
+   },
+   {
+    "texto": "Lee las percepciones: sueldo, horas extra, bonos, prima vacacional o aguinaldo."
+   },
+   {
+    "texto": "Lee las deducciones: impuesto retenido, cuota del IMSS y, si tienes, crédito Infonavit o Fonacot."
+   },
+   {
+    "texto": "Revisa el neto: es lo que debe llegar a tu cuenta."
+   },
+   {
+    "texto": "Compara el neto con tu depósito real."
+   }
+  ],
+  "ojo": [
+   "Si ves un descuento que no reconoces, pregunta por escrito qué es.",
+   "Si tu sueldo en el recibo es menor al que te pagan de verdad, afecta tu IMSS, tu Infonavit y tu pensión.",
+   "Guarda tus recibos. Te sirven si algún día hay que reclamar algo."
+  ],
+  "si_no_puedes": "Pregunta a Recursos Humanos por correo para que quede por escrito. Si no te aclaran, pide asesoría gratuita en Profedet (gob.mx/profedet).",
+  "fuentes": [
+   "gob.mx/profedet",
+   "imss.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-no-me-pagan-que-hago",
+  "necesidad": "trabajo",
+  "pregunta": "No me pagan, ¿qué hago?",
+  "resumen": "Pide el pago por escrito y guarda pruebas. Si no responden, busca asesoría gratuita en Profedet o en la procuraduría laboral de tu estado.",
+  "etiquetas": [
+   "salario",
+   "reclamo",
+   "profedet",
+   "conciliacion"
+  ],
+  "lo_que_necesitas": [
+   "Recibos de nómina o estados de cuenta",
+   "Mensajes o correos con tu jefe o con Recursos Humanos",
+   "Tu contrato, si lo tienes",
+   "Nombre y dirección de la empresa"
+  ],
+  "pasos": [
+   {
+    "texto": "Escribe un correo o mensaje pidiendo el pago pendiente, con montos y fechas."
+   },
+   {
+    "texto": "Guarda capturas de pantalla, recibos y estados de cuenta en una carpeta."
+   },
+   {
+    "texto": "Si no te responden en unos días, pide asesoría gratuita en Profedet o en la procuraduría de tu estado.",
+    "detalle": "Profedet atiende empresas de jurisdicción federal; la procuraduría estatal atiende las demás. Cualquiera de las dos te orienta."
+   },
+   {
+    "texto": "Con su ayuda, presenta tu solicitud ante el Centro de Conciliación que te corresponda.",
+    "detalle": "La conciliación es el paso obligatorio antes de un juicio laboral."
+   },
+   {
+    "texto": "Ve a la audiencia de conciliación con tus pruebas."
+   }
+  ],
+  "ojo": [
+   "En general tienes un año para reclamar pagos que te deben. Si te despidieron, el plazo es de dos meses.",
+   "La asesoría y la representación en Profedet no tienen costo. Desconfía de quien te cobre por adelantado por \"ganar\" tu caso."
+  ],
+  "si_no_puedes": "Si te cuesta dar el primer paso, empieza solo por llamar o escribir a Profedet (contacto en gob.mx/profedet) y contar qué pasó. Ellos te dicen lo que sigue.",
+  "fuentes": [
+   "gob.mx/profedet",
+   "diputados.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-renunciar-bien",
+  "necesidad": "trabajo",
+  "pregunta": "¿Cómo renuncio bien a mi trabajo?",
+  "resumen": "Entrega una carta de renuncia con fecha y quédate con una copia firmada de recibido. Después revisa tu finiquito antes de firmarlo.",
+  "etiquetas": [
+   "renuncia",
+   "finiquito",
+   "carta"
+  ],
+  "lo_que_necesitas": [
+   "Carta de renuncia en dos copias",
+   "Tus últimos recibos de nómina"
+  ],
+  "pasos": [
+   {
+    "texto": "Escribe una carta corta: tu nombre, puesto, fecha de tu último día y que renuncias de forma voluntaria."
+   },
+   {
+    "texto": "Imprime dos copias y fírmalas."
+   },
+   {
+    "texto": "Entrega una a tu jefe o a Recursos Humanos y pide que firmen y sellen tu copia de recibido."
+   },
+   {
+    "texto": "Pregunta cuándo y cómo te van a pagar el finiquito."
+   },
+   {
+    "texto": "Haz tu propio cálculo del finiquito para comparar."
+   },
+   {
+    "texto": "Revisa el finiquito que te entregan antes de firmarlo."
+   },
+   {
+    "texto": "Pide tu constancia laboral y, si lo necesitas, una carta de recomendación."
+   }
+  ],
+  "ojo": [
+   "Avisar con tiempo es buena costumbre y ayuda a salir en buenos términos. Revisa si tu contrato pide un aviso previo.",
+   "Tu finiquito incluye salario pendiente, aguinaldo, vacaciones y prima vacacional proporcionales. Te toca aunque renuncies.",
+   "No firmes un finiquito con el que no estás de acuerdo. Puedes pedir tiempo para revisarlo."
+  ],
+  "si_no_puedes": "Si no te quieren recibir la carta o el finiquito no cuadra, pide asesoría gratuita en Profedet (gob.mx/profedet) o en la procuraduría laboral de tu estado.",
+  "fuentes": [
+   "gob.mx/profedet",
+   "diputados.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-rentar-un-depa",
+  "necesidad": "vivienda",
+  "pregunta": "¿Qué tengo que saber para rentar un departamento?",
+  "resumen": "Define cuánto puedes pagar, visita en persona, pregunta todo y firma contrato antes de dar dinero. Ten listo aval, fiador o póliza jurídica.",
+  "etiquetas": [
+   "renta",
+   "departamento",
+   "contrato",
+   "aval",
+   "poliza juridica"
+  ],
+  "lo_que_necesitas": [
+   "Identificación oficial",
+   "Comprobantes de ingresos",
+   "Aval o fiador, o dinero para una póliza jurídica",
+   "Dinero para el depósito y el primer mes"
+  ],
+  "pasos": [
+   {
+    "texto": "Define un monto de renta que puedas pagar cada mes sin contar ingresos inciertos."
+   },
+   {
+    "texto": "Visita el lugar en persona, de preferencia de día y con alguien más."
+   },
+   {
+    "texto": "Pregunta qué incluye la renta: mantenimiento, agua, gas, estacionamiento."
+   },
+   {
+    "texto": "Pregunta cuánto piden de depósito y en qué condiciones lo regresan."
+   },
+   {
+    "texto": "Pregunta si piden aval con propiedad, fiador o póliza jurídica, y quién la paga."
+   },
+   {
+    "texto": "Lee el contrato completo: duración, monto, aumentos, reparaciones y cómo terminarlo antes."
+   },
+   {
+    "texto": "Firma el contrato y pide recibo por cada pago."
+   }
+  ],
+  "ojo": [
+   "No transfieras depósito ni anticipo sin haber visto el lugar y el contrato. Es un fraude común en anuncios.",
+   "Confirma que quien te renta es el dueño o tiene permiso por escrito para rentar.",
+   "La póliza jurídica es un servicio legal que sustituye al aval. Compara precios; cada empresa cobra distinto."
+  ],
+  "si_no_puedes": "Si el contrato te genera dudas, llévalo a una clínica jurídica universitaria o a la defensoría pública de tu estado antes de firmar. Muchas orientan sin costo.",
+  "fuentes": [
+   "profeco.gob.mx",
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-checklist-recibir-llaves",
+  "necesidad": "vivienda",
+  "pregunta": "¿Qué reviso cuando recibo las llaves de mi depa?",
+  "resumen": "Antes de meter tus cosas, toma fotos y video de todo, prueba lo que funciona y manda la lista al casero por escrito.",
+  "etiquetas": [
+   "renta",
+   "inventario",
+   "llaves",
+   "deposito"
+  ],
+  "lo_que_necesitas": [
+   "Celular con cámara",
+   "Una lista o nota para apuntar"
+  ],
+  "pasos": [
+   {
+    "texto": "Graba un video recorriendo cada cuarto antes de meter tus cosas."
+   },
+   {
+    "texto": "Toma fotos de paredes, pisos, ventanas y cualquier daño que ya exista."
+   },
+   {
+    "texto": "Abre las llaves de agua y revisa que no goteen ni haya humedad."
+   },
+   {
+    "texto": "Prueba contactos, apagadores y el centro de carga."
+   },
+   {
+    "texto": "Revisa la estufa, el boiler y el tanque de gas."
+   },
+   {
+    "texto": "Prueba todas las cerraduras y cuenta las llaves que te dieron."
+   },
+   {
+    "texto": "Toma foto de las lecturas de los medidores de luz, agua y gas."
+   },
+   {
+    "texto": "Manda fotos y lista al casero por correo o WhatsApp el mismo día."
+   }
+  ],
+  "ojo": [
+   "Ese mensaje con fecha es tu prueba de cómo recibiste el lugar. Te sirve para recuperar tu depósito.",
+   "Si hay un inventario de muebles, pide que lo firmen los dos."
+  ],
+  "si_no_puedes": "Si no te da tiempo de revisar todo el primer día, al menos graba el video y manda un mensaje diciendo que la revisión completa va en los siguientes días.",
+  "fuentes": [
+   "profeco.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-recuperar-deposito-renta",
+  "necesidad": "vivienda",
+  "pregunta": "¿Cómo recupero mi depósito al dejar el depa?",
+  "resumen": "Avisa por escrito con anticipación, entrega el lugar limpio y con servicios pagados, y pide la fecha de devolución por escrito.",
+  "etiquetas": [
+   "deposito",
+   "renta",
+   "mudanza"
+  ],
+  "lo_que_necesitas": [
+   "Tu contrato",
+   "Fotos y video de cuando llegaste",
+   "Últimos recibos de luz, agua y gas pagados"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa en tu contrato con cuánto tiempo debes avisar que te vas."
+   },
+   {
+    "texto": "Avisa al casero por escrito, por correo o WhatsApp, con la fecha de salida."
+   },
+   {
+    "texto": "Repara daños pequeños que hayas causado, como hoyos de clavos."
+   },
+   {
+    "texto": "Limpia el lugar."
+   },
+   {
+    "texto": "Paga los últimos recibos de servicios y guarda los comprobantes."
+   },
+   {
+    "texto": "Toma fotos y video del lugar vacío el día que entregas."
+   },
+   {
+    "texto": "Entrega las llaves y pide que firmen que las recibieron."
+   },
+   {
+    "texto": "Pide por escrito la fecha en que te devolverán el depósito."
+   }
+  ],
+  "ojo": [
+   "El desgaste por uso normal, como pintura gastada, en general no debería descontarse del depósito.",
+   "Si el casero descuenta algo, pide el detalle por escrito con comprobantes."
+  ],
+  "si_no_puedes": "Si no te lo devuelven, busca el centro de mediación o justicia alternativa del poder judicial de tu estado, o asesoría gratuita en una clínica jurídica universitaria.",
+  "fuentes": [
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-luz-cfe-recibo-bimestral",
+  "necesidad": "vivienda",
+  "pregunta": "¿Cómo pago la luz y cómo entiendo mi recibo de CFE?",
+  "resumen": "El recibo doméstico llega cada dos meses. Págalo en la app o el sitio de CFE, en bancos o tiendas, y revisa los kWh que consumiste.",
+  "etiquetas": [
+   "cfe",
+   "luz",
+   "recibo",
+   "servicios"
+  ],
+  "lo_que_necesitas": [
+   "Tu número de servicio, que viene en el recibo"
+  ],
+  "pasos": [
+   {
+    "texto": "Busca en tu recibo el número de servicio y guárdalo en tu celular."
+   },
+   {
+    "texto": "Revisa la fecha límite de pago."
+   },
+   {
+    "texto": "Revisa el periodo: normalmente abarca dos meses."
+   },
+   {
+    "texto": "Mira los kWh consumidos y compáralos con la gráfica de periodos anteriores."
+   },
+   {
+    "texto": "Paga en cfe.mx, en la app de CFE, en tu banco o en una tienda de conveniencia."
+   },
+   {
+    "texto": "Guarda el comprobante de pago."
+   }
+  ],
+  "ojo": [
+   "Si consumes mucho de forma constante, CFE puede cambiarte a una tarifa de alto consumo, que es más cara. Si tu recibo subió de golpe, revisa eso.",
+   "Si el contrato de luz está a nombre del dueño, no es un problema para pagarlo. Solo necesitas el número de servicio.",
+   "Nadie de CFE debe cobrarte en persona en tu casa."
+  ],
+  "si_no_puedes": "Si el cobro no te cuadra, ve a un centro de atención de CFE con tu recibo o llama al 071 para pedir revisión del medidor.",
+  "fuentes": [
+   "cfe.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-gas-estacionario-o-cilindro",
+  "necesidad": "vivienda",
+  "pregunta": "¿Cómo funciona el gas en mi casa: estacionario o cilindro?",
+  "resumen": "Con tanque estacionario pides una pipa y pagas por litro. Con cilindro cambias el tanque cuando se acaba y pagas por kilo.",
+  "etiquetas": [
+   "gas",
+   "pipa",
+   "cilindro",
+   "servicios"
+  ],
+  "lo_que_necesitas": [
+   "Saber qué tipo de tanque tienes",
+   "Teléfono de una gasera de tu zona"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa en la azotea o el patio si tienes tanque fijo o cilindro."
+   },
+   {
+    "texto": "Si es estacionario, revisa el medidor del tanque: marca el porcentaje que queda."
+   },
+   {
+    "texto": "Pide la pipa cuando esté cerca de 20 a 30 % para no quedarte sin gas."
+   },
+   {
+    "texto": "Antes de que surtan, fíjate que el marcador de la pipa empiece en cero."
+   },
+   {
+    "texto": "Si es cilindro, revisa que el nuevo tenga sello y no esté golpeado."
+   },
+   {
+    "texto": "Pide siempre tu nota o comprobante."
+   }
+  ],
+  "ojo": [
+   "Revisa de vez en cuando mangueras y conexiones con agua y jabón: si salen burbujas, hay fuga.",
+   "Si hueles gas, no prendas nada y sal del lugar. Hay una guía para eso en la sección de casa."
+  ],
+  "si_no_puedes": "Si te cobraron de más o no te surtieron lo que pagaste, presenta una queja en Profeco (profeco.gob.mx) con tu nota.",
+  "fuentes": [
+   "profeco.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-internet-contratar-y-cancelar",
+  "necesidad": "vivienda",
+  "pregunta": "¿Cómo contrato internet y cómo lo cancelo sin que me cobren de más?",
+  "resumen": "Antes de contratar revisa el plazo forzoso. Para cancelar, pide siempre un folio y devuelve el equipo con comprobante.",
+  "etiquetas": [
+   "internet",
+   "telecomunicaciones",
+   "contrato",
+   "cancelar",
+   "profeco"
+  ],
+  "lo_que_necesitas": [
+   "Identificación oficial",
+   "Tu contrato o número de cuenta",
+   "Comprobante de domicilio, si te lo piden"
+  ],
+  "pasos": [
+   {
+    "texto": "Compara velocidad, precio y si el precio sube después de unos meses."
+   },
+   {
+    "texto": "Pregunta si hay plazo forzoso y cuánto dura."
+   },
+   {
+    "texto": "Pide copia del contrato y guárdala."
+   },
+   {
+    "texto": "Para cancelar, revisa si ya terminó tu plazo forzoso."
+   },
+   {
+    "texto": "Pide la cancelación por el mismo medio en que contrataste, si te es posible."
+   },
+   {
+    "texto": "Anota el folio de cancelación."
+   },
+   {
+    "texto": "Devuelve el módem o equipo y pide comprobante de entrega."
+   },
+   {
+    "texto": "Revisa tu siguiente estado de cuenta para que no haya cargos nuevos."
+   }
+  ],
+  "ojo": [
+   "Si cancelas antes de terminar el plazo forzoso, puede haber una penalización. Lo dice tu contrato.",
+   "Si el servicio nunca funcionó o te cambiaron condiciones sin avisarte, puede no haber penalización."
+  ],
+  "si_no_puedes": "Si no te dejan cancelar o te siguen cobrando, presenta una queja en Profeco (profeco.gob.mx) con tu contrato, folio y comprobantes.",
+  "fuentes": [
+   "profeco.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-casero-no-repara",
+  "necesidad": "vivienda",
+  "pregunta": "¿Qué hago si el casero no repara algo?",
+  "resumen": "Avísale por escrito con fotos y un plazo razonable. Guarda todo. Si no responde, busca mediación o asesoría jurídica gratuita.",
+  "etiquetas": [
+   "renta",
+   "reparaciones",
+   "casero"
+  ],
+  "lo_que_necesitas": [
+   "Tu contrato",
+   "Fotos o video del problema"
+  ],
+  "pasos": [
+   {
+    "texto": "Revisa en tu contrato quién paga qué tipo de reparaciones."
+   },
+   {
+    "texto": "Toma fotos o video del problema."
+   },
+   {
+    "texto": "Escribe al casero por correo o WhatsApp: qué falla, desde cuándo y qué pides."
+   },
+   {
+    "texto": "Propón un plazo, por ejemplo una semana, o menos si es urgente."
+   },
+   {
+    "texto": "Si no responde, manda un segundo mensaje recordando el primero."
+   },
+   {
+    "texto": "Guarda todos los mensajes en una carpeta."
+   }
+  ],
+  "ojo": [
+   "En general, al dueño le toca mantener el lugar en condiciones de uso. Los daños que causas tú te tocan a ti.",
+   "No dejes de pagar la renta por tu cuenta sin asesoría. Eso puede ponerte en desventaja."
+  ],
+  "si_no_puedes": "Busca el centro de mediación o justicia alternativa del poder judicial de tu estado, o asesoría gratuita en la defensoría pública o en una clínica jurídica universitaria.",
+  "fuentes": [
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-alta-imss-y-clinica",
+  "necesidad": "salud",
+  "pregunta": "¿Cómo me doy de alta en mi clínica del IMSS?",
+  "resumen": "Tu patrón te registra en el IMSS. Tú te das de alta en tu Unidad de Medicina Familiar (UMF) desde la app IMSS Digital con tu CURP y correo.",
+  "etiquetas": [
+   "imss",
+   "umf",
+   "clinica",
+   "derechohabiente"
+  ],
+  "lo_que_necesitas": [
+   "CURP",
+   "NSS",
+   "Correo electrónico personal",
+   "Tu código postal"
+  ],
+  "pasos": [
+   {
+    "texto": "Confirma con Recursos Humanos que ya te dieron de alta en el IMSS."
+   },
+   {
+    "texto": "Descarga la app IMSS Digital o entra a imss.gob.mx."
+   },
+   {
+    "texto": "Busca la opción \"Alta o cambio de clínica\"."
+   },
+   {
+    "texto": "Escribe tu CURP, tu correo y tu código postal."
+   },
+   {
+    "texto": "Elige tu UMF y tu turno."
+   },
+   {
+    "texto": "Guarda el comprobante con el nombre de tu clínica y tu consultorio."
+   }
+  ],
+  "ojo": [
+   "La clínica te toca según tu domicilio. Si te mudas, puedes cambiarla por el mismo medio.",
+   "El alta en la clínica puede tardar un poco en activarse. Hazla antes de necesitar una consulta."
+  ],
+  "si_no_puedes": "Ve al área de Afiliación y Vigencia de la UMF más cercana con tu CURP e identificación, o llama al IMSS al 800 623 2323.",
+  "fuentes": [
+   "imss.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-cita-imss",
+  "necesidad": "salud",
+  "pregunta": "¿Cómo saco cita en el IMSS?",
+  "resumen": "Agéndala en la app IMSS Digital, por teléfono o en tu clínica. Necesitas estar dado de alta en tu UMF y tener vigentes tus derechos.",
+  "etiquetas": [
+   "imss",
+   "cita",
+   "medicina familiar",
+   "umf"
+  ],
+  "lo_que_necesitas": [
+   "NSS",
+   "CURP",
+   "Correo electrónico",
+   "Estar dado de alta en tu UMF"
+  ],
+  "pasos": [
+   {
+    "texto": "Abre la app IMSS Digital o entra a imss.gob.mx."
+   },
+   {
+    "texto": "Busca la opción de cita médica de medicina familiar."
+   },
+   {
+    "texto": "Escribe tus datos y elige fecha y hora."
+   },
+   {
+    "texto": "Guarda la confirmación en tu celular."
+   },
+   {
+    "texto": "Llega unos minutos antes con tu identificación."
+   }
+  ],
+  "ojo": [
+   "Para ver a un especialista primero pasas con tu médico familiar, que te da el pase.",
+   "Si la app dice que no tienes vigencia, puede que tu patrón no esté pagando tus cuotas. Revísalo con Recursos Humanos."
+  ],
+  "si_no_puedes": "Llama al IMSS al 800 623 2323 o ve directo a tu UMF y pide cita en ventanilla.",
+  "fuentes": [
+   "imss.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-urgencias-imss-o-privado",
+  "necesidad": "salud",
+  "pregunta": "¿A dónde voy si tengo una urgencia médica: IMSS o privado?",
+  "resumen": "Si tu vida corre riesgo, llama al 911 o ve a la urgencia más cercana. Si no es grave, tu médico familiar o un consultorio pueden ser más rápidos.",
+  "etiquetas": [
+   "urgencias",
+   "imss",
+   "hospital",
+   "emergencia"
+  ],
+  "lo_que_necesitas": [
+   "Identificación",
+   "Tu NSS o tu póliza de seguro, si tienes",
+   "Lista de medicamentos que tomas"
+  ],
+  "pasos": [
+   {
+    "texto": "Si hay dolor de pecho, falta de aire, sangrado fuerte o desmayo, llama al 911."
+   },
+   {
+    "texto": "Si eres derechohabiente y puedes moverte, ve a urgencias del hospital del IMSS que te corresponde."
+   },
+   {
+    "texto": "En urgencias te clasifican por gravedad. La espera depende de eso, no del orden de llegada."
+   },
+   {
+    "texto": "Si vas a un hospital privado, pregunta al llegar si piden depósito y cuánto."
+   },
+   {
+    "texto": "Si tienes seguro de gastos médicos, avisa a tu aseguradora lo antes posible."
+   }
+  ],
+  "ojo": [
+   "Si no tienes seguridad social, los hospitales públicos de tu estado o de IMSS-Bienestar pueden atenderte.",
+   "Lleva a alguien contigo si puedes. Ayuda a dar datos y a esperar."
+  ],
+  "si_no_puedes": "Si no sabes si es urgencia, llama al 911 y describe lo que pasa. Te dicen si mandan ambulancia o a dónde ir.",
+  "fuentes": [
+   "imss.gob.mx",
+   "gob.mx/salud"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-seguro-gastos-medicos-mayores",
+  "necesidad": "salud",
+  "pregunta": "¿Qué es un seguro de gastos médicos mayores y qué pregunto antes de contratarlo?",
+  "resumen": "Cubre gastos grandes, como hospitalización o cirugía. Antes de contratar pregunta deducible, coaseguro, suma asegurada y qué no cubre.",
+  "etiquetas": [
+   "seguro",
+   "gastos medicos",
+   "hospital",
+   "condusef"
+  ],
+  "lo_que_necesitas": [
+   "Tu historial de salud a la mano",
+   "Dos o tres cotizaciones para comparar"
+  ],
+  "pasos": [
+   {
+    "texto": "Pregunta la suma asegurada: el máximo que paga la aseguradora."
+   },
+   {
+    "texto": "Pregunta el deducible: lo que pagas tú antes de que el seguro empiece a pagar."
+   },
+   {
+    "texto": "Pregunta el coaseguro: el porcentaje que pagas tú después del deducible, y si tiene tope."
+   },
+   {
+    "texto": "Pregunta qué hospitales están en la red y qué nivel de hospital cubre tu plan."
+   },
+   {
+    "texto": "Pregunta los periodos de espera para ciertos padecimientos."
+   },
+   {
+    "texto": "Pregunta qué pasa con enfermedades que ya tenías antes de contratar."
+   },
+   {
+    "texto": "Pide las condiciones generales por escrito y léelas antes de firmar."
+   }
+  ],
+  "ojo": [
+   "Declara tus padecimientos con honestidad. Si no, pueden negarte un pago después.",
+   "Una prima barata suele venir con deducible o coaseguro altos. Compara el paquete completo."
+  ],
+  "si_no_puedes": "Si tienes una queja con tu aseguradora o no entiendes tu póliza, acude a Condusef (condusef.gob.mx). La asesoría es gratuita.",
+  "fuentes": [
+   "condusef.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-salud-mental-bajo-costo",
+  "necesidad": "salud",
+  "pregunta": "¿Dónde busco atención de salud mental que pueda pagar?",
+  "resumen": "La Línea de la Vida orienta gratis las 24 horas. También hay servicios públicos, tu clínica del IMSS y clínicas universitarias con cuotas bajas.",
+  "etiquetas": [
+   "salud mental",
+   "terapia",
+   "psicologia",
+   "linea de la vida"
+  ],
+  "lo_que_necesitas": [
+   "Tu NSS, si tienes IMSS",
+   "Un rato tranquilo para llamar o escribir"
+  ],
+  "pasos": [
+   {
+    "texto": "Si necesitas hablar ahora, llama a la Línea de la Vida: 800 911 2000.",
+    "detalle": "Es gratuita y confidencial. También orienta sobre dónde atenderte cerca."
+   },
+   {
+    "texto": "Si tienes IMSS, pide cita con tu médico familiar y dile que quieres atención psicológica.",
+    "detalle": "Te puede dar el pase a psicología o psiquiatría."
+   },
+   {
+    "texto": "Busca la facultad de psicología de una universidad pública cerca de ti y pregunta por su clínica o centro de servicios."
+   },
+   {
+    "texto": "Pregunta en tu centro de salud por los Centros Comunitarios de Salud Mental de tu zona."
+   },
+   {
+    "texto": "Elige una opción y agenda una primera cita."
+   }
+  ],
+  "ojo": [
+   "Si sientes que estás en peligro o que podrías hacerte daño, llama al 911 o ve a urgencias.",
+   "Está bien probar con alguien y luego cambiar si no te sientes a gusto."
+  ],
+  "si_no_puedes": "Si hoy no puedes llamar, pide a alguien de confianza que llame contigo o por ti a la Línea de la Vida. También pueden orientarle a esa persona.",
+  "fuentes": [
+   "gob.mx/conasama",
+   "imss.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-fuga-de-agua",
+  "necesidad": "casa",
+  "pregunta": "Hay una fuga de agua en mi casa, ¿qué hago?",
+  "resumen": "Cierra la llave de paso para cortar el agua. Si el agua está cerca de contactos, baja también la luz. Luego avisa y llama a un fontanero.",
+  "etiquetas": [
+   "agua",
+   "fuga",
+   "llave de paso",
+   "plomeria"
+  ],
+  "lo_que_necesitas": [
+   "Saber dónde está tu llave de paso",
+   "Toallas o cubeta"
+  ],
+  "pasos": [
+   {
+    "texto": "Cierra la llave de paso general.",
+    "detalle": "Suele estar junto al medidor de agua, cerca del tinaco o bajo el fregadero."
+   },
+   {
+    "texto": "Si el agua llega a contactos o aparatos, baja la pastilla general en el centro de carga."
+   },
+   {
+    "texto": "Seca lo que puedas con toallas y pon una cubeta donde gotee."
+   },
+   {
+    "texto": "Toma fotos del daño."
+   },
+   {
+    "texto": "Avisa al casero o administrador, y a los vecinos de abajo si hay riesgo de filtración."
+   },
+   {
+    "texto": "Llama a un fontanero."
+   }
+  ],
+  "ojo": [
+   "Si la fuga es en la calle o antes del medidor, le toca al organismo de agua de tu ciudad, no a ti.",
+   "Ubica hoy tu llave de paso, cuando no hay prisa."
+  ],
+  "si_no_puedes": "Si no encuentras la llave de paso o el agua no para, llama al 911 o a protección civil. Si rentas, llama también al casero.",
+  "fuentes": [
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-se-fue-la-luz-solo-en-casa",
+  "necesidad": "casa",
+  "pregunta": "Se fue la luz en mi casa pero no en la calle, ¿qué hago?",
+  "resumen": "Revisa el centro de carga: una pastilla pudo haberse botado. Desconecta aparatos, súbela y, si se vuelve a bajar, llama a un electricista.",
+  "etiquetas": [
+   "luz",
+   "pastillas",
+   "centro de carga",
+   "cfe"
+  ],
+  "lo_que_necesitas": [
+   "Linterna o la luz del celular",
+   "Tu número de servicio de CFE"
+  ],
+  "pasos": [
+   {
+    "texto": "Confirma que los vecinos o la calle sí tienen luz."
+   },
+   {
+    "texto": "Busca el centro de carga: una caja con interruptores, casi siempre cerca de la entrada o la cocina."
+   },
+   {
+    "texto": "Busca una pastilla que esté abajo o a la mitad."
+   },
+   {
+    "texto": "Desconecta los aparatos de esa zona de la casa."
+   },
+   {
+    "texto": "Baja la pastilla del todo y luego súbela."
+   },
+   {
+    "texto": "Si vuelve la luz, conecta los aparatos uno por uno."
+   },
+   {
+    "texto": "Si la pastilla se baja otra vez, déjala abajo y llama a un electricista."
+   }
+  ],
+  "ojo": [
+   "Si sientes olor a quemado o ves chispas, no subas nada. Baja la general y llama al 911.",
+   "Revisa también la caja junto al medidor: algunas casas tienen ahí un interruptor o fusibles."
+  ],
+  "si_no_puedes": "Si todo está arriba y sigue sin luz, reporta la falla a CFE al 071 con tu número de servicio. El problema puede estar en el cable de la calle a tu casa.",
+  "fuentes": [
+   "cfe.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-huele-a-gas",
+  "necesidad": "casa",
+  "pregunta": "Huele a gas en mi casa, ¿qué hago?",
+  "resumen": "No prendas ni apagues nada eléctrico. Abre puertas y ventanas, cierra la llave del tanque, sal y llama al 911 desde fuera.",
+  "etiquetas": [
+   "gas",
+   "fuga",
+   "seguridad"
+  ],
+  "lo_que_necesitas": [],
+  "pasos": [
+   {
+    "texto": "No enciendas cerillos, encendedores ni la estufa."
+   },
+   {
+    "texto": "No prendas ni apagues luces ni aparatos."
+   },
+   {
+    "texto": "Abre puertas y ventanas."
+   },
+   {
+    "texto": "Cierra la llave del tanque o del cilindro, si puedes llegar sin riesgo."
+   },
+   {
+    "texto": "Sal de la casa con las personas y mascotas."
+   },
+   {
+    "texto": "Ya afuera, llama al 911 o a tu gasera."
+   },
+   {
+    "texto": "Espera afuera hasta que alguien revise y te diga que ya puedes entrar."
+   }
+  ],
+  "ojo": [
+   "Si el olor es leve y viene de una hornilla mal cerrada, ciérrala, ventila y espera a que se vaya el olor antes de usar la estufa.",
+   "Avisa a tus vecinos si vives en edificio."
+  ],
+  "si_no_puedes": "Si no puedes cerrar la llave del gas, no lo intentes más. Sal, aléjate y llama al 911.",
+  "fuentes": [
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-numeros-de-emergencia",
+  "necesidad": "emergencias",
+  "pregunta": "¿A qué número llamo en una emergencia en México?",
+  "resumen": "El 911 es el número nacional para policía, ambulancia y bomberos. Para crisis emocional está la Línea de la Vida, 800 911 2000.",
+  "etiquetas": [
+   "911",
+   "emergencias",
+   "telefonos",
+   "locatel"
+  ],
+  "lo_que_necesitas": [],
+  "pasos": [
+   {
+    "texto": "Para una emergencia de salud, seguridad o incendio, llama al 911.",
+    "detalle": "Es gratuito."
+   },
+   {
+    "texto": "Para denunciar algo sin dar tu nombre, llama al 089."
+   },
+   {
+    "texto": "Para apoyo emocional o una crisis, llama a la Línea de la Vida: 800 911 2000.",
+    "detalle": "Atiende las 24 horas."
+   },
+   {
+    "texto": "Si vives en la Ciudad de México y no es urgente, llama a Locatel: 55 5658 1111.",
+    "detalle": "Sirve para información, personas extraviadas y orientación en la ciudad."
+   },
+   {
+    "texto": "Para fallas de luz, llama a CFE al 071."
+   },
+   {
+    "texto": "Guarda estos números en tus contactos hoy."
+   }
+  ],
+  "ojo": [
+   "Al llamar al 911 di primero dónde estás y luego qué pasa.",
+   "No cuelgues hasta que te lo indiquen."
+  ],
+  "si_no_puedes": "Si no puedes hablar, pide a alguien cerca que llame por ti. Si estás en peligro y no puedes hablar, deja la línea abierta.",
+  "fuentes": [
+   "gob.mx",
+   "cdmx.gob.mx",
+   "cfe.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-me-robaron-el-celular",
+  "necesidad": "emergencias",
+  "pregunta": "Me robaron el celular, ¿qué hago?",
+  "resumen": "Desde otro dispositivo bloquea tu celular y tus bancos, pide a tu compañía que suspenda la línea y bloquee el IMEI, y presenta denuncia.",
+  "etiquetas": [
+   "robo",
+   "celular",
+   "imei",
+   "bancos",
+   "denuncia"
+  ],
+  "lo_que_necesitas": [
+   "Otro celular o computadora",
+   "Tu número y compañía telefónica",
+   "El IMEI de tu celular, si lo tienes guardado"
+  ],
+  "pasos": [
+   {
+    "texto": "Desde otro dispositivo, entra a la función de localizar y bloquear de tu celular (Apple o Google) y márcalo como perdido."
+   },
+   {
+    "texto": "Llama a tu banco o entra a su sitio para bloquear tarjetas y la app."
+   },
+   {
+    "texto": "Cambia la contraseña de tu correo principal."
+   },
+   {
+    "texto": "Llama a tu compañía telefónica: pide suspender la línea y bloquear el IMEI. Anota el folio."
+   },
+   {
+    "texto": "Avisa a tus contactos que no respondan mensajes pidiendo dinero desde tu número."
+   },
+   {
+    "texto": "Presenta denuncia ante la fiscalía de tu estado.",
+    "detalle": "En muchos estados se puede hacer en línea."
+   },
+   {
+    "texto": "Pide un chip nuevo con tu mismo número en tu compañía."
+   }
+  ],
+  "ojo": [
+   "Guarda hoy el IMEI de tu celular: marca *#06# y toma captura. También viene en la caja.",
+   "Cambia las contraseñas de redes sociales y apps de pago en cuanto puedas."
+  ],
+  "si_no_puedes": "Si no sabes por dónde empezar, haz solo dos cosas primero: bloquea tus bancos y llama a tu compañía telefónica. Lo demás puede esperar unas horas.",
+  "fuentes": [
+   "gob.mx",
+   "condusef.gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ },
+ {
+  "id": "vida-perdi-mi-cartera",
+  "necesidad": "emergencias",
+  "pregunta": "Perdí mi cartera, ¿qué hago?",
+  "resumen": "Bloquea tus tarjetas desde la app o llamando al banco, reporta tu INE y pide la reposición, y saca una constancia de pérdida de documentos.",
+  "etiquetas": [
+   "cartera",
+   "tarjetas",
+   "ine",
+   "documentos"
+  ],
+  "lo_que_necesitas": [
+   "Tu celular con las apps de tus bancos",
+   "Lista de lo que traías en la cartera"
+  ],
+  "pasos": [
+   {
+    "texto": "Bloquea tus tarjetas desde la app de cada banco o llamando a su número de atención.",
+    "detalle": "El número está en el sitio del banco si no tienes la tarjeta."
+   },
+   {
+    "texto": "Anota los folios de bloqueo."
+   },
+   {
+    "texto": "Haz una lista de lo que traías: tarjetas, INE, licencia, otros documentos."
+   },
+   {
+    "texto": "Saca una constancia de pérdida de documentos con la fiscalía o el gobierno de tu estado.",
+    "detalle": "En varios estados se hace en línea. Te la pueden pedir para reponer documentos."
+   },
+   {
+    "texto": "Llama a INETEL al 800 433 2000 para reportar tu credencial y agendar reposición."
+   },
+   {
+    "texto": "Pide reposición de tu licencia en la oficina de tu estado."
+   },
+   {
+    "texto": "Revisa tus estados de cuenta los próximos días por si hay cargos que no hiciste."
+   }
+  ],
+  "ojo": [
+   "Si ves un cargo que no reconoces, repórtalo al banco cuanto antes y guarda el folio.",
+   "Tómale foto a tus documentos y tarjetas por ambos lados y guárdalas en un lugar seguro, para la próxima vez."
+  ],
+  "si_no_puedes": "Si el banco no resuelve un cargo que no hiciste, acude a Condusef (condusef.gob.mx). La asesoría es gratuita.",
+  "fuentes": [
+   "ine.mx",
+   "condusef.gob.mx",
+   "gob.mx"
+  ],
+  "vigente_a": "2026-10",
+  "revisada": false
+ }
+]

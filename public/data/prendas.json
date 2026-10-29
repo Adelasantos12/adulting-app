@@ -1,0 +1,1964 @@
+[
+ {
+  "id": "playera-manga-corta",
+  "nombre": "Playera de manga corta",
+  "capa": "base",
+  "temp_min": 18,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa",
+   "noche"
+  ],
+  "nota": "De algodón, respira bien con calor.",
+  "revisada": false
+ },
+ {
+  "id": "playera-manga-larga",
+  "nombre": "Playera de manga larga",
+  "capa": "base",
+  "temp_min": 0,
+  "temp_max": 26,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa",
+   "trabajo",
+   "ejercicio"
+  ],
+  "nota": "Cubre del sol en la tarde y del fresco en la mañana.",
+  "revisada": false
+ },
+ {
+  "id": "playera-lisa-oscura",
+  "nombre": "Playera lisa oscura",
+  "capa": "base",
+  "temp_min": 16,
+  "temp_max": 36,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "trabajo"
+  ],
+  "nota": "Con un saco encima ya se ve arreglada.",
+  "revisada": false
+ },
+ {
+  "id": "playera-cuello-v",
+  "nombre": "Playera de cuello en V",
+  "capa": "base",
+  "temp_min": 16,
+  "temp_max": 34,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "trabajo"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "playera-deportiva",
+  "nombre": "Playera deportiva",
+  "capa": "base",
+  "temp_min": 10,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "nota": "Tela que saca el sudor y se seca rápido.",
+  "revisada": false
+ },
+ {
+  "id": "playera-deportiva-manga-larga",
+  "nombre": "Playera deportiva de manga larga",
+  "capa": "base",
+  "temp_min": 0,
+  "temp_max": 24,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio"
+  ],
+  "nota": "Para correr temprano cuando todavía hace frío.",
+  "revisada": false
+ },
+ {
+  "id": "playera-termica",
+  "nombre": "Playera térmica",
+  "capa": "base",
+  "temp_min": -8,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "ejercicio",
+   "casa"
+  ],
+  "nota": "Va pegada al cuerpo, debajo de todo lo demás.",
+  "revisada": false
+ },
+ {
+  "id": "top-deportivo",
+  "nombre": "Top deportivo",
+  "capa": "base",
+  "temp_min": 12,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "camiseta-sin-mangas",
+  "nombre": "Camiseta sin mangas",
+  "capa": "base",
+  "temp_min": 22,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio",
+   "casa"
+  ],
+  "nota": "Para el calor fuerte. Ponte bloqueador en hombros.",
+  "revisada": false
+ },
+ {
+  "id": "blusa-manga-corta",
+  "nombre": "Blusa de manga corta",
+  "capa": "base",
+  "temp_min": 16,
+  "temp_max": 36,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "blusa-manga-larga",
+  "nombre": "Blusa de manga larga",
+  "capa": "base",
+  "temp_min": 4,
+  "temp_max": 28,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "blusa-sin-mangas",
+  "nombre": "Blusa sin mangas",
+  "capa": "base",
+  "temp_min": 22,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche",
+   "formal"
+  ],
+  "nota": "Lleva algo para los hombros si la oficina tiene aire.",
+  "revisada": false
+ },
+ {
+  "id": "blusa-seda",
+  "nombre": "Blusa de seda o satín",
+  "capa": "base",
+  "temp_min": 12,
+  "temp_max": 32,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "noche",
+   "trabajo"
+  ],
+  "nota": "Se marca el sudor. Mejor en días templados.",
+  "revisada": false
+ },
+ {
+  "id": "blusa-lino",
+  "nombre": "Blusa de lino",
+  "capa": "base",
+  "temp_min": 22,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "nota": "Fresca con mucho calor. Se arruga un poco.",
+  "revisada": false
+ },
+ {
+  "id": "camisa-vestir",
+  "nombre": "Camisa de vestir",
+  "capa": "base",
+  "temp_min": 0,
+  "temp_max": 30,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "nota": "Abajo de un suéter o saco funciona con frío.",
+  "revisada": false
+ },
+ {
+  "id": "camisa-oxford",
+  "nombre": "Camisa oxford",
+  "capa": "base",
+  "temp_min": 4,
+  "temp_max": 28,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "casual"
+  ],
+  "nota": "Tela gruesa que aguanta el día sin arrugarse.",
+  "revisada": false
+ },
+ {
+  "id": "camisa-manga-corta",
+  "nombre": "Camisa de manga corta",
+  "capa": "base",
+  "temp_min": 20,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "camisa-lino",
+  "nombre": "Camisa de lino",
+  "capa": "base",
+  "temp_min": 22,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "nota": "Fresca con mucho calor. Se arruga un poco.",
+  "revisada": false
+ },
+ {
+  "id": "camisa-mezclilla",
+  "nombre": "Camisa de mezclilla",
+  "capa": "base",
+  "temp_min": 8,
+  "temp_max": 26,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "polo",
+  "nombre": "Polo",
+  "capa": "base",
+  "temp_min": 18,
+  "temp_max": 36,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "polo-manga-larga",
+  "nombre": "Polo de manga larga",
+  "capa": "base",
+  "temp_min": 8,
+  "temp_max": 24,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "cuello-tortuga",
+  "nombre": "Cuello de tortuga delgado",
+  "capa": "base",
+  "temp_min": -5,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "nota": "Abriga el cuello sin necesidad de bufanda.",
+  "revisada": false
+ },
+ {
+  "id": "vestido-corto-algodon",
+  "nombre": "Vestido corto de algodón",
+  "capa": "base",
+  "temp_min": 22,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "completo": true,
+  "nota": "Una sola prenda y listo.",
+  "revisada": false
+ },
+ {
+  "id": "vestido-midi",
+  "nombre": "Vestido midi",
+  "capa": "base",
+  "temp_min": 16,
+  "temp_max": 34,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "completo": true,
+  "revisada": false
+ },
+ {
+  "id": "vestido-largo-ligero",
+  "nombre": "Vestido largo ligero",
+  "capa": "base",
+  "temp_min": 22,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "formal"
+  ],
+  "completo": true,
+  "nota": "Cubre del sol y deja pasar el aire.",
+  "revisada": false
+ },
+ {
+  "id": "vestido-punto",
+  "nombre": "Vestido de punto",
+  "capa": "base",
+  "temp_min": 0,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "completo": true,
+  "nota": "Con medias gruesas aguanta el frío.",
+  "revisada": false
+ },
+ {
+  "id": "vestido-camisero",
+  "nombre": "Vestido camisero",
+  "capa": "base",
+  "temp_min": 16,
+  "temp_max": 32,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "casual"
+  ],
+  "completo": true,
+  "revisada": false
+ },
+ {
+  "id": "vestido-lino",
+  "nombre": "Vestido de lino",
+  "capa": "base",
+  "temp_min": 24,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "completo": true,
+  "nota": "Fresco para los días de más calor.",
+  "revisada": false
+ },
+ {
+  "id": "overol-mezclilla",
+  "nombre": "Overol de mezclilla",
+  "capa": "base",
+  "temp_min": 10,
+  "temp_max": 28,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa"
+  ],
+  "completo": true,
+  "nota": "Abajo va una playera, que cuenta como parte del overol.",
+  "revisada": false
+ },
+ {
+  "id": "enterizo",
+  "nombre": "Enterizo",
+  "capa": "base",
+  "temp_min": 18,
+  "temp_max": 34,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "trabajo"
+  ],
+  "completo": true,
+  "nota": "Revisa que puedas ir al baño sin batallar.",
+  "revisada": false
+ },
+ {
+  "id": "sueter-ligero",
+  "nombre": "Suéter ligero",
+  "capa": "media",
+  "temp_min": 12,
+  "temp_max": 22,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "nota": "Se quita rápido si sube la temperatura.",
+  "revisada": false
+ },
+ {
+  "id": "sueter-grueso",
+  "nombre": "Suéter grueso",
+  "capa": "media",
+  "temp_min": -8,
+  "temp_max": 12,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche",
+   "casa",
+   "formal"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "sueter-lana-delgado",
+  "nombre": "Suéter delgado de lana",
+  "capa": "media",
+  "temp_min": 0,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche",
+   "casual"
+  ],
+  "nota": "Abriga mucho sin abultar debajo del abrigo.",
+  "revisada": false
+ },
+ {
+  "id": "sueter-cuello-v",
+  "nombre": "Suéter de cuello en V",
+  "capa": "media",
+  "temp_min": 6,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "nota": "Deja ver el cuello de la camisa.",
+  "revisada": false
+ },
+ {
+  "id": "cardigan",
+  "nombre": "Cárdigan",
+  "capa": "media",
+  "temp_min": 10,
+  "temp_max": 22,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche",
+   "formal"
+  ],
+  "nota": "Se abre o se cierra según cambie el día.",
+  "revisada": false
+ },
+ {
+  "id": "cardigan-grueso",
+  "nombre": "Cárdigan grueso",
+  "capa": "media",
+  "temp_min": 0,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "casa"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "sudadera-capucha",
+  "nombre": "Sudadera con capucha",
+  "capa": "media",
+  "temp_min": 4,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa",
+   "ejercicio"
+  ],
+  "nota": "La capucha ayuda con viento o llovizna.",
+  "revisada": false
+ },
+ {
+  "id": "sudadera-sin-capucha",
+  "nombre": "Sudadera sin capucha",
+  "capa": "media",
+  "temp_min": 6,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa",
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "sudadera-deportiva-cierre",
+  "nombre": "Sudadera deportiva con cierre",
+  "capa": "media",
+  "temp_min": 0,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "nota": "Con cierre la abres cuando ya calentaste.",
+  "revisada": false
+ },
+ {
+  "id": "chaleco-acolchado",
+  "nombre": "Chaleco acolchado",
+  "capa": "media",
+  "temp_min": -5,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "ejercicio"
+  ],
+  "nota": "Abriga el torso y deja libres los brazos.",
+  "revisada": false
+ },
+ {
+  "id": "chaleco-polar",
+  "nombre": "Chaleco polar",
+  "capa": "media",
+  "temp_min": 2,
+  "temp_max": 16,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio",
+   "casa"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "chaleco-tela",
+  "nombre": "Chaleco de tela",
+  "capa": "media",
+  "temp_min": 12,
+  "temp_max": 24,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "blazer",
+  "nombre": "Saco o blazer",
+  "capa": "media",
+  "temp_min": 12,
+  "temp_max": 26,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "nota": "Arregla cualquier playera o blusa.",
+  "revisada": false
+ },
+ {
+  "id": "saco-lana",
+  "nombre": "Saco de lana",
+  "capa": "media",
+  "temp_min": 0,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "camisa-franela",
+  "nombre": "Camisa de franela abierta",
+  "capa": "media",
+  "temp_min": 8,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa"
+  ],
+  "nota": "Encima de una playera, como capa extra.",
+  "revisada": false
+ },
+ {
+  "id": "polar",
+  "nombre": "Chamarra polar",
+  "capa": "media",
+  "temp_min": -5,
+  "temp_max": 16,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio",
+   "casa"
+  ],
+  "nota": "Abriga mucho y pesa poco.",
+  "revisada": false
+ },
+ {
+  "id": "chamarra-mezclilla-ligera",
+  "nombre": "Chamarra de mezclilla ligera",
+  "capa": "media",
+  "temp_min": 14,
+  "temp_max": 24,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "kimono-ligero",
+  "nombre": "Kimono ligero",
+  "capa": "media",
+  "temp_min": 20,
+  "temp_max": 30,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "nota": "Cubre los brazos del sol sin dar calor.",
+  "revisada": false
+ },
+ {
+  "id": "chamarra-mezclilla",
+  "nombre": "Chamarra de mezclilla",
+  "capa": "exterior",
+  "temp_min": 10,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "chamarra-piel",
+  "nombre": "Chamarra de piel o sintética",
+  "capa": "exterior",
+  "temp_min": 6,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "trabajo"
+  ],
+  "nota": "Corta el viento. No la mojes mucho.",
+  "revisada": false
+ },
+ {
+  "id": "rompevientos",
+  "nombre": "Rompevientos",
+  "capa": "exterior",
+  "temp_min": 8,
+  "temp_max": 22,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "ejercicio"
+  ],
+  "nota": "Cabe doblado en la mochila.",
+  "revisada": false
+ },
+ {
+  "id": "impermeable",
+  "nombre": "Impermeable",
+  "capa": "exterior",
+  "temp_min": 6,
+  "temp_max": 24,
+  "lluvia": true,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "ejercicio",
+   "noche"
+  ],
+  "nota": "Ciérralo hasta arriba para que no entre agua.",
+  "revisada": false
+ },
+ {
+  "id": "gabardina",
+  "nombre": "Gabardina",
+  "capa": "exterior",
+  "temp_min": 6,
+  "temp_max": 18,
+  "lluvia": true,
+  "viento": true,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "nota": "Aguanta lluvia ligera y se ve arreglada.",
+  "revisada": false
+ },
+ {
+  "id": "abrigo-ligero",
+  "nombre": "Abrigo ligero",
+  "capa": "exterior",
+  "temp_min": 8,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "abrigo-pano",
+  "nombre": "Abrigo de paño",
+  "capa": "exterior",
+  "temp_min": -5,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "abrigo-largo-lana",
+  "nombre": "Abrigo largo de lana",
+  "capa": "exterior",
+  "temp_min": -10,
+  "temp_max": 8,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "nota": "Cubre hasta las rodillas. Para el frío fuerte.",
+  "revisada": false
+ },
+ {
+  "id": "chamarra-acolchada",
+  "nombre": "Chamarra acolchada",
+  "capa": "exterior",
+  "temp_min": -10,
+  "temp_max": 10,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "casa"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "abrigo-acolchado-largo",
+  "nombre": "Abrigo acolchado largo",
+  "capa": "exterior",
+  "temp_min": -15,
+  "temp_max": 6,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "nota": "Para madrugadas bajo cero.",
+  "revisada": false
+ },
+ {
+  "id": "parka",
+  "nombre": "Parka",
+  "capa": "exterior",
+  "temp_min": -15,
+  "temp_max": 8,
+  "lluvia": true,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "trabajo"
+  ],
+  "nota": "Con capucha. Sirve con frío, lluvia y viento.",
+  "revisada": false
+ },
+ {
+  "id": "chamarra-impermeable-acolchada",
+  "nombre": "Chamarra impermeable acolchada",
+  "capa": "exterior",
+  "temp_min": -2,
+  "temp_max": 12,
+  "lluvia": true,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "trabajo"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "chamarra-deportiva",
+  "nombre": "Chamarra deportiva",
+  "capa": "exterior",
+  "temp_min": 0,
+  "temp_max": 16,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "chamarra-deportiva-termica",
+  "nombre": "Chamarra deportiva térmica",
+  "capa": "exterior",
+  "temp_min": -8,
+  "temp_max": 8,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "ejercicio"
+  ],
+  "nota": "Para correr o caminar en mañanas heladas.",
+  "revisada": false
+ },
+ {
+  "id": "poncho-lluvia",
+  "nombre": "Poncho de lluvia",
+  "capa": "exterior",
+  "temp_min": 8,
+  "temp_max": 30,
+  "lluvia": true,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio"
+  ],
+  "nota": "Cubre también la mochila.",
+  "revisada": false
+ },
+ {
+  "id": "chamarra-borrego",
+  "nombre": "Chamarra de borrego",
+  "capa": "exterior",
+  "temp_min": -5,
+  "temp_max": 12,
+  "lluvia": false,
+  "viento": true,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "nota": "Forro afelpado por dentro. Muy calientita.",
+  "revisada": false
+ },
+ {
+  "id": "jeans",
+  "nombre": "Jeans",
+  "capa": "abajo",
+  "temp_min": 0,
+  "temp_max": 28,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "pantalon-vestir",
+  "nombre": "Pantalón de vestir",
+  "capa": "abajo",
+  "temp_min": 0,
+  "temp_max": 30,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "pantalon-vestir-ligero",
+  "nombre": "Pantalón de vestir ligero",
+  "capa": "abajo",
+  "temp_min": 20,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "nota": "Tela delgada para juntas en días de calor.",
+  "revisada": false
+ },
+ {
+  "id": "pantalon-lana",
+  "nombre": "Pantalón de lana",
+  "capa": "abajo",
+  "temp_min": -8,
+  "temp_max": 16,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "chinos",
+  "nombre": "Chinos",
+  "capa": "abajo",
+  "temp_min": 6,
+  "temp_max": 30,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "joggers",
+  "nombre": "Joggers",
+  "capa": "abajo",
+  "temp_min": 4,
+  "temp_max": 24,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa",
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "leggings",
+  "nombre": "Leggings",
+  "capa": "abajo",
+  "temp_min": 0,
+  "temp_max": 28,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casa",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "pants-deportivo",
+  "nombre": "Pants deportivo",
+  "capa": "abajo",
+  "temp_min": -2,
+  "temp_max": 22,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casa",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "pantalon-termico",
+  "nombre": "Pantalón térmico",
+  "capa": "abajo",
+  "temp_min": -10,
+  "temp_max": 10,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio",
+   "casa"
+  ],
+  "nota": "Forrado por dentro. Para mañanas muy frías.",
+  "revisada": false
+ },
+ {
+  "id": "pantalon-lino",
+  "nombre": "Pantalón de lino",
+  "capa": "abajo",
+  "temp_min": 24,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "nota": "Fresco y holgado para el calor.",
+  "revisada": false
+ },
+ {
+  "id": "shorts-mezclilla",
+  "nombre": "Shorts de mezclilla",
+  "capa": "abajo",
+  "temp_min": 24,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "shorts-deportivos",
+  "nombre": "Shorts deportivos",
+  "capa": "abajo",
+  "temp_min": 18,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casa"
+  ],
+  "nota": "Se secan rápido.",
+  "revisada": false
+ },
+ {
+  "id": "short-ciclista",
+  "nombre": "Short de ciclista",
+  "capa": "abajo",
+  "temp_min": 16,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "nota": "Evita que los muslos rocen al caminar.",
+  "revisada": false
+ },
+ {
+  "id": "falda-short-deportiva",
+  "nombre": "Falda short deportiva",
+  "capa": "abajo",
+  "temp_min": 18,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "bermudas",
+  "nombre": "Bermudas",
+  "capa": "abajo",
+  "temp_min": 24,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "casa"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "falda-corta",
+  "nombre": "Falda corta",
+  "capa": "abajo",
+  "temp_min": 20,
+  "temp_max": 36,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "falda-midi",
+  "nombre": "Falda midi",
+  "capa": "abajo",
+  "temp_min": 12,
+  "temp_max": 34,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "nota": "Con medias sirve en días más frescos.",
+  "revisada": false
+ },
+ {
+  "id": "falda-larga",
+  "nombre": "Falda larga",
+  "capa": "abajo",
+  "temp_min": 18,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "formal",
+   "noche",
+   "trabajo"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "falda-lana",
+  "nombre": "Falda midi de lana",
+  "capa": "abajo",
+  "temp_min": 0,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "nota": "Va con medias gruesas y botas.",
+  "revisada": false
+ },
+ {
+  "id": "culottes",
+  "nombre": "Culottes",
+  "capa": "abajo",
+  "temp_min": 18,
+  "temp_max": 34,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "casual",
+   "noche",
+   "formal"
+  ],
+  "nota": "Frescos como falda, cómodos como pantalón.",
+  "revisada": false
+ },
+ {
+  "id": "tenis-blancos",
+  "nombre": "Tenis blancos",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche"
+  ],
+  "nota": "Combinan con casi todo.",
+  "revisada": false
+ },
+ {
+  "id": "tenis-deportivos",
+  "nombre": "Tenis deportivos",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "tenis-correr",
+  "nombre": "Tenis para correr",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "tenis-entrenamiento",
+  "nombre": "Tenis de entrenamiento",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio"
+  ],
+  "nota": "Suela plana para pesas o clases en gimnasio.",
+  "revisada": false
+ },
+ {
+  "id": "tenis-montana",
+  "nombre": "Tenis de montaña impermeables",
+  "capa": "calzado",
+  "temp_min": -5,
+  "temp_max": 28,
+  "lluvia": true,
+  "viento": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "nota": "Agarran bien en piso mojado.",
+  "revisada": false
+ },
+ {
+  "id": "botines",
+  "nombre": "Botines",
+  "capa": "calzado",
+  "temp_min": -5,
+  "temp_max": 24,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche",
+   "formal"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "botas-altas",
+  "nombre": "Botas altas de piel",
+  "capa": "calzado",
+  "temp_min": -5,
+  "temp_max": 16,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "noche",
+   "trabajo",
+   "casual"
+  ],
+  "nota": "Con falda o vestido abrigan las piernas.",
+  "revisada": false
+ },
+ {
+  "id": "botas-lluvia",
+  "nombre": "Botas para lluvia",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 28,
+  "lluvia": true,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo"
+  ],
+  "nota": "Lleva otros zapatos si vas a estar todo el día.",
+  "revisada": false
+ },
+ {
+  "id": "botas-invierno",
+  "nombre": "Botas de invierno",
+  "capa": "calzado",
+  "temp_min": -15,
+  "temp_max": 8,
+  "lluvia": true,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "trabajo"
+  ],
+  "nota": "Forradas. Usa calcetines gruesos.",
+  "revisada": false
+ },
+ {
+  "id": "zapatos-impermeables",
+  "nombre": "Zapatos impermeables",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 28,
+  "lluvia": true,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "casual",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "mocasines",
+  "nombre": "Mocasines",
+  "capa": "calzado",
+  "temp_min": 8,
+  "temp_max": 36,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "zapatos-vestir",
+  "nombre": "Zapatos de vestir",
+  "capa": "calzado",
+  "temp_min": 0,
+  "temp_max": 34,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "flats",
+  "nombre": "Flats",
+  "capa": "calzado",
+  "temp_min": 14,
+  "temp_max": 36,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "sandalias",
+  "nombre": "Sandalias",
+  "capa": "calzado",
+  "temp_min": 22,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "sandalias-vestir",
+  "nombre": "Sandalias de vestir",
+  "capa": "calzado",
+  "temp_min": 22,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "formal",
+   "noche",
+   "trabajo"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "huaraches",
+  "nombre": "Huaraches",
+  "capa": "calzado",
+  "temp_min": 20,
+  "temp_max": 38,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casual",
+   "noche"
+  ],
+  "nota": "De piel. Frescos y aguantan caminar.",
+  "revisada": false
+ },
+ {
+  "id": "chanclas",
+  "nombre": "Chanclas",
+  "capa": "calzado",
+  "temp_min": 18,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casa"
+  ],
+  "nota": "Solo para la casa o la regadera.",
+  "revisada": false
+ },
+ {
+  "id": "pantuflas",
+  "nombre": "Pantuflas",
+  "capa": "calzado",
+  "temp_min": -5,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": false,
+  "ocasiones": [
+   "casa"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "paraguas",
+  "nombre": "Paraguas plegable",
+  "capa": "accesorio",
+  "temp_min": 0,
+  "temp_max": 38,
+  "lluvia": true,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche"
+  ],
+  "nota": "Cabe en la bolsa. Llévalo si hay más de 40% de lluvia.",
+  "revisada": false
+ },
+ {
+  "id": "capa-lluvia-plegable",
+  "nombre": "Capa de lluvia plegable",
+  "capa": "accesorio",
+  "temp_min": 6,
+  "temp_max": 32,
+  "lluvia": true,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio",
+   "trabajo"
+  ],
+  "nota": "Doblada ocupa lo que un celular.",
+  "revisada": false
+ },
+ {
+  "id": "bolsa-impermeable",
+  "nombre": "Mochila o bolsa impermeable",
+  "capa": "accesorio",
+  "temp_min": 0,
+  "temp_max": 38,
+  "lluvia": true,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "ejercicio"
+  ],
+  "nota": "Protege la compu y los papeles.",
+  "revisada": false
+ },
+ {
+  "id": "lentes-sol",
+  "nombre": "Lentes de sol",
+  "capa": "accesorio",
+  "temp_min": 4,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": true,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "noche",
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "gorra",
+  "nombre": "Gorra",
+  "capa": "accesorio",
+  "temp_min": 10,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": true,
+  "ocasiones": [
+   "casual",
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "visera",
+  "nombre": "Visera",
+  "capa": "accesorio",
+  "temp_min": 18,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": true,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "nota": "Tapa el sol y deja salir el calor de la cabeza.",
+  "revisada": false
+ },
+ {
+  "id": "sombrero",
+  "nombre": "Sombrero",
+  "capa": "accesorio",
+  "temp_min": 16,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": true,
+  "ocasiones": [
+   "casual"
+  ],
+  "nota": "Ala ancha cubre cara, orejas y cuello.",
+  "revisada": false
+ },
+ {
+  "id": "bloqueador",
+  "nombre": "Bloqueador solar",
+  "capa": "accesorio",
+  "temp_min": 0,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": true,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "ejercicio",
+   "casa"
+  ],
+  "nota": "Aunque esté nublado, el UV pasa. Repite cada 2 horas.",
+  "revisada": false
+ },
+ {
+  "id": "paliacate",
+  "nombre": "Paliacate",
+  "capa": "accesorio",
+  "temp_min": 10,
+  "temp_max": 32,
+  "lluvia": false,
+  "viento": false,
+  "sol": true,
+  "ocasiones": [
+   "casual",
+   "ejercicio"
+  ],
+  "nota": "Para el sudor o el sol en el cuello.",
+  "revisada": false
+ },
+ {
+  "id": "abanico",
+  "nombre": "Abanico de mano",
+  "capa": "accesorio",
+  "temp_min": 28,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "formal"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "botella-agua",
+  "nombre": "Botella de agua",
+  "capa": "accesorio",
+  "temp_min": 18,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "ejercicio"
+  ],
+  "nota": "Rellénala antes de salir.",
+  "revisada": false
+ },
+ {
+  "id": "toalla-pequena",
+  "nombre": "Toalla pequeña",
+  "capa": "accesorio",
+  "temp_min": 22,
+  "temp_max": 40,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "mascada",
+  "nombre": "Mascada",
+  "capa": "accesorio",
+  "temp_min": 12,
+  "temp_max": 30,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "trabajo",
+   "formal",
+   "noche",
+   "casual"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "bufanda-delgada",
+  "nombre": "Bufanda delgada",
+  "capa": "accesorio",
+  "temp_min": 8,
+  "temp_max": 18,
+  "lluvia": false,
+  "viento": true,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche",
+   "formal"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "rebozo",
+  "nombre": "Rebozo",
+  "capa": "accesorio",
+  "temp_min": 6,
+  "temp_max": 20,
+  "lluvia": false,
+  "viento": true,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "noche",
+   "formal"
+  ],
+  "nota": "Abriga los hombros y se ve arreglado.",
+  "revisada": false
+ },
+ {
+  "id": "bufanda-gruesa",
+  "nombre": "Bufanda gruesa",
+  "capa": "accesorio",
+  "temp_min": -15,
+  "temp_max": 8,
+  "lluvia": false,
+  "viento": true,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "noche",
+   "formal"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "cuello-polar",
+  "nombre": "Cuello polar",
+  "capa": "accesorio",
+  "temp_min": -10,
+  "temp_max": 10,
+  "lluvia": false,
+  "viento": true,
+  "sol": false,
+  "ocasiones": [
+   "ejercicio",
+   "casual"
+  ],
+  "nota": "Se sube hasta la nariz si hace mucho frío.",
+  "revisada": false
+ },
+ {
+  "id": "gorro-lana",
+  "nombre": "Gorro de lana",
+  "capa": "accesorio",
+  "temp_min": -15,
+  "temp_max": 8,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio",
+   "trabajo"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "cubreorejas",
+  "nombre": "Cubreorejas",
+  "capa": "accesorio",
+  "temp_min": -10,
+  "temp_max": 6,
+  "lluvia": false,
+  "viento": true,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "ejercicio"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "guantes",
+  "nombre": "Guantes",
+  "capa": "accesorio",
+  "temp_min": -15,
+  "temp_max": 6,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "formal",
+   "ejercicio",
+   "noche"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "calcetines-termicos",
+  "nombre": "Calcetines térmicos",
+  "capa": "accesorio",
+  "temp_min": -15,
+  "temp_max": 8,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo",
+   "ejercicio",
+   "casa"
+  ],
+  "revisada": false
+ },
+ {
+  "id": "medias-gruesas",
+  "nombre": "Medias gruesas",
+  "capa": "accesorio",
+  "temp_min": 0,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "formal",
+   "trabajo",
+   "noche",
+   "casual"
+  ],
+  "nota": "Para usar falda o vestido con frío.",
+  "revisada": false
+ },
+ {
+  "id": "termo",
+  "nombre": "Termo para bebida caliente",
+  "capa": "accesorio",
+  "temp_min": -10,
+  "temp_max": 14,
+  "lluvia": false,
+  "viento": false,
+  "sol": false,
+  "ocasiones": [
+   "casual",
+   "trabajo"
+  ],
+  "nota": "Un café o té caliente ayuda en mañanas frías.",
+  "revisada": false
+ }
+]

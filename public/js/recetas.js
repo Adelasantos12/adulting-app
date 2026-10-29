@@ -29,10 +29,6 @@ let recipesLoading = null;
 const recipeUI = { query: '', filters: {}, onlyPantry: false, suggestionId: null, view: 'browse', recipeId: null, step: 0 };
 let cookTimer = { interval: null, endsAt: 0, label: '' };
 
-function escapeHtml(text) {
-    return String(text ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-
 function recipeState() {
     const food = state.food;
     food.pantry = food.pantry || [];
@@ -56,11 +52,6 @@ function loadRecipes() {
 
 function findRecipe(id) {
     return (RECIPES || []).find((r) => r.id === id);
-}
-
-// Sin acentos ni mayúsculas, para que "jitomate" encuentre "Jitomate" y "champinon" encuentre "champiñón"
-function normalizeText(text) {
-    return String(text).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 
 function missingIngredients(recipe) {
