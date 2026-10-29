@@ -101,11 +101,15 @@ Toda la información personal introducida se almacena localmente en el dispositi
    ```bash
    npm install
    ```
-2. Inicia el servidor local corriendo:
+2. Si cambiaste clases de Tailwind en `public/index.html`, recompila los estilos (el CSS compilado se sube al repo, Railway no lo genera):
+   ```bash
+   npm run build:web
+   ```
+3. Inicia el servidor local corriendo:
    ```bash
    node server.js
    ```
-3. Abre la URL en tu navegador: `http://localhost:3000`
+4. Abre la URL en tu navegador: `http://localhost:3000`
 
 ---
 

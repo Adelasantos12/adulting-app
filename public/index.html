@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modo Adulto - Guía de Supervivencia</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- PWA: instalable y disponible sin conexión -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#FDFBF6">
+    <link rel="icon" type="image/png" href="icons/favicon.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Modo Adulto">
+    <!-- Tailwind CSS compilado localmente: npm run build:css -->
+    <link rel="stylesheet" href="css/tailwind.css">
+    <!-- Lucide Icons, versión fija servida desde public/vendor: npm run vendor -->
+    <script src="vendor/lucide.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,44 +53,6 @@
             position: relative;
         }
     </style>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        theme: {
-                            purple: {
-                                50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
-                                400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7e22ce',
-                                800: '#6b21a8', 900: '#581c87', 950: '#3b0764'
-                            },
-                            blue: {
-                                50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc',
-                                400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
-                                800: '#075985', 900: '#0c4a6e', 950: '#082f49'
-                            },
-                            green: {
-                                50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
-                                400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
-                                800: '#166534', 900: '#14532d', 950: '#052e16'
-                            },
-                            rose: {
-                                50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af',
-                                400: '#fb7185', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c',
-                                800: '#9f1239', 900: '#881337', 950: '#4c0519'
-                            },
-                            orange: {
-                                50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdbb74',
-                                400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
-                                800: '#9a3412', 900: '#7c2d12', 950: '#431407'
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="h-full bg-[#FFFDF8] text-[#24354B] dark:bg-slate-900 dark:text-slate-100 font-sans transition-colors duration-200">
     <div id="app" class="flex h-full overflow-hidden">
@@ -328,8 +297,13 @@
             return target;
         }
 
+        // Copia limpia de los valores por defecto, para no mezclar datos del usuario con DEFAULT_STATE.
+        function freshDefaults() {
+            return JSON.parse(JSON.stringify(DEFAULT_STATE));
+        }
+
         let loadedState = JSON.parse(localStorage.getItem('modo_adulto_combined_state_v2'));
-        let state = loadedState ? deepMerge(loadedState, DEFAULT_STATE) : DEFAULT_STATE;
+        let state = loadedState ? deepMerge(loadedState, freshDefaults()) : freshDefaults();
 
         function saveState() {
             localStorage.setItem('modo_adulto_combined_state_v2', JSON.stringify(state));
@@ -1058,9 +1032,81 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Respaldo de datos -->
+                        <div class="space-y-3 pt-4 border-t">
+                            <div>
+                                <label class="block font-bold text-slate-500 mb-1">Tus datos</label>
+                                <p class="text-slate-400">Todo se guarda solo en este dispositivo. Descarga un respaldo de vez en cuando, o úsalo para pasar tus datos a otro dispositivo.</p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <button onclick="exportBackup()" class="flex-1 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 font-bold flex items-center justify-center gap-2">
+                                    <i data-lucide="download" class="w-4 h-4"></i> Descargar respaldo
+                                </button>
+                                <label class="flex-1 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 font-bold flex items-center justify-center gap-2 cursor-pointer">
+                                    <i data-lucide="upload" class="w-4 h-4"></i> Cargar respaldo
+                                    <input type="file" accept="application/json,.json" onchange="importBackup(this)" class="sr-only">
+                                </label>
+                            </div>
+                            <p id="backup-status" class="text-slate-500" role="status" aria-live="polite"></p>
+                        </div>
                     </div>
                 </div>
             `;
+        }
+
+        // --- RESPALDO DE DATOS ---
+        const BACKUP_FORMAT = 'modo-adulto-respaldo';
+
+        function exportBackup() {
+            const today = new Date().toISOString().slice(0, 10);
+            const backup = { format: BACKUP_FORMAT, version: 1, exportedAt: new Date().toISOString(), state: state };
+            const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `modo-adulto-respaldo-${today}.json`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(link.href);
+            setBackupStatus(`Respaldo descargado: modo-adulto-respaldo-${today}.json`);
+        }
+
+        function importBackup(input) {
+            const file = input.files && input.files[0];
+            input.value = '';
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function() {
+                let imported;
+                try {
+                    const parsed = JSON.parse(reader.result);
+                    imported = parsed && parsed.format === BACKUP_FORMAT ? parsed.state : null;
+                } catch (e) {
+                    imported = null;
+                }
+                if (!imported || typeof imported !== 'object' || !imported.accessibility) {
+                    setBackupStatus('Ese archivo no es un respaldo de Modo Adulto. Elige el archivo .json que descargaste desde aquí.');
+                    return;
+                }
+                if (!confirm('Esto reemplaza los datos de este dispositivo por los del respaldo. Si quieres conservar los actuales, descarga primero un respaldo. ¿Continuar?')) {
+                    setBackupStatus('No se cambió nada.');
+                    return;
+                }
+                state = deepMerge(imported, freshDefaults());
+                saveState();
+                navigate('settings');
+                setBackupStatus('Respaldo cargado. Tus datos ya están en este dispositivo.');
+            };
+            reader.onerror = function() {
+                setBackupStatus('No se pudo leer el archivo. Puedes intentarlo otra vez.');
+            };
+            reader.readAsText(file);
+        }
+
+        function setBackupStatus(message) {
+            const el = document.getElementById('backup-status');
+            if (el) el.textContent = message;
         }
 
         function updateFontStyleSetting(val) {
@@ -1540,6 +1586,25 @@
                     </div>
                 </div>
             `;
+        }
+
+        // Signo zodiacal a partir de 'AAAA-MM-DD'. Se lee la fecha sin zona horaria para que no se recorra un día.
+        function getZodiacSign(dateString) {
+            if (!dateString) return "Desconocido";
+            const [, m, d] = dateString.split('-').map(Number);
+            if (!m || !d) return "Desconocido";
+            if ((m == 3 && d >= 21) || (m == 4 && d <= 19)) return "Aries ♈";
+            if ((m == 4 && d >= 20) || (m == 5 && d <= 20)) return "Tauro ♉";
+            if ((m == 5 && d >= 21) || (m == 6 && d <= 20)) return "Géminis ♊";
+            if ((m == 6 && d >= 21) || (m == 7 && d <= 22)) return "Cáncer ♋";
+            if ((m == 7 && d >= 23) || (m == 8 && d <= 22)) return "Leo ♌";
+            if ((m == 8 && d >= 23) || (m == 9 && d <= 22)) return "Virgo ♍";
+            if ((m == 9 && d >= 23) || (m == 10 && d <= 22)) return "Libra ♎";
+            if ((m == 10 && d >= 23) || (m == 11 && d <= 21)) return "Escorpio ♏";
+            if ((m == 11 && d >= 22) || (m == 12 && d <= 21)) return "Sagitario ♐";
+            if ((m == 12 && d >= 22) || (m == 1 && d <= 19)) return "Capricornio ♑";
+            if ((m == 1 && d >= 20) || (m == 2 && d <= 18)) return "Acuario ♒";
+            return "Piscis ♓";
         }
 
         // --- SUB-RENDER MÓDULO: MASCOTAS (INDEPENDIENTE) ---
@@ -3081,6 +3146,16 @@
         window.onload = function() {
             navigate('dashboard');
         };
+
+        // Service worker solo en la web; en la app nativa (Capacitor) los archivos ya van dentro del paquete.
+        const isNativeApp = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+        if ('serviceWorker' in navigator && !isNativeApp && location.protocol.startsWith('http')) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function(err) {
+                    console.warn('No se pudo registrar el service worker:', err);
+                });
+            });
+        }
 
 </script>
 

@@ -41,13 +41,18 @@ Cada fase cabe en una o dos sesiones de trabajo y termina con algo desplegado en
 **Listo cuando:** un push a la rama principal se despliega solo en Railway, y la Biblia vive junto al código.
 
 ### Fase 1 — Cimientos técnicos (1–2 sesiones)
-- [ ] Compilar Tailwind localmente (CLI) en lugar del CDN de desarrollo.
-- [ ] Fijar Lucide a una versión concreta y servirlo desde `public/`.
-- [ ] Añadir `manifest.webmanifest`, íconos y un service worker sencillo para que funcione de verdad sin conexión e instalable como PWA.
-- [ ] Verificar exportar e importar respaldo JSON (es la única red de seguridad de los datos).
+- [x] Compilar Tailwind localmente (CLI) en lugar del CDN de desarrollo.
+- [x] Fijar Lucide a una versión concreta y servirlo desde `public/`.
+- [x] Añadir `manifest.webmanifest`, íconos y un service worker sencillo para que funcione de verdad sin conexión e instalable como PWA. El ícono es provisional, hasta tener la identidad visual.
+- [x] Verificar exportar e importar respaldo JSON. No existía: se agregó en Ajustes → Tus datos.
 - [ ] Opcional: partir `index.html` en módulos JS por vista para que editar sea menos frágil.
 
 **Listo cuando:** en modo avión, la app recargada se ve y funciona igual.
+
+Notas al cerrar la fase:
+- Se corrigió de paso un error que ya estaba en producción: la pantalla de Mascotas no abría (`getZodiacSign` se había borrado).
+- Las fuentes siguen viniendo de Google Fonts; el service worker las guarda tras la primera visita. En la Fase 2 se cambian a Nunito y conviene servirlas desde `public/`.
+- Pendiente para la Fase 4: en la app nativa, "Descargar respaldo" necesitará el plugin de compartir archivos de Capacitor.
 
 ### Fase 2 — Alinear la app con la Biblia (2 sesiones)
 - [ ] Conectar `tokens.css`: colores, `--accent`, `--attention` (ámbar, no rojo), modo oscuro.
