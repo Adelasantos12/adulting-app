@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/tailwind.css">
     <!-- Lucide Icons, versión fija servida desde public/vendor: npm run vendor -->
     <script src="vendor/lucide.min.js"></script>
+    <script src="js/native.js"></script>
     <script src="js/util.js"></script>
     <script src="js/recetas.js"></script>
     <script src="js/ropa.js"></script>
@@ -309,7 +310,9 @@
         }
 
         function saveState() {
-            localStorage.setItem('modo_adulto_combined_state_v2', JSON.stringify(state));
+            const json = JSON.stringify(state);
+            localStorage.setItem('modo_adulto_combined_state_v2', json);
+            persistNative(json);
             updateThemeClasses();
             updateAlertIndicators();
         }
@@ -1189,18 +1192,17 @@
         // --- RESPALDO DE DATOS ---
         const BACKUP_FORMAT = 'modo-adulto-respaldo';
 
-        function exportBackup() {
+        async function exportBackup() {
             const today = new Date().toISOString().slice(0, 10);
+            const filename = `modo-adulto-respaldo-${today}.json`;
             const backup = { format: BACKUP_FORMAT, version: 1, exportedAt: new Date().toISOString(), state: state };
-            const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `modo-adulto-respaldo-${today}.json`;
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
-            URL.revokeObjectURL(link.href);
-            setBackupStatus(`Respaldo descargado: modo-adulto-respaldo-${today}.json`);
+            try {
+                const result = await saveTextFile(filename, JSON.stringify(backup, null, 2));
+                if (result === 'downloaded') setBackupStatus(`Respaldo descargado: ${filename}`);
+                else if (result === 'shared') setBackupStatus(`Respaldo listo: ${filename}. Guárdalo en Archivos, Drive o mándatelo por correo.`);
+            } catch (e) {
+                setBackupStatus('No se pudo crear el respaldo. Puedes intentarlo otra vez.');
+            }
         }
 
         function importBackup(input) {
@@ -3239,10 +3241,8 @@
                 drawWheel();
             }
             // Si ya hay permiso de ubicación, el pronóstico se pide solo; si no, la persona decide con el botón
-            if (page === 'outfit' && !todayWeather && navigator.permissions) {
-                navigator.permissions.query({ name: 'geolocation' }).then((p) => {
-                    if (p.state === 'granted') requestOutfitWeather();
-                }).catch(() => {});
+            if (page === 'outfit' && !todayWeather) {
+                hasLocationPermission().then((granted) => { if (granted) requestOutfitWeather(); });
             }
             if (typeof prevInitPageGames === 'function' && prevInitPageGames !== initializePageComponents) {
                 prevInitPageGames(page);
@@ -3251,11 +3251,11 @@
 
         window.onload = function() {
             navigate('dashboard');
+            restoreNativeData();
         };
 
         // Service worker solo en la web; en la app nativa (Capacitor) los archivos ya van dentro del paquete.
-        const isNativeApp = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
-        if ('serviceWorker' in navigator && !isNativeApp && location.protocol.startsWith('http')) {
+        if ('serviceWorker' in navigator && !isNativeApp() && location.protocol.startsWith('http')) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js').catch(function(err) {
                     console.warn('No se pudo registrar el service worker:', err);

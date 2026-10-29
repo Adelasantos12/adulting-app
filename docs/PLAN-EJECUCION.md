@@ -136,10 +136,19 @@ Material listo (29 oct): guion, 8 tareas, preguntas de cierre, hoja de notas y c
 **Listo cuando:** el gate 16 tiene nombres y notas reales detrás.
 
 ### Fase 4 — App nativa (1–2 sesiones)
-- [ ] `npx cap sync` y prueba en el simulador de iOS y un Android.
-- [ ] Cambiar `localStorage` por almacenamiento cifrado (Keychain y Keystore) en la versión nativa.
-- [ ] Íconos y splash con la identidad de la Biblia.
-- [ ] Página de política de privacidad publicada en Railway (`/privacidad`). Ambas tiendas la exigen.
+- [x] Capa nativa en `public/js/native.js` (29 oct): la misma app decide si usa la función del teléfono o la del navegador.
+  - Datos: además de `localStorage`, se guardan en Preferences (almacenamiento nativo). Si iOS borra los datos del WebView, se recuperan solos.
+  - Ubicación con permiso nativo (aproximada, solo para el clima). Textos de permiso en `Info.plist` y `AndroidManifest.xml`.
+  - Respaldo: se guarda el archivo y se abre el menú de compartir (Archivos, Drive, correo).
+  - Guiones: "Enviar como mensaje" usa el menú de compartir nativo.
+  - Temporizador de cocina: notificación local aunque la pantalla esté apagada.
+- [x] `npx cap sync` con 5 plugins (preferences, geolocation, filesystem, share, local-notifications), versión 8.
+- [ ] **Instalar herramientas (tú):** Xcode desde la App Store de Mac; Android Studio; JDK 21 (hoy hay Java 8).
+- [ ] Probar en el simulador de iOS, un iPhone y un Android.
+- [ ] **Decidir el nombre** (hoy: "SerAdulto" en Capacitor, "Modo Adulto" en la app) y el identificador `com.seradulto.app`, que no se puede cambiar después de publicar.
+- [ ] Ícono final de 1024 px y pantalla de inicio; generar todos los tamaños con `@capacitor/assets`.
+- [ ] Página de política de privacidad publicada en Railway (`/privacidad`). Ambas tiendas la exigen. Debe decir que la ubicación redondeada va a Open-Meteo.
+- [ ] Al publicar en Google Play: el plugin de notificaciones declara `SCHEDULE_EXACT_ALARM`; Play Console pide justificarlo (temporizador de cocina).
 
 **Listo cuando:** la app corre en un iPhone y un Android reales, sin conexión, con datos que sobreviven a un reinicio.
 

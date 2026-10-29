@@ -450,14 +450,9 @@ async function shareScriptMessage(id) {
     const text = plainTemplate(s.mensaje, scriptFields(s));
     const status = document.getElementById('script-share-status');
     try {
-        if (navigator.share) {
-            await navigator.share({ text });
-            return;
-        }
-        await navigator.clipboard.writeText(text);
-        if (status) status.textContent = 'Mensaje copiado. Pégalo en WhatsApp o en tu correo.';
+        const result = await shareText(text);
+        if (result === 'copied' && status) status.textContent = 'Mensaje copiado. Pégalo en WhatsApp o en tu correo.';
     } catch (e) {
-        if (e && e.name === 'AbortError') return;
         if (status) status.textContent = 'No se pudo copiar. Puedes seleccionar el texto de arriba y copiarlo.';
     }
 }

@@ -477,12 +477,14 @@ function formatTimer(ms) {
 function startCookTimer(minutes) {
     stopCookTimer();
     cookTimer.endsAt = Date.now() + minutes * 60000;
+    const recipe = findRecipe(recipeUI.recipeId);
+    scheduleTimerNotice(cookTimer.endsAt, 'Terminó el tiempo', recipe ? `${recipe.titulo}: revisa cómo va.` : 'Revisa cómo va.');
     cookTimer.interval = setInterval(() => {
         const left = cookTimer.endsAt - Date.now();
         const display = document.getElementById('cook-timer-display');
         if (display) display.textContent = formatTimer(left);
         if (left <= 0) {
-            stopCookTimer();
+            stopCookTimer(false);
             const status = document.getElementById('cook-timer-status');
             if (status) status.textContent = 'Terminó el tiempo. Revisa cómo va y sigue cuando quieras.';
             if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
@@ -491,7 +493,9 @@ function startCookTimer(minutes) {
     rerenderRecipes();
 }
 
-function stopCookTimer() {
+// keepNotice: al terminar solo, la notificación ya salió y no se quita
+function stopCookTimer(keepNotice) {
+    if (cookTimer.interval && keepNotice !== false) cancelTimerNotice();
     if (cookTimer.interval) clearInterval(cookTimer.interval);
     cookTimer.interval = null;
     const display = document.getElementById('cook-timer-display');

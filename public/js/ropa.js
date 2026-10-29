@@ -79,24 +79,25 @@ function toggleManualRain() {
     useManualWeather(todayWeather.manualKey, todayWeather.rain === 0);
 }
 
-function requestOutfitWeather() {
+async function requestOutfitWeather() {
     setOutfitStatus('Buscando tu ubicación…');
-    if (!navigator.geolocation) {
-        setOutfitStatus('Este navegador no permite usar la ubicación. Elige cómo está el clima abajo.');
+    let coords;
+    try {
+        coords = await getCurrentLocation();
+    } catch (e) {
+        setOutfitStatus(e.code === 'denied'
+            ? 'Sin permiso de ubicación. Elige cómo está el clima abajo; puedes darlo después en los ajustes del teléfono.'
+            : 'No se pudo obtener tu ubicación. Elige cómo está el clima abajo, o inténtalo otra vez.');
         return;
     }
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-        setOutfitStatus('Consultando el pronóstico de hoy…');
-        try {
-            todayWeather = await fetchHourlyWeather(pos.coords.latitude.toFixed(2), pos.coords.longitude.toFixed(2));
-            currentOutfit = buildOutfit();
-            renderOutfitRoot();
-        } catch (e) {
-            setOutfitStatus('No se pudo consultar el clima. Elige cómo está el clima abajo, o inténtalo otra vez.');
-        }
-    }, () => {
-        setOutfitStatus('Sin permiso de ubicación. Elige cómo está el clima abajo.');
-    });
+    setOutfitStatus('Consultando el pronóstico de hoy…');
+    try {
+        todayWeather = await fetchHourlyWeather(coords.latitude.toFixed(2), coords.longitude.toFixed(2));
+        currentOutfit = buildOutfit();
+        renderOutfitRoot();
+    } catch (e) {
+        setOutfitStatus('No se pudo consultar el clima. Elige cómo está el clima abajo, o inténtalo otra vez.');
+    }
 }
 
 function setOutfitStatus(message) {

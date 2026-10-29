@@ -10,6 +10,11 @@
     "build:web": "npm run vendor && npm run build:css"
   },
   "dependencies": {
+    "@capacitor/filesystem": "8.1.5",
+    "@capacitor/geolocation": "8.2.4",
+    "@capacitor/local-notifications": "8.3.1",
+    "@capacitor/preferences": "8.0.1",
+    "@capacitor/share": "8.0.3",
     "express": "^4.19.2"
   },
   "engines": {

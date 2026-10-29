@@ -1,6 +1,5 @@
 {
   "appId": "com.seradulto.app",
   "appName": "SerAdulto",
-  "webDir": "public",
-  "bundledWebRuntime": false
+  "webDir": "public"
 }
