@@ -1,3 +1,151 @@
+/* Estilos base de Modo Adulto.
+   Los valores salen de docs/bible/tokens.css. Los colores se guardan como canales RGB
+   para que Tailwind pueda aplicar transparencia (bg-ink/10, etc.).
+   Contrastes medidos con docs/bible/CORE.md 3.6: texto >= 4.5:1 sobre ground, card y surfaces. */
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 200 1000;
+    font-display: swap;
+    src: url('../fonts/nunito-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/atkinson-hyperlegible-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/atkinson-hyperlegible-latin-700-normal.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        /* Neutros, claro */
+        --ground: 253 251 246;      /* #FDFBF6 */
+        --card: 255 255 255;        /* #FFFFFF */
+        --surface-1: 246 242 233;   /* #F6F2E9 */
+        --surface-2: 239 234 224;   /* #EFEAE0 */
+        --line: 231 225 214;        /* #E7E1D6 decorativa, separa tarjetas */
+        --edge: 143 138 126;        /* #8F8A7E 3.33:1, borde de controles (WCAG 1.4.11) */
+        --ink: 30 35 44;            /* #1E232C */
+        --ink-soft: 74 79 88;       /* #4A4F58 */
+        --ink-faint: 99 104 111;    /* #63686F 4.68:1 sobre surface-2 (el token #6B707A no llega en superficies) */
+
+        /* Atención: ámbar, nunca rojo, nunca solo color (CORE 3.3) */
+        --attention: 138 90 0;      /* #8A5A00 */
+        --attention-soft: 251 241 220;
+        --attention-fill: 138 90 0;
+
+        /* Acento por defecto: verde de la Biblia. El texto usa accent-strong para pasar 4.5:1 en superficies */
+        --accent: 63 107 59;        /* #3F6B3B */
+        --accent-fill: 79 127 74;   /* #4F7F4A, texto blanco 4.70:1 */
+        --accent-fill-strong: 63 107 59;
+        --accent-soft: 232 241 230;
+
+        --text-tracking: 0.04em;
+        --measure: 60ch;
+        --target-min: 48px;
+    }
+
+    /* Otros acentos elegibles en Ajustes. Todos medidos: texto y relleno >= 4.5:1 en claro y oscuro */
+    .accent-purple { --accent: 122 63 184; --accent-fill: 122 63 184; --accent-fill-strong: 100 48 154; --accent-soft: 241 234 250; }
+    .accent-blue   { --accent: 31 92 139;  --accent-fill: 31 92 139;  --accent-fill-strong: 23 73 111;  --accent-soft: 230 239 247; }
+    .accent-rose   { --accent: 168 50 79;  --accent-fill: 168 50 79;  --accent-fill-strong: 140 40 64;  --accent-soft: 250 235 238; }
+    .accent-orange { --accent: 154 74 18;  --accent-fill: 154 74 18;  --accent-fill-strong: 127 60 13;  --accent-soft: 251 238 227; }
+
+    .dark {
+        --ground: 23 27 34;         /* #171B22 */
+        --card: 32 37 46;           /* #20252E */
+        --surface-1: 38 43 52;      /* #262B34 */
+        --surface-2: 42 48 56;      /* #2A3038 */
+        --line: 51 57 67;
+        --edge: 107 113 122;        /* #6B717A 3.51:1 */
+        --ink: 233 230 223;         /* #E9E6DF, no blanco puro */
+        --ink-soft: 180 176 168;    /* #B4B0A8 */
+        --ink-faint: 156 153 145;   /* #9C9991 4.68:1 sobre surface-2 */
+
+        --attention: 224 180 92;    /* #E0B45C */
+        --attention-soft: 51 41 26;
+
+        --accent: 143 196 137;      /* #8FC489 */
+        --accent-soft: 34 48 31;
+    }
+    .dark.accent-purple { --accent: 201 167 247; --accent-soft: 42 34 56; }
+    .dark.accent-blue   { --accent: 140 191 230; --accent-soft: 28 42 56; }
+    .dark.accent-rose   { --accent: 242 165 183; --accent-soft: 54 32 42; }
+    .dark.accent-orange { --accent: 240 176 124; --accent-soft: 53 39 25; }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        background: rgb(var(--ground));
+        color: rgb(var(--ink));
+        letter-spacing: var(--text-tracking);
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    p, li {
+        max-width: var(--measure);
+    }
+
+    input, select, textarea {
+        border-color: rgb(var(--edge));
+        background-color: rgb(var(--card));
+        color: rgb(var(--ink));
+    }
+
+    /* Áreas táctiles: 48px en botones y campos, 24px en casillas (CORE 8.9, WCAG 2.5.8) */
+    button, [role="button"], summary, select,
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]) {
+        min-height: var(--target-min);
+    }
+    button, [role="button"] {
+        min-width: var(--target-min);
+    }
+    input[type="checkbox"], input[type="radio"] {
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+        accent-color: rgb(var(--accent-fill));
+    }
+    summary {
+        display: flex;
+        align-items: center;
+    }
+
+    :focus-visible {
+        outline: 3px solid rgb(var(--ink));
+        outline-offset: 2px;
+    }
+}
+
+/* Movimiento reducido: obligatorio. Quitar o cambiar por fundido, no "un poco más rápido" (tokens.css).
+   Aplica con la preferencia del sistema o con el ajuste "Reducir movimiento" (clase en <html>). */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+}

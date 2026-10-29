@@ -55,12 +55,41 @@ Notas al cerrar la fase:
 - Pendiente para la Fase 4: en la app nativa, "Descargar respaldo" necesitará el plugin de compartir archivos de Capacitor.
 
 ### Fase 2 — Alinear la app con la Biblia (2 sesiones)
-- [ ] Conectar `tokens.css`: colores, `--accent`, `--attention` (ámbar, no rojo), modo oscuro.
-- [ ] Tipografía: Nunito, texto base de 18 px y espaciado entre letras ajustable de 0.04em a 0.12em. Quitar Comic Neue como "fuente para dislexia".
-- [ ] `prefers-reduced-motion` en todas las animaciones (ruleta, temporizador).
-- [ ] Pasada de voz con la tabla de CORE 9: quitar "¡" decorativos, "ATRASADO" y cualquier contador que pueda mostrar cero.
-- [ ] Decidir el alcance de los módulos (ver "Decisiones" abajo).
-- [ ] Recorrer los QA gates 1–15 pantalla por pantalla y anotar resultados.
+- [x] Conectar los tokens: colores como variables en `src/tailwind.css`, atención en ámbar (nunca rojo), modo oscuro con los valores de la Biblia.
+- [x] Selector de acento con 5 opciones (decisión del 28 oct). Verde por defecto; las cinco pasan 4.5:1 en claro y oscuro.
+- [x] Tipografía: Nunito servida desde `public/fonts`, escala de `tokens.css` (cuerpo 18px, mínimo 14px), espacio entre letras ajustable de 0.04 a 0.12em. Se quitó Comic Neue "para dislexia" (CORE 4.2).
+- [x] Movimiento reducido: respeta la preferencia del sistema y hay un ajuste manual. La ruleta elige sin girar.
+- [x] Pasada de voz: sin "¡!", sin "ATRASADO" (ahora "Pendiente desde" con ícono, y solo si la fecha ya pasó), sin mayúsculas, estados vacíos que dicen para qué es el espacio.
+- [x] Diseño más sobrio: sin 88 emojis, sin degradados ni sombras de color, ruleta en tonos neutros.
+- [x] Alcance de módulos (decisión del 28 oct): Paz en Redes y Juegos ocultos por defecto, se activan en Ajustes. "Qué me pongo" ahora está en el menú.
+- [x] Recorrer los QA gates 1–15 (resultado abajo).
+
+**Resultado de los QA gates (28 oct 2026, medido en las 12 pantallas visibles, claro y oscuro)**
+
+| Gate | Estado | Nota |
+|---|---|---|
+| 1 Cubrir la cara de la mascota | No aplica | Aún no hay mascota en la app |
+| 2 Escala de grises | Pasa | Los vencidos llevan ícono y texto, no solo color |
+| 3 Significado por metáfora | Pasa | |
+| 4 Recordar datos de otra pantalla | Sin medir | Requiere revisión pantalla por pantalla con personas |
+| 5 Contraste | Pasa | Script: todo texto ≥ 4.5:1 en claro y oscuro |
+| 6 Pasteles con significado | Pasa | No se usan pasteles |
+| 7 Mayúsculas en cuerpo | Pasa | Se quitaron 20 `uppercase` y las etiquetas `[HOGAR]` |
+| 8 Tramas o rayas | Pasa | |
+| 9 Texto ≥ 18px | Parcial | Cuerpo 18px, tarjetas 16px, notas 14px. Todo escala con el ajuste de tamaño |
+| 10 Destellos > 3Hz | Pasa | |
+| 11 Movimiento reducido | Pasa | CSS global + ruleta |
+| 12 Parallax o autoplay | Pasa | |
+| 13 Contadores en cero | Pasa | No se encontraron |
+| 14 Avisos que implican deuda | Pasa | Textos reescritos |
+| 15 Todo se puede deshacer | **No pasa** | Borrar (tareas, deudas, mascotas…) es inmediato y sin deshacer. Pendiente |
+
+Áreas táctiles: 287 de 289 controles miden ≥ 48px (casillas 24px). Las dos excepciones son el deslizador y el campo de archivo oculto, cuya área es su etiqueta.
+
+**Pendiente de esta fase, para una siguiente sesión**
+- "Deshacer" al borrar (gate 15).
+- Revisar títulos en mayúscula inicial por palabra ("Mi Panel de Supervivencia") y nombres de módulos con la voz de la Biblia.
+- `ink-faint` se oscureció a `#63686F` (claro) y `#9C9991` (oscuro) para pasar 4.5:1 sobre superficies; `docs/bible/tokens.css` aún dice `#6B707A` y `#8A8780`. Actualizar la Biblia.
 
 **Listo cuando:** cada pantalla pasa los gates 1–15, con el resultado anotado.
 
