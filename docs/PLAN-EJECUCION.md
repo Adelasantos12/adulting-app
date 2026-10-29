@@ -82,14 +82,16 @@ Notas al cerrar la fase:
 | 12 Parallax o autoplay | Pasa | |
 | 13 Contadores en cero | Pasa | No se encontraron |
 | 14 Avisos que implican deuda | Pasa | Textos reescritos |
-| 15 Todo se puede deshacer | **No pasa** | Borrar (tareas, deudas, mascotas…) es inmediato y sin deshacer. Pendiente |
+| 15 Todo se puede deshacer | Pasa (29 oct) | Borrar muestra "Deshacer" 8 segundos; el elemento vuelve a su lugar. Sin diálogos de confirmación |
 
 Áreas táctiles: 287 de 289 controles miden ≥ 48px (casillas 24px). Las dos excepciones son el deslizador y el campo de archivo oculto, cuya área es su etiqueta.
 
-**Pendiente de esta fase, para una siguiente sesión**
-- "Deshacer" al borrar (gate 15).
-- Revisar títulos en mayúscula inicial por palabra ("Mi Panel de Supervivencia") y nombres de módulos con la voz de la Biblia.
-- `ink-faint` se oscureció a `#63686F` (claro) y `#9C9991` (oscuro) para pasar 4.5:1 sobre superficies; `docs/bible/tokens.css` aún dice `#6B707A` y `#8A8780`. Actualizar la Biblia.
+**Cerrado el 29 oct**
+- "Deshacer" al borrar tareas, deudas, seguros, chequeos, vehículos y mascotas (gate 15).
+- Títulos, menús y etiquetas en mayúscula solo inicial; "&" cambiado por "y"; nombres más cortos ("Hoy", "Ajustes", "Lo de hoy").
+- `docs/bible/tokens.css` actualizado con los grises nuevos de `ink-faint`.
+- Botones que estaban rotos en producción desde julio y ya funcionan: "Añadir mascota", "Eliminar perfil de mascota" y la revisión semanal de Hoy (ahora 3 preguntas opcionales).
+- Queda código sin uso del módulo "Mi trabajo" (entrevistas): no está en el menú ni tiene pantalla. Decidir si se recupera o se borra.
 
 **Listo cuando:** cada pantalla pasa los gates 1–15, con el resultado anotado.
 

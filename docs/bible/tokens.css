@@ -21,7 +21,7 @@
 
   --ink:             #1E232C;              /* 15.25:1 */
   --ink-soft:        #4A4F58;              /*  7.96:1 */
-  --ink-faint:       #6B707A;              /*  4.81:1 — floor for normal text, do not go lighter */
+  --ink-faint:       #63686F;              /*  5.43:1 vs ground, 4.68:1 vs surface-2. Was #6B707A, which fell to 4.2:1 on surfaces */
 
   --accent:          #4F7F4A;              /*  4.55:1 — one job per screen */
   --accent-strong:   #3F6B3B;              /*  6.01:1 — pressed / active */
@@ -109,7 +109,7 @@
 
     --ink:           #E9E6DF;              /* 13.85:1 — NOT pure white. Halation at max luminance */
     --ink-soft:      #B4B0A8;              /*  7.99:1 */
-    --ink-faint:     #8A8780;              /*  4.82:1 */
+    --ink-faint:     #9C9991;              /*  6.07:1 vs ground, 4.68:1 vs surface-2. Was #8A8780 (3.7:1 on surfaces) */
 
     --accent:        #8FC489;              /*  8.57:1 */
     --accent-strong: #A9D6A3;              /* 10.55:1 */
