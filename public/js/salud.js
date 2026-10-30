@@ -267,6 +267,7 @@ function openMedForm(id) {
 }
 
 function openAppointmentForm(id) {
+    if (!id && !allowMore('appointments', upcomingAppointments().length)) return;
     Object.assign(healthUI, { form: 'appointment', editingId: id || null });
     renderHealthPlannerRoot();
 }

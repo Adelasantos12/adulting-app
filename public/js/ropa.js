@@ -375,7 +375,11 @@ function renderClosetEditor() {
         </div>`;
 }
 
-function openCloset() { outfitView = 'closet'; renderOutfitRoot(); }
+function openCloset() {
+    if (!allowPremium('closet')) return;
+    outfitView = 'closet';
+    renderOutfitRoot();
+}
 function closeCloset() { outfitView = 'outfit'; currentOutfit = todayWeather ? buildOutfit() : null; renderOutfitRoot(); }
 
 function toggleClosetItem(id) {

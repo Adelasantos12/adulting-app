@@ -230,6 +230,7 @@ function renderDocumentForm() {
 // --- Acciones ---
 
 function newDocument(type) {
+    if (!allowMore('documents', documentsState().length)) return;
     Object.assign(docsUI, { view: 'form', editingId: null, draftType: type || null });
     renderDocumentsRoot();
 }

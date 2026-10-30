@@ -264,6 +264,7 @@ function renderPaymentForm() {
 // --- Acciones ---
 
 function newPayment(templateIndex) {
+    if (!allowMore('payments', paymentsState().length)) return;
     Object.assign(paymentsUI, { view: 'form', editingId: null, template: templateIndex ?? null });
     renderPaymentsRoot();
 }

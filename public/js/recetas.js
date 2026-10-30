@@ -439,6 +439,7 @@ function addMissingToShopping(id) {
 }
 
 function startCooking(id) {
+    if (!allowPremium('cook')) return;
     recipeUI.view = 'cook';
     recipeUI.recipeId = id;
     recipeUI.step = 0;
@@ -503,6 +504,7 @@ function stopCookTimer(keepNotice) {
 }
 
 function openPantryEditor() {
+    if (!allowPremium('pantry')) return;
     recipeUI.view = 'pantry';
     rerenderRecipes();
 }

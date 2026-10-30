@@ -225,7 +225,9 @@ function renderEmergencyPlan() {
                     <span><span class="block font-semibold text-ink">${escapeHtml(c.name)}</span><span class="block text-sm text-ink-faint">${escapeHtml(c.phone)}</span></span>
                     <button type="button" onclick="removeEmergencyContact(${c.id})" class="px-3 text-sm font-bold text-ink-faint" aria-label="Quitar a ${escapeHtml(c.name)}">Quitar</button>
                 </div>`).join('')}
-            ${e.contacts.length < 5 ? `
+            ${!isPremium() && e.contacts.length >= FREE_LIMITS.contacts && e.contacts.length < 5 ? `
+                <button type="button" onclick="openPremium('contacts')" class="flex items-center gap-2 text-sm font-bold text-accent"><i data-lucide="lock" class="w-4 h-4" aria-hidden="true"></i>Agregar otro contacto</button>` : ''}
+            ${e.contacts.length < (isPremium() ? 5 : FREE_LIMITS.contacts) ? `
                 <form onsubmit="addEmergencyContact(event)" class="grid grid-cols-1 sm:grid-cols-[1fr_1fr_auto] gap-2">
                     <input id="ec-name" type="text" required maxlength="40" placeholder="Nombre" aria-label="Nombre del contacto" class="px-3 py-2 border rounded-xl">
                     <input id="ec-phone" type="tel" required maxlength="20" placeholder="Teléfono" aria-label="Teléfono del contacto" class="px-3 py-2 border rounded-xl">

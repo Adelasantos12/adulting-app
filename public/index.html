@@ -17,6 +17,7 @@
     <script src="vendor/lucide.min.js"></script>
     <script src="js/native.js"></script>
     <script src="js/util.js"></script>
+    <script src="js/plan.js"></script>
     <script src="js/recetas.js"></script>
     <script src="js/ropa.js"></script>
     <script src="js/biblioteca.js"></script>
@@ -1096,6 +1097,7 @@
             const acc = state.accessibility;
             return `
                 <div class="bg-card p-6 rounded-3xl border border-line shadow-sm space-y-6 text-sm max-w-2xl mx-auto">
+                    ${renderPlanSettingsRow()}
                     <button type="button" onclick="navigate('profile')" class="w-full flex items-center gap-3 p-3 bg-surface-1 border border-line rounded-2xl text-left">
                         ${profileFigureSvg(profileState().figureSeed, 40)}
                         <span class="flex-1">

@@ -1,7 +1,7 @@
 // Service worker de Modo Adulto: hace que la app abra y funcione sin conexión.
 // Los archivos propios se piden primero a la red, así que los cambios llegan solos.
 // Sube CACHE_VERSION solo si cambias la lista APP_SHELL o la forma de cachear.
-const CACHE_VERSION = 'v11';
+const CACHE_VERSION = 'v12';
 const APP_CACHE = `modo-adulto-app-${CACHE_VERSION}`;
 const FONT_CACHE = `modo-adulto-fonts-${CACHE_VERSION}`;
 
@@ -12,6 +12,7 @@ const APP_SHELL = [
     '/vendor/lucide.min.js',
     '/js/native.js',
     '/js/util.js',
+    '/js/plan.js',
     '/js/recetas.js',
     '/js/ropa.js',
     '/js/biblioteca.js',

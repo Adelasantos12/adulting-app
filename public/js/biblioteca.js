@@ -135,7 +135,7 @@ function itemButton(item) {
         <button type="button" onclick="openLibraryItem('${item.id}')" class="w-full text-left p-4 bg-surface-1 border border-line rounded-2xl flex items-start gap-3">
             <i data-lucide="${kind === 'guion' ? 'message-circle' : 'book-open'}" class="w-5 h-5 text-ink-faint mt-0.5 flex-shrink-0" aria-hidden="true"></i>
             <span>
-                <span class="block font-bold text-ink">${escapeHtml(itemTitle(item))}</span>
+                <span class="block font-bold text-ink">${escapeHtml(itemTitle(item))} ${lockBadge(item.id)}</span>
                 <span class="block text-sm text-ink-faint">${escapeHtml(kind === 'guion' ? item.situacion : item.resumen)}</span>
             </span>
         </button>`;
@@ -409,6 +409,7 @@ function showMoreLibrary() {
 function openLibraryItem(id) {
     const item = findLibraryItem(id);
     if (!item) return;
+    if (isPremiumGuide(id) && !allowPremium('guide')) return;
     // Desde la búsqueda o guardadas no hay tema abierto: "Volver" regresa al inicio
     if (libraryUI.view !== 'need') libraryUI.need = null;
     Object.assign(libraryUI, { view: 'item', itemId: id, line: 0 });
@@ -489,6 +490,7 @@ function seasonalGuide(date = new Date()) {
 }
 
 function openGuideFromHome(id) {
+    if (isPremiumGuide(id) && !allowPremium('guide')) return;
     Object.assign(libraryUI, { view: 'item', itemId: id, need: null, query: '' });
     navigate('guides');
 }
