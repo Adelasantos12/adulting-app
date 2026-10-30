@@ -24,6 +24,7 @@
     <script src="js/documentos.js"></script>
     <script src="js/emergencias.js"></script>
     <script src="js/salud.js"></script>
+    <script src="js/pagos.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/buscador.js"></script>
     <style>
@@ -163,6 +164,7 @@
                     auto: true,
                     documents: true,
                     emergency: true,
+                    payments: true,
                     health: true,
                     house: true,
                     outfit: true,
@@ -191,10 +193,6 @@
             ],
             budget: {
                 monthlyIncome: 2500,
-                bills: [
-                    { id: 1, name: 'Alquiler Departamental', amount: 950, dueDate: '2026-04-01', recur: 'mensual', paid: false },
-                    { id: 2, name: 'Suministro Luz y Energía', amount: 85, dueDate: '2026-03-25', recur: 'mensual', paid: false }
-                ]
             },
             impuestos: { checked: false, separatedTax: 0 },
             seguros: [
@@ -206,6 +204,9 @@
 
             // Documentos y vencimientos (js/documentos.js)
             documents: [],
+
+            // Pagos fijos y suscripciones (js/pagos.js)
+            payments: [],
 
             // Emergencias y sismo (js/emergencias.js)
             emergency: { contacts: [], meetingPoint: '', safeSpot: '', medical: { blood: '', allergies: '', conditions: '', meds: '' }, kits: { mochila: [], botiquin: [] }, kitsChecked: {} },
@@ -416,6 +417,7 @@
             profile: 'Tu perfil',
             documents: 'Documentos y vencimientos',
             emergency: 'Emergencias y sismo',
+            payments: 'Pagos fijos y suscripciones',
             outfit: 'Qué me pongo',
             solitaire: 'Solitario',
             ellie: 'Ellie the Astronaut'
@@ -435,6 +437,7 @@
                 { id: 'pets', label: 'Mis mascotas', short: 'Mascotas', icon: 'paw-print', visible: vis.pets !== false },
                 { id: 'auto', label: 'Mi automóvil', short: 'Auto', icon: 'car', visible: vis.auto !== false },
                 { id: 'documents', label: 'Documentos y vencimientos', short: 'Docs', icon: 'file-clock', visible: vis.documents !== false },
+                { id: 'payments', label: 'Pagos fijos', short: 'Pagos', icon: 'calendar-clock', visible: vis.payments !== false },
                 { id: 'emergency', label: 'Emergencias y sismo', short: 'Emergencia', icon: 'siren', visible: vis.emergency !== false },
                 { id: 'health', label: 'Salud y hábitos', short: 'Salud', icon: 'heart', visible: vis.health !== false },
                 { id: 'house', label: 'Casa funcional', short: 'Casa', icon: 'home', visible: vis.house !== false },
@@ -505,11 +508,7 @@
             state.autoList.forEach(v => {
                 if (v.mileage - v.lastOilMileage >= v.oilChangeInterval) hasAlerts = true;
             });
-            state.budget.bills.forEach(b => {
-                if (!b.paid) {
-                    if (new Date(b.dueDate) < new Date()) hasAlerts = true;
-                }
-            });
+            if (state.accessibility.visibleModules.payments !== false && hasOverduePayments()) hasAlerts = true;
             if (state.accessibility.visibleModules.documents !== false && docsNeedingAttention().length) hasAlerts = true;
             return hasAlerts;
         }
@@ -585,15 +584,14 @@
                 case 'dashboard':
                     // 1. Próximo Vencimiento (Facturas o Seguros)
                     let vencimientoHtml = '';
-                    const pendingBills = state.budget.bills.filter(b => !b.paid);
-                    if (pendingBills.length > 0) {
-                        const nextBill = pendingBills[0];
+                    const nextPayment = [...paymentsState()].filter(p => !p.autopay).sort((a, b) => a.nextDue.localeCompare(b.nextDue))[0];
+                    if (nextPayment) {
                         vencimientoHtml = `
                             <div class="p-4 bg-surface-1 rounded-xl border border-line space-y-2">
-                                ${dueBadge(nextBill.dueDate)}
-                                <h4 class="font-extrabold text-sm text-ink">${nextBill.name}</h4>
-                                <p class="text-xs text-ink-faint">$${nextBill.amount}</p>
-                                <button onclick="navigate('money')" class="text-xs text-accent font-bold hover:underline">Ver mi presupuesto →</button>
+                                ${paymentChip(nextPayment)}
+                                <h4 class="font-extrabold text-sm text-ink">${escapeHtml(nextPayment.name)}</h4>
+                                <p class="text-xs text-ink-faint">${money(nextPayment.amount)} · ${formatDocDate(nextPayment.nextDue)}</p>
+                                <button onclick="navigate('payments')" class="text-xs text-accent font-bold hover:underline">Ver mis pagos →</button>
                             </div>
                         `;
                     } else if (state.autoList.length > 0) {
@@ -665,6 +663,7 @@
                         ${renderProfilePrompt()}
                         ${renderDocumentsReminder()}
                         ${renderHealthReminder()}
+                        ${renderPaymentsReminder()}
 
                         <!-- Nota de Ánimo Configurable -->
                         ${state.affirmationMode ? `
@@ -774,6 +773,8 @@
                     return backButtonHtml + renderModuloDocuments();
                 case 'emergency':
                     return backButtonHtml + renderModuloEmergency();
+                case 'payments':
+                    return backButtonHtml + renderModuloPayments();
                 case 'outfit':
                     return backButtonHtml + renderModuloOutfit();
                 case 'solitaire':
@@ -1221,6 +1222,10 @@
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
                                     <span class="font-medium">Documentos y vencimientos</span>
                                     <input type="checkbox" ${state.accessibility.visibleModules.documents !== false ? "checked" : ""} onchange="toggleModuleVisibility('documents')" class="w-6 h-6 text-accent rounded">
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
+                                    <span class="font-medium">Pagos fijos</span>
+                                    <input type="checkbox" ${state.accessibility.visibleModules.payments !== false ? "checked" : ""} onchange="toggleModuleVisibility('payments')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
                                     <span class="font-medium">Emergencias y sismo</span>
@@ -3326,6 +3331,7 @@
             renderProfileBadge();
             syncAllDocumentNotices();
             syncAllHealthNotices();
+            syncAllPaymentNotices();
             navigate('dashboard');
             restoreNativeData();
         };

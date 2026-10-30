@@ -10,6 +10,7 @@ const SEARCH_MODULES = [
     { page: 'pets', label: 'Mis mascotas', icon: 'paw-print', words: 'mascota perro gato veterinario vacunas' },
     { page: 'auto', label: 'Mi automóvil', icon: 'car', words: 'auto carro coche moto aceite llantas tablero testigo verificacion mantenimiento' },
     { page: 'documents', label: 'Documentos y vencimientos', icon: 'file-clock', words: 'documentos vencimientos ine credencial pasaporte licencia efirma visa verificacion tenencia refrendo seguro renta garantia renovar vence' },
+    { page: 'payments', label: 'Pagos fijos y suscripciones', icon: 'calendar-clock', words: 'pagos fijos suscripciones suscripcion renta luz cfe agua gas internet celular netflix spotify disney amazon prime gimnasio predial recibo cobro cargo automatico mensualidad' },
     { page: 'emergency', label: 'Emergencias y sismo', icon: 'siren', words: 'emergencia emergencias sismo temblor terremoto 911 incendio fuego gas fuga inundacion desmayo mochila botiquin contactos punto reunion tipo sangre alergias ficha medica' },
     { page: 'health', label: 'Salud y hábitos', icon: 'heart', words: 'salud habitos medicinas medicamentos pastillas receta tomas citas cita doctor medico dentista analisis consulta terapia chequeo lentes vista ciclo menstrual periodo' },
     { page: 'house', label: 'Casa funcional', icon: 'home', words: 'casa limpieza reparar hogar' },

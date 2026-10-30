@@ -24,6 +24,7 @@ const FORMS_OF_ADDRESS = {
 const LIFE_AREAS = [
     { key: 'todos', label: 'Tareas y pendientes de la casa', modules: ['todos', 'house'] },
     { key: 'money', label: 'Ordenar mi dinero y mis compras', modules: ['money', 'shopping'] },
+    { key: 'payments', label: 'Que me avisen de mis pagos fijos y suscripciones', modules: ['payments'] },
     { key: 'food', label: 'Cocinar o aprender a hacerlo', modules: ['food'] },
     { key: 'outfit', label: 'Qué ponerme según el clima', modules: ['outfit'] },
     { key: 'auto', label: 'Tengo auto o moto', modules: ['auto'] },
