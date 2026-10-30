@@ -27,6 +27,7 @@
     <script src="js/salud.js"></script>
     <script src="js/pagos.js"></script>
     <script src="js/perfil.js"></script>
+    <script src="js/acceso.js"></script>
     <script src="js/buscador.js"></script>
     <style>
         /* Custom scrollbars */
@@ -1098,6 +1099,7 @@
             return `
                 <div class="bg-card p-6 rounded-3xl border border-line shadow-sm space-y-6 text-sm max-w-2xl mx-auto">
                     ${renderPlanSettingsRow()}
+                    ${renderAccessSettings()}
                     <button type="button" onclick="navigate('profile')" class="w-full flex items-center gap-3 p-3 bg-surface-1 border border-line rounded-2xl text-left">
                         ${profileFigureSvg(profileState().figureSeed, 40)}
                         <span class="flex-1">
@@ -3330,6 +3332,7 @@
                 profileState();
                 saveState();
             }
+            showAccessIfNeeded();
             renderProfileBadge();
             syncAllDocumentNotices();
             syncAllHealthNotices();

@@ -10,6 +10,7 @@
     "build:web": "npm run vendor && npm run build:css"
   },
   "dependencies": {
+    "@capacitor-community/apple-sign-in": "7.1.0",
     "@capacitor/filesystem": "8.1.5",
     "@capacitor/geolocation": "8.2.4",
     "@capacitor/local-notifications": "8.3.1",

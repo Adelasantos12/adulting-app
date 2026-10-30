@@ -145,7 +145,7 @@ function renderModuloProfile() {
         <div class="bg-card p-6 rounded-3xl border border-line shadow-sm space-y-8 max-w-2xl mx-auto">
             <section class="space-y-3">
                 <h3 class="font-bold text-base text-ink">Tu figura</h3>
-                <p class="text-ink-soft">Formas y colores que te representan, sin cara ni cuerpo. Elige una o genera otras.</p>
+                <p class="text-ink-soft">Elige una o genera otras.</p>
                 <div class="flex flex-wrap items-center gap-3">
                     ${[p.figureSeed, ...figureChoices.filter((s) => s !== p.figureSeed)].slice(0, 6).map((seed) => `
                         <button type="button" onclick="chooseFigure(${seed})" aria-pressed="${seed === p.figureSeed}" aria-label="Elegir esta figura" class="p-1 rounded-full ${seed === p.figureSeed ? 'ring-4 ring-accent' : 'ring-1 ring-line'}">

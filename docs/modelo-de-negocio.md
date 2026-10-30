@@ -44,14 +44,16 @@ Lo que ya funciona: los límites, los candados en las guías y la pantalla de su
 5. **Requisitos de las tiendas:** enlace a términos y a aviso de privacidad en la pantalla de suscripción, botón para restaurar compras (ya está) y explicación clara del cobro después de la prueba (ya está).
 6. **Cambiar `PAYWALL_ENABLED` a `true`** solo cuando una compra de prueba funcione en TestFlight y en la prueba interna de Google Play.
 
-## Cuentas de usuario (después)
+## Entrada a la app (sin cuentas en la nube)
 
-Con la suscripción de la tienda no hace falta cuenta: la compra va con el Apple ID o la cuenta de Google y se recupera con "Restaurar compra". Las cuentas con correo o "Iniciar sesión con Apple" sirven para usar la app en varios dispositivos y para respaldo en la nube. Requieren:
+El código está en `public/js/acceso.js`. Al abrir la app se pide usuario y contraseña, o "Continuar con Apple"; también se puede "Usar sin usuario" (las tiendas no dejan obligar a registrarse si la app no lo necesita). Todo vive en el dispositivo:
 
-- Un servidor de cuentas y datos (propuesta: Supabase).
-- Botón para borrar la cuenta dentro de la app (lo exigen las tiendas).
-- "Iniciar sesión con Apple" obligatorio en iPhone si se ofrece cualquier otro inicio de sesión de terceros, como Google.
-- Aviso de privacidad conforme a la ley mexicana de protección de datos, porque se guardarían correos.
+- La contraseña se guarda como huella PBKDF2 con sal, nunca tal cual. No hay servidor, así que si se olvida no se puede recuperar: queda "Borrar todo y empezar de nuevo".
+- Con Apple se pide sin correo ni nombre, y se guarda solo la huella del id que Apple da para esta app. Funciona en la app de iPhone (plugin `@capacitor-community/apple-sign-in`); en la web avisa que se use usuario y contraseña. En Xcode hay que activar la capacidad "Sign in with Apple".
+- Es un candado para abrir la app, no cifrado: los datos siguen en el almacenamiento de la app como antes.
+- Ajustes, "Entrada a la app": cerrar sesión, cambiar contraseña, dejar de pedir usuario o crear uno.
+
+La suscripción no depende de esto: va con el Apple ID o la cuenta de Google y se recupera con "Restaurar compra". Si algún día se quisiera usar la app en varios dispositivos, haría falta un servidor de cuentas, botón para borrar la cuenta y aviso de privacidad por guardar correos.
 
 ## La web
 
