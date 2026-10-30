@@ -1,6 +1,6 @@
 // --- BUSCADOR DE TODA LA APP ---
 // El menú muestra solo lo que la persona activó; aquí se encuentra todo lo demás:
-// módulos (aunque estén ocultos), ajustes, guías y guiones, y recetas.
+// módulos (aunque estén ocultos), ajustes, testigos del tablero, guías y guiones, y recetas.
 
 const SEARCH_MODULES = [
     { page: 'todos', label: 'Tareas y ruleta', icon: 'check-square', words: 'pendientes tareas ruleta que hago ahora lista' },
@@ -67,6 +67,11 @@ function runSearch(query) {
             detail: vis[m.page] === false ? 'No está en tu menú' : '',
             action: `navigate('${m.page}')`
         }));
+    const lights = findWarningLights(query).slice(0, 4).map((l) => ({
+        group: 'Luces del tablero', icon: 'car', title: l.nombre,
+        detail: `${LIGHT_COLORS[l.color].label} · parece ${l.parece}`,
+        action: `openWarningLightFromSearch('${l.id}')`
+    }));
     const library = searchLibrary(query).slice(0, 6).map((item) => ({
         group: 'Dudas y conversaciones', icon: item.guion ? 'message-circle' : 'book-open',
         title: itemTitle(item), detail: item.resumen || item.situacion || '',
@@ -76,7 +81,7 @@ function runSearch(query) {
         .filter((r) => matchesWords([r.titulo, r.resumen, ...(r.etiquetas || []), ...r.ingredientes.map((i) => i.texto)].join(' '), words))
         .slice(0, 5)
         .map((r) => ({ group: 'Recetas', icon: 'chef-hat', title: r.titulo, detail: `${r.minutos} min`, action: `openRecipeFromSearch('${r.id}')` }));
-    searchResults = [...modules, ...library, ...recipes];
+    searchResults = [...modules, ...lights, ...library, ...recipes];
     renderSearchResults();
 }
 
@@ -84,7 +89,7 @@ function renderSearchResults() {
     const list = document.getElementById('search-results');
     if (!list) return;
     if (!searchWords(searchQuery).length) {
-        list.innerHTML = `<p class="px-2 py-4 text-ink-faint">Busca lo que sea: "verificación", "me cobraron de más", "pollo", "llanta", "ropa".</p>`;
+        list.innerHTML = `<p class="px-2 py-4 text-ink-faint">Busca lo que sea: "me cobraron de más", "pollo", "luz con forma de lámpara", "ropa".</p>`;
         return;
     }
     if (!searchResults.length) {

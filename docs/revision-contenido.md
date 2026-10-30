@@ -54,6 +54,13 @@ Redactadas el 29 oct 2026 con búsqueda en fuentes oficiales.
 
 No contienen cifras ni datos legales. Revisar tono: que suenen naturales en México, firmes y amables.
 
+## Testigos del tablero (`public/js/testigos.js`)
+
+19 luces redactadas con IA el 30 oct 2026, sin fuente. Revisar con un mecánico, sobre todo:
+- Qué hacer y si se puede seguir manejando con aceite, temperatura, batería, frenos y dirección.
+- Que los dibujos se parezcan a los de los autos más comunes en México (Nissan, Chevrolet, VW, Toyota, Kia).
+- Colores: algunas marcas muestran en ámbar lo que aquí va en rojo (bolsas de aire, dirección).
+
 ## Recetas (`public/data/recetas.json`)
 
 Cocinar primero las de pollo, cerdo y pescado en freidora de aire.

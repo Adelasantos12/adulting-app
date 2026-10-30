@@ -20,6 +20,7 @@
     <script src="js/recetas.js"></script>
     <script src="js/ropa.js"></script>
     <script src="js/biblioteca.js"></script>
+    <script src="js/testigos.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/buscador.js"></script>
     <style>
@@ -2128,38 +2129,8 @@
                         </div>
                     </div>
 
-                    <!-- Guía de Iconos del Tablero (Educación) -->
-                    <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-4">
-                        <h3 class="text-base font-bold text-ink flex items-center gap-1.5">
-                            <i data-lucide="info" class="w-4 h-4 text-accent" aria-hidden="true"></i>
-                            Guía Rápida: Iconos del Tablero
-                        </h3>
-                        <p class="text-sm text-ink-faint">Si se enciende un testigo o luz de advertencia en tu panel, este es su significado esencial:</p>
-
-                        <div class="space-y-3.5 pt-2 text-sm">
-                            <div class="flex items-start gap-3 p-3 bg-attention-soft border-l-3 border-attention rounded-r-xl">
-                                <span class="text-xl" role="img" aria-label="Alerta de Motor"></span>
-                                <div>
-                                    <strong class="text-attention block">Check Engine (falla de motor)</strong>
-                                    <p class="text-xs text-ink-faint">Indica anomalías menores o moderadas en sensores del motor o de emisiones. Llévalo a escanear con escáner OBD2 en tu taller de confianza.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 p-3 bg-attention-soft border-l-3 border-attention rounded-r-xl">
-                                <span class="text-xl" role="img" aria-label="Presión de Aceite"></span>
-                                <div>
-                                    <strong class="text-attention block">Presión baja de aceite (crítico)</strong>
-                                    <p class="text-xs text-ink-faint">Detente en un lugar seguro. El motor se está quedando sin lubricación suficiente. Apágalo de inmediato para prevenir que se desbiele por completo.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 p-3 bg-attention-soft border-l-3 border-attention rounded-r-xl">
-                                <span class="text-xl" role="img" aria-label="Alerta de Batería"></span>
-                                <div>
-                                    <strong class="text-attention block">Fallo del alternador / batería</strong>
-                                    <p class="text-xs text-ink-faint">El alternador no está enviando carga para regenerar la batería. Si apagas el vehículo, muy probablemente ya no volverá a arrancar.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Testigos del tablero (js/testigos.js) -->
+                    ${renderWarningLightsSection()}
                 </div>
 
                 <!-- Modales del Módulo Automóvil -->
