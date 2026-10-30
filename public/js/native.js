@@ -145,19 +145,27 @@ async function saveTextFile(filename, text) {
 // --- Avisos programados ---
 // En la app nativa llegan aunque la app esté cerrada o la pantalla apagada; en el navegador no hacen nada.
 
-async function scheduleNotice(id, at, title, body) {
+async function scheduleWith(id, schedule, title, body) {
     const LocalNotifications = nativePlugin('LocalNotifications');
     if (!LocalNotifications) return;
     try {
         let perm = await LocalNotifications.checkPermissions();
         if (perm.display !== 'granted') perm = await LocalNotifications.requestPermissions();
         if (perm.display !== 'granted') return;
-        await LocalNotifications.schedule({
-            notifications: [{ id, title, body, schedule: { at: new Date(at), allowWhileIdle: true } }]
-        });
+        await LocalNotifications.schedule({ notifications: [{ id, title, body, schedule: { ...schedule, allowWhileIdle: true } }] });
     } catch (e) {
         // Si no hay permiso o falla, lo de la pantalla sigue funcionando
     }
+}
+
+// Una sola vez, en una fecha y hora
+function scheduleNotice(id, at, title, body) {
+    return scheduleWith(id, { at: new Date(at) }, title, body);
+}
+
+// Todos los días a la misma hora (medicinas)
+function scheduleDailyNotice(id, hour, minute, title, body) {
+    return scheduleWith(id, { on: { hour, minute } }, title, body);
 }
 
 async function cancelNotice(id) {

@@ -23,6 +23,7 @@
     <script src="js/testigos.js"></script>
     <script src="js/documentos.js"></script>
     <script src="js/emergencias.js"></script>
+    <script src="js/salud.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/buscador.js"></script>
     <style>
@@ -407,7 +408,7 @@
             food: 'Alimentación',
             pets: 'Mis mascotas',
             auto: 'Mi automóvil',
-            health: 'Hábitos y salud',
+            health: 'Salud y hábitos',
             house: 'Casa funcional',
             paz: 'Paz en redes',
             guides: 'Dudas y conversaciones',
@@ -435,7 +436,7 @@
                 { id: 'auto', label: 'Mi automóvil', short: 'Auto', icon: 'car', visible: vis.auto !== false },
                 { id: 'documents', label: 'Documentos y vencimientos', short: 'Docs', icon: 'file-clock', visible: vis.documents !== false },
                 { id: 'emergency', label: 'Emergencias y sismo', short: 'Emergencia', icon: 'siren', visible: vis.emergency !== false },
-                { id: 'health', label: 'Hábitos y salud', short: 'Salud', icon: 'heart', visible: vis.health !== false },
+                { id: 'health', label: 'Salud y hábitos', short: 'Salud', icon: 'heart', visible: vis.health !== false },
                 { id: 'house', label: 'Casa funcional', short: 'Casa', icon: 'home', visible: vis.house !== false },
                 { id: 'outfit', label: 'Qué me pongo', short: 'Clima', icon: 'cloud-sun', visible: vis.outfit !== false },
                 { id: 'paz', label: 'Paz en redes', short: 'Diario', icon: 'instagram', visible: vis.paz !== false },
@@ -663,6 +664,7 @@
                     return `
                         ${renderProfilePrompt()}
                         ${renderDocumentsReminder()}
+                        ${renderHealthReminder()}
 
                         <!-- Nota de Ánimo Configurable -->
                         ${state.affirmationMode ? `
@@ -1225,7 +1227,7 @@
                                     <input type="checkbox" ${state.accessibility.visibleModules.emergency !== false ? "checked" : ""} onchange="toggleModuleVisibility('emergency')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
-                                    <span class="font-medium">Hábitos y salud</span>
+                                    <span class="font-medium">Salud y hábitos</span>
                                     <input type="checkbox" ${state.accessibility.visibleModules.health !== false ? "checked" : ""} onchange="toggleModuleVisibility('health')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
@@ -2619,7 +2621,7 @@
             if (wh.enabled) {
                 womenHealthHtml = `
                     <div class="p-4 bg-surface-1 rounded-xl border border-line space-y-3 text-sm">
-                        <h4 class="font-bold text-ink text-sm">Salud de la mujer (ciclo offline)</h4>
+                        <h4 class="font-bold text-ink text-sm">Ciclo menstrual</h4>
                         <div class="grid grid-cols-2 gap-3 text-xs leading-relaxed">
                             <div>
                                 <span class="text-ink-faint block text-xs font-bold">Último periodo</span>
@@ -2640,8 +2642,9 @@
             }
 
             return `
+                ${renderHealthPlanner()}
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm leading-relaxed">
-                    <!-- Chequeos Anuales y Salud de la Mujer -->
+                    <!-- Chequeos anuales y ciclo menstrual -->
                     <div class="bg-card p-6 rounded-2xl border border-line shadow-sm space-y-5">
                         <div class="flex justify-between items-center border-b pb-2">
                             <h3 class="font-bold text-base">Chequeos médicos anuales sugeridos</h3>
@@ -2655,8 +2658,8 @@
                         <div class="pt-4 border-t space-y-3">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <span class="font-bold text-ink block text-sm">Módulo de salud de la mujer</span>
-                                    <span class="text-xs text-ink-faint">Seguimiento de ciclo e historial ginecológico 100% privado offline.</span>
+                                    <span class="font-bold text-ink block text-sm">Ciclo menstrual</span>
+                                    <span class="text-xs text-ink-faint">Para quien menstrúa: ciclo y chequeos ginecológicos. Se guarda solo en tu teléfono.</span>
                                 </div>
                                 <input type="checkbox" ${wh.enabled ? 'checked' : ''} onchange="toggleWomenHealthEnabled()" class="w-6 h-6 rounded text-accent">
                             </div>
@@ -3322,6 +3325,7 @@
             }
             renderProfileBadge();
             syncAllDocumentNotices();
+            syncAllHealthNotices();
             navigate('dashboard');
             restoreNativeData();
         };

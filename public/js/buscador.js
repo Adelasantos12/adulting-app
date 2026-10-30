@@ -11,7 +11,7 @@ const SEARCH_MODULES = [
     { page: 'auto', label: 'Mi automóvil', icon: 'car', words: 'auto carro coche moto aceite llantas tablero testigo verificacion mantenimiento' },
     { page: 'documents', label: 'Documentos y vencimientos', icon: 'file-clock', words: 'documentos vencimientos ine credencial pasaporte licencia efirma visa verificacion tenencia refrendo seguro renta garantia renovar vence' },
     { page: 'emergency', label: 'Emergencias y sismo', icon: 'siren', words: 'emergencia emergencias sismo temblor terremoto 911 incendio fuego gas fuga inundacion desmayo mochila botiquin contactos punto reunion tipo sangre alergias ficha medica' },
-    { page: 'health', label: 'Hábitos y salud', icon: 'heart', words: 'salud habitos agua dormir medicinas respirar' },
+    { page: 'health', label: 'Salud y hábitos', icon: 'heart', words: 'salud habitos medicinas medicamentos pastillas receta tomas citas cita doctor medico dentista analisis consulta terapia chequeo lentes vista ciclo menstrual periodo' },
     { page: 'house', label: 'Casa funcional', icon: 'home', words: 'casa limpieza reparar hogar' },
     { page: 'outfit', label: 'Qué me pongo', icon: 'cloud-sun', words: 'ropa clima outfit vestir lluvia frio calor closet' },
     { page: 'paz', label: 'Paz en redes', icon: 'instagram', words: 'redes sociales diario desconectar' },

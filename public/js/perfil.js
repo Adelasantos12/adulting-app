@@ -30,7 +30,7 @@ const LIFE_AREAS = [
     { key: 'emergency', label: 'Plan para sismos y emergencias', modules: ['emergency'] },
     { key: 'documents', label: 'Que me avisen antes de que venzan mis documentos', modules: ['documents'] },
     { key: 'pets', label: 'Tengo mascotas', modules: ['pets'] },
-    { key: 'health', label: 'Hábitos y salud', modules: ['health'] },
+    { key: 'health', label: 'Medicinas, citas y salud', modules: ['health'] },
     { key: 'guides', label: 'Dudas de adulto y conversaciones difíciles', modules: ['guides'] },
     { key: 'paz', label: 'Desconectarme de las redes', modules: ['paz'] }
 ];
