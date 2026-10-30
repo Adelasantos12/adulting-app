@@ -142,12 +142,10 @@ async function saveTextFile(filename, text) {
     return 'downloaded';
 }
 
-// --- Aviso al terminar un temporizador ---
-// En la app nativa suena aunque la pantalla esté apagada; en el navegador solo vibra si la página está abierta.
+// --- Avisos programados ---
+// En la app nativa llegan aunque la app esté cerrada o la pantalla apagada; en el navegador no hacen nada.
 
-const TIMER_NOTIFICATION_ID = 4101;
-
-async function scheduleTimerNotice(endsAt, title, body) {
+async function scheduleNotice(id, at, title, body) {
     const LocalNotifications = nativePlugin('LocalNotifications');
     if (!LocalNotifications) return;
     try {
@@ -155,19 +153,30 @@ async function scheduleTimerNotice(endsAt, title, body) {
         if (perm.display !== 'granted') perm = await LocalNotifications.requestPermissions();
         if (perm.display !== 'granted') return;
         await LocalNotifications.schedule({
-            notifications: [{ id: TIMER_NOTIFICATION_ID, title, body, schedule: { at: new Date(endsAt), allowWhileIdle: true } }]
+            notifications: [{ id, title, body, schedule: { at: new Date(at), allowWhileIdle: true } }]
         });
     } catch (e) {
-        // Si no hay permiso o falla, el temporizador en pantalla sigue funcionando
+        // Si no hay permiso o falla, lo de la pantalla sigue funcionando
     }
 }
 
-async function cancelTimerNotice() {
+async function cancelNotice(id) {
     const LocalNotifications = nativePlugin('LocalNotifications');
     if (!LocalNotifications) return;
     try {
-        await LocalNotifications.cancel({ notifications: [{ id: TIMER_NOTIFICATION_ID }] });
+        await LocalNotifications.cancel({ notifications: [{ id }] });
     } catch (e) {
         // Nada que cancelar
     }
+}
+
+// Temporizador de cocina: un solo aviso a la vez
+const TIMER_NOTIFICATION_ID = 4101;
+
+function scheduleTimerNotice(endsAt, title, body) {
+    return scheduleNotice(TIMER_NOTIFICATION_ID, endsAt, title, body);
+}
+
+function cancelTimerNotice() {
+    return cancelNotice(TIMER_NOTIFICATION_ID);
 }

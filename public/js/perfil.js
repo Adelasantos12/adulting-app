@@ -27,6 +27,7 @@ const LIFE_AREAS = [
     { key: 'food', label: 'Cocinar o aprender a hacerlo', modules: ['food'] },
     { key: 'outfit', label: 'Qué ponerme según el clima', modules: ['outfit'] },
     { key: 'auto', label: 'Tengo auto o moto', modules: ['auto'] },
+    { key: 'documents', label: 'Que me avisen antes de que venzan mis documentos', modules: ['documents'] },
     { key: 'pets', label: 'Tengo mascotas', modules: ['pets'] },
     { key: 'health', label: 'Hábitos y salud', modules: ['health'] },
     { key: 'guides', label: 'Dudas de adulto y conversaciones difíciles', modules: ['guides'] },

@@ -61,6 +61,13 @@ No contienen cifras ni datos legales. Revisar tono: que suenen naturales en Méx
 - Que los dibujos se parezcan a los de los autos más comunes en México (Nissan, Chevrolet, VW, Toyota, Kia).
 - Colores: algunas marcas muestran en ámbar lo que aquí va en rojo (bolsas de aire, dirección).
 
+## Documentos y vencimientos (`public/js/documentos.js`)
+
+Notas cortas por tipo de documento, sin fuente. Confirmar:
+- Que muchos países piden al menos 6 meses de vigencia del pasaporte para entrar.
+- Que la vigencia de la credencial del INE viene impresa en el frente.
+- Los días de aviso por defecto (INE 90, pasaporte y visa 180, renta 60, el resto 30, verificación 15).
+
 ## Recetas (`public/data/recetas.json`)
 
 Cocinar primero las de pollo, cerdo y pescado en freidora de aire.

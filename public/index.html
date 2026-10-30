@@ -21,6 +21,7 @@
     <script src="js/ropa.js"></script>
     <script src="js/biblioteca.js"></script>
     <script src="js/testigos.js"></script>
+    <script src="js/documentos.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/buscador.js"></script>
     <style>
@@ -158,6 +159,7 @@
                     food: true,
                     pets: true,
                     auto: true,
+                    documents: true,
                     health: true,
                     house: true,
                     outfit: true,
@@ -198,6 +200,9 @@
 
             // 2. ¿Comprar o no?
             hourlyWage: 60,
+
+            // Documentos y vencimientos (js/documentos.js)
+            documents: [],
 
             // 3. Alimentación (Independiente)
             food: {
@@ -403,6 +408,7 @@
             guides: 'Dudas y conversaciones',
             settings: 'Ajustes',
             profile: 'Tu perfil',
+            documents: 'Documentos y vencimientos',
             outfit: 'Qué me pongo',
             solitaire: 'Solitario',
             ellie: 'Ellie the Astronaut'
@@ -421,6 +427,7 @@
                 { id: 'food', label: 'Alimentación', short: 'Comida', icon: 'apple', visible: vis.food !== false },
                 { id: 'pets', label: 'Mis mascotas', short: 'Mascotas', icon: 'paw-print', visible: vis.pets !== false },
                 { id: 'auto', label: 'Mi automóvil', short: 'Auto', icon: 'car', visible: vis.auto !== false },
+                { id: 'documents', label: 'Documentos y vencimientos', short: 'Docs', icon: 'file-clock', visible: vis.documents !== false },
                 { id: 'health', label: 'Hábitos y salud', short: 'Salud', icon: 'heart', visible: vis.health !== false },
                 { id: 'house', label: 'Casa funcional', short: 'Casa', icon: 'home', visible: vis.house !== false },
                 { id: 'outfit', label: 'Qué me pongo', short: 'Clima', icon: 'cloud-sun', visible: vis.outfit !== false },
@@ -495,6 +502,7 @@
                     if (new Date(b.dueDate) < new Date()) hasAlerts = true;
                 }
             });
+            if (state.accessibility.visibleModules.documents !== false && docsNeedingAttention().length) hasAlerts = true;
             return hasAlerts;
         }
 
@@ -647,6 +655,7 @@
 
                     return `
                         ${renderProfilePrompt()}
+                        ${renderDocumentsReminder()}
 
                         <!-- Nota de Ánimo Configurable -->
                         ${state.affirmationMode ? `
@@ -752,6 +761,8 @@
                     return backButtonHtml + renderModuloSettings();
                 case 'profile':
                     return backButtonHtml + renderModuloProfile();
+                case 'documents':
+                    return backButtonHtml + renderModuloDocuments();
                 case 'outfit':
                     return backButtonHtml + renderModuloOutfit();
                 case 'solitaire':
@@ -1195,6 +1206,10 @@
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
                                     <span class="font-medium">Mi automóvil</span>
                                     <input type="checkbox" ${state.accessibility.visibleModules.auto !== false ? "checked" : ""} onchange="toggleModuleVisibility('auto')" class="w-6 h-6 text-accent rounded">
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
+                                    <span class="font-medium">Documentos y vencimientos</span>
+                                    <input type="checkbox" ${state.accessibility.visibleModules.documents !== false ? "checked" : ""} onchange="toggleModuleVisibility('documents')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
                                     <span class="font-medium">Hábitos y salud</span>
@@ -3293,6 +3308,7 @@
                 saveState();
             }
             renderProfileBadge();
+            syncAllDocumentNotices();
             navigate('dashboard');
             restoreNativeData();
         };

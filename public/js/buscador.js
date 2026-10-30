@@ -9,6 +9,7 @@ const SEARCH_MODULES = [
     { page: 'food', label: 'Alimentación y recetas', icon: 'apple', words: 'comida recetas cocinar despensa super lista freidora' },
     { page: 'pets', label: 'Mis mascotas', icon: 'paw-print', words: 'mascota perro gato veterinario vacunas' },
     { page: 'auto', label: 'Mi automóvil', icon: 'car', words: 'auto carro coche moto aceite llantas tablero testigo verificacion mantenimiento' },
+    { page: 'documents', label: 'Documentos y vencimientos', icon: 'file-clock', words: 'documentos vencimientos ine credencial pasaporte licencia efirma visa verificacion tenencia refrendo seguro renta garantia renovar vence' },
     { page: 'health', label: 'Hábitos y salud', icon: 'heart', words: 'salud habitos agua dormir medicinas respirar' },
     { page: 'house', label: 'Casa funcional', icon: 'home', words: 'casa limpieza reparar hogar' },
     { page: 'outfit', label: 'Qué me pongo', icon: 'cloud-sun', words: 'ropa clima outfit vestir lluvia frio calor closet' },
