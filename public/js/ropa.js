@@ -31,7 +31,26 @@ function outfitState() {
     o.closet = o.closet || [];
     o.onlyCloset = !!o.onlyCloset;
     o.history = o.history || [];
+    o.garments = o.garments || 'todo';
     return o;
+}
+
+// Qué prendas sugerir: no es género, es lo que la persona usa ('todo' | 'pantalones' | 'faldas')
+const GARMENT_PREFS = {
+    todo: 'De todo',
+    pantalones: 'Pantalones, camisas y playeras',
+    faldas: 'Más vestidos, faldas y blusas'
+};
+
+function garmentAllowed(item) {
+    return outfitState().garments !== 'pantalones' || !item.tipo;
+}
+
+function setGarmentPref(key) {
+    outfitState().garments = key;
+    saveState();
+    if (todayWeather) currentOutfit = buildOutfit();
+    renderOutfitRoot();
 }
 
 // --- Clima ---
@@ -140,16 +159,20 @@ function buildOutfit(previous) {
     const w = todayWeather;
     if (!items.length || !w) return null;
     const avoid = new Set(previous ? Object.values(previous).flat().filter(Boolean).map((i) => i.id) : []);
-    const byLayer = (layer) => items.filter((i) => i.capa === layer);
+    const byLayer = (layer) => items.filter((i) => i.capa === layer && garmentAllowed(i));
+    // Con "más vestidos y faldas" se intenta primero con esas prendas y, si el clima no deja, con las demás
+    const leaning = outfitState().garments === 'faldas';
+    const chooseLeaning = (layer, filter) =>
+        (leaning && choose(byLayer(layer).filter((i) => i.tipo), filter, avoid)) || choose(byLayer(layer), filter, avoid);
     const mid = Math.round((w.min + w.max) / 2);
     const rainy = w.rain >= 40;
     const windy = w.wind >= 30;
     const swing = w.max - w.min;
 
     const outfit = { accesorios: [] };
-    outfit.base = choose(byLayer('base'), (i) => fitsTemp(i, w.max) && (!i.completo || !rainy || w.min >= 16), avoid);
+    outfit.base = chooseLeaning('base', (i) => fitsTemp(i, w.max) && (!i.completo || !rainy || w.min >= 16));
     if (!outfit.base || !outfit.base.completo) {
-        outfit.abajo = choose(byLayer('abajo'), (i) => fitsTemp(i, mid), avoid);
+        outfit.abajo = chooseLeaning('abajo', (i) => fitsTemp(i, mid));
     }
     // Capa media cuando la parte fría del día no se aguanta solo con la base
     if (w.min < 20 && (w.min < w.max - 4 || w.min < 16)) {
@@ -277,6 +300,14 @@ function renderOutfitView() {
             <div class="flex flex-wrap gap-2">${Object.entries(OCCASIONS).map(([k, label]) => chip(`setOccasion('${k}')`, o.occasion === k, label)).join('')}</div>
         </div>`;
 
+    const garmentHtml = `
+        <details class="group">
+            <summary class="cursor-pointer font-bold text-ink-soft gap-2 [&::-webkit-details-marker]:hidden"><i data-lucide="shirt" class="w-4 h-4" aria-hidden="true"></i>Qué prendas sugerirme: ${GARMENT_PREFS[o.garments]}</summary>
+            <div class="flex flex-wrap gap-2 pt-3">
+                ${Object.entries(GARMENT_PREFS).map(([k, label]) => chip(`setGarmentPref('${k}')`, o.garments === k, label)).join('')}
+            </div>
+        </details>`;
+
     let outfitHtml = '';
     if (w && currentOutfit) {
         const rows = ['base', 'media', 'exterior', 'abajo', 'calzado']
@@ -301,6 +332,7 @@ function renderOutfitView() {
             ${weatherHtml}
             <p id="outfit-status" class="text-ink-soft" role="status" aria-live="polite"></p>
             ${w ? occasionHtml + outfitHtml + manualHtml : manualHtml + occasionHtml}
+            ${garmentHtml}
             <div class="flex flex-wrap items-center gap-3 pt-1">
                 <label class="flex items-center gap-3 font-semibold text-ink-soft">
                     <input type="checkbox" ${o.onlyCloset ? 'checked' : ''} ${o.closet.length ? '' : 'disabled'} onchange="toggleOnlyCloset()">
@@ -337,7 +369,7 @@ function renderClosetEditor() {
                 <fieldset class="space-y-2">
                     <legend class="text-sm font-bold text-ink-faint pb-1">${layer === 'base' ? 'Arriba' : LAYER_INFO[layer].label}</legend>
                     <div class="flex flex-wrap gap-2">
-                        ${PRENDAS.filter((i) => i.capa === layer).map((i) => chip(`toggleClosetItem('${i.id}')`, closet.includes(i.id), escapeHtml(i.nombre))).join('')}
+                        ${PRENDAS.filter((i) => i.capa === layer && garmentAllowed(i)).map((i) => chip(`toggleClosetItem('${i.id}')`, closet.includes(i.id), escapeHtml(i.nombre))).join('')}
                     </div>
                 </fieldset>`).join('')}
         </div>`;

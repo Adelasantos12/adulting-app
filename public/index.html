@@ -20,6 +20,8 @@
     <script src="js/recetas.js"></script>
     <script src="js/ropa.js"></script>
     <script src="js/biblioteca.js"></script>
+    <script src="js/perfil.js"></script>
+    <script src="js/buscador.js"></script>
     <style>
         /* Custom scrollbars */
         ::-webkit-scrollbar {
@@ -69,14 +71,8 @@
             </nav>
 
             <!-- Footer Sidebar -->
-            <div class="p-4 border-t border-line bg-surface-1">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-accent-soft flex items-center justify-center text-accent font-bold text-sm">M</div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-semibold text-ink-soft truncate">Modo Adulto</p>
-                        <p class="text-xs text-ink-faint truncate">Privacidad y autocuidado</p>
-                    </div>
-                </div>
+            <div class="p-3 border-t border-line bg-surface-1">
+                <button type="button" id="profile-badge" onclick="navigate('profile')" class="w-full flex items-center gap-2 p-1 rounded-xl hover:bg-surface-2"></button>
             </div>
         </aside>
 
@@ -94,6 +90,11 @@
                     <h2 id="page-title" class="text-base font-bold text-ink">Hoy</h2>
                 </div>
                 <div class="flex items-center gap-3">
+                    <button type="button" onclick="openSearch()" class="p-2 bg-surface-2 rounded-lg text-ink-soft flex items-center gap-2" title="Buscar (/)" aria-label="Buscar en la app">
+                        <i data-lucide="search" class="w-4 h-4" aria-hidden="true"></i>
+                        <span class="hidden lg:inline text-sm font-semibold text-ink-faint pr-1">Buscar</span>
+                    </button>
+                    <button type="button" onclick="navigate('profile')" class="md:hidden rounded-full" aria-label="Tu perfil" id="profile-badge-mobile"></button>
                     <button onclick="toggleDarkMode()" class="p-2 bg-surface-2 hover:bg-surface-2 rounded-lg text-ink-soft transition-colors" title="Alternar Modo Oscuro">
                         <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
                         <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
@@ -118,6 +119,18 @@
                 <!-- Se inyecta dinámicamente -->
             </nav>
         </main>
+    </div>
+
+    <!-- Buscador de toda la app -->
+    <div id="search-overlay" class="hidden fixed inset-0 z-50 bg-ink/40 flex items-start justify-center px-4 pt-[10vh]" onclick="if (event.target === this) closeSearch()">
+        <div class="bg-card w-full max-w-lg rounded-3xl shadow-2xl border border-line overflow-hidden" role="dialog" aria-modal="true" aria-label="Buscar en la app">
+            <div class="flex items-center gap-3 px-4 border-b border-line">
+                <i data-lucide="search" class="w-5 h-5 text-ink-faint" aria-hidden="true"></i>
+                <input id="search-input" type="search" oninput="runSearch(this.value)" placeholder="¿Qué necesitas?" autocomplete="off" class="flex-1 py-4 bg-transparent border-0 outline-none text-base" aria-label="Buscar">
+                <button type="button" onclick="closeSearch()" class="px-3 text-sm font-bold text-ink-faint">Cerrar</button>
+            </div>
+            <div id="search-results" class="max-h-[60vh] overflow-y-auto p-2" aria-live="polite"></div>
+        </div>
     </div>
 
     <!-- Aviso con "Deshacer" tras borrar -->
@@ -388,6 +401,7 @@
             paz: 'Paz en redes',
             guides: 'Dudas y conversaciones',
             settings: 'Ajustes',
+            profile: 'Tu perfil',
             outfit: 'Qué me pongo',
             solitaire: 'Solitario',
             ellie: 'Ellie the Astronaut'
@@ -631,6 +645,8 @@
                     }
 
                     return `
+                        ${renderProfilePrompt()}
+
                         <!-- Nota de Ánimo Configurable -->
                         ${state.affirmationMode ? `
                         <div class="p-6 bg-accent-fill text-white rounded-3xl shadow-xl relative overflow-hidden">
@@ -733,6 +749,8 @@
                     return backButtonHtml + renderModuloGuides();
                 case 'settings':
                     return backButtonHtml + renderModuloSettings();
+                case 'profile':
+                    return backButtonHtml + renderModuloProfile();
                 case 'outfit':
                     return backButtonHtml + renderModuloOutfit();
                 case 'solitaire':
@@ -1054,6 +1072,15 @@
             const acc = state.accessibility;
             return `
                 <div class="bg-card p-6 rounded-3xl border border-line shadow-sm space-y-6 text-sm max-w-2xl mx-auto">
+                    <button type="button" onclick="navigate('profile')" class="w-full flex items-center gap-3 p-3 bg-surface-1 border border-line rounded-2xl text-left">
+                        ${profileFigureSvg(profileState().figureSeed, 40)}
+                        <span class="flex-1">
+                            <span class="block font-bold text-ink">Tu perfil</span>
+                            <span class="block text-ink-faint">Nombre, figura, cómo te hablamos y qué ves en el menú</span>
+                        </span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-ink-faint" aria-hidden="true"></i>
+                    </button>
+
                     <div>
                         <h3 class="font-bold text-base">Ajustes de lectura y comodidad</h3>
                         <p class="text-ink-faint">Modo Adulto se adapta a tus necesidades sensoriales y cognitivas. Configura cada estímulo visual o auditivo de manera independiente.</p>
@@ -3289,6 +3316,12 @@
         }
 
         window.onload = function() {
+            // La figura se genera la primera vez y se guarda para que no cambie al recargar
+            if (!state.profile || typeof state.profile.figureSeed !== 'number') {
+                profileState();
+                saveState();
+            }
+            renderProfileBadge();
             navigate('dashboard');
             restoreNativeData();
         };

@@ -69,7 +69,7 @@ function itemTitle(item) {
 }
 
 // Palabras de relleno que no ayudan a encontrar nada
-const STOPWORDS = new Set(['a', 'al', 'como', 'con', 'de', 'del', 'el', 'en', 'es', 'la', 'las', 'lo', 'los', 'me', 'mi', 'mis', 'no', 'o', 'para', 'por', 'que', 'quiero', 'se', 'su', 'tengo', 'un', 'una', 'y', 'yo', 'ir', 'hacer', 'puedo', 'debo']);
+const STOPWORDS = new Set(['a', 'al', 'como', 'con', 'de', 'del', 'el', 'en', 'es', 'la', 'las', 'lo', 'los', 'me', 'mi', 'mis', 'no', 'o', 'para', 'por', 'que', 'quiero', 'se', 'su', 'tengo', 'un', 'una', 'y', 'yo', 'ir', 'hacer', 'puedo', 'debo', 'mas']);
 
 function searchLibrary(query) {
     const allWords = normalizeText(query.trim()).split(/[^a-z0-9]+/).filter(Boolean);

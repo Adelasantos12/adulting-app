@@ -151,7 +151,8 @@
    "trabajo",
    "noche"
   ],
-  "revisada": false
+  "revisada": false,
+  "tipo": "blusa"
  },
  {
   "id": "blusa-manga-larga",
@@ -167,7 +168,8 @@
    "noche",
    "casual"
   ],
-  "revisada": false
+  "revisada": false,
+  "tipo": "blusa"
  },
  {
   "id": "blusa-sin-mangas",
@@ -184,7 +186,8 @@
    "formal"
   ],
   "nota": "Lleva algo para los hombros si la oficina tiene aire.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "blusa"
  },
  {
   "id": "blusa-seda",
@@ -200,7 +203,8 @@
    "trabajo"
   ],
   "nota": "Se marca el sudor. Mejor en días templados.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "blusa"
  },
  {
   "id": "blusa-lino",
@@ -217,7 +221,8 @@
    "noche"
   ],
   "nota": "Fresca con mucho calor. Se arruga un poco.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "blusa"
  },
  {
   "id": "camisa-vestir",
@@ -357,7 +362,8 @@
   ],
   "completo": true,
   "nota": "Una sola prenda y listo.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "vestido-midi",
@@ -374,7 +380,8 @@
    "casual"
   ],
   "completo": true,
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "vestido-largo-ligero",
@@ -391,7 +398,8 @@
   ],
   "completo": true,
   "nota": "Cubre del sol y deja pasar el aire.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "vestido-punto",
@@ -409,7 +417,8 @@
   ],
   "completo": true,
   "nota": "Con medias gruesas aguanta el frío.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "vestido-camisero",
@@ -424,7 +433,8 @@
    "casual"
   ],
   "completo": true,
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "vestido-lino",
@@ -442,7 +452,8 @@
   ],
   "completo": true,
   "nota": "Fresco para los días de más calor.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "overol-mezclilla",
@@ -1215,7 +1226,8 @@
    "ejercicio",
    "casual"
   ],
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "bermudas",
@@ -1243,7 +1255,8 @@
    "casual",
    "noche"
   ],
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "falda-midi",
@@ -1260,7 +1273,8 @@
    "casual"
   ],
   "nota": "Con medias sirve en días más frescos.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "falda-larga",
@@ -1276,7 +1290,8 @@
    "noche",
    "trabajo"
   ],
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "falda-lana",
@@ -1292,7 +1307,8 @@
    "noche"
   ],
   "nota": "Va con medias gruesas y botas.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "culottes",
@@ -1943,7 +1959,8 @@
    "casual"
   ],
   "nota": "Para usar falda o vestido con frío.",
-  "revisada": false
+  "revisada": false,
+  "tipo": "falda"
  },
  {
   "id": "termo",

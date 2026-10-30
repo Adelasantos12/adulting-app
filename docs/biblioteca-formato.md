@@ -117,5 +117,6 @@ Para "Qué me pongo". La app arma el outfit por capas según el pronóstico del 
 | `ocasiones` | `casual`, `trabajo`, `formal`, `ejercicio`, `noche`, `casa` |
 | `completo` | Solo en vestidos u overoles: cubren `base` y `abajo` |
 | `nota` | Opcional, máx. 80 caracteres |
+| `tipo` | Opcional: `falda` (vestidos, faldas, medias) o `blusa`. Sirve para la preferencia "Qué prendas sugerirme" del perfil; no es género |
 
 Nombres neutros y mexicanos (chamarra, playera, sudadera, tenis). Prendas para cualquier persona; nada marcado como "de hombre" o "de mujer".
