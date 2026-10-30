@@ -183,7 +183,7 @@
             ],
 
             // 2. ¿Comprar o no?
-            hourlyWage: 15,
+            hourlyWage: 60,
 
             // 3. Alimentación (Independiente)
             food: {
@@ -307,6 +307,12 @@
             if (state.theme === 'purple') state.theme = 'green';
             if (state.fontStyle === 'dyslexic') state.fontStyle = 'sans';
             state.designVersion = 2;
+        }
+
+        // El sueldo por hora de ejemplo era 15 (en dólares) y antes no se podía guardar otro: se pasa al de México
+        if (state.designVersion < 3) {
+            if (state.hourlyWage === 15) state.hourlyWage = 60;
+            state.designVersion = 3;
         }
 
         function saveState() {
@@ -794,11 +800,11 @@
 
                         <div class="relative w-64 h-64">
                             <canvas id="wheel-canvas" width="250" height="250" class="rounded-full shadow-lg border border-line"></canvas>
-                            <div class="absolute top-[115px] left-[115px] w-6 h-6 bg-attention-fill rounded-full border-2 border-white shadow flex items-center justify-center text-white text-xs font-bold">▲</div>
+                            <svg class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 text-attention-fill drop-shadow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18L12 21z" fill="currentColor" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
                         </div>
 
-                        <button onclick="spinWheel()" class="px-6 py-2.5 bg-accent-fill hover:bg-accent-fill-strong text-white rounded-xl text-sm font-bold shadow-md">Girar la ruleta</button>
-                        <h4 id="wheel-winner" class="font-extrabold text-base text-accent min-h-[1.5rem]"></h4>
+                        <button id="wheel-button" onclick="spinWheel()" class="px-6 py-2.5 bg-accent-fill hover:bg-accent-fill-strong text-white rounded-xl text-sm font-bold shadow-md disabled:opacity-60">Girar la ruleta</button>
+                        <h4 id="wheel-winner" aria-live="polite" class="font-extrabold text-base text-accent min-h-[1.5rem]"></h4>
                     </div>
                 </div>
             `;
@@ -920,40 +926,62 @@
             }
         }
 
+        // La tarea se elige primero (sin repetir la anterior si hay más de una) y la ruleta gira hasta dejarla bajo la flecha de arriba
+        let lastWheelWinner = null;
+        let wheelSpinning = false;
+
         function spinWheel() {
+            if (wheelSpinning) return;
             const items = state.todos.filter(t => !t.completed).map(t => t.title);
             if (items.length === 0) return;
 
-            // Con movimiento reducido no hay giro: se elige al momento y se dibuja la posición final
+            const candidates = items.map((_, i) => i).filter(i => items.length === 1 || items[i] !== lastWheelWinner);
+            const index = pickRandom(candidates);
+            const arc = (2 * Math.PI) / items.length;
+            const jitter = (Math.random() - 0.5) * arc * 0.7;
+            // Ángulo en que el centro de la rebanada elegida queda arriba (-90°)
+            const target = -Math.PI / 2 - (index + 0.5) * arc + jitter;
+            const fullTurn = 2 * Math.PI;
+            const delta = ((target - currentWheelAngle) % fullTurn + fullTurn) % fullTurn;
+
+            const winnerEl = document.getElementById('wheel-winner');
+            const finish = () => {
+                wheelSpinning = false;
+                lastWheelWinner = items[index];
+                const button = document.getElementById('wheel-button');
+                if (button) button.disabled = false;
+                const el = document.getElementById('wheel-winner');
+                if (el) el.innerText = `Siguiente: ${items[index]}`;
+            };
+
+            // Con movimiento reducido no hay giro: se dibuja la posición final
             if (prefersReducedMotion()) {
-                currentWheelAngle += Math.random() * 2 * Math.PI;
+                currentWheelAngle += delta;
                 drawWheel();
-                announceWheelWinner();
+                finish();
                 return;
             }
 
-            let velocity = Math.random() * 0.4 + 0.3;
-            let friction = 0.985;
+            wheelSpinning = true;
+            const button = document.getElementById('wheel-button');
+            if (button) button.disabled = true;
+            if (winnerEl) winnerEl.innerText = '';
 
-            const interval = setInterval(() => {
-                currentWheelAngle += velocity;
+            const start = currentWheelAngle;
+            const distance = delta + fullTurn * (4 + Math.floor(Math.random() * 3));
+            const duration = 3500;
+            const startTime = performance.now();
+            const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+            // Avanza por tiempo transcurrido, así termina igual aunque la app pase a segundo plano a medio giro
+            function frame() {
+                const t = Math.min((performance.now() - startTime) / duration, 1);
+                currentWheelAngle = start + distance * easeOut(t);
                 drawWheel();
-                velocity *= friction;
-
-                if (velocity < 0.002) {
-                    clearInterval(interval);
-                    announceWheelWinner();
-                }
-            }, 16);
-        }
-
-        function announceWheelWinner() {
-            const items = state.todos.filter(t => !t.completed).map(t => t.title);
-            const arc = (2 * Math.PI) / items.length;
-            const normAngle = (2 * Math.PI - (currentWheelAngle % (2 * Math.PI))) % (2 * Math.PI);
-            const index = Math.floor(normAngle / arc) % items.length;
-            const winnerEl = document.getElementById('wheel-winner');
-            if (winnerEl) winnerEl.innerText = `Siguiente: ${items[index]}`;
+                if (t < 1) setTimeout(frame, 16);
+                else finish();
+            }
+            frame();
         }
 
         function renderModuloPaz() {
@@ -1566,7 +1594,7 @@
                         <!-- Pausa obligatoria basada en precio -->
                         <div class="p-3 bg-attention-soft border-l-4 border-attention rounded-r-xl text-sm text-ink-soft">
                             <strong>Pauta de espera recomendada:</strong>
-                            <p id="eval-pause-rule" class="mt-1">Espera 24 horas antes de comprar un objeto menor a $20.</p>
+                            <p id="eval-pause-rule" class="mt-1">Escribe el precio y cuánto ganas por hora: la espera depende de cuántas horas de trabajo te cuesta.</p>
                         </div>
                     </div>
 
@@ -2950,7 +2978,7 @@
         // --- HELPER FUNCTIONS FOR COMPRAS CONSCIENTES ---
         function calculateHoursCost() {
             const price = parseFloat(document.getElementById('eval-price').value) || 0;
-            const wage = parseFloat(document.getElementById('eval-hourly').value) || 15;
+            const wage = parseFloat(document.getElementById('eval-hourly').value) || 0;
             const hoursDisplay = document.getElementById('eval-hours-result');
             const ruleDisplay = document.getElementById('eval-pause-rule');
 
@@ -2959,18 +2987,29 @@
                 return;
             }
 
+            if (wage !== state.hourlyWage) {
+                state.hourlyWage = wage;
+                saveState();
+            }
+
             const hours = (price / wage).toFixed(1);
             if (hoursDisplay) {
                 hoursDisplay.innerText = `${hours} horas de trabajo`;
             }
 
             if (ruleDisplay) {
-                if (price < 20) {
-                    ruleDisplay.innerText = 'Pausa de 24 horas recomendada para compras menores de $20.';
-                } else if (price < 100) {
-                    ruleDisplay.innerText = 'Espera 72 horas para reflexionar si realmente cumple una función real.';
+                // La espera se mide en horas de trabajo, no en pesos: así sirve para cualquier sueldo
+                const workHours = price / wage;
+                if (price <= 0) {
+                    ruleDisplay.innerText = 'Escribe el precio y cuánto ganas por hora: la espera depende de cuántas horas de trabajo te cuesta.';
+                } else if (workHours < 1) {
+                    ruleDisplay.innerText = 'Te cuesta menos de una hora de trabajo. Si lo necesitas y cabe en tu presupuesto, no hace falta esperar.';
+                } else if (workHours < 8) {
+                    ruleDisplay.innerText = 'Te cuesta hasta un día de trabajo. Espera 24 horas y decide con calma.';
+                } else if (workHours < 40) {
+                    ruleDisplay.innerText = 'Te cuesta hasta una semana de trabajo. Espera 72 horas y piensa si de verdad lo vas a usar.';
                 } else {
-                    ruleDisplay.innerText = 'Gasto significativo. Recomendamos una espera deliberada de 15 días antes de adquirir.';
+                    ruleDisplay.innerText = 'Te cuesta más de una semana de trabajo. Espera 15 días y compara precios antes de comprarlo.';
                 }
             }
         }
