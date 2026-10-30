@@ -10,6 +10,7 @@ const SEARCH_MODULES = [
     { page: 'pets', label: 'Mis mascotas', icon: 'paw-print', words: 'mascota perro gato veterinario vacunas' },
     { page: 'auto', label: 'Mi automóvil', icon: 'car', words: 'auto carro coche moto aceite llantas tablero testigo verificacion mantenimiento' },
     { page: 'documents', label: 'Documentos y vencimientos', icon: 'file-clock', words: 'documentos vencimientos ine credencial pasaporte licencia efirma visa verificacion tenencia refrendo seguro renta garantia renovar vence' },
+    { page: 'emergency', label: 'Emergencias y sismo', icon: 'siren', words: 'emergencia emergencias sismo temblor terremoto 911 incendio fuego gas fuga inundacion desmayo mochila botiquin contactos punto reunion tipo sangre alergias ficha medica' },
     { page: 'health', label: 'Hábitos y salud', icon: 'heart', words: 'salud habitos agua dormir medicinas respirar' },
     { page: 'house', label: 'Casa funcional', icon: 'home', words: 'casa limpieza reparar hogar' },
     { page: 'outfit', label: 'Qué me pongo', icon: 'cloud-sun', words: 'ropa clima outfit vestir lluvia frio calor closet' },
@@ -73,6 +74,9 @@ function runSearch(query) {
         detail: `${LIGHT_COLORS[l.color].label} · parece ${l.parece}`,
         action: `openWarningLightFromSearch('${l.id}')`
     }));
+    const situations = EMERGENCY_SITUATIONS
+        .filter((x) => matchesWords(`${x.label} ${x.words}`, words))
+        .map((x) => ({ group: 'Emergencias', icon: x.icon, title: x.label, detail: 'Qué hacer ahora', action: `openSituationFromSearch('${x.id}')` }));
     const library = searchLibrary(query).slice(0, 6).map((item) => ({
         group: 'Dudas y conversaciones', icon: item.guion ? 'message-circle' : 'book-open',
         title: itemTitle(item), detail: item.resumen || item.situacion || '',
@@ -82,7 +86,7 @@ function runSearch(query) {
         .filter((r) => matchesWords([r.titulo, r.resumen, ...(r.etiquetas || []), ...r.ingredientes.map((i) => i.texto)].join(' '), words))
         .slice(0, 5)
         .map((r) => ({ group: 'Recetas', icon: 'chef-hat', title: r.titulo, detail: `${r.minutos} min`, action: `openRecipeFromSearch('${r.id}')` }));
-    searchResults = [...modules, ...lights, ...library, ...recipes];
+    searchResults = [...situations, ...modules, ...lights, ...library, ...recipes];
     renderSearchResults();
 }
 

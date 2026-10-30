@@ -22,6 +22,7 @@
     <script src="js/biblioteca.js"></script>
     <script src="js/testigos.js"></script>
     <script src="js/documentos.js"></script>
+    <script src="js/emergencias.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/buscador.js"></script>
     <style>
@@ -160,6 +161,7 @@
                     pets: true,
                     auto: true,
                     documents: true,
+                    emergency: true,
                     health: true,
                     house: true,
                     outfit: true,
@@ -203,6 +205,9 @@
 
             // Documentos y vencimientos (js/documentos.js)
             documents: [],
+
+            // Emergencias y sismo (js/emergencias.js)
+            emergency: { contacts: [], meetingPoint: '', safeSpot: '', medical: { blood: '', allergies: '', conditions: '', meds: '' }, kits: { mochila: [], botiquin: [] }, kitsChecked: {} },
 
             // 3. Alimentación (Independiente)
             food: {
@@ -409,6 +414,7 @@
             settings: 'Ajustes',
             profile: 'Tu perfil',
             documents: 'Documentos y vencimientos',
+            emergency: 'Emergencias y sismo',
             outfit: 'Qué me pongo',
             solitaire: 'Solitario',
             ellie: 'Ellie the Astronaut'
@@ -428,6 +434,7 @@
                 { id: 'pets', label: 'Mis mascotas', short: 'Mascotas', icon: 'paw-print', visible: vis.pets !== false },
                 { id: 'auto', label: 'Mi automóvil', short: 'Auto', icon: 'car', visible: vis.auto !== false },
                 { id: 'documents', label: 'Documentos y vencimientos', short: 'Docs', icon: 'file-clock', visible: vis.documents !== false },
+                { id: 'emergency', label: 'Emergencias y sismo', short: 'Emergencia', icon: 'siren', visible: vis.emergency !== false },
                 { id: 'health', label: 'Hábitos y salud', short: 'Salud', icon: 'heart', visible: vis.health !== false },
                 { id: 'house', label: 'Casa funcional', short: 'Casa', icon: 'home', visible: vis.house !== false },
                 { id: 'outfit', label: 'Qué me pongo', short: 'Clima', icon: 'cloud-sun', visible: vis.outfit !== false },
@@ -763,6 +770,8 @@
                     return backButtonHtml + renderModuloProfile();
                 case 'documents':
                     return backButtonHtml + renderModuloDocuments();
+                case 'emergency':
+                    return backButtonHtml + renderModuloEmergency();
                 case 'outfit':
                     return backButtonHtml + renderModuloOutfit();
                 case 'solitaire':
@@ -1210,6 +1219,10 @@
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
                                     <span class="font-medium">Documentos y vencimientos</span>
                                     <input type="checkbox" ${state.accessibility.visibleModules.documents !== false ? "checked" : ""} onchange="toggleModuleVisibility('documents')" class="w-6 h-6 text-accent rounded">
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
+                                    <span class="font-medium">Emergencias y sismo</span>
+                                    <input type="checkbox" ${state.accessibility.visibleModules.emergency !== false ? "checked" : ""} onchange="toggleModuleVisibility('emergency')" class="w-6 h-6 text-accent rounded">
                                 </div>
                                 <div class="flex items-center justify-between p-2.5 bg-surface-1 rounded-xl border border-line">
                                     <span class="font-medium">Hábitos y salud</span>

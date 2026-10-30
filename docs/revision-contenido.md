@@ -68,6 +68,13 @@ Notas cortas por tipo de documento, sin fuente. Confirmar:
 - Que la vigencia de la credencial del INE viene impresa en el frente.
 - Los días de aviso por defecto (INE 90, pasaporte y visa 180, renta 60, el resto 30, verificación 15).
 
+## Emergencias y sismo (`public/js/emergencias.js`)
+
+Pasos para sismo (durante y después), fuego, gas, inundación y emergencia médica, más las listas de mochila y botiquín. Redactados con IA a partir de recomendaciones generales de protección civil, sin fuente citada. Revisar contra CENAPRED y Protección Civil, sobre todo:
+- Qué hacer durante el sismo (salir o quedarse en la zona de menor riesgo).
+- Qué hacer con alguien inconsciente antes de que llegue la ambulancia.
+- El contenido de la mochila y del botiquín.
+
 ## Recetas (`public/data/recetas.json`)
 
 Cocinar primero las de pollo, cerdo y pescado en freidora de aire.
